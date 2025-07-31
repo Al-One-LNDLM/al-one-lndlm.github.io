@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Al.One - Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Al.One - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <button id="toggle-theme">Cambiar modo</button>
-    <div id="game-area">
-        <img id="character" src="assets/personaje.png" alt="Personaje" />
+  <button id="toggle-theme">Cambiar modo</button>
 
-        <!-- Zonas clicables (casas) -->
-        <div class="interactive-zone instrumentales">Instrumentales</div>
-        <div class="interactive-zone trabajos">Trabajos</div>
-        <div class="interactive-zone contacto">Contacto</div>
-        <div class="interactive-zone plugins">Plugins</div>
+  <!-- Zona interactiva -->
+  <div id="game-area">
+    <img id="character" src="assets/personaje.png" alt="Personaje" />
+
+    <!-- Obstáculo colisionable (centro pantalla) -->
+    <div class="obstacle" id="obstacle-central"></div>
+
+    <!-- Zonas clicables -->
+    <div class="interactive-zone" id="instrumentales" style="top: 40%; left: 30%;">Instrumentales</div>
+    <div class="interactive-zone" id="trabajos" style="top: 40%; left: 60%;">Trabajos</div>
+    <div class="interactive-zone" id="contacto" style="top: 70%; left: 30%;">Contacto</div>
+    <div class="interactive-zone" id="plugins" style="top: 70%; left: 60%;">Plugins</div>
+  </div>
+
+  <!-- Ventanas emergentes -->
+  <div id="popup-instrumentales" class="popup hidden">
+    <div class="popup-header">
+      Instrumentales
+      <button class="close-btn" onclick="closeWindow('instrumentales')">×</button>
     </div>
+    <div class="popup-content"></div>
+  </div>
 
-    <!-- Ventanas emergentes -->
-    <div id="popup-instrumentales" class="popup hidden">
-      <div class="popup-header">
-        Instrumentales
-        <button class="close-btn" onclick="closeWindow('instrumentales')">×</button>
-      </div>
-      <div class="popup-content"></div>
+  <div id="popup-trabajos" class="popup hidden">
+    <div class="popup-header">
+      Trabajos realizados
+      <button class="close-btn" onclick="closeWindow('trabajos')">×</button>
     </div>
+    <div class="popup-content"></div>
+  </div>
 
-    <div id="popup-trabajos" class="popup hidden">
-      <div class="popup-header">
-        Trabajos realizados
-        <button class="close-btn" onclick="closeWindow('trabajos')">×</button>
-      </div>
-      <div class="popup-content"></div>
+  <div id="popup-contacto" class="popup hidden">
+    <div class="popup-header">
+      Contacto
+      <button class="close-btn" onclick="closeWindow('contacto')">×</button>
     </div>
+    <div class="popup-content"></div>
+  </div>
 
-    <div id="popup-contacto" class="popup hidden">
-      <div class="popup-header">
-        Contacto
-        <button class="close-btn" onclick="closeWindow('contacto')">×</button>
-      </div>
-      <div class="popup-content"></div>
+  <div id="popup-plugins" class="popup hidden">
+    <div class="popup-header">
+      Plugins
+      <button class="close-btn" onclick="closeWindow('plugins')">×</button>
     </div>
+    <div class="popup-content"></div>
+  </div>
 
-    <div id="popup-plugins" class="popup hidden">
-      <div class="popup-header">
-        Plugins
-        <button class="close-btn" onclick="closeWindow('plugins')">×</button>
-      </div>
-      <div class="popup-content"></div>
-    </div>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
