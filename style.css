@@ -101,3 +101,42 @@ body {
     background: rgba(0, 0, 0, 0.15);
     border-color: black;
 }
+
+/* Posición fija para que no se mueva con scroll */
+.popup {
+  position: fixed !important;
+  width: 300px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  border-radius: 8px;
+}
+
+/* Cada ventana en su esquina */
+#popup-instrumentales {
+  top: 10px;
+  left: 10px;
+}
+
+#popup-trabajos {
+  top: 10px;
+  right: 10px;
+}
+
+#popup-contacto {
+  bottom: 10px;
+  left: 10px;
+}
+
+#popup-plugins {
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Responsive: en pantallas muy pequeñas poner ventanas más pequeñas */
+@media (max-width: 500px) {
+  .popup {
+    width: 90vw;
+    max-height: 50vh;
+  }
+}
