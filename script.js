@@ -8,28 +8,43 @@ const popups = {
     plugins: document.getElementById("popup-plugins"),
 };
 
-let targetX = 0;
-let targetY = 0;
-let currentX = 0;
-let currentY = 0;
-const offsetX = 20; // personaje a la derecha del cursor
-const offsetY = -10; // personaje un poco más arriba
+
+let mouseX = 0, mouseY = 0;
+let currentX = 0, currentY = 0;
+const speed = 0.02; // Cambia este valor para más rapidez
+const offsetDistance = 20; // Distancia al cursor (en px)
 
 document.addEventListener("mousemove", (e) => {
-    targetX = e.clientX + offsetX;
-    targetY = e.clientY + offsetY;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
 });
 
 function animateCharacter() {
-    const speed = 0.05; // cuanto menor, más lento (ajústalo como quieras)
-    currentX += (targetX - currentX) * speed;
-    currentY += (targetY - currentY) * speed;
+    // Calcular dirección
+    const dx = mouseX - currentX;
+    const dy = mouseY - currentY;
+    const distance = Math.hypot(dx, dy);
 
-    character.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    if (distance > 1) {
+        // Calcular dirección normalizada
+        const directionX = dx / distance;
+        const directionY = dy / distance;
+
+        // Aplicar velocidad y offset
+        const targetX = mouseX - directionX * offsetDistance;
+        const targetY = mouseY - directionY * offsetDistance;
+
+        currentX += (targetX - currentX) * speed;
+        currentY += (targetY - currentY) * speed;
+
+        character.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    }
+
     requestAnimationFrame(animateCharacter);
 }
 
 animateCharacter();
+
 
 function openWindow(id) {
     Object.values(popups).forEach((popup) => popup.classList.add("hidden"));
