@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al.One</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button id="toggle-theme">Cambiar modo</button>
+    <div id="game-area">
+        <img id="character" src="assets/personaje.png" alt="Personaje">
+        <div class="interactive-zone" onclick="openWindow()">Entrar</div>
+    </div>
+    <div id="popup" class="popup hidden">
+        <div class="popup-header">
+            <span>Ventana Retro</span>
+            <button onclick="closeWindow()">X</button>
+        </div>
+        <div class="popup-content">
+            <p>Contenido de la sección aquí...</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
