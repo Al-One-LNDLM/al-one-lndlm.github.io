@@ -8,11 +8,28 @@ const popups = {
     plugins: document.getElementById("popup-plugins"),
 };
 
+let targetX = 0;
+let targetY = 0;
+let currentX = 0;
+let currentY = 0;
+const offsetX = 20; // personaje a la derecha del cursor
+const offsetY = -10; // personaje un poco más arriba
+
 document.addEventListener("mousemove", (e) => {
-    const x = e.clientX;
-    const y = e.clientY;
-    character.style.transform = `translate(${x}px, ${y}px)`;
+    targetX = e.clientX + offsetX;
+    targetY = e.clientY + offsetY;
 });
+
+function animateCharacter() {
+    const speed = 0.05; // cuanto menor, más lento (ajústalo como quieras)
+    currentX += (targetX - currentX) * speed;
+    currentY += (targetY - currentY) * speed;
+
+    character.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    requestAnimationFrame(animateCharacter);
+}
+
+animateCharacter();
 
 function openWindow(id) {
     Object.values(popups).forEach((popup) => popup.classList.add("hidden"));
