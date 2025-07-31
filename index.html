@@ -1,26 +1,73 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Al.One</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Al.One - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <button id="toggle-theme">Cambiar modo</button>
     <div id="game-area">
-        <img id="character" src="assets/personaje.png" alt="Personaje">
-        <div class="interactive-zone" onclick="openWindow()">Entrar</div>
+        <img id="character" src="assets/personaje.png" alt="Personaje" />
+
+        <!-- Zonas clicables (casas) -->
+        <div class="interactive-zone" id="instrumentales" style="top: 40%; left: 30%;">Instrumentales</div>
+        <div class="interactive-zone" id="trabajos" style="top: 40%; left: 60%;">Trabajos</div>
+        <div class="interactive-zone" id="contacto" style="top: 70%; left: 30%;">Contacto</div>
+        <div class="interactive-zone" id="plugins" style="top: 70%; left: 60%;">Plugins</div>
     </div>
-    <div id="popup" class="popup hidden">
+
+    <!-- Ventanas emergentes -->
+    <div class="popup hidden" id="popup-instrumentales">
         <div class="popup-header">
-            <span>Ventana Retro</span>
-            <button onclick="closeWindow()">X</button>
+            <span>Instrumentales</span>
+            <button onclick="closeWindow('popup-instrumentales')">X</button>
         </div>
         <div class="popup-content">
-            <p>Contenido de la sección aquí...</p>
+            <p>Listado y filtros de instrumentales aquí (placeholder).</p>
         </div>
     </div>
+
+    <div class="popup hidden" id="popup-trabajos">
+        <div class="popup-header">
+            <span>Trabajos realizados</span>
+            <button onclick="closeWindow('popup-trabajos')">X</button>
+        </div>
+        <div class="popup-content">
+            <p>Artistas con los que he trabajado (placeholder).</p>
+        </div>
+    </div>
+
+    <div class="popup hidden" id="popup-contacto">
+        <div class="popup-header">
+            <span>Contacto</span>
+            <button onclick="closeWindow('popup-contacto')">X</button>
+        </div>
+        <div class="popup-content">
+            <form id="contact-form">
+                <label for="name">Nombre:</label><br />
+                <input type="text" id="name" name="name" required /><br />
+                <label for="email">Email:</label><br />
+                <input type="email" id="email" name="email" required /><br />
+                <label for="message">Mensaje:</label><br />
+                <textarea id="message" name="message" rows="4" required></textarea><br />
+                <button type="submit">Enviar</button>
+            </form>
+            <div id="form-response" style="margin-top:10px;"></div>
+        </div>
+    </div>
+
+    <div class="popup hidden" id="popup-plugins">
+        <div class="popup-header">
+            <span>Plugins</span>
+            <button onclick="closeWindow('popup-plugins')">X</button>
+        </div>
+        <div class="popup-content">
+            <p>Sección en mantenimiento. Próximamente plugins gratuitos.</p>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
