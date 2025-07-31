@@ -28,8 +28,11 @@ body {
     pointer-events: none;
 }
 
-.interactive-zone {
-    position: absolute;
+/* Zonas clicables (“casas”) en las esquinas */
+#instrumentales {
+    position: fixed;
+    top: 5vh;
+    left: 5vw;
     width: 120px;
     height: 120px;
     border: 2px dashed rgba(255, 255, 255, 0.3);
@@ -44,26 +47,102 @@ body {
     transition: background-color 0.3s, border-color 0.3s;
 }
 
-.interactive-zone:hover {
+#instrumentales:hover {
     background: rgba(255, 255, 255, 0.15);
     border-color: white;
 }
 
+#trabajos {
+    position: fixed;
+    top: 5vh;
+    right: 5vw;
+    width: 120px;
+    height: 120px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+    color: white;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+#trabajos:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: white;
+}
+
+#contacto {
+    position: fixed;
+    bottom: 5vh;
+    left: 5vw;
+    width: 120px;
+    height: 120px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+    color: white;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+#contacto:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: white;
+}
+
+#plugins {
+    position: fixed;
+    bottom: 5vh;
+    right: 5vw;
+    width: 120px;
+    height: 120px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+    color: white;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+#plugins:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: white;
+}
+
+/* Ventanas emergentes centradas */
 .popup {
-    position: absolute;
-    top: 20%;
+    position: fixed !important;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
     width: 320px;
+    max-width: 90vw;
+    max-height: 80vh;
+    overflow-y: auto;
     background: #222;
     border: 2px solid #888;
     box-shadow: 4px 4px 0px #000;
     z-index: 9999;
     font-size: 14px;
     border-radius: 8px;
+    padding: 15px;
 }
 
+/* Encabezado popup con botón cerrar */
 .popup-header {
+    position: relative;
     display: flex;
     justify-content: space-between;
     background: #444;
@@ -72,16 +151,34 @@ body {
     border-radius: 6px 6px 0 0;
 }
 
+/* Botón cerrar “X” */
+.close-btn {
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    line-height: 1;
+}
+
+/* Contenido popup */
 .popup-content {
     padding: 15px 10px;
     background: #333;
     border-radius: 0 0 6px 6px;
 }
 
+/* Ocultar popup */
 .hidden {
     display: none;
 }
 
+/* Modos claro y oscuro */
 .light-mode {
     background-color: #f5f5f5;
     color: black;
@@ -91,52 +188,27 @@ body {
     background-color: #e0e0e0;
 }
 
-.light-mode .interactive-zone {
+.light-mode #instrumentales,
+.light-mode #trabajos,
+.light-mode #contacto,
+.light-mode #plugins {
     background: rgba(255, 255, 255, 0.3);
     color: black;
     border-color: rgba(0, 0, 0, 0.3);
 }
 
-.light-mode .interactive-zone:hover {
+.light-mode #instrumentales:hover,
+.light-mode #trabajos:hover,
+.light-mode #contacto:hover,
+.light-mode #plugins:hover {
     background: rgba(0, 0, 0, 0.15);
     border-color: black;
 }
 
-/* Posición fija para que no se mueva con scroll */
-.popup {
-  position: fixed !important;
-  width: 300px;
-  max-width: 90vw;
-  max-height: 80vh;
-  overflow-y: auto;
-  border-radius: 8px;
-}
-
-/* Cada ventana en su esquina */
-#popup-instrumentales {
-  top: 10px;
-  left: 10px;
-}
-
-#popup-trabajos {
-  top: 10px;
-  right: 10px;
-}
-
-#popup-contacto {
-  bottom: 10px;
-  left: 10px;
-}
-
-#popup-plugins {
-  bottom: 10px;
-  right: 10px;
-}
-
-/* Responsive: en pantallas muy pequeñas poner ventanas más pequeñas */
+/* Responsive: ventanas emergentes más pequeñas en pantallas pequeñas */
 @media (max-width: 500px) {
-  .popup {
-    width: 90vw;
-    max-height: 50vh;
-  }
+    .popup {
+        width: 90vw;
+        max-height: 50vh;
+    }
 }
