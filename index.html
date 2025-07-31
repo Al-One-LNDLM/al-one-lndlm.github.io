@@ -19,54 +19,45 @@
     </div>
 
     <!-- Ventanas emergentes -->
-    <div class="popup hidden" id="popup-instrumentales">
-        <div class="popup-header">
-            <span>Instrumentales</span>
-            <button onclick="closeWindow('popup-instrumentales')">X</button>
-        </div>
-        <div class="popup-content">
-            <p>Listado y filtros de instrumentales aquí (placeholder).</p>
-        </div>
-    </div>
+<div id="popup-instrumentales" class="popup hidden">
+  <div class="popup-header">
+    Instrumentales
+    <button class="close-btn" onclick="closeWindow('instrumentales')">×</button>
+  </div>
+  <div class="popup-content">
+    <!-- Aquí tu contenido -->
+  </div>
+</div>
 
-    <div class="popup hidden" id="popup-trabajos">
-        <div class="popup-header">
-            <span>Trabajos realizados</span>
-            <button onclick="closeWindow('popup-trabajos')">X</button>
-        </div>
-        <div class="popup-content">
-            <p>Artistas con los que he trabajado (placeholder).</p>
-        </div>
-    </div>
+<div id="popup-Trabajos" class="popup hidden">
+  <div class="popup-header">
+    Trabajos realizados
+    <button class="close-btn" onclick="closeWindow('Trabajos realizados')">×</button>
+  </div>
+  <div class="popup-content">
+    <!-- Aquí tu contenido -->
+  </div>
+</div>
 
-    <div class="popup hidden" id="popup-contacto">
-        <div class="popup-header">
-            <span>Contacto</span>
-            <button onclick="closeWindow('popup-contacto')">X</button>
-        </div>
-        <div class="popup-content">
-            <form id="contact-form">
-                <label for="name">Nombre:</label><br />
-                <input type="text" id="name" name="name" required /><br />
-                <label for="email">Email:</label><br />
-                <input type="email" id="email" name="email" required /><br />
-                <label for="message">Mensaje:</label><br />
-                <textarea id="message" name="message" rows="4" required></textarea><br />
-                <button type="submit">Enviar</button>
-            </form>
-            <div id="form-response" style="margin-top:10px;"></div>
-        </div>
-    </div>
+<div id="popup-contacto" class="popup hidden">
+  <div class="popup-header">
+    contacto
+    <button class="close-btn" onclick="closeWindow('contacto')">×</button>
+  </div>
+  <div class="popup-content">
+    <!-- Aquí tu contenido -->
+  </div>
+</div>
 
-    <div class="popup hidden" id="popup-plugins">
-        <div class="popup-header">
-            <span>Plugins</span>
-            <button onclick="closeWindow('popup-plugins')">X</button>
-        </div>
-        <div class="popup-content">
-            <p>Sección en mantenimiento. Próximamente plugins gratuitos.</p>
-        </div>
-    </div>
+<div id="popup-plugins" class="popup hidden">
+  <div class="popup-header">
+    plugins
+    <button class="close-btn" onclick="closeWindow('plugins')">×</button>
+  </div>
+  <div class="popup-content">
+    <!-- Aquí tu contenido -->
+  </div>
+</div>
 
     <script src="script.js"></script>
 </body>
