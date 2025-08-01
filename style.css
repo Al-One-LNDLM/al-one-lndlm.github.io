@@ -203,7 +203,7 @@ body {
     position: absolute;
     width: 32px;              /* ancho de un frame */
     height: 32px;             /* alto de un frame */
-    background-image: url('assets/personaje.png');  /* spritesheet */
+    background-image: url('assets/spritesheet.png');  /* spritesheet */
     background-repeat: no-repeat;
     background-position: 0 0; /* frame inicial */
     transition: transform 0.1s;
