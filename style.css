@@ -1,6 +1,6 @@
 /* Variables para las imágenes de fondo, cambia aquí fácil */
 :root {
-  --bg-dark: url('assets/fondo.png');
+  --bg-dark: url('assets/fondo\ dark.png');
   --bg-light: url('assets/fondo.png');
 }
 
