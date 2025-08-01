@@ -65,14 +65,14 @@ function animateCharacter() {
         if (!isColliding(nextX, currentY, spriteWidth, spriteHeight)) {
             currentX = nextX;
         } else {
-            currentX -= directionX * 1000; // Rebote sencillo en X
+            currentX -= directionX * 1; // Rebote sencillo en X
         }
 
         // Comprobamos colisión vertical y aplicamos "rebote" si es necesario
         if (!isColliding(currentX, nextY, spriteWidth, spriteHeight)) {
             currentY = nextY;
         } else {
-            currentY -= directionY * 1000; // Rebote sencillo en Y
+            currentY -= directionY * 1; // Rebote sencillo en Y
         }
 
         // Aplicamos la transformación CSS para mover el personaje
