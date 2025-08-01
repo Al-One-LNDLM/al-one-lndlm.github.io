@@ -22,7 +22,7 @@ body {
     position: absolute;
     width: 32px;
     height: 32px;
-    background-image: url('character.png');
+    background-image: url('personaje.png');
     background-size: cover;
 }
 .interactive-zone {
