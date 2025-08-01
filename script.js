@@ -46,7 +46,7 @@ function animateCharacter() {
     const dy = mouseY - currentY;
     const distance = Math.hypot(dx, dy);
 
-    if (distance > 1.8) { // Si el personaje está suficientemente lejos del ratón, se mueve
+    if (distance > 2.5) { // Si el personaje está suficientemente lejos del ratón, se mueve
         const directionX = dx / distance;
         const directionY = dy / distance;
 
@@ -65,14 +65,14 @@ function animateCharacter() {
         if (!isColliding(nextX, currentY, spriteWidth, spriteHeight)) {
             currentX = nextX;
         } else {
-            currentX -= directionX * 100; // Rebote sencillo en X
+            currentX -= directionX * 1000; // Rebote sencillo en X
         }
 
         // Comprobamos colisión vertical y aplicamos "rebote" si es necesario
         if (!isColliding(currentX, nextY, spriteWidth, spriteHeight)) {
             currentY = nextY;
         } else {
-            currentY -= directionY * 100; // Rebote sencillo en Y
+            currentY -= directionY * 1000; // Rebote sencillo en Y
         }
 
         // Aplicamos la transformación CSS para mover el personaje
