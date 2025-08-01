@@ -1,95 +1,199 @@
+/* --- style.css --- */
 
+/* Variables para las imágenes de fondo (fácil modificación aquí) */
+:root {
+  --bg-dark: url('assets/fondo dark.png'); /* Fondo modo oscuro */
+  --bg-light: url('assets/fondo.png');     /* Fondo modo claro */
+}
+
+/* Estilos base del body */
 body {
     margin: 0;
-    font-family: monospace;
-    background-color: #1a1a1a;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #1e1e1e;
     color: white;
-    overflow: hidden;
+    overflow: hidden; /* Sin scroll */
 }
+
+/* Botón de toggle modo claro/oscuro */
 #toggle-theme {
     position: absolute;
     top: 10px;
-    left: 10px;
-    z-index: 10;
+    right: 10px;
+    z-index: 1000; /* Siempre encima */
+    background: transparent;
+    border: none;
+    font-size: 28px; /* Iconos más grandes */
+    cursor: pointer;
+    outline: none;
 }
+
+/* Contenedor principal */
 #game-area {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background-color: #333;
+    background: var(--bg-dark) no-repeat center center / cover;
 }
+
+/* Imagen personaje */
 #character {
     position: absolute;
     width: 32px;
     height: 32px;
-    background-image: url('personaje.png');
-    background-size: cover;
+    transition: transform 0.1s;
+    pointer-events: none; /* No interfiere con clicks */
 }
-.interactive-zone {
-    position: absolute;
+
+/* Zonas clicables (“casas”) en esquinas */
+#instrumentales, #trabajos, #contacto, #plugins {
+    position: fixed;
     width: 120px;
-    height: 50px;
-    background-color: rgba(255,255,255,0.1);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 120px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
     cursor: pointer;
-    border: 1px solid white;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+    color: white;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    transition: background-color 0.3s, border-color 0.3s;
 }
-#instrumentales { top: 100px; left: 100px; }
-#trabajos { top: 100px; right: 100px; }
-#contacto { bottom: 100px; left: 100px; }
-#plugins { bottom: 100px; right: 100px; }
+
+/* Posiciones de las zonas clicables */
+#instrumentales {
+    top: 5vh;
+    left: 5vw;
+}
+#trabajos {
+    top: 5vh;
+    right: 5vw;
+}
+#contacto {
+    bottom: 5vh;
+    left: 5vw;
+}
+#plugins {
+    bottom: 5vh;
+    right: 5vw;
+}
+
+/* Efectos hover para zonas clicables */
+#instrumentales:hover,
+#trabajos:hover,
+#contacto:hover,
+#plugins:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: white;
+}
+
+/* Obstáculo visible (para pruebas) */
 #obstacle {
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     width: 80px;
     height: 80px;
-    background-color: red;
+    background: rgba(255, 0, 0, 0.5);
+    border-radius: 12px;
     transform: translate(-50%, -50%);
+    pointer-events: none; /* No interactuable */
+    z-index: 5000;
 }
+
+/* Ventanas emergentes centradas */
 .popup {
-    position: fixed;
-    top: 20%;
+    position: fixed !important;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    background: white;
-    color: black;
-    width: 60%;
-    max-width: 600px;
-    border: 2px solid black;
-    z-index: 20;
+    transform: translate(-50%, -50%);
+    width: 320px;
+    max-width: 90vw;
+    max-height: 80vh;
+    overflow-y: auto;
+    background: #222;
+    border: 2px solid #888;
+    box-shadow: 4px 4px 0px #000;
+    z-index: 9999;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 15px;
 }
-.popup.hidden {
-    display: none;
-}
+
+/* Encabezado popup con botón cerrar */
 .popup-header {
-    background: #333;
-    color: white;
-    padding: 10px;
+    position: relative;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    background: #444;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 6px 6px 0 0;
 }
-.popup-content {
-    padding: 20px;
-    max-height: 400px;
-    overflow-y: auto;
-}
+
+/* Botón cerrar “X” */
 .close-btn {
-    background: none;
+    background: transparent;
     border: none;
     color: white;
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
+    outline: none;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    line-height: 1;
 }
+
+/* Contenido de popup */
+.popup-content {
+    padding: 15px 10px;
+    background: #333;
+    border-radius: 0 0 6px 6px;
+}
+
+/* Clase para ocultar ventanas emergentes */
+.hidden {
+    display: none;
+}
+
+/* Modo claro */
 .light-mode {
-    background-color: white;
+    background-color: #f5f5f5;
     color: black;
 }
-.light-mode .popup-header {
-    background: #eee;
+
+/* Cambiar fondo en modo claro */
+.light-mode #game-area {
+    background: var(--bg-light) no-repeat center center / cover !important;
+}
+
+/* Cambiar estilo de zonas clicables en modo claro */
+.light-mode #instrumentales,
+.light-mode #trabajos,
+.light-mode #contacto,
+.light-mode #plugins {
+    background: rgba(255, 255, 255, 0.3);
     color: black;
+    border-color: rgba(0, 0, 0, 0.3);
+}
+
+/* Efectos hover en modo claro */
+.light-mode #instrumentales:hover,
+.light-mode #trabajos:hover,
+.light-mode #contacto:hover,
+.light-mode #plugins:hover {
+    background: rgba(0, 0, 0, 0.15);
+    border-color: black;
+}
+
+/* Responsive: ventanas emergentes más pequeñas en móviles */
+@media (max-width: 500px) {
+    .popup {
+        width: 90vw;
+        max-height: 50vh;
+    }
 }

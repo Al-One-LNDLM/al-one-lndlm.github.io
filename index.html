@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -8,43 +7,66 @@
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+    <!-- Botón para cambiar entre modo claro y oscuro -->
     <button id="toggle-theme">☀️</button>
+
+    <!-- Área principal del "juego" o escenario con personaje y zonas clicables -->
     <div id="game-area">
-        <div id="character" aria-label="Personaje"></div>
+        <!-- Imagen del personaje que sigue el cursor -->
+        <img id="character" src="assets/personaje.png" alt="Personaje" />
+
+        <!-- Zonas clicables ("casas") -->
         <div class="interactive-zone" id="instrumentales">Instrumentales</div>
         <div class="interactive-zone" id="trabajos">Trabajos</div>
         <div class="interactive-zone" id="contacto">Contacto</div>
         <div class="interactive-zone" id="plugins">Plugins</div>
+
+        <!-- Obstáculo central para interacción (personaje no puede atravesar) -->
         <div id="obstacle" class="obstacle"></div>
     </div>
+
+    <!-- Ventanas emergentes para mostrar contenido cuando se clica una zona -->
     <div id="popup-instrumentales" class="popup hidden">
-        <div class="popup-header">
-            Instrumentales
-            <button class="close-btn" onclick="closeWindow('instrumentales')">×</button>
-        </div>
-        <div class="popup-content"></div>
+      <div class="popup-header">
+        Instrumentales
+        <button class="close-btn" onclick="closeWindow('instrumentales')">×</button>
+      </div>
+      <div class="popup-content">
+        <!-- Aquí puedes poner el contenido que quieras para esta ventana -->
+      </div>
     </div>
+
     <div id="popup-trabajos" class="popup hidden">
-        <div class="popup-header">
-            Trabajos realizados
-            <button class="close-btn" onclick="closeWindow('trabajos')">×</button>
-        </div>
-        <div class="popup-content"></div>
+      <div class="popup-header">
+        Trabajos realizados
+        <button class="close-btn" onclick="closeWindow('trabajos')">×</button>
+      </div>
+      <div class="popup-content">
+        <!-- Aquí puedes poner el contenido que quieras para esta ventana -->
+      </div>
     </div>
+
     <div id="popup-contacto" class="popup hidden">
-        <div class="popup-header">
-            Contacto
-            <button class="close-btn" onclick="closeWindow('contacto')">×</button>
-        </div>
-        <div class="popup-content"></div>
+      <div class="popup-header">
+        Contacto
+        <button class="close-btn" onclick="closeWindow('contacto')">×</button>
+      </div>
+      <div class="popup-content">
+        <!-- Aquí puedes poner el contenido que quieras para esta ventana -->
+      </div>
     </div>
+
     <div id="popup-plugins" class="popup hidden">
-        <div class="popup-header">
-            Plugins
-            <button class="close-btn" onclick="closeWindow('plugins')">×</button>
-        </div>
-        <div class="popup-content"></div>
+      <div class="popup-header">
+        Plugins
+        <button class="close-btn" onclick="closeWindow('plugins')">×</button>
+      </div>
+      <div class="popup-content">
+        <!-- Aquí puedes poner el contenido que quieras para esta ventana -->
+      </div>
     </div>
+
+    <!-- Importamos el script principal -->
     <script src="script.js"></script>
 </body>
 </html>
