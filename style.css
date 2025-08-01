@@ -2,7 +2,7 @@
 
 /* Variables para las imágenes de fondo (fácil modificación aquí) */
 :root {
-  --bg-dark: url('assets/fondo dark.png'); /* Fondo modo oscuro */
+  --bg-dark: url('assets/fondo\ dark.png'); /* Fondo modo oscuro */
   --bg-light: url('assets/fondo.png');     /* Fondo modo claro */
 }
 
@@ -23,7 +23,7 @@ body {
     z-index: 1000; /* Siempre encima */
     background: transparent;
     border: none;
-    font-size: 28px; /* Iconos más grandes */
+    font-size: 40px; /* Iconos más grandes */
     cursor: pointer;
     outline: none;
 }
@@ -39,8 +39,8 @@ body {
 /* Imagen personaje */
 #character {
     position: absolute;
-    width: 32px;
-    height: 32px;
+    width: 90px;
+    height: 90px;
     transition: transform 0.1s;
     pointer-events: none; /* No interfiere con clicks */
 }
