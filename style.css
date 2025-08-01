@@ -1,24 +1,34 @@
-/* Variables para las imágenes de fondo, cambia aquí fácil */
+/* --- style.css --- */
+
+/* Variables para las imágenes de fondo (fácil modificación aquí) */
 :root {
-  --bg-dark: url('assets/fondo\ dark.png');
-  --bg-light: url('assets/fondo.png');
+  --bg-dark: url('assets/fondo dark.png'); /* Fondo modo oscuro */
+  --bg-light: url('assets/fondo.png');     /* Fondo modo claro */
 }
 
+/* Estilos base del body */
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
     background-color: #1e1e1e;
     color: white;
-    overflow: hidden;
+    overflow: hidden; /* Sin scroll */
 }
 
+/* Botón de toggle modo claro/oscuro */
 #toggle-theme {
     position: absolute;
     top: 10px;
     right: 10px;
-    z-index: 1000;
+    z-index: 1000; /* Siempre encima */
+    background: transparent;
+    border: none;
+    font-size: 28px; /* Iconos más grandes */
+    cursor: pointer;
+    outline: none;
 }
 
+/* Contenedor principal */
 #game-area {
     position: relative;
     width: 100vw;
@@ -26,16 +36,16 @@ body {
     background: var(--bg-dark) no-repeat center center / cover;
 }
 
-/* Personaje */
+/* Imagen personaje */
 #character {
     position: absolute;
     width: 32px;
     height: 32px;
     transition: transform 0.1s;
-    pointer-events: none;
+    pointer-events: none; /* No interfiere con clicks */
 }
 
-/* Zonas clicables (“casas”) en las esquinas */
+/* Zonas clicables (“casas”) en esquinas */
 #instrumentales, #trabajos, #contacto, #plugins {
     position: fixed;
     width: 120px;
@@ -52,6 +62,7 @@ body {
     transition: background-color 0.3s, border-color 0.3s;
 }
 
+/* Posiciones de las zonas clicables */
 #instrumentales {
     top: 5vh;
     left: 5vw;
@@ -69,6 +80,7 @@ body {
     right: 5vw;
 }
 
+/* Efectos hover para zonas clicables */
 #instrumentales:hover,
 #trabajos:hover,
 #contacto:hover,
@@ -77,7 +89,7 @@ body {
     border-color: white;
 }
 
-/* Obstáculo visible para test */
+/* Obstáculo visible (para pruebas) */
 #obstacle {
     position: fixed;
     top: 50%;
@@ -87,7 +99,7 @@ body {
     background: rgba(255, 0, 0, 0.5);
     border-radius: 12px;
     transform: translate(-50%, -50%);
-    pointer-events: none;
+    pointer-events: none; /* No interactuable */
     z-index: 5000;
 }
 
@@ -136,28 +148,30 @@ body {
     line-height: 1;
 }
 
-/* Contenido popup */
+/* Contenido de popup */
 .popup-content {
     padding: 15px 10px;
     background: #333;
     border-radius: 0 0 6px 6px;
 }
 
-/* Ocultar popup */
+/* Clase para ocultar ventanas emergentes */
 .hidden {
     display: none;
 }
 
-/* Modos claro y oscuro */
+/* Modo claro */
 .light-mode {
     background-color: #f5f5f5;
     color: black;
 }
 
+/* Cambiar fondo en modo claro */
 .light-mode #game-area {
     background: var(--bg-light) no-repeat center center / cover !important;
 }
 
+/* Cambiar estilo de zonas clicables en modo claro */
 .light-mode #instrumentales,
 .light-mode #trabajos,
 .light-mode #contacto,
@@ -167,6 +181,7 @@ body {
     border-color: rgba(0, 0, 0, 0.3);
 }
 
+/* Efectos hover en modo claro */
 .light-mode #instrumentales:hover,
 .light-mode #trabajos:hover,
 .light-mode #contacto:hover,
@@ -175,7 +190,7 @@ body {
     border-color: black;
 }
 
-/* Responsive: ventanas emergentes más pequeñas en pantallas pequeñas */
+/* Responsive: ventanas emergentes más pequeñas en móviles */
 @media (max-width: 500px) {
     .popup {
         width: 90vw;
