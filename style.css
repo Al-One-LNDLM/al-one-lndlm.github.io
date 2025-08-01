@@ -1,3 +1,9 @@
+/* Variables para las imágenes de fondo, cambia aquí fácil */
+:root {
+  --bg-dark: url('assets/fondo.png');
+  --bg-light: url('assets/fondo.png');
+}
+
 body {
     margin: 0;
     font-family: 'Courier New', Courier, monospace;
@@ -17,7 +23,7 @@ body {
     position: relative;
     width: 100vw;
     height: 100vh;
-    background: url('assets/fondo.jpg') no-repeat center center / cover;
+    background: var(--bg-dark) no-repeat center center / cover;
 }
 
 /* Personaje */
@@ -30,93 +36,42 @@ body {
 }
 
 /* Zonas clicables (“casas”) en las esquinas */
+#instrumentales, #trabajos, #contacto, #plugins {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+    color: white;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
 #instrumentales {
-    position: fixed;
     top: 5vh;
     left: 5vw;
-    width: 120px;
-    height: 120px;
-    border: 2px dashed rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    text-align: center;
-    line-height: 120px;
-    font-weight: bold;
-    color: white;
-    user-select: none;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    transition: background-color 0.3s, border-color 0.3s;
 }
-
-#instrumentales:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: white;
-}
-
 #trabajos {
-    position: fixed;
     top: 5vh;
     right: 5vw;
-    width: 120px;
-    height: 120px;
-    border: 2px dashed rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    text-align: center;
-    line-height: 120px;
-    font-weight: bold;
-    color: white;
-    user-select: none;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    transition: background-color 0.3s, border-color 0.3s;
 }
-
-#trabajos:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: white;
-}
-
 #contacto {
-    position: fixed;
     bottom: 5vh;
     left: 5vw;
-    width: 120px;
-    height: 120px;
-    border: 2px dashed rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    text-align: center;
-    line-height: 120px;
-    font-weight: bold;
-    color: white;
-    user-select: none;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    transition: background-color 0.3s, border-color 0.3s;
 }
-
-#contacto:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: white;
-}
-
 #plugins {
-    position: fixed;
     bottom: 5vh;
     right: 5vw;
-    width: 120px;
-    height: 120px;
-    border: 2px dashed rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    text-align: center;
-    line-height: 120px;
-    font-weight: bold;
-    color: white;
-    user-select: none;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    transition: background-color 0.3s, border-color 0.3s;
 }
 
+#instrumentales:hover,
+#trabajos:hover,
+#contacto:hover,
 #plugins:hover {
     background: rgba(255, 255, 255, 0.15);
     border-color: white;
@@ -200,7 +155,7 @@ body {
 }
 
 .light-mode #game-area {
-    background-color: #e0e0e0;
+    background: var(--bg-light) no-repeat center center / cover !important;
 }
 
 .light-mode #instrumentales,

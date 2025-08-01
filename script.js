@@ -13,7 +13,7 @@ let currentX = 0, currentY = 0;
 const speed = 0.02;
 const offsetDistance = 20;
 
-// Obstáculos (colisiones)
+// Obstáculo central (selector con clase .obstacle)
 const obstacles = Array.from(document.querySelectorAll(".obstacle"));
 
 document.addEventListener("mousemove", (e) => {
@@ -21,7 +21,7 @@ document.addEventListener("mousemove", (e) => {
     mouseY = e.clientY;
 });
 
-function isColliding(x, y, width = 50, height = 50) {
+function isColliding(x, y, width = 32, height = 32) {
     return obstacles.some(ob => {
         const rect = ob.getBoundingClientRect();
         return (
@@ -48,19 +48,21 @@ function animateCharacter() {
         let nextX = currentX + (targetX - currentX) * speed;
         let nextY = currentY + (targetY - currentY) * speed;
 
-        const spriteWidth = 50;
-        const spriteHeight = 50;
+        const spriteWidth = 32;
+        const spriteHeight = 32;
 
+        // Comprobar colisión X
         if (!isColliding(nextX, currentY, spriteWidth, spriteHeight)) {
             currentX = nextX;
         } else {
-            currentX -= directionX * 10;
+            currentX -= directionX * 10; // "rebote" sencillo
         }
 
+        // Comprobar colisión Y
         if (!isColliding(currentX, nextY, spriteWidth, spriteHeight)) {
             currentY = nextY;
         } else {
-            currentY -= directionY * 10;
+            currentY -= directionY * 10; // "rebote" sencillo
         }
 
         character.style.transform = `translate(${currentX}px, ${currentY}px)`;
@@ -72,7 +74,7 @@ function animateCharacter() {
 animateCharacter();
 
 function openWindow(id) {
-    Object.values(popups).forEach((popup) => popup.classList.add("hidden"));
+    Object.values(popups).forEach(popup => popup.classList.add("hidden"));
     if (popups[id]) {
         popups[id].classList.remove("hidden");
         popups[id].querySelector(".popup-content").scrollTop = 0;
@@ -87,24 +89,21 @@ toggleBtn.addEventListener("click", () => {
     document.body.classList.toggle("light-mode");
 });
 
-// Zonas clicables
+// Eventos click en zonas
 document.getElementById("instrumentales").addEventListener("click", () => openWindow("instrumentales"));
 document.getElementById("trabajos").addEventListener("click", () => openWindow("trabajos"));
 document.getElementById("contacto").addEventListener("click", () => openWindow("contacto"));
 document.getElementById("plugins").addEventListener("click", () => openWindow("plugins"));
 
-// Cierre de ventanas con X
-document.querySelectorAll(".close-popup").forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-        const popup = e.target.closest(".popup");
-        if (popup) popup.classList.add("hidden");
-    });
-});
+// No necesitas listener para botones cerrar porque usan inline onclick ya definido
 
-// Formulario de contacto simulado
-document.getElementById("contact-form").addEventListener("submit", function (e) {
-    e.preventDefault();
-    const responseDiv = document.getElementById("form-response");
-    responseDiv.textContent = "Mensaje enviado (simulado). ¡Gracias!";
-    this.reset();
-});
+// Formulario contacto (simulado) - si existe en contenido popup
+const contactForm = document.getElementById("contact-form");
+if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const responseDiv = document.getElementById("form-response");
+        responseDiv.textContent = "Mensaje enviado (simulado). ¡Gracias!";
+        this.reset();
+    });
+}
