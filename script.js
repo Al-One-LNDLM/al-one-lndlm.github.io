@@ -107,3 +107,16 @@ if (contactForm) {
         this.reset();
     });
 }
+
+function updateThemeIcon() {
+    const isLight = document.body.classList.contains("light-mode");
+    toggleBtn.textContent = isLight ? "🌙" : "☀️";
+}
+
+toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("light-mode");
+    updateThemeIcon();
+});
+
+// Llamamos al cargar la página por si ya está activado
+updateThemeIcon();
