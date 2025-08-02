@@ -1,75 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Al.One - Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Al.One - Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Botón para cambiar entre modo claro y oscuro -->
-    <button id="toggle-theme">☀️</button>
+  <!-- Botón para cambiar entre modo claro y oscuro -->
+  <button id="toggle-theme">☀️</button>
 
-    <!-- Área principal del "juego" o escenario con personaje y zonas clicables -->
-    <div id="game-area">
-        <!-- Imagen del personaje que sigue el cursor -->
-        <img id="character" src="assets/personaje.png" alt="Personaje" />
+  <!-- Área principal del "juego" con personaje y zonas -->
+  <div id="game-area">
+    <!-- Contenedor del sprite del personaje -->
+    <div id="character"></div>
 
-        <!-- Zonas clicables ("casas") -->
-        <div class="interactive-zone" id="instrumentales">Instrumentales</div>
-        <div class="interactive-zone" id="trabajos">Trabajos</div>
-        <div class="interactive-zone" id="contacto">Contacto</div>
-        <div class="interactive-zone" id="plugins">Plugins</div>
+    <!-- Contenedor para inyectar las zonas clicables -->
+    <div id="zones-container"></div>
 
-        <!-- Obstáculo central para interacción (personaje no puede atravesar) -->
-        <div id="obstacle" class="obstacle"></div>
-    </div>
-
-    <!-- Ventanas emergentes para mostrar contenido cuando se clica una zona -->
-    <div id="popup-instrumentales" class="popup hidden">
-      <div class="popup-header">
-        Instrumentales
-        <button class="close-btn" onclick="closeWindow('instrumentales')">×</button>
-      </div>
-      <div class="popup-content">
-        <!-- Aquí puedes poner el contenido que quieras para esta ventana -->
-      </div>
-    </div>
-
-    <div id="popup-trabajos" class="popup hidden">
-      <div class="popup-header">
-        Trabajos realizados
-        <button class="close-btn" onclick="closeWindow('trabajos')">×</button>
-      </div>
-      <div class="popup-content">
-        <!-- Aquí puedes poner el contenido que quieras para esta ventana -->
-      </div>
-    </div>
-
-    <div id="popup-contacto" class="popup hidden">
-      <div class="popup-header">
-        Contacto
-        <button class="close-btn" onclick="closeWindow('contacto')">×</button>
-      </div>
-      <div class="popup-content">
-        <!-- Aquí puedes poner el contenido que quieras para esta ventana -->
-      </div>
-    </div>
-
-<div id="popup-plugins" class="popup-window hidden">
-  <div class="window-header">
-    <span class="window-title">Plugins</span>
-    <button class="window-close" onclick="closeWindow('plugins')">✕</button>
+    <!-- Obstáculo central para pruebas -->
+    <div id="obstacle" class="obstacle"></div>
   </div>
-  <div class="window-body">
-    <p style="text-align: center; margin-top: 40px;">🚧 Esta sección está en mantenimiento 🚧</p>
-    <img src="assets/en-obras.png" alt="En obras" style="display: block; margin: 30px auto; max-width: 300px;">
-  </div>
-</div>
 
+  <!-- Contenedor donde se crearán las ventanas emergentes -->
+  <div id="popups-container"></div>
 
-
-    <!-- Importamos el script principal -->
-    <script src="script.js"></script>
+  <!-- Scripts como módulo para poder usar imports -->
+  <script type="module" src="script.js"></script>
 </body>
 </html>
