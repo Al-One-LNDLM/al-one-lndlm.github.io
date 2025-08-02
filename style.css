@@ -150,6 +150,7 @@ body.light-mode {
   display: flex;
   gap: 20px;
   height: 100%;
+  align-items: stretch;
 }
 
 .social-column {
@@ -158,6 +159,8 @@ body.light-mode {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-right: 2px solid #000;
+  padding-right: 20px;
 }
 
 .social-column img {
