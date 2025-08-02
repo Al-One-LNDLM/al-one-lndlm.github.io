@@ -147,10 +147,22 @@ body.light-mode {
 
 /* Contact popup layout */
 .contact-popup {
+  position: relative;
   display: flex;
   gap: 20px;
   height: 100%;
   align-items: stretch;
+}
+
+.contact-popup::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 50%;
+  width: 4px;
+  background-color: #000;
+  transform: translateX(-50%);
 }
 
 .social-column {
@@ -159,8 +171,6 @@ body.light-mode {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-right: 2px solid #000;
-  padding-right: 20px;
 }
 
 .social-column img {
@@ -169,7 +179,7 @@ body.light-mode {
 }
 
 .form-column {
-  flex: 2;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
