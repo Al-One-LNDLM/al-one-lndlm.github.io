@@ -91,7 +91,7 @@ setBackground();
 // =============================
 let mouseX = 0, mouseY = 0;         // Posición actual del ratón
 let currentX = 0, currentY = 0;     // Posición actual del personaje
-const speed = 0.02;                 // Velocidad de movimiento del personaje
+const speed = 0.006;                 // Velocidad de movimiento del personaje
 const offsetDistance = 20;          // Distancia respecto al cursor
 
 const frameWidth = 90;              // Dimensiones de cada frame en el spritesheet
