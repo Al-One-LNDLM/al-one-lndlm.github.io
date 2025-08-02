@@ -60,6 +60,11 @@ popupsContainer.addEventListener('click', e => {
   }
 });
 
+/**
+ * Muestra la ventana emergente asociada al identificador indicado
+ * y oculta cualquier otra que esté abierta.
+ * @param {string} id Identificador de la ventana a mostrar
+ */
 function openPopup(id) {
   Object.entries(popups).forEach(([key, p]) => {
     if (key === id) {
@@ -71,6 +76,10 @@ function openPopup(id) {
   });
 }
 
+/**
+ * Cierra la ventana emergente indicada si existe.
+ * @param {string} id Identificador de la ventana a cerrar
+ */
 function closePopup(id) {
   if (popups[id]) popups[id].classList.remove('visible');
 }
@@ -78,24 +87,32 @@ function closePopup(id) {
 // =============================
 //  Gestión de fondos y temas
 // =============================
+
+/**
+ * Ajusta la imagen de fondo del área de juego según el modo activo.
+ */
 function setBackground() {
   const isLight = document.body.classList.contains('light-mode');
   gameArea.style.backgroundImage = `url('${isLight ? backgrounds.light : backgrounds.dark}')`;
 }
 
+/**
+ * Actualiza el icono del botón de cambio de tema dependiendo del modo actual.
+ */
 function updateThemeIcon() {
   toggleBtn.innerHTML = document.body.classList.contains('light-mode')
     ? '<img src="assets/moon.png" alt="Modo oscuro" />'
     : '<img src="assets/sun.png" alt="Modo claro" />';
 }
 
-
+// Evento para alternar entre temas
 toggleBtn.addEventListener('click', () => {
   document.body.classList.toggle('light-mode');
   updateThemeIcon();
   setBackground();
 });
 
+// Configuración inicial de icono y fondo
 updateThemeIcon();
 setBackground();
 
@@ -122,6 +139,14 @@ document.addEventListener('mousemove', e => {
   mouseY = e.clientY;
 });
 
+/**
+ * Determina si una posición colisiona con algún obstáculo.
+ * @param {number} x Coordenada X a comprobar
+ * @param {number} y Coordenada Y a comprobar
+ * @param {number} [width=frameWidth] Ancho del objeto a comprobar
+ * @param {number} [height=frameHeight] Alto del objeto a comprobar
+ * @returns {boolean} Verdadero si existe colisión
+ */
 function isColliding(x, y, width = frameWidth, height = frameHeight) {
   return obstacles.some(ob => {
     const rect = ob.getBoundingClientRect();
@@ -134,6 +159,9 @@ function isColliding(x, y, width = frameWidth, height = frameHeight) {
   });
 }
 
+/**
+ * Actualiza el frame del sprite mostrado según la dirección y el frame actual.
+ */
 function updateSprite() {
   const row = directions[currentDirection];
   const x = frame * frameWidth;
@@ -141,6 +169,10 @@ function updateSprite() {
   character.style.backgroundPosition = `-${x}px -${y}px`;
 }
 
+/**
+ * Lógica principal de animación: mueve al personaje hacia el cursor
+ * y gestiona la animación del spritesheet.
+ */
 function animateCharacter() {
   const dx = mouseX - currentX;
   const dy = mouseY - currentY;
@@ -180,4 +212,5 @@ function animateCharacter() {
   requestAnimationFrame(animateCharacter);
 }
 
+// Inicia la animación del personaje
 animateCharacter();
