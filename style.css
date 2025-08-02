@@ -234,62 +234,69 @@ body {
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-.plugin-popup {
-    width: 450px;
-    height: 450px;
-    background-color: #222;
-    color: #ffcc00;
+/* Fuente pixel art global */
+.pixel-font {
     font-family: 'Press Start 2P', monospace;
     image-rendering: pixelated;
-    box-shadow: 0 0 0 4px #000, 0 0 0 8px #888, 4px 4px 0px #000;
-    border: 4px solid #444;
+}
+
+/* Ocupa toda la pantalla */
+.fullscreen-popup {
+    width: 100vw !important;
+    height: 100vh !important;
+    border: none;
     border-radius: 0;
+    background-color: #1c1c1c;
     padding: 0;
-}
-
-/* Cabecera tipo pixel UI */
-.plugin-popup .popup-header {
-    font-size: 10px;
-    background-color: #000;
-    border-bottom: 2px solid #ffcc00;
-    padding: 8px;
-    color: #ffcc00;
-}
-
-/* Contenido centrado */
-.plugin-popup .popup-content {
-    padding: 30px 10px;
-    text-align: center;
-    height: calc(100% - 50px);
+    box-shadow: none;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
-/* Imagen de obras */
-.plugin-popup .obras-img {
-    width: 220px;
+/* Cabecera pixel art */
+.fullscreen-popup .popup-header {
+    background-color: #000;
+    color: #ffcc00;
+    border-bottom: 2px solid #ffcc00;
+    padding: 15px;
+    font-size: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Botón de cerrar estilo pixel */
+.fullscreen-popup .close-btn {
+    background: none;
+    border: none;
+    color: #ffcc00;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+/* Contenido centrado con imagen y texto */
+.fullscreen-popup .popup-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    color: #fff;
+}
+
+/* Imagen pixel art */
+.fullscreen-popup .obras-img {
+    width: 250px;
     image-rendering: pixelated;
     margin-bottom: 20px;
 }
 
-/* Texto tipo pixel */
-.plugin-popup .obras-text {
+/* Texto pixel art */
+.fullscreen-popup .obras-text {
     font-size: 10px;
-    line-height: 1.5;
-    text-shadow: 1px 1px 0 #000;
-}
-
-/* Botón cerrar estilo pixel */
-.plugin-popup .close-btn {
-    font-size: 14px;
-    font-weight: bold;
-    background: none;
-    border: none;
     color: #ffcc00;
-    cursor: pointer;
-    position: absolute;
-    top: 4px;
-    right: 8px;
+    text-shadow: 1px 1px 0 #000;
 }
