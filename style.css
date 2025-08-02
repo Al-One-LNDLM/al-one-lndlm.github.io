@@ -125,7 +125,7 @@ body.light-mode {
   background-color: #000;
   color: #fff;
   padding: 4px 8px;
-  height: 20px;
+  height: 40px;
   border-bottom: 2px solid #000;
   font-family: 'PixelFont', monospace;
 }
