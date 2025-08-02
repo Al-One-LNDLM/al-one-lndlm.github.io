@@ -216,3 +216,32 @@ body.light-mode {
   padding: 4px;
   cursor: pointer;
 }
+
+/* Galería de videos en la ventana Trabajos */
+.trabajos-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.video-card {
+  width: 320px;
+  height: 240px;
+  background: #000;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-card .thumb {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+}
+
+.video-card p {
+  margin: 8px;
+  text-align: center;
+}

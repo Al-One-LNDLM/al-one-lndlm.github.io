@@ -18,7 +18,22 @@ export const zones = [
     id: 'trabajos',
     img: 'assets/casa.png',
     position: { top: '5vh', right: '5vw' },
-    popup: { title: 'Trabajos', content: '' }
+    // Duplica el bloque <a class="video-card">…</a> para añadir más videos
+    popup: {
+      title: 'Trabajos',
+      content: `
+        <div class="trabajos-gallery">
+          <a class="video-card" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+            <div class="thumb" style="background-image:url('https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg')"></div>
+            <p>Video ejemplo 1</p>
+          </a>
+          <a class="video-card" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">
+            <div class="thumb" style="background-image:url('https://img.youtube.com/vi/oHg5SJYRHA0/hqdefault.jpg')"></div>
+            <p>Video ejemplo 2</p>
+          </a>
+        </div>
+      `
+    }
   },
   {
     id: 'contacto',
