@@ -71,8 +71,11 @@ function setBackground() {
 }
 
 function updateThemeIcon() {
-  toggleBtn.textContent = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
+  toggleBtn.innerHTML = document.body.classList.contains('light-mode')
+    ? '<img src="assets/Luna pixelart.png" alt="Modo oscuro" />'
+    : '<img src="assets/Sol pixelart.png" alt="Modo claro" />';
 }
+
 
 toggleBtn.addEventListener('click', () => {
   document.body.classList.toggle('light-mode');
