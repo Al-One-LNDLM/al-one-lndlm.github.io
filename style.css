@@ -1,360 +1,115 @@
 /* --- style.css --- */
 
-/* Variables para las imágenes de fondo (fácil modificación aquí) */
+/* Variables para cambiar fácilmente las imágenes de fondo */
 :root {
-  --bg-dark: url('assets/fondo\ dark.png'); /* Fondo modo oscuro */
-  --bg-light: url('assets/fondo.png');     /* Fondo modo claro */
+  --bg-dark: url('assets/fondo dark.png');
+  --bg-light: url('assets/fondo.png');
 }
 
-/* Estilos base del body */
+/* Estilos base del cuerpo */
 body {
-    margin: 0;
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #1e1e1e;
-    color: white;
-    overflow: hidden; /* Sin scroll */
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  background-color: #1e1e1e;
+  color: #fff;
+  overflow: hidden;
 }
 
-/* Botón de toggle modo claro/oscuro */
+body.light-mode {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+/* Botón para cambiar de tema */
 #toggle-theme {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: 1000; /* Siempre encima */
-    background: transparent;
-    border: none;
-    font-size: 40px; /* Iconos más grandes */
-    cursor: pointer;
-    outline: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  font-size: 40px;
+  cursor: pointer;
 }
 
 /* Contenedor principal */
 #game-area {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    background: var(--bg-dark) no-repeat center center / cover;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: var(--bg-dark) no-repeat center/cover;
 }
 
-/* Imagen personaje */
+/* Personaje principal como sprite */
 #character {
-    position: absolute;
-    width: 90px;
-    height: 90px;
-    transition: transform 0.1s;
-    pointer-events: none; /* No interfiere con clicks */
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  background: url('assets/spritesheet.png') no-repeat 0 0;
+  background-size: 270px 360px; /* 3 columnas x 4 filas */
+  image-rendering: pixelated;
+  pointer-events: none;
 }
 
-/* Zonas clicables (“casas”) en esquinas */
-#instrumentales, #trabajos, #contacto, #plugins {
-    position: fixed;
-    width: 120px;
-    height: 120px;
-    border: 2px dashed rgba(255, 255, 255, 0.3);
-    cursor: pointer;
-    text-align: center;
-    line-height: 120px;
-    font-weight: bold;
-    color: white;
-    user-select: none;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 12px;
-    transition: background-color 0.3s, border-color 0.3s;
+/* Zonas interactuables */
+.interactive-zone {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  user-select: none;
 }
 
-/* Posiciones de las zonas clicables */
-#instrumentales {
-    top: 5vh;
-    left: 5vw;
-}
-#trabajos {
-    top: 5vh;
-    right: 5vw;
-}
-#contacto {
-    bottom: 5vh;
-    left: 5vw;
-}
-#plugins {
-    bottom: 5vh;
-    right: 5vw;
+/* Obstáculo de prueba */
+.obstacle {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  background: rgba(255,0,0,0.5);
+  border-radius: 12px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 5000;
 }
 
-/* Efectos hover para zonas clicables */
-#instrumentales:hover,
-#trabajos:hover,
-#contacto:hover,
-#plugins:hover {
-    background: rgba(255, 255, 255, 0.15);
-    border-color: white;
-}
-
-/* Obstáculo visible (para pruebas) */
-#obstacle {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 80px;
-    height: 80px;
-    background: rgba(255, 0, 0, 0.5);
-    border-radius: 12px;
-    transform: translate(-50%, -50%);
-    pointer-events: none; /* No interactuable */
-    z-index: 5000;
-}
-
-/* Ventanas emergentes centradas */
+/* Ventanas emergentes genéricas */
 .popup {
-    position: fixed !important;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 320px;
-    max-width: 90vw;
-    max-height: 80vh;
-    overflow-y: auto;
-    background: #222;
-    border: 2px solid #888;
-    box-shadow: 4px 4px 0px #000;
-    z-index: 9999;
-    font-size: 14px;
-    border-radius: 8px;
-    padding: 15px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 320px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  background: #222;
+  color: #fff;
+  border: 2px solid #888;
+  box-shadow: 4px 4px 0 #000;
+  border-radius: 8px;
+  padding: 15px;
+  z-index: 9999;
+  font-size: 14px;
 }
 
-/* Encabezado popup con botón cerrar */
+.popup.hidden {
+  display: none;
+}
+
 .popup-header {
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    background: #444;
-    padding: 5px 10px;
-    color: white;
-    border-radius: 6px 6px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-/* Botón cerrar “X” */
 .close-btn {
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none;
-    position: absolute;
-    top: 5px;
-    right: 10px;
-    line-height: 1;
-}
-
-/* Contenido de popup */
-.popup-content {
-    padding: 15px 10px;
-    background: #333;
-    border-radius: 0 0 6px 6px;
-}
-
-/* Clase para ocultar ventanas emergentes */
-.hidden {
-    display: none;
-}
-
-/* Modo claro */
-.light-mode {
-    background-color: #f5f5f5;
-    color: black;
-}
-
-/* Cambiar fondo en modo claro */
-.light-mode #game-area {
-    background: var(--bg-light) no-repeat center center / cover !important;
-}
-
-/* Cambiar estilo de zonas clicables en modo claro */
-.light-mode #instrumentales,
-.light-mode #trabajos,
-.light-mode #contacto,
-.light-mode #plugins {
-    background: rgba(255, 255, 255, 0.3);
-    color: black;
-    border-color: rgba(0, 0, 0, 0.3);
-}
-
-/* Efectos hover en modo claro */
-.light-mode #instrumentales:hover,
-.light-mode #trabajos:hover,
-.light-mode #contacto:hover,
-.light-mode #plugins:hover {
-    background: rgba(0, 0, 0, 0.15);
-    border-color: black;
-}
-
-/* Responsive: ventanas emergentes más pequeñas en móviles */
-@media (max-width: 500px) {
-    .popup {
-        width: 90vw;
-        max-height: 50vh;
-    }
-}
-
-/* Estilo específico para la ventana de plugins */
-.plugin-popup {
-    width: 600px;
-    height: 600px;
-    background-color: #1e1e1e;
-    border: 3px dashed #ffcc00;
-    color: #ffcc00;
-    font-family: 'Courier New', monospace;
-    box-shadow: 0px 0px 0px #000;
-}
-
-/* Contenido centrado dentro del popup de plugins */
-.plugin-popup .popup-content {
-    text-align: center;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Imagen de obras */
-.plugin-popup .obras-img {
-    width: 100px;
-    margin-bottom: 10px;
-    image-rendering: pixelated; /* Estilo pixel art */
-}
-
-/* Texto de mantenimiento */
-.plugin-popup .obras-text {
-    margin: 0;
-    font-size: 12px;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-/* Fuente pixel art global */
-.pixel-font {
-    font-family: 'Press Start 2P', monospace;
-    image-rendering: pixelated;
-}
-
-/* Ocupa toda la pantalla */
-.fullscreen-popup {
-    width: 100vw !important;
-    height: 100vh !important;
-    border: none;
-    border-radius: 0;
-    background-color: #1c1c1c;
-    padding: 0;
-    box-shadow: none;
-    display: flex;
-    flex-direction: column;
-}
-
-/* Cabecera pixel art */
-.fullscreen-popup .popup-header {
-    background-color: #000;
-    color: #ffcc00;
-    border-bottom: 2px solid #ffcc00;
-    padding: 15px;
-    font-size: 12px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Botón de cerrar estilo pixel */
-.fullscreen-popup .close-btn {
-    background: none;
-    border: none;
-    color: #ffcc00;
-    font-size: 14px;
-    cursor: pointer;
-    padding: 4px 8px;
-}
-
-/* Contenido centrado con imagen y texto */
-.fullscreen-popup .popup-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 20px;
-    color: #fff;
-}
-
-/* Imagen pixel art */
-.fullscreen-popup .obras-img {
-    width: 250px;
-    image-rendering: pixelated;
-    margin-bottom: 20px;
-}
-
-/* Texto pixel art */
-.fullscreen-popup .obras-text {
-    font-size: 10px;
-    color: #ffcc00;
-    text-shadow: 1px 1px 0 #000;
-}
-
-@font-face {
-    font-family: 'Pixel';
-    src: url('assets/PixelFont.ttf') format('truetype'); /* Asegúrate de tener una fuente tipo pixel en esa ruta */
-}
-
-.popup-window {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 80vw;
-    height: 80vh;
-    transform: translate(-50%, -50%);
-    background-color: #c0c0c0;
-    border: 4px solid #000;
-    box-shadow: 4px 4px 0 #444;
-    z-index: 9999;
-    font-family: 'Pixel', monospace;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-}
-
-.window-header {
-    background-color: #000080;
-    color: white;
-    padding: 6px 10px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.window-title {
-    font-size: 16px;
-}
-
-.window-close {
-    background-color: #c0c0c0;
-    border: 2px outset #fff;
-    color: black;
-    font-size: 16px;
-    width: 24px;
-    height: 24px;
-    line-height: 16px;
-    cursor: pointer;
-    font-family: 'Pixel', monospace;
-    padding: 0;
-}
-
-.window-body {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-    background-color: #e0e0e0;
-    font-size: 14px;
-    text-align: center;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 16px;
+  cursor: pointer;
 }
