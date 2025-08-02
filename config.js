@@ -24,7 +24,41 @@ export const zones = [
     id: 'contacto',
     img: 'assets/casa.png',
     position: { bottom: '5vh', left: '5vw' },
-    popup: { title: 'Contacto', content: '' }
+    popup: {
+      title: 'Contacto',
+      content: `
+        <div class="contact-popup">
+          <div class="social-column">
+            <a href="https://twitter.com/" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" style="width:48px;height:48px;margin:4px;" />
+            </a>
+            <a href="https://instagram.com/" target="_blank">
+              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width:48px;height:48px;margin:4px;" />
+            </a>
+          </div>
+          <div class="form-column">
+            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+              <label>
+                Nombre<br />
+                <input type="text" name="name" required />
+              </label>
+              <br />
+              <label>
+                Email<br />
+                <input type="email" name="_replyto" required />
+              </label>
+              <br />
+              <label>
+                Mensaje<br />
+                <textarea name="message" rows="4" required></textarea>
+              </label>
+              <br />
+              <button type="submit">Enviar</button>
+            </form>
+          </div>
+        </div>
+      `
+    }
   },
   {
     id: 'plugins',
