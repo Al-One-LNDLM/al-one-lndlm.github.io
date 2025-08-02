@@ -38,6 +38,13 @@ zones.forEach(zone => {
   `;
   popupsContainer.appendChild(popup);
   popups[zone.id] = popup; // guardar referencia
+
+  // Asegurar que las ventanas se oculten tras la animación de cierre
+  popup.addEventListener('transitionend', () => {
+    if (!popup.classList.contains('visible')) {
+      popup.classList.add('hidden');
+    }
+  });
 });
 
 // Abrir ventana al hacer click en una zona
@@ -54,12 +61,18 @@ popupsContainer.addEventListener('click', e => {
 });
 
 function openPopup(id) {
-  Object.values(popups).forEach(p => p.classList.add('hidden'));
-  if (popups[id]) popups[id].classList.remove('hidden');
+  Object.entries(popups).forEach(([key, p]) => {
+    if (key === id) {
+      p.classList.remove('hidden');
+      requestAnimationFrame(() => p.classList.add('visible'));
+    } else {
+      p.classList.remove('visible');
+    }
+  });
 }
 
 function closePopup(id) {
-  if (popups[id]) popups[id].classList.add('hidden');
+  if (popups[id]) popups[id].classList.remove('visible');
 }
 
 // =============================
