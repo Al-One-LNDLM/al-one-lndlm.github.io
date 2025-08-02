@@ -72,8 +72,8 @@ function setBackground() {
 
 function updateThemeIcon() {
   toggleBtn.innerHTML = document.body.classList.contains('light-mode')
-    ? '<img src="assets/Luna pixelart.png" alt="Modo oscuro" />'
-    : '<img src="assets/Sol pixelart.png" alt="Modo claro" />';
+    ? '<img src="assets/moon.png" alt="Modo oscuro" />'
+    : '<img src="assets/sun.png" alt="Modo claro" />';
 }
 
 
