@@ -1,133 +1,167 @@
 // --- script.js ---
+// Código estructurado para que sea fácil cambiar imágenes y contenido.
 
-// Referencias a elementos DOM importantes
-const character = document.getElementById("character");
-const toggleBtn = document.getElementById("toggle-theme");
+import { backgrounds, zones } from './config.js';
 
-// Objeto con referencias a las ventanas emergentes
-const popups = {
-    instrumentales: document.getElementById("popup-instrumentales"),
-    trabajos: document.getElementById("popup-trabajos"),
-    contacto: document.getElementById("popup-contacto"),
-    plugins: document.getElementById("popup-plugins"),
-};
+// Referencias principales al DOM
+const gameArea = document.getElementById('game-area');
+const character = document.getElementById('character');
+const toggleBtn = document.getElementById('toggle-theme');
+const zonesContainer = document.getElementById('zones-container');
+const popupsContainer = document.getElementById('popups-container');
 
-// Variables para la posición del ratón y del personaje
+// Objeto que guardará las ventanas emergentes generadas
+const popups = {};
+
+// =============================
+//  Creación dinámica de zonas y popups
+// =============================
+zones.forEach(zone => {
+  // Imagen clicable
+  const img = document.createElement('img');
+  img.src = zone.img;
+  img.className = 'interactive-zone';
+  Object.assign(img.style, zone.position); // top/left/etc.
+  img.dataset.popup = zone.id; // relacionar con ventana
+  zonesContainer.appendChild(img);
+
+  // Ventana asociada
+  const popup = document.createElement('div');
+  popup.id = `popup-${zone.id}`;
+  popup.className = 'popup hidden';
+  popup.innerHTML = `
+    <div class="popup-header">
+      ${zone.popup.title}
+      <button class="close-btn" data-close="${zone.id}">×</button>
+    </div>
+    <div class="popup-content">${zone.popup.content || ''}</div>
+  `;
+  popupsContainer.appendChild(popup);
+  popups[zone.id] = popup; // guardar referencia
+});
+
+// Abrir ventana al hacer click en una zona
+zonesContainer.addEventListener('click', e => {
+  const target = e.target.closest('.interactive-zone');
+  if (target) openPopup(target.dataset.popup);
+});
+
+// Cerrar ventana al pulsar su botón
+popupsContainer.addEventListener('click', e => {
+  if (e.target.matches('.close-btn')) {
+    closePopup(e.target.dataset.close);
+  }
+});
+
+function openPopup(id) {
+  Object.values(popups).forEach(p => p.classList.add('hidden'));
+  if (popups[id]) popups[id].classList.remove('hidden');
+}
+
+function closePopup(id) {
+  if (popups[id]) popups[id].classList.add('hidden');
+}
+
+// =============================
+//  Gestión de fondos y temas
+// =============================
+function setBackground() {
+  const isLight = document.body.classList.contains('light-mode');
+  gameArea.style.backgroundImage = `url('${isLight ? backgrounds.light : backgrounds.dark}')`;
+}
+
+function updateThemeIcon() {
+  toggleBtn.textContent = document.body.classList.contains('light-mode') ? '🌙' : '☀️';
+}
+
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('light-mode');
+  updateThemeIcon();
+  setBackground();
+});
+
+updateThemeIcon();
+setBackground();
+
+// =============================
+//  Animación del personaje
+// =============================
 let mouseX = 0, mouseY = 0;         // Posición actual del ratón
 let currentX = 0, currentY = 0;     // Posición actual del personaje
 const speed = 0.02;                 // Velocidad de movimiento del personaje
-const offsetDistance = 20;          // Distancia que mantiene el personaje respecto al cursor
+const offsetDistance = 20;          // Distancia respecto al cursor
 
-// Obstáculos que el personaje no puede atravesar (en este caso, el central)
-const obstacles = Array.from(document.querySelectorAll(".obstacle"));
+const frameWidth = 90;              // Dimensiones de cada frame en el spritesheet
+const frameHeight = 90;
+const framesPerDirection = 3;       // Número de frames por dirección
+const directions = { down: 0, left: 1, right: 2, up: 3 }; // Orden en el spritesheet
+let currentDirection = 'down';
+let frame = 1;                      // Frame actual (0-2). El 1 es el "quieto"
+let frameTick = 0;                  // Control para la velocidad de animación
 
-// Actualizamos la posición del ratón al moverlo
-document.addEventListener("mousemove", (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+const obstacles = Array.from(document.querySelectorAll('.obstacle'));
+
+document.addEventListener('mousemove', e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
 });
 
-// Función que comprueba si una posición (x,y) con ancho y alto colisiona con algún obstáculo
-function isColliding(x, y, width = 32, height = 32) {
-    return obstacles.some(ob => {
-        const rect = ob.getBoundingClientRect();
-        return (
-            x < rect.right &&
-            x + width > rect.left &&
-            y < rect.bottom &&
-            y + height > rect.top
-        );
-    });
+function isColliding(x, y, width = frameWidth, height = frameHeight) {
+  return obstacles.some(ob => {
+    const rect = ob.getBoundingClientRect();
+    return (
+      x < rect.right &&
+      x + width > rect.left &&
+      y < rect.bottom &&
+      y + height > rect.top
+    );
+  });
 }
 
-// Función que anima el movimiento suave del personaje siguiendo el cursor con colisiones
+function updateSprite() {
+  const row = directions[currentDirection];
+  const x = frame * frameWidth;
+  const y = row * frameHeight;
+  character.style.backgroundPosition = `-${x}px -${y}px`;
+}
+
 function animateCharacter() {
-    const dx = mouseX - currentX;
-    const dy = mouseY - currentY;
-    const distance = Math.hypot(dx, dy);
+  const dx = mouseX - currentX;
+  const dy = mouseY - currentY;
+  const distance = Math.hypot(dx, dy);
 
-    if (distance > 2.5) { // Si el personaje está suficientemente lejos del ratón, se mueve
-        const directionX = dx / distance;
-        const directionY = dy / distance;
+  if (distance > 2.5) {
+    const dirX = dx / distance;
+    const dirY = dy / distance;
 
-        // Calculamos la posición objetivo (a offsetDistance pixeles detrás del cursor)
-        const targetX = mouseX - directionX * offsetDistance;
-        const targetY = mouseY - directionY * offsetDistance;
-
-        // Calculamos la siguiente posición interpolada (suavizada)
-        let nextX = currentX + (targetX - currentX) * speed;
-        let nextY = currentY + (targetY - currentY) * speed;
-
-        const spriteWidth = 90;
-        const spriteHeight = 90;
-
-        // Comprobamos colisión horizontal y aplicamos "rebote" si es necesario
-        if (!isColliding(nextX, currentY, spriteWidth, spriteHeight)) {
-            currentX = nextX;
-        } else {
-            currentX -= directionX * 1; // Rebote sencillo en X
-        }
-
-        // Comprobamos colisión vertical y aplicamos "rebote" si es necesario
-        if (!isColliding(currentX, nextY, spriteWidth, spriteHeight)) {
-            currentY = nextY;
-        } else {
-            currentY -= directionY * 1; // Rebote sencillo en Y
-        }
-
-        // Aplicamos la transformación CSS para mover el personaje
-        character.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    // Determinar la dirección del sprite
+    if (Math.abs(dx) > Math.abs(dy)) {
+      currentDirection = dirX > 0 ? 'right' : 'left';
+    } else {
+      currentDirection = dirY > 0 ? 'down' : 'up';
     }
 
-    // Pedimos la siguiente animación
-    requestAnimationFrame(animateCharacter);
+    const targetX = mouseX - dirX * offsetDistance;
+    const targetY = mouseY - dirY * offsetDistance;
+    let nextX = currentX + (targetX - currentX) * speed;
+    let nextY = currentY + (targetY - currentY) * speed;
+
+    if (!isColliding(nextX, currentY)) currentX = nextX;
+    if (!isColliding(currentX, nextY)) currentY = nextY;
+
+    // Avance de animación solo cuando se mueve
+    frameTick++;
+    if (frameTick >= 10) { // cambiar este número para acelerar/ralentizar
+      frame = (frame + 1) % framesPerDirection;
+      frameTick = 0;
+    }
+  } else {
+    frame = 1; // frame central cuando está parado
+  }
+
+  character.style.transform = `translate(${currentX}px, ${currentY}px)`;
+  updateSprite();
+  requestAnimationFrame(animateCharacter);
 }
 
-// Iniciamos la animación del personaje
 animateCharacter();
-
-// Función para abrir una ventana emergente concreta y ocultar las demás
-function openWindow(id) {
-    Object.values(popups).forEach(popup => popup.classList.add("hidden"));
-    if (popups[id]) {
-        popups[id].classList.remove("hidden");
-        popups[id].querySelector(".popup-content").scrollTop = 0; // Scroll arriba
-    }
-}
-
-// Función para cerrar una ventana emergente concreta
-function closeWindow(id) {
-    if (popups[id]) popups[id].classList.add("hidden");
-}
-
-// Evento para cambiar el modo claro/oscuro al hacer clic en el botón
-toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("light-mode");
-    updateThemeIcon();
-});
-
-// Eventos para abrir ventanas cuando se clican las zonas
-document.getElementById("instrumentales").addEventListener("click", () => openWindow("instrumentales"));
-document.getElementById("trabajos").addEventListener("click", () => openWindow("trabajos"));
-document.getElementById("contacto").addEventListener("click", () => openWindow("contacto"));
-document.getElementById("plugins").addEventListener("click", () => openWindow("plugins"));
-
-// Formulario de contacto simulado: si existe, evita recargar y muestra mensaje de éxito
-const contactForm = document.getElementById("contact-form");
-if (contactForm) {
-    contactForm.addEventListener("submit", function (e) {
-        e.preventDefault();
-        const responseDiv = document.getElementById("form-response");
-        responseDiv.textContent = "Mensaje enviado (simulado). ¡Gracias!";
-        this.reset();
-    });
-}
-
-// Función que actualiza el icono del botón según el modo actual (sol o luna)
-function updateThemeIcon() {
-    const isLight = document.body.classList.contains("light-mode");
-    toggleBtn.textContent = isLight ? "🌙" : "☀️";
-}
-
-// Ejecutamos la función para poner el icono correcto al cargar la página
-updateThemeIcon();
