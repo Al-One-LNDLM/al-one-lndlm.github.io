@@ -39,20 +39,17 @@ export const zones = [
           <div class="form-column">
             <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
               <label>
-                Nombre<br />
+                Nombre
                 <input type="text" name="name" required />
               </label>
-              <br />
               <label>
-                Email<br />
+                Email
                 <input type="email" name="_replyto" required />
               </label>
-              <br />
               <label>
-                Mensaje<br />
+                Mensaje
                 <textarea name="message" rows="4" required></textarea>
               </label>
-              <br />
               <button type="submit">Enviar</button>
             </form>
           </div>
