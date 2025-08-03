@@ -226,8 +226,7 @@ body.light-mode {
 }
 
 .video-card {
-  width: 320px;
-  height: 240px;
+  width: 400px;
   background: #000;
   color: #fff;
   text-decoration: none;
@@ -236,7 +235,8 @@ body.light-mode {
 }
 
 .video-card .thumb {
-  flex: 1;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   background-size: cover;
   background-position: center;
 }
