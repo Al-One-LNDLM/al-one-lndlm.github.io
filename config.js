@@ -8,7 +8,9 @@ export const backgrounds = {
 
 // Lista de instrumentales disponibles
 // Añade más objetos { name: 'Título', src: 'assets/tu-archivo.mp3' }
-export const instrumentals = [];
+export const instrumentals = [
+  {name: 'Gama Ocre', src: 'assets/beat1.wav'}
+];
 
 // Definición de zonas interactivas y su contenido emergente
 export const zones = [
