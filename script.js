@@ -9,6 +9,30 @@ const character = document.getElementById('character');
 const toggleBtn = document.getElementById('toggle-theme');
 const zonesContainer = document.getElementById('zones-container');
 const popupsContainer = document.getElementById('popups-container');
+const rootElement = document.documentElement;
+
+// Vincula controles de tamaño de fuente individuales
+function bindFontSizeControl(sliderId, valueId, cssVar) {
+  const slider = document.getElementById(sliderId);
+  const value = document.getElementById(valueId);
+  if (!slider || !value) return;
+  const initial = parseInt(
+    getComputedStyle(rootElement).getPropertyValue(cssVar),
+    10
+  );
+  slider.value = initial;
+  value.textContent = initial;
+  slider.addEventListener('input', () => {
+    const val = slider.value;
+    rootElement.style.setProperty(cssVar, val + 'px');
+    value.textContent = val;
+  });
+}
+
+bindFontSizeControl('popup-font-size-slider', 'popup-font-size-value', '--popup-font-size');
+bindFontSizeControl('popup-header-font-size-slider', 'popup-header-font-size-value', '--popup-header-font-size');
+bindFontSizeControl('close-btn-font-size-slider', 'close-btn-font-size-value', '--close-btn-font-size');
+bindFontSizeControl('audio-button-font-size-slider', 'audio-button-font-size-value', '--audio-button-font-size');
 
 // Objeto que guardará las ventanas emergentes generadas
 const popups = {};

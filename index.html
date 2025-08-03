@@ -11,6 +11,30 @@
   <!-- Botón para cambiar entre modo claro y oscuro -->
   <button id="toggle-theme"></button>
 
+  <!-- Controles para ajustar el tamaño de letra de cada elemento -->
+  <div id="font-size-controls">
+    <div class="font-size-control">
+      <label for="popup-font-size-slider">Texto popup:</label>
+      <input type="range" id="popup-font-size-slider" min="12" max="32" value="16">
+      <span id="popup-font-size-value">16</span>px
+    </div>
+    <div class="font-size-control">
+      <label for="popup-header-font-size-slider">Encabezado popup:</label>
+      <input type="range" id="popup-header-font-size-slider" min="12" max="32" value="16">
+      <span id="popup-header-font-size-value">16</span>px
+    </div>
+    <div class="font-size-control">
+      <label for="close-btn-font-size-slider">Botón cerrar:</label>
+      <input type="range" id="close-btn-font-size-slider" min="12" max="32" value="16">
+      <span id="close-btn-font-size-value">16</span>px
+    </div>
+    <div class="font-size-control">
+      <label for="audio-button-font-size-slider">Botones audio:</label>
+      <input type="range" id="audio-button-font-size-slider" min="12" max="32" value="15">
+      <span id="audio-button-font-size-value">15</span>px
+    </div>
+  </div>
+
   <!-- Área principal del "juego" con personaje y zonas -->
   <div id="game-area">
     <!-- Contenedor del sprite del personaje -->
