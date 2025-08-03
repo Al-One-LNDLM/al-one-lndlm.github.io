@@ -6,6 +6,10 @@ export const backgrounds = {
   light: 'assets/fondo.png'
 };
 
+// Lista de instrumentales disponibles
+// Añade más objetos { name: 'Título', src: 'assets/tu-archivo.mp3' }
+export const instrumentals = [];
+
 // Definición de zonas interactivas y su contenido emergente
 export const zones = [
   {
