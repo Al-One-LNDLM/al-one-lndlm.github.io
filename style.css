@@ -129,6 +129,7 @@ body.light-mode {
   height: 40px;
   border-bottom: 2px solid #000;
   font-size: var(--popup-header-font-size);
+  font-size: var(--popup-header-font-size);
   font-family: 'PixelFont', monospace;
 }
 
@@ -136,6 +137,7 @@ body.light-mode {
   padding: 10px;
   height: calc(100% - 20px);
   overflow-y: auto;
+  font-size: var(--popup-font-size);
   font-size: var(--popup-content-font-size);
   font-family: 'PixelFont', monospace;
 }
@@ -144,6 +146,7 @@ body.light-mode {
   background: none;
   border: none;
   color: #fff;
+  font-size: var(--close-btn-font-size);
   font-size: var(--popup-header-font-size);
   cursor: pointer;
 }
@@ -268,7 +271,7 @@ body.light-mode {
   border: none;
   color: inherit;
   cursor: pointer;
-  font-size: 15px;
+  font-size: var(--audio-button-font-size);
 }
 
 body.light-mode .audio-item {
