@@ -25,7 +25,7 @@ export const zones = [
         <div class="trabajos-gallery">
           <a class="video-card" href="https://www.youtube.com/watch?v=9gNmEuoKf7c&list=RD9gNmEuoKf7c&start_radio=1" target="_blank">
             <div class="thumb" style="background-image:url('https://i.ytimg.com/an_webp/9gNmEuoKf7c/mqdefault_6s.webp?du=3000&sqp=CJydusQG&rs=AOn4CLDcTqifrAO1jixfesbMQ_3jtJRkBw')"></div>
-            <p>Video ejemplo 1</p>
+            <p>El Niño y Su Fe (ALbumetraje Oficial)</p>
           </a>
           <a class="video-card" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">
             <div class="thumb" style="background-image:url('https://img.youtube.com/vi/oHg5SJYRHA0/hqdefault.jpg')"></div>
