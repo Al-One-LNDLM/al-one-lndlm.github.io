@@ -1,7 +1,7 @@
 // --- script.js ---
 // Código estructurado para que sea fácil cambiar imágenes y contenido.
 
-import { backgrounds, zones } from './config.js';
+import { backgrounds, zones, instrumentals } from './config.js';
 
 // Referencias principales al DOM
 const gameArea = document.getElementById('game-area');
@@ -47,6 +47,9 @@ zones.forEach(zone => {
   });
 });
 
+// Crear listado de instrumentales
+populateInstrumentals();
+
 // Abrir ventana al hacer click en una zona
 zonesContainer.addEventListener('click', e => {
   const target = e.target.closest('.interactive-zone');
@@ -82,6 +85,64 @@ function openPopup(id) {
  */
 function closePopup(id) {
   if (popups[id]) popups[id].classList.remove('visible');
+  if (id === 'instrumentales' && currentAudio) {
+    currentAudio.audio.pause();
+    currentAudio.audio.currentTime = 0;
+    currentAudio.button.textContent = '▶';
+    currentAudio = null;
+  }
+}
+
+// =============================
+//  Listado de instrumentales
+// =============================
+let currentAudio = null;
+
+function populateInstrumentals() {
+  const container = document.querySelector('#popup-instrumentales .popup-content');
+  if (!container) return;
+  instrumentals.forEach(inst => {
+    const item = document.createElement('div');
+    item.className = 'audio-item';
+
+    const title = document.createElement('span');
+    title.textContent = inst.name;
+
+    const btn = document.createElement('button');
+    btn.textContent = '▶';
+
+    const audio = new Audio(inst.src);
+
+    btn.addEventListener('click', () => {
+      if (currentAudio && currentAudio.audio !== audio) {
+        currentAudio.audio.pause();
+        currentAudio.audio.currentTime = 0;
+        currentAudio.button.textContent = '▶';
+      }
+
+      if (audio.paused) {
+        audio.play();
+        btn.textContent = '⏸';
+        currentAudio = { audio, button: btn };
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+        btn.textContent = '▶';
+        currentAudio = null;
+      }
+    });
+
+    audio.addEventListener('ended', () => {
+      btn.textContent = '▶';
+      if (currentAudio && currentAudio.audio === audio) {
+        currentAudio = null;
+      }
+    });
+
+    item.appendChild(title);
+    item.appendChild(btn);
+    container.appendChild(item);
+  });
 }
 
 // =============================
