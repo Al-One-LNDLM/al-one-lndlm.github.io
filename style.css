@@ -9,8 +9,10 @@
 :root {
   --bg-dark: url('assets/fondo dark.png');
   --bg-light: url('assets/fondo.png');
+  --popup-font-size: 12px;
   --popup-header-font-size: 16px;
-  --popup-content-font-size: 12px;
+  --close-btn-font-size: 16px;
+  --audio-button-font-size: 15px;
 }
 
 /* Estilos base del cuerpo */
@@ -129,7 +131,6 @@ body.light-mode {
   height: 40px;
   border-bottom: 2px solid #000;
   font-size: var(--popup-header-font-size);
-  font-size: var(--popup-header-font-size);
   font-family: 'PixelFont', monospace;
 }
 
@@ -138,7 +139,6 @@ body.light-mode {
   height: calc(100% - 20px);
   overflow-y: auto;
   font-size: var(--popup-font-size);
-  font-size: var(--popup-content-font-size);
   font-family: 'PixelFont', monospace;
 }
 
@@ -147,7 +147,6 @@ body.light-mode {
   border: none;
   color: #fff;
   font-size: var(--close-btn-font-size);
-  font-size: var(--popup-header-font-size);
   cursor: pointer;
 }
 
