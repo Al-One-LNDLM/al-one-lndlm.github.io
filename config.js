@@ -16,7 +16,7 @@ export const instrumentals = [
 export const zones = [
   {
     id: 'instrumentales',
-    img: 'assets/casa.png',
+    img: 'assets/Edificio1.png',
     position: { top: '5vh', left: '5vw' },
     popup: { title: 'Instrumentales', content: '' }
   },
