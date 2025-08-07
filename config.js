@@ -80,7 +80,7 @@ export const zones = [
   },
   {
     id: 'plugins',
-    img: 'assets/Edificio2',
+    img: 'assets/EDIFICIO2',
     position: { bottom: '5vh', right: '5vw' },
     popup: {
       title: 'Plugins',
