@@ -1,7 +1,7 @@
 // --- script.js ---
 // Código estructurado para que sea fácil cambiar imágenes y contenido.
 
-import { backgrounds, zones, instrumentals } from './config.js';
+import { backgrounds, zones, instrumentals, floatingImages } from './config.js';
 
 // Referencias principales al DOM
 const gameArea = document.getElementById('game-area');
@@ -12,6 +12,18 @@ const popupsContainer = document.getElementById('popups-container');
 
 // Objeto que guardará las ventanas emergentes generadas
 const popups = {};
+
+// =============================
+//  Imágenes posicionables
+// =============================
+floatingImages.forEach(imgData => {
+  const img = document.createElement('img');
+  img.src = imgData.src;
+  img.id = imgData.id;
+  img.className = 'floating-image';
+  Object.assign(img.style, imgData.style);
+  gameArea.appendChild(img);
+});
 
 // =============================
 //  Creación dinámica de zonas y popups
