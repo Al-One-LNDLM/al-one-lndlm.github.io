@@ -95,6 +95,11 @@ body.light-mode {
   z-index: 5000;
 }
 
+#obstacle1 { top: 25%; left: 25%; }
+#obstacle2 { top: 25%; left: 75%; }
+#obstacle3 { top: 75%; left: 25%; }
+#obstacle4 { top: 75%; left: 75%; }
+
 /* Ventanas emergentes genéricas */
 .popup {
   position: fixed;
