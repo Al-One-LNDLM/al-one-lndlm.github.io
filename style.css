@@ -81,8 +81,11 @@ body.light-mode {
   user-select: none;
 }
 
-/* Obstáculo de prueba */
-.obstacle {
+/* Elementos que bloquean al personaje (sin estilos para no afectar su apariencia) */
+.obstacle {}
+
+/* Obstáculo central de prueba */
+#obstacle {
   position: fixed;
   top: 50%;
   left: 50%;
