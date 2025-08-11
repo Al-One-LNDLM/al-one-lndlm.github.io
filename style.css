@@ -75,6 +75,12 @@ body.light-mode {
   user-select: none;
 }
 
+/* Imágenes posicionables */
+.floating-image {
+  position: absolute;
+  user-select: none;
+}
+
 /* Obstáculo de prueba */
 .obstacle {
   position: fixed;
