@@ -200,8 +200,13 @@ const offsetDistance = 20;          // Distancia respecto al cursor
 const frameWidth = 90;              // Dimensiones de cada frame en el spritesheet
 const frameHeight = 90;
 const framesPerDirection = 3;       // Número de frames por dirección
-const directions = { down: 0, left: 1, right: 2, up: 3 }; // Orden en el spritesheet
-let currentDirection = 'down';
+const directions = {
+  'down-right': 0,
+  'down-left': 1,
+  'up-right': 2,
+  'up-left': 3
+}; // Orden en el spritesheet
+let currentDirection = 'down-right';
 let frame = 1;                      // Frame actual (0-2). El 1 es el "quieto"
 let frameTick = 0;                  // Control para la velocidad de animación
 
@@ -256,11 +261,9 @@ function animateCharacter() {
     const dirY = dy / distance;
 
     // Determinar la dirección del sprite
-    if (Math.abs(dx) > Math.abs(dy)) {
-      currentDirection = dirX > 0 ? 'right' : 'left';
-    } else {
-      currentDirection = dirY > 0 ? 'down' : 'up';
-    }
+    const vertical = dy > 0 ? 'down' : 'up';
+    const horizontal = dx > 0 ? 'right' : 'left';
+    currentDirection = `${vertical}-${horizontal}`;
 
     const targetX = mouseX - dirX * offsetDistance;
     const targetY = mouseY - dirY * offsetDistance;
