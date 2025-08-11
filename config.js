@@ -81,7 +81,7 @@ export const zones = [
   {
     id: 'plugins',
     img: 'assets/EDIFICIO2.png',
-    position: { bottom: '15vh', right: '5vw' },
+    position: { bottom: '12vh', right: '5vw' },
     popup: {
       title: 'Plugins',
       content:
@@ -96,22 +96,22 @@ export const floatingImages = [
   {
     id: 'img1',
     src: 'assets/text1.png',
-    style: { top: '40vh', left: '5vw', width: '280px', height: '50px' }
+    style: { top: '40vh', left: '7vw', width: '280px', height: '50px' }
   },
   {
     id: 'img2',
     src: 'assets/text2.png',
-    style: { top: '40vh', right: '5vw', width: '280px', height: '50px' }
+    style: { top: '40vh', right: '7vw', width: '280px', height: '50px' }
   },
   {
     id: 'img3',
     src: 'assets/text3.png',
-    style: { bottom: '8vh', left: '5vw', width: '280px', height: '50px' }
+    style: { bottom: '8vh', left: '7vw', width: '280px', height: '50px' }
   },
   {
     id: 'img4',
     src: 'assets/Fuente.png',
-    style: { bottom: '43vh', right: '47vw', width: '120px', height: '120px' }
+    style: { bottom: '43vh', right: '45vw', width: '120px', height: '120px' }
   }
 ];
 

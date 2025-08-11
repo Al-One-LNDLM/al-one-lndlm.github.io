@@ -69,8 +69,8 @@ body.light-mode {
 /* Zonas interactuables */
 .interactive-zone {
   position: absolute;
-  width: 346px;
-  height: 304px;
+  width: 311px;
+  height: 273px;
   cursor: pointer;
   user-select: none;
 }
