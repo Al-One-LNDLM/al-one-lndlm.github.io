@@ -91,3 +91,27 @@ export const zones = [
   }
 ];
 
+// Imágenes adicionales con posiciones ajustables
+export const floatingImages = [
+  {
+    id: 'img1',
+    src: 'assets/moon.png',
+    style: { top: '20vh', left: '10vw', width: '60px', height: '60px' }
+  },
+  {
+    id: 'img2',
+    src: 'assets/sun.png',
+    style: { top: '20vh', right: '10vw', width: '60px', height: '60px' }
+  },
+  {
+    id: 'img3',
+    src: 'assets/casa.png',
+    style: { bottom: '20vh', left: '10vw', width: '60px', height: '60px' }
+  },
+  {
+    id: 'img4',
+    src: 'assets/Fuente.png',
+    style: { bottom: '20vh', right: '10vw', width: '60px', height: '60px' }
+  }
+];
+
