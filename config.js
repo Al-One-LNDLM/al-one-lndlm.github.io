@@ -44,7 +44,7 @@ export const zones = [
   {
     id: 'contacto',
     img: 'assets/Edificio3.png',
-    position: { bottom: '5vh', left: '5vw' },
+    position: { bottom: '10vh', left: '5vw' },
     popup: {
       title: 'Contacto',
       content: `
@@ -81,7 +81,7 @@ export const zones = [
   {
     id: 'plugins',
     img: 'assets/EDIFICIO2.png',
-    position: { bottom: '5vh', right: '5vw' },
+    position: { bottom: '10vh', right: '5vw' },
     popup: {
       title: 'Plugins',
       content:
