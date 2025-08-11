@@ -22,7 +22,7 @@ export const zones = [
   },
   {
     id: 'trabajos',
-    img: 'assets/casa.png',
+    img: 'assets/Edificio4.png',
     position: { top: '5vh', right: '5vw' },
     // Duplica el bloque <a class="video-card">…</a> para añadir más videos
     popup: {
@@ -43,7 +43,7 @@ export const zones = [
   },
   {
     id: 'contacto',
-    img: 'assets/casa.png',
+    img: 'assets/Edificio3.png',
     position: { bottom: '5vh', left: '5vw' },
     popup: {
       title: 'Contacto',
