@@ -17,13 +17,13 @@ export const zones = [
   {
     id: 'instrumentales',
     img: 'assets/Edificio1.png',
-    position: { top: '5vh', left: '5vw' },
+    position: { top: '4vh', left: '6vw' },
     popup: { title: 'Instrumentales', content: '' }
   },
   {
     id: 'trabajos',
     img: 'assets/Edificio4.png',
-    position: { top: '5vh', right: '5vw' },
+    position: { top: '4vh', right: '6vw' },
     // Duplica el bloque <a class="video-card">…</a> para añadir más videos
     popup: {
       title: 'Trabajos',
@@ -44,7 +44,7 @@ export const zones = [
   {
     id: 'contacto',
     img: 'assets/Edificio3.png',
-    position: { bottom: '15vh', left: '5vw' },
+    position: { bottom: '15vh', left: '6vw' },
     popup: {
       title: 'Contacto',
       content: `
@@ -81,7 +81,7 @@ export const zones = [
   {
     id: 'plugins',
     img: 'assets/EDIFICIO2.png',
-    position: { bottom: '12vh', right: '5vw' },
+    position: { bottom: '12vh', right: '6vw' },
     popup: {
       title: 'Plugins',
       content:
@@ -111,7 +111,7 @@ export const floatingImages = [
   {
     id: 'img4',
     src: 'assets/Fuente.png',
-    style: { bottom: '43vh', right: '45vw', width: '120px', height: '120px' }
+    style: { bottom: '43vh', right: '46vw', width: '120px', height: '120px' }
   }
 ];
 
