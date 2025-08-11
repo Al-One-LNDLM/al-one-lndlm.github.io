@@ -150,7 +150,8 @@ body.light-mode {
 
 .close-btn {
   background: none;
-  border: none;
+  border: 2px;
+  border-color: #fff;
   color: #fff;
   font-size: var(--close-btn-font-size);
   cursor: pointer;
