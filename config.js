@@ -44,7 +44,7 @@ export const zones = [
   {
     id: 'contacto',
     img: 'assets/Edificio3.png',
-    position: { bottom: '10vh', left: '5vw' },
+    position: { bottom: '15vh', left: '5vw' },
     popup: {
       title: 'Contacto',
       content: `
@@ -81,7 +81,7 @@ export const zones = [
   {
     id: 'plugins',
     img: 'assets/EDIFICIO2.png',
-    position: { bottom: '10vh', right: '5vw' },
+    position: { bottom: '15vh', right: '5vw' },
     popup: {
       title: 'Plugins',
       content:
@@ -96,22 +96,22 @@ export const floatingImages = [
   {
     id: 'img1',
     src: 'assets/text1.png',
-    style: { top: '35vh', left: '10vw', width: '336px', height: '60px' }
+    style: { top: '40vh', left: '5vw', width: '336px', height: '60px' }
   },
   {
     id: 'img2',
     src: 'assets/text2.png',
-    style: { top: '35vh', right: '10vw', width: '336px', height: '60px' }
+    style: { top: '40vh', right: '5vw', width: '336px', height: '60px' }
   },
   {
     id: 'img3',
     src: 'assets/text3.png',
-    style: { bottom: '10vh', left: '10vw', width: '336px', height: '60px' }
+    style: { bottom: '8vh', left: '5vw', width: '336px', height: '60px' }
   },
   {
     id: 'img4',
     src: 'assets/Fuente.png',
-    style: { bottom: '50vh', right: '50vw', width: '150px', height: '150px' }
+    style: { bottom: '43vh', right: '43vw', width: '120px', height: '120px' }
   }
 ];
 
