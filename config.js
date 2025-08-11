@@ -96,12 +96,12 @@ export const floatingImages = [
   {
     id: 'img1',
     src: 'assets/text1.png',
-    style: { top: '40vh', left: '7vw', width: '280px', height: '50px' }
+    style: { top: '39vh', left: '7vw', width: '280px', height: '50px' }
   },
   {
     id: 'img2',
     src: 'assets/text2.png',
-    style: { top: '40vh', right: '7vw', width: '280px', height: '50px' }
+    style: { top: '39vh', right: '7vw', width: '280px', height: '50px' }
   },
   {
     id: 'img3',
