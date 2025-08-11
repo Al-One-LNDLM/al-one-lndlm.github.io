@@ -96,7 +96,7 @@ export const floatingImages = [
   {
     id: 'img1',
     src: 'assets/text1.png',
-    style: { top: '20vh', left: '10vw', width: '336px', height: '60px' }
+    style: { top: '50vh', left: '10vw', width: '336px', height: '60px' }
   },
   {
     id: 'img2',
