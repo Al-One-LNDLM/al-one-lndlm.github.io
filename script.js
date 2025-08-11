@@ -32,7 +32,8 @@ zones.forEach(zone => {
   // Imagen clicable
   const img = document.createElement('img');
   img.src = zone.img;
-  img.className = 'interactive-zone';
+  // También actúa como obstáculo para bloquear el movimiento
+  img.classList.add('interactive-zone', 'obstacle');
   Object.assign(img.style, zone.position); // top/left/etc.
   img.dataset.popup = zone.id; // relacionar con ventana
   zonesContainer.appendChild(img);
