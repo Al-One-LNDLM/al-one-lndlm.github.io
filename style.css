@@ -319,3 +319,31 @@ body.light-mode .audio-item {
 body.light-mode .audio-item button {
   color: inherit;
 }
+
+#mobile-menu {
+  display: none;
+  padding: 20px;
+}
+
+.mobile-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #mobile-menu {
+    display: block;
+  }
+
+  #game-area {
+    display: none;
+  }
+
+  .popup {
+    width: 95vw;
+    height: 90vh;
+  }
+}

@@ -9,6 +9,7 @@ const character = document.getElementById('character');
 const toggleBtn = document.getElementById('toggle-theme');
 const zonesContainer = document.getElementById('zones-container');
 const popupsContainer = document.getElementById('popups-container');
+const mobileMenu = document.getElementById('mobile-menu');
 
 // Objeto que guardará las ventanas emergentes generadas
 const popups = {};
@@ -59,6 +60,21 @@ zones.forEach(zone => {
   });
 });
 
+// Menú móvil generado dinámicamente
+zones.forEach(zone => {
+  const item = document.createElement('div');
+  item.className = 'mobile-item';
+  item.dataset.popup = zone.id;
+  const img = document.createElement('img');
+  img.src = zone.listLabel;
+  img.alt = zone.id;
+  item.appendChild(img);
+  const label = document.createElement('span');
+  label.textContent = zone.popup.title;
+  item.appendChild(label);
+  mobileMenu.appendChild(item);
+});
+
 // Crear listado de instrumentales
 populateInstrumentals();
 
@@ -73,6 +89,12 @@ popupsContainer.addEventListener('click', e => {
   if (e.target.matches('.close-btn')) {
     closePopup(e.target.dataset.close);
   }
+});
+
+// Abrir ventana al seleccionar un elemento del menú móvil
+mobileMenu.addEventListener('click', e => {
+  const target = e.target.closest('.mobile-item');
+  if (target) openPopup(target.dataset.popup);
 });
 
 /**
