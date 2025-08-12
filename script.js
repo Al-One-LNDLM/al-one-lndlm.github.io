@@ -209,7 +209,7 @@ const directions = {
 }; // Orden en el spritesheet
 let currentDirection = 'idle';
 let frame = 0;                      // Frame actual (0-3)
-let frameTick = 0.2;                  // Control para la velocidad de animación
+let frameTick = 0;                  // Control para la velocidad de animación
 
 const obstacles = Array.from(document.querySelectorAll('.obstacle'));
 
@@ -278,7 +278,7 @@ function animateCharacter() {
   }
 
   frameTick++;
-  if (frameTick >= 10) { // cambiar este número para acelerar/ralentizar
+  if (frameTick >= 30) { // cambiar este número para acelerar/ralentizar
     frame = (frame + 1) % framesPerDirection;
     frameTick = 0;
   }
