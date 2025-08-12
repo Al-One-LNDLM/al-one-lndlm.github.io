@@ -254,8 +254,10 @@ function updateSprite() {
  * y gestiona la animación del spritesheet.
  */
 function animateCharacter() {
-  const dx = mouseX - currentX;
-  const dy = mouseY - currentY;
+  let centerX = currentX + frameWidth / 2;
+  let centerY = currentY + frameHeight / 2;
+  const dx = mouseX - centerX;
+  const dy = mouseY - centerY;
   const distance = Math.hypot(dx, dy);
 
   let dirX = 0;
@@ -270,7 +272,7 @@ function animateCharacter() {
     targetY = mouseY - dirY * offsetDistance;
   }
 
-  const targetDistance = Math.hypot(targetX - currentX, targetY - currentY);
+  const targetDistance = Math.hypot(targetX - centerX, targetY - centerY);
 
   if (targetDistance > idleThreshold) {
     // Determinar la dirección del sprite según la posición del ratón
@@ -280,11 +282,17 @@ function animateCharacter() {
 
     const targetX = mouseX - dirX;
     const targetY = mouseY - dirY * offsetDistance;
-    let nextX = currentX + (targetX - currentX) * speed;
-    let nextY = currentY + (targetY - currentY) * speed;
+    const nextCenterX = centerX + (targetX - centerX) * speed;
+    const nextCenterY = centerY + (targetY - centerY) * speed;
+
+    const nextX = nextCenterX - frameWidth / 2;
+    const nextY = nextCenterY - frameHeight / 2;
 
     if (!isColliding(nextX, currentY)) currentX = nextX;
     if (!isColliding(currentX, nextY)) currentY = nextY;
+
+    centerX = currentX + frameWidth / 2;
+    centerY = currentY + frameHeight / 2;
   } else {
     currentDirection = 'idle';
   }
@@ -295,7 +303,7 @@ function animateCharacter() {
     frameTick = 0;
   }
 
-  character.style.transform = `translate(${currentX}px, ${currentY}px)`;
+  character.style.transform = `translate(${centerX - frameWidth / 2}px, ${centerY - frameHeight / 2}px)`;
   updateSprite();
   requestAnimationFrame(animateCharacter);
 }
