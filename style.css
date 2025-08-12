@@ -95,10 +95,30 @@ body.light-mode {
   z-index: 5000;
 }
 
-#obstacle1 { top: 25%; left: 20%; }
-#obstacle2 { top: 25%; left: 80%; }
-#obstacle3 { top: 75%; left: 20%; }
-#obstacle4 { top: 75%; left: 80%; }
+#obstacle1 { 
+  top: 25%; 
+  left: 20%; 
+  width: 70px;
+  height: 70px;
+}
+#obstacle2 { 
+  top: 25%; 
+  left: 80%; 
+  width: 70px;
+  height: 70px;
+}
+#obstacle3 { 
+  top: 75%; 
+  left: 20%; 
+  width: 70px;
+  height: 70px;
+}
+#obstacle4 { 
+  top: 75%; 
+  left: 80%;
+  width: 70px;
+  height: 70px;
+}
 
 /* Ventanas emergentes genéricas */
 .popup {
