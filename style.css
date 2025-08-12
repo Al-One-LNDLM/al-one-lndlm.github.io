@@ -338,10 +338,10 @@ body.light-mode .audio-item button {
   color: #000;
 }
 
-.item-instrumentales { background: #f4a261; }
-.item-trabajos       { background: #2a9d8f; }
-.item-contacto       { background: #e9c46a; }
-.item-plugins        { background: #e76f51; }
+.item-instrumentales { background: #bd75c4; }
+.item-trabajos       { background: #4683d9; }
+.item-contacto       { background: #ffffff; }
+.item-plugins        { background: #7d461d; }
 
 @media (max-width: 768px) {
   #mobile-menu {
