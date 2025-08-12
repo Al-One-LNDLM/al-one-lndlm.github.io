@@ -333,6 +333,17 @@ body.light-mode .audio-item button {
   cursor: pointer;
 }
 
+#mobile-menu img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.mobile-item .label,
+.mobile-item .building {
+  width: 40vw; /* Ajustar según el diseño deseado */
+}
+
 @media (max-width: 768px) {
   #mobile-menu {
     display: block;
