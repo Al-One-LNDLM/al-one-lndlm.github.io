@@ -331,11 +331,13 @@ body.light-mode .audio-item button {
   border: 5px solid #000;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: bold;
+  justify-content: space-between;
   cursor: pointer;
-  color: #000;
+}
+
+.mobile-item img {
+  height: 100%;
+  object-fit: contain;
 }
 
 .item-instrumentales { background: #bd75c4; }
