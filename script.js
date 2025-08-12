@@ -207,9 +207,9 @@ const directions = {
   'up-left': 3,
   'idle': 4
 }; // Orden en el spritesheet
-let currentDirection = 'down-right';
+let currentDirection = 'idle';
 let frame = 0;                      // Frame actual (0-3)
-let frameTick = 0;                  // Control para la velocidad de animación
+let frameTick = 0.2;                  // Control para la velocidad de animación
 
 const obstacles = Array.from(document.querySelectorAll('.obstacle'));
 
