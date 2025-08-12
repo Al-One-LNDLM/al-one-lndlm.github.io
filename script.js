@@ -195,7 +195,8 @@ setBackground();
 let mouseX = 0, mouseY = 0;         // Posición actual del ratón
 let currentX = 0, currentY = 0;     // Posición actual del personaje
 const speed = 0.006;                 // Velocidad de movimiento del personaje
-const offsetDistance = 20;          // Distancia respecto al cursor
+const offsetDistance = 0;          // Distancia respecto al cursor
+const idleThreshold = 30;            // Radio para activar animación "idle"
 
 const frameWidth = 90;              // Dimensiones de cada frame en el spritesheet
 const frameHeight = 90;
@@ -257,11 +258,22 @@ function animateCharacter() {
   const dy = mouseY - currentY;
   const distance = Math.hypot(dx, dy);
 
-  if (distance > 2.5) {
-    const dirX = dx / distance;
-    const dirY = dy / distance;
+  let dirX = 0;
+  let dirY = 0;
+  let targetX = mouseX;
+  let targetY = mouseY;
 
-    // Determinar la dirección del sprite
+  if (distance !== 0) {
+    dirX = dx / distance;
+    dirY = dy / distance;
+    targetX = mouseX - dirX * offsetDistance;
+    targetY = mouseY - dirY * offsetDistance;
+  }
+
+  const targetDistance = Math.hypot(targetX - currentX, targetY - currentY);
+
+  if (targetDistance > idleThreshold) {
+    // Determinar la dirección del sprite según la posición del ratón
     const vertical = dy > 0 ? 'down' : 'up';
     const horizontal = dx > 0 ? 'right' : 'left';
     currentDirection = `${vertical}-${horizontal}`;
