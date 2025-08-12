@@ -61,7 +61,7 @@ body.light-mode {
   width: 90px;
   height: 90px;
   background: url('assets/spritesheet.png') no-repeat 0 0;
-  background-size: 270px 360px; /* 3 columnas x 4 filas */
+  background-size: 360px 450px; /* 4 columnas x 5 filas */
   image-rendering: pixelated;
   pointer-events: none;
 }
