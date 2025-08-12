@@ -343,11 +343,15 @@ body.light-mode .audio-item button {
 }
 
 .mobile-item .label {
-  max-width: 45%;
+  margin-right: auto;
+  text-align: left;
+  max-width: 50%;
 }
 
 .mobile-item .building {
-  max-width: 45%;
+  margin-left: auto;
+  text-align: right;
+  max-width: 50%;
 }
 
 @media (max-width: 768px) {
