@@ -199,15 +199,16 @@ const offsetDistance = 20;          // Distancia respecto al cursor
 
 const frameWidth = 90;              // Dimensiones de cada frame en el spritesheet
 const frameHeight = 90;
-const framesPerDirection = 3;       // Número de frames por dirección
+const framesPerDirection = 4;       // Número de frames por dirección
 const directions = {
   'down-right': 0,
   'down-left': 1,
   'up-right': 2,
-  'up-left': 3
+  'up-left': 3,
+  'idle': 4
 }; // Orden en el spritesheet
 let currentDirection = 'down-right';
-let frame = 1;                      // Frame actual (0-2). El 1 es el "quieto"
+let frame = 0;                      // Frame actual (0-3)
 let frameTick = 0;                  // Control para la velocidad de animación
 
 const obstacles = Array.from(document.querySelectorAll('.obstacle'));
@@ -272,15 +273,14 @@ function animateCharacter() {
 
     if (!isColliding(nextX, currentY)) currentX = nextX;
     if (!isColliding(currentX, nextY)) currentY = nextY;
-
-    // Avance de animación solo cuando se mueve
-    frameTick++;
-    if (frameTick >= 10) { // cambiar este número para acelerar/ralentizar
-      frame = (frame + 1) % framesPerDirection;
-      frameTick = 0;
-    }
   } else {
-    frame = 1; // frame central cuando está parado
+    currentDirection = 'idle';
+  }
+
+  frameTick++;
+  if (frameTick >= 10) { // cambiar este número para acelerar/ralentizar
+    frame = (frame + 1) % framesPerDirection;
+    frameTick = 0;
   }
 
   character.style.transform = `translate(${currentX}px, ${currentY}px)`;
