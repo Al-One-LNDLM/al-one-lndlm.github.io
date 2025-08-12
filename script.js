@@ -65,7 +65,16 @@ zones.forEach(zone => {
   const item = document.createElement('div');
   item.className = `mobile-item item-${zone.id}`;
   item.dataset.popup = zone.id;
-  item.textContent = zone.popup.title;
+  const leftImg = document.createElement('img');
+  leftImg.src = zone.img;
+  leftImg.alt = zone.id;
+
+  const rightImg = document.createElement('img');
+  rightImg.src = zone.listLabel;
+  rightImg.alt = `${zone.id}-label`;
+
+  item.appendChild(leftImg);
+  item.appendChild(rightImg);
   mobileMenu.appendChild(item);
 });
 
