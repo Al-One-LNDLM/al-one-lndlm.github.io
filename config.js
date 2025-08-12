@@ -50,11 +50,11 @@ export const zones = [
       content: `
         <div class="contact-popup">
           <div class="social-column">
-            <a href="https://twitter.com/" target="_blank">
-              <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" style="width:48px;height:48px;margin:4px;" />
+            <a href="https://www.youtube.com/@LNDLM1312" target="_blank">
+              <img src="https://yt.png" alt="Twitter" style="width:48px;height:48px;margin:4px;" />
             </a>
-            <a href="https://instagram.com/" target="_blank">
-              <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" style="width:48px;height:48px;margin:4px;" />
+            <a href="https://www.instagram.com/al.one.wav/" target="_blank">
+              <img src="insta.png" alt="Instagram" style="width:36px;height:36px;margin:4px;" />
             </a>
           </div>
           <div class="form-column">
