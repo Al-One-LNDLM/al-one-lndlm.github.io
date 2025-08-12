@@ -88,7 +88,7 @@ body.light-mode {
   left: 50%;
   width: 50px;
   height: 40px;
-  background: rgba(255,0,0,0.5);
+  background: rgba(255,0,0,0.0);
   border-radius: 12px;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -98,25 +98,25 @@ body.light-mode {
 #obstacle1 { 
   top: 30%; 
   left: 16%; 
-  width: 180px;
+  width: 220px;
   height: 90px;
 }
 #obstacle2 { 
   top: 30%; 
   left: 84%; 
-  width: 180px;
+  width: 220px;
   height: 90px;
 }
 #obstacle3 { 
   top: 77%; 
   left: 16%; 
-  width: 180px;
+  width: 220px;
   height: 90px;
 }
 #obstacle4 { 
   top: 75%; 
   left: 84%;
-  width: 180px;
+  width: 220px;
   height: 90px;
 }
 
