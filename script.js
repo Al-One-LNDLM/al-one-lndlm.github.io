@@ -266,7 +266,7 @@ function animateCharacter() {
     const horizontal = dx > 0 ? 'right' : 'left';
     currentDirection = `${vertical}-${horizontal}`;
 
-    const targetX = mouseX - dirX * offsetDistance;
+    const targetX = mouseX - dirX;
     const targetY = mouseY - dirY * offsetDistance;
     let nextX = currentX + (targetX - currentX) * speed;
     let nextY = currentY + (targetY - currentY) * speed;
