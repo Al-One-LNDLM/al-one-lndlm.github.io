@@ -257,17 +257,26 @@ function animateCharacter() {
   const dy = mouseY - currentY;
   const distance = Math.hypot(dx, dy);
 
-  if (distance > 2.5) {
-    const dirX = dx / distance;
-    const dirY = dy / distance;
+  let dirX = 0;
+  let dirY = 0;
+  let targetX = mouseX;
+  let targetY = mouseY;
 
-    // Determinar la dirección del sprite
+  if (distance !== 0) {
+    dirX = dx / distance;
+    dirY = dy / distance;
+    targetX = mouseX - dirX * offsetDistance;
+    targetY = mouseY - dirY * offsetDistance;
+  }
+
+  const targetDistance = Math.hypot(targetX - currentX, targetY - currentY);
+
+  if (targetDistance > 2.5) {
+    // Determinar la dirección del sprite según la posición del ratón
     const vertical = dy > 0 ? 'down' : 'up';
     const horizontal = dx > 0 ? 'right' : 'left';
     currentDirection = `${vertical}-${horizontal}`;
 
-    const targetX = mouseX - dirX * offsetDistance;
-    const targetY = mouseY - dirY * offsetDistance;
     let nextX = currentX + (targetX - currentX) * speed;
     let nextY = currentY + (targetY - currentY) * speed;
 
