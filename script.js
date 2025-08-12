@@ -65,13 +65,17 @@ zones.forEach(zone => {
   const item = document.createElement('div');
   item.className = 'mobile-item';
   item.dataset.popup = zone.id;
-  const img = document.createElement('img');
-  img.src = zone.listLabel;
-  img.alt = zone.id;
-  item.appendChild(img);
-  const label = document.createElement('span');
-  label.textContent = zone.popup.title;
-  item.appendChild(label);
+
+  const labelImg = document.createElement('img');
+  labelImg.src = zone.listLabel;
+  labelImg.className = 'label';
+  item.appendChild(labelImg);
+
+  const buildingImg = document.createElement('img');
+  buildingImg.src = zone.img;
+  buildingImg.className = 'building';
+  item.appendChild(buildingImg);
+
   mobileMenu.appendChild(item);
 });
 
