@@ -310,3 +310,34 @@ function animateCharacter() {
 
 // Inicia la animación del personaje
 animateCharacter();
+
+// =============================
+//  Envío del formulario de contacto
+// =============================
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: {
+          Accept: 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        alert('Mensaje enviado');
+        form.reset();
+      } else {
+        alert('Hubo un error al enviar el mensaje');
+      }
+    } catch (err) {
+      alert('Hubo un error al enviar el mensaje');
+    }
+  });
+}

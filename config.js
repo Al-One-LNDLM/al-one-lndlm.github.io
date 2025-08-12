@@ -58,7 +58,7 @@ export const zones = [
             </a>
           </div>
           <div class="form-column">
-            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <form id="contact-form" action="https://formspree.io/f/xldlzpew" method="POST">
               <label>
                 Nombre
                 <input type="text" name="name" required />
