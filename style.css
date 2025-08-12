@@ -73,6 +73,12 @@ body.light-mode {
   height: 273px;
   cursor: pointer;
   user-select: none;
+  transition: transform 0.2s ease;
+  transform-origin: center;
+}
+
+.interactive-zone:hover {
+  transform: scale(1.05);  
 }
 
 /* Imágenes posicionables */
