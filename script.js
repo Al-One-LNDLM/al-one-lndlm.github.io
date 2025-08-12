@@ -63,19 +63,9 @@ zones.forEach(zone => {
 // Menú móvil generado dinámicamente
 zones.forEach(zone => {
   const item = document.createElement('div');
-  item.className = 'mobile-item';
+  item.className = `mobile-item item-${zone.id}`;
   item.dataset.popup = zone.id;
-
-  const labelImg = document.createElement('img');
-  labelImg.src = zone.listLabel;
-  labelImg.className = 'label';
-  item.appendChild(labelImg);
-
-  const buildingImg = document.createElement('img');
-  buildingImg.src = zone.img;
-  buildingImg.className = 'building';
-  item.appendChild(buildingImg);
-
+  item.textContent = zone.popup.title;
   mobileMenu.appendChild(item);
 });
 
