@@ -87,7 +87,7 @@ body.light-mode {
   top: 52%;
   left: 50%;
   width: 50px;
-  height: 50px;
+  height: 40px;
   background: rgba(255,0,0,0.5);
   border-radius: 12px;
   transform: translate(-50%, -50%);
@@ -97,26 +97,26 @@ body.light-mode {
 
 #obstacle1 { 
   top: 30%; 
-  left: 17%; 
-  width: 150px;
+  left: 16%; 
+  width: 180px;
   height: 90px;
 }
 #obstacle2 { 
   top: 30%; 
-  left: 83%; 
-  width: 150px;
+  left: 84%; 
+  width: 180px;
   height: 90px;
 }
 #obstacle3 { 
   top: 77%; 
-  left: 17%; 
-  width: 150px;
+  left: 16%; 
+  width: 180px;
   height: 90px;
 }
 #obstacle4 { 
   top: 75%; 
-  left: 83%;
-  width: 150px;
+  left: 84%;
+  width: 180px;
   height: 90px;
 }
 
