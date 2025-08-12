@@ -327,9 +327,12 @@ body.light-mode .audio-item button {
 
 .mobile-item {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 10px;
+  background: #ddd;        /* color sólido */
+  border: 4px solid #000;  /* borde negro */
+  padding: 10px;
+  margin: 8px 0;
   cursor: pointer;
 }
 
@@ -339,9 +342,12 @@ body.light-mode .audio-item button {
   display: block;
 }
 
-.mobile-item .label,
+.mobile-item .label {
+  max-width: 45%;
+}
+
 .mobile-item .building {
-  width: 40vw; /* Ajustar según el diseño deseado */
+  max-width: 45%;
 }
 
 @media (max-width: 768px) {
