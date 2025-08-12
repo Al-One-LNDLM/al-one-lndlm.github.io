@@ -51,10 +51,10 @@ export const zones = [
         <div class="contact-popup">
           <div class="social-column">
             <a href="https://www.youtube.com/@LNDLM1312" target="_blank">
-              <img src="https://yt.png" alt="Twitter" style="width:48px;height:48px;margin:4px;" />
+              <img src="assets/yt.png" alt="Twitter" style="width:48px;height:48px;margin:4px;" />
             </a>
             <a href="https://www.instagram.com/al.one.wav/" target="_blank">
-              <img src="insta.png" alt="Instagram" style="width:36px;height:36px;margin:4px;" />
+              <img src="assets/insta.png" alt="Instagram" style="width:36px;height:36px;margin:4px;" />
             </a>
           </div>
           <div class="form-column">
