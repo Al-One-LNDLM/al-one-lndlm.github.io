@@ -10,6 +10,10 @@ const toggleBtn = document.getElementById('toggle-theme');
 const zonesContainer = document.getElementById('zones-container');
 const popupsContainer = document.getElementById('popups-container');
 const mobileMenu = document.getElementById('mobile-menu');
+const mobileGame = document.getElementById('mobile-game');
+const mobileGameArea = document.getElementById('mobile-game-area');
+const mobileCharacter = document.getElementById('mobile-character');
+const mobileZonesContainer = document.getElementById('mobile-zones-container');
 
 // Ajuste de unidades vh en móviles
 function updateVh() {
@@ -44,6 +48,15 @@ zones.forEach(zone => {
   Object.assign(img.style, zone.position); // top/left/etc.
   img.dataset.popup = zone.id; // relacionar con ventana
   zonesContainer.appendChild(img);
+
+  if (mobileZonesContainer) {
+    const mobileImg = document.createElement('img');
+    mobileImg.src = zone.img;
+    mobileImg.className = 'interactive-zone';
+    Object.assign(mobileImg.style, zone.position);
+    mobileImg.dataset.popup = zone.id;
+    mobileZonesContainer.appendChild(mobileImg);
+  }
 
   // Ventana asociada
   const popup = document.createElement('div');
@@ -93,6 +106,13 @@ zonesContainer.addEventListener('click', e => {
   const target = e.target.closest('.interactive-zone');
   if (target) openPopup(target.dataset.popup);
 });
+
+if (mobileZonesContainer) {
+  mobileZonesContainer.addEventListener('click', e => {
+    const target = e.target.closest('.interactive-zone');
+    if (target) openPopup(target.dataset.popup);
+  });
+}
 
 // Cerrar ventana al pulsar su botón
 popupsContainer.addEventListener('click', e => {
@@ -198,7 +218,9 @@ function populateInstrumentals() {
  */
 function setBackground() {
   const isLight = document.body.classList.contains('light-mode');
-  gameArea.style.backgroundImage = `url('${isLight ? backgrounds.light : backgrounds.dark}')`;
+  const bg = `url('${isLight ? backgrounds.light : backgrounds.dark}')`;
+  gameArea.style.backgroundImage = bg;
+  if (mobileGameArea) mobileGameArea.style.backgroundImage = bg;
 }
 
 /**
@@ -342,6 +364,127 @@ function animateCharacter() {
 
 // Inicia la animación del personaje
 animateCharacter();
+
+// =============================
+//  Juego móvil
+// =============================
+function initMobileGame() {
+  if (!mobileGameArea || !mobileCharacter) return;
+
+  let mouseX = 0, mouseY = 0;
+  let currentX = 0, currentY = 0;
+  let currentDirection = 'idle';
+  let frame = 0;
+  let frameTick = 0;
+
+  const obstacles = Array.from(mobileGameArea.querySelectorAll('.obstacle'));
+
+  function updatePointer(e) {
+    const rect = mobileGameArea.getBoundingClientRect();
+    mouseX = e.clientX - rect.left;
+    mouseY = e.clientY - rect.top;
+  }
+
+  mobileGameArea.addEventListener('pointerdown', updatePointer);
+  mobileGameArea.addEventListener('pointermove', updatePointer);
+
+  function isColliding(x, y, width = frameWidth, height = frameHeight) {
+    const areaRect = mobileGameArea.getBoundingClientRect();
+    return obstacles.some(ob => {
+      const rect = ob.getBoundingClientRect();
+      const left = rect.left - areaRect.left;
+      const top = rect.top - areaRect.top;
+      return (
+        x < left + rect.width &&
+        x + width > left &&
+        y < top + rect.height &&
+        y + height > top
+      );
+    });
+  }
+
+  function updateSprite() {
+    const row = directions[currentDirection];
+    const x = frame * frameWidth;
+    const y = row * frameHeight;
+    mobileCharacter.style.backgroundPosition = `-${x}px -${y}px`;
+  }
+
+  function animate() {
+    let centerX = currentX + frameWidth / 2;
+    let centerY = currentY + frameHeight / 2;
+    const dx = mouseX - centerX;
+    const dy = mouseY - centerY;
+    const distance = Math.hypot(dx, dy);
+
+    let dirX = 0;
+    let dirY = 0;
+    let targetX = mouseX;
+    let targetY = mouseY;
+
+    if (distance !== 0) {
+      dirX = dx / distance;
+      dirY = dy / distance;
+      targetX = mouseX - dirX * offsetDistance;
+      targetY = mouseY - dirY * offsetDistance;
+    }
+
+    const targetDistance = Math.hypot(targetX - centerX, targetY - centerY);
+
+    if (targetDistance > idleThreshold) {
+      const vertical = dy > 0 ? 'down' : 'up';
+      const horizontal = dx > 0 ? 'right' : 'left';
+      currentDirection = `${vertical}-${horizontal}`;
+
+      const nextCenterX = centerX + (targetX - centerX) * speed;
+      const nextCenterY = centerY + (targetY - centerY) * speed;
+
+      const nextX = nextCenterX - frameWidth / 2;
+      const nextY = nextCenterY - frameHeight / 2;
+
+      if (!isColliding(nextX, currentY)) currentX = nextX;
+      if (!isColliding(currentX, nextY)) currentY = nextY;
+
+      centerX = currentX + frameWidth / 2;
+      centerY = currentY + frameHeight / 2;
+    } else {
+      currentDirection = 'idle';
+    }
+
+    frameTick++;
+    if (frameTick >= 30) {
+      frame = (frame + 1) % framesPerDirection;
+      frameTick = 0;
+    }
+
+    mobileCharacter.style.transform = `translate(${centerX - frameWidth / 2}px, ${centerY - frameHeight / 2}px)`;
+    updateSprite();
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+}
+
+let mobileGameInitialized = false;
+const mq = window.matchMedia('(max-width: 768px)');
+
+function handleMediaQuery(e) {
+  if (!mobileGame) return;
+  if (e.matches) {
+    mobileGame.style.display = 'block';
+    if (gameArea) gameArea.style.display = 'none';
+    if (!mobileGameInitialized) {
+      initMobileGame();
+      mobileGameInitialized = true;
+    }
+  } else {
+    mobileGame.style.display = 'none';
+    if (gameArea) gameArea.style.display = 'block';
+  }
+}
+
+handleMediaQuery(mq);
+mq.addEventListener('change', handleMediaQuery);
 
 // =============================
 //  Envío del formulario de contacto
