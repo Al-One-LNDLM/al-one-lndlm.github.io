@@ -10,7 +10,6 @@ const toggleBtn = document.getElementById('toggle-theme');
 const zonesContainer = document.getElementById('zones-container');
 const popupsContainer = document.getElementById('popups-container');
 const mobileMenu = document.getElementById('mobile-menu');
-const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
 const mobileGame = document.getElementById('mobile-game');
 const mobileGameArea = document.getElementById('mobile-game-area');
 const mobileCharacter = document.getElementById('mobile-character');
@@ -125,17 +124,8 @@ popupsContainer.addEventListener('click', e => {
 // Abrir ventana al seleccionar un elemento del menú móvil
 mobileMenu.addEventListener('click', e => {
   const target = e.target.closest('.mobile-item');
-  if (target) {
-    openPopup(target.dataset.popup);
-    mobileMenu.classList.remove('open');
-  }
+  if (target) openPopup(target.dataset.popup);
 });
-
-if (mobileMenuToggle) {
-  mobileMenuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('open');
-  });
-}
 
 /**
  * Muestra la ventana emergente asociada al identificador indicado
