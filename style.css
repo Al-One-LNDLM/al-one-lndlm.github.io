@@ -229,7 +229,16 @@ body.light-mode {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+}
+
+.social-column a:first-of-type {
+  margin-top: auto;
+}
+
+.social-column a:last-of-type {
+  margin-bottom: auto;
 }
 
 .social-column img {
@@ -240,8 +249,10 @@ body.light-mode {
 .form-column {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-top: 20px;
 }
 
 #contact-form {
@@ -250,6 +261,8 @@ body.light-mode {
   gap: 8px;
   font-family: 'PixelFont', monospace;
   margin: 0 auto;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 #contact-form label {
