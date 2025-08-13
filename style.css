@@ -233,14 +233,6 @@ body.light-mode {
   padding-top: 20px;
 }
 
-.social-column a:first-of-type {
-  margin-top: auto;
-}
-
-.social-column a:last-of-type {
-  margin-bottom: auto;
-}
-
 .social-column img {
   image-rendering: pixelated;
   cursor: pointer;
@@ -261,8 +253,6 @@ body.light-mode {
   gap: 8px;
   font-family: 'PixelFont', monospace;
   margin: 0 auto;
-  margin-top: auto;
-  margin-bottom: auto;
 }
 
 #contact-form label {
