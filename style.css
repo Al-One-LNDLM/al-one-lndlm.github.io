@@ -391,7 +391,22 @@ body.light-mode .audio-item button {
     height: 28%;
   }
 
+  #mobile-game {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
   #game-area {
+    display: block;
+    width: 90vw;
+    height: 90vw;
+    overflow: hidden;
+  }
+
+  #zones-container,
+  .floating-image,
+  .obstacle {
     display: none;
   }
 
