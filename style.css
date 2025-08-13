@@ -381,6 +381,11 @@ body.light-mode .audio-item button {
     display: none;
   }
 
+  /* Oculta el botón de cambio de modo en pantallas móviles */
+  #toggle-theme {
+    display: none;
+  }
+
   .popup {
     width: 95vw;
     height: 90vh;
