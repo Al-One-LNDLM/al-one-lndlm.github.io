@@ -404,4 +404,69 @@ body.light-mode .audio-item button {
     width: 95vw;
     height: 90vh;
   }
+
+  #mobile-game {
+    display: block;
+  }
+
+  #mobile-game-area {
+    position: relative;
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100);
+    background: var(--bg-dark) no-repeat center/cover;
+  }
+
+  #mobile-character {
+    position: absolute;
+    width: 90px;
+    height: 90px;
+    background: url('assets/spritesheet.png') no-repeat 0 0;
+    background-size: 360px 450px;
+    image-rendering: pixelated;
+    pointer-events: none;
+  }
+
+  #mobile-game-area .obstacle {
+    position: absolute;
+    background: rgba(255,0,0,0.0);
+    border-radius: 12px;
+    pointer-events: none;
+    z-index: 5000;
+  }
+
+  #mobile-obstacle {
+    top: 52%;
+    left: 50%;
+    width: 2.6vw;
+    height: 3.7vh;
+    transform: translate(-50%, -50%);
+  }
+
+  #mobile-obstacle1 {
+    top: 30%;
+    left: 16%;
+    width: 11.5vw;
+    height: 8.3vh;
+  }
+
+  #mobile-obstacle2 {
+    top: 30%;
+    left: 84%;
+    width: 11.5vw;
+    height: 8.3vh;
+  }
+
+  #mobile-obstacle3 {
+    top: 77%;
+    left: 16%;
+    width: 11.5vw;
+    height: 8.3vh;
+  }
+
+  #mobile-obstacle4 {
+    top: 75%;
+    left: 84%;
+    width: 11.5vw;
+    height: 8.3vh;
+  }
 }
