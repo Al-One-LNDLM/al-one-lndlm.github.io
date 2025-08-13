@@ -51,7 +51,7 @@ body.light-mode {
 #game-area {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background: var(--bg-dark) no-repeat center/cover;
 }
 
@@ -67,10 +67,11 @@ body.light-mode {
 }
 
 /* Zonas interactuables */
+
 .interactive-zone {
   position: absolute;
-  width: 311px;
-  height: 273px;
+  width: clamp(120px, 20vw, 311px);
+  height: auto;
   cursor: pointer;
   user-select: none;
   transition: transform 0.2s ease;
@@ -78,13 +79,22 @@ body.light-mode {
 }
 
 .interactive-zone:hover {
-  transform: scale(1.05);  
+  transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+  .interactive-zone {
+    width: 40vw;
+  }
 }
 
 /* Imágenes posicionables */
 .floating-image {
   position: absolute;
   user-select: none;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 /* Obstáculo de prueba */
@@ -92,8 +102,8 @@ body.light-mode {
   position: fixed;
   top: 52%;
   left: 50%;
-  width: 50px;
-  height: 40px;
+  width: 2.6vw;
+  height: 3.7vh;
   background: rgba(255,0,0,0.0);
   border-radius: 12px;
   transform: translate(-50%, -50%);
@@ -101,29 +111,29 @@ body.light-mode {
   z-index: 5000;
 }
 
-#obstacle1 { 
-  top: 30%; 
-  left: 16%; 
-  width: 220px;
-  height: 90px;
+#obstacle1 {
+  top: 30%;
+  left: 16%;
+  width: 11.5vw;
+  height: 8.3vh;
 }
-#obstacle2 { 
-  top: 30%; 
-  left: 84%; 
-  width: 220px;
-  height: 90px;
-}
-#obstacle3 { 
-  top: 77%; 
-  left: 16%; 
-  width: 220px;
-  height: 90px;
-}
-#obstacle4 { 
-  top: 75%; 
+#obstacle2 {
+  top: 30%;
   left: 84%;
-  width: 220px;
-  height: 90px;
+  width: 11.5vw;
+  height: 8.3vh;
+}
+#obstacle3 {
+  top: 77%;
+  left: 16%;
+  width: 11.5vw;
+  height: 8.3vh;
+}
+#obstacle4 {
+  top: 75%;
+  left: 84%;
+  width: 11.5vw;
+  height: 8.3vh;
 }
 
 /* Ventanas emergentes genéricas */

@@ -11,6 +11,13 @@ const zonesContainer = document.getElementById('zones-container');
 const popupsContainer = document.getElementById('popups-container');
 const mobileMenu = document.getElementById('mobile-menu');
 
+// Ajuste de unidades vh en móviles
+function updateVh() {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
+}
+updateVh();
+window.addEventListener('resize', updateVh);
+
 // Objeto que guardará las ventanas emergentes generadas
 const popups = {};
 
