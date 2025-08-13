@@ -53,6 +53,7 @@ export const zones = [
       content: `
         <div class="contact-popup">
           <div class="social-column">
+            <p class="column-title">Mis redes:</p>
             <a href="https://www.youtube.com/@LNDLM1312" target="_blank">
               <img src="assets/yt.png" alt="Twitter" style="width:144px;height:144px;margin:4px;" />
             </a>
@@ -61,6 +62,7 @@ export const zones = [
             </a>
           </div>
           <div class="form-column">
+            <p class="column-title">O escríbeme al correo:</p>
             <form id="contact-form" action="https://formspree.io/f/xldlzpew" method="POST">
               <label>
                 Nombre
