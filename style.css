@@ -344,10 +344,25 @@ body.light-mode .audio-item button {
 .item-plugins        { background: #7d461d; }
 
 @media (max-width: 768px) {
+   :root {
+    --popup-font-size: 10px;
+    --popup-header-font-size: 16px;
+    --close-btn-font-size: 12px;
+    --audio-button-font-size: 12px;
+  }
+
   #mobile-menu {
     display: flex;
     flex-direction: column;
     height: 100vh;
+  }
+
+  .mobile-item img:first-child {
+    height: 70%;
+  }
+
+  .mobile-item img:last-child {
+    height: 40%;
   }
 
   #game-area {
