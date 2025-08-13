@@ -218,6 +218,12 @@ body.light-mode {
   transform: translateX(-50%);
 }
 
+.column-title {
+  font-family: 'PixelFont', monospace;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
 .social-column {
   flex: 1;
   display: flex;
