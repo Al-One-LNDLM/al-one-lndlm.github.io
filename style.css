@@ -341,8 +341,8 @@ body.light-mode .audio-item button {
 }
 
 .item-instrumentales { background: #bd75c4; }
-.item-trabajos       { background: #4683d9; }
-.item-contacto       { background: #ffffff; }
+.item-trabajos       { background: #ffffff; }
+.item-contacto       { background: #4683d9; }
 .item-plugins        { background: #7d461d; }
 
 @media (max-width: 768px) {
@@ -364,7 +364,7 @@ body.light-mode .audio-item button {
   }
 
   .mobile-item img:last-child {
-    height: 10%;
+    height: 28%;
   }
 
   #game-area {
