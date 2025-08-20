@@ -26,18 +26,46 @@ export const zones = [
     img: 'assets/Edificio4.png',
     listLabel: 'assets/text2.png',
     position: { top: '3vh', right: '6vw' },
-    // Duplica el bloque <a class="video-card">…</a> para añadir más videos
     popup: {
       title: 'Trabajos',
       content: `
         <div class="trabajos-gallery">
-          <a class="video-card" href="https://www.youtube.com/watch?v=9gNmEuoKf7c&list=RD9gNmEuoKf7c&start_radio=1" target="_blank">
-            <div class="thumb" style="background-image:url('assets/mini1.jpg')"></div>
-            <p>El Niño y Su Fe (ALbumetraje Oficial)</p>
+          <!-- Álbum 1 -->
+          <div class="work-album">
+            <img class="thumb" src="assets/mini1.jpg" alt="Álbum 1">
+            <div class="info">
+              <h3>Álbum 1</h3>
+              <p>Descripción breve del álbum.</p>
+            </div>
+          </div>
+
+          <!-- Canciones del Álbum 1 -->
+          <a class="work-song" href="https://www.youtube.com/watch?v=9gNmEuoKf7c&list=RD9gNmEuoKf7c&start_radio=1" target="_blank">
+            <img class="thumb" src="assets/mini1.jpg" alt="Canción 1">
+            <span>Canción 1</span>
           </a>
-          <a class="video-card" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">
-            <div class="thumb" style="background-image:url('assets/mini1.jpg')"></div>
-            <p>Video ejemplo 2</p>
+          <a class="work-song" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">
+            <img class="thumb" src="assets/mini1.jpg" alt="Canción 2">
+            <span>Canción 2</span>
+          </a>
+
+          <!-- Álbum 2 -->
+          <div class="work-album">
+            <img class="thumb" src="assets/mini1.jpg" alt="Álbum 2">
+            <div class="info">
+              <h3>Álbum 2</h3>
+              <p>Otra descripción del álbum.</p>
+            </div>
+          </div>
+
+          <!-- Canciones del Álbum 2 -->
+          <a class="work-song" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">
+            <img class="thumb" src="assets/mini1.jpg" alt="Canción A">
+            <span>Canción A</span>
+          </a>
+          <a class="work-song" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">
+            <img class="thumb" src="assets/mini1.jpg" alt="Canción B">
+            <span>Canción B</span>
           </a>
         </div>
       `

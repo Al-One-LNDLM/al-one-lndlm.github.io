@@ -282,9 +282,8 @@ body.light-mode {
 /* Galería de videos en la ventana Trabajos */
 .trabajos-gallery {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .video-card {
@@ -306,6 +305,37 @@ body.light-mode {
 .video-card p {
   margin: 8px;
   text-align: center;
+}
+
+/* Niveles de trabajos */
+.work-album,
+.work-song {
+  display: flex;
+  align-items: center;
+}
+
+.work-album {
+  margin: 20px 0;
+}
+
+.work-album .thumb {
+  width: 150px;
+  height: 150px;
+  margin-right: 15px;
+}
+
+.work-album .info h3 {
+  margin: 0;
+}
+
+.work-song {
+  margin-left: 40px;
+}
+
+.work-song .thumb {
+  width: 60px;
+  height: 60px;
+  margin-right: 8px;
 }
 
 /* Listado de instrumentales */
