@@ -32,41 +32,53 @@ export const zones = [
         <div class="trabajos-gallery">
           <!-- Álbum 1 -->
           <div class="work-album">
-            <img class="thumb" src="assets/mini1.jpg" alt="Álbum 1">
+            <a class="album-link" href="https://example.com/album1" target="_blank">
+              <img class="thumb" src="assets/mini1.jpg" alt="Álbum 1">
+            </a>
             <div class="info">
-              <h3>Álbum 1</h3>
+              <h3><a class="album-link" href="https://example.com/album1" target="_blank">Álbum 1</a></h3>
               <p>Descripción breve del álbum.</p>
             </div>
           </div>
 
           <!-- Canciones del Álbum 1 -->
-          <a class="work-song" href="https://www.youtube.com/watch?v=9gNmEuoKf7c&list=RD9gNmEuoKf7c&start_radio=1" target="_blank">
-            <img class="thumb" src="assets/mini1.jpg" alt="Canción 1">
-            <span>Canción 1</span>
-          </a>
-          <a class="work-song" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">
-            <img class="thumb" src="assets/mini1.jpg" alt="Canción 2">
-            <span>Canción 2</span>
-          </a>
+          <div class="work-song">
+            <a class="thumb-link" href="https://www.youtube.com/watch?v=9gNmEuoKf7c&list=RD9gNmEuoKf7c&start_radio=1" target="_blank">
+              <img class="thumb" src="assets/mini1.jpg" alt="Canción 1">
+            </a>
+            <a class="title-link" href="https://www.youtube.com/watch?v=9gNmEuoKf7c&list=RD9gNmEuoKf7c&start_radio=1" target="_blank">Canción 1</a>
+          </div>
+          <div class="work-song">
+            <a class="thumb-link" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">
+              <img class="thumb" src="assets/mini1.jpg" alt="Canción 2">
+            </a>
+            <a class="title-link" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">Canción 2</a>
+          </div>
 
           <!-- Álbum 2 -->
           <div class="work-album">
-            <img class="thumb" src="assets/mini1.jpg" alt="Álbum 2">
+            <a class="album-link" href="https://example.com/album2" target="_blank">
+              <img class="thumb" src="assets/mini1.jpg" alt="Álbum 2">
+            </a>
             <div class="info">
-              <h3>Álbum 2</h3>
+              <h3><a class="album-link" href="https://example.com/album2" target="_blank">Álbum 2</a></h3>
               <p>Otra descripción del álbum.</p>
             </div>
           </div>
 
           <!-- Canciones del Álbum 2 -->
-          <a class="work-song" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">
-            <img class="thumb" src="assets/mini1.jpg" alt="Canción A">
-            <span>Canción A</span>
-          </a>
-          <a class="work-song" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">
-            <img class="thumb" src="assets/mini1.jpg" alt="Canción B">
-            <span>Canción B</span>
-          </a>
+          <div class="work-song">
+            <a class="thumb-link" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">
+              <img class="thumb" src="assets/mini1.jpg" alt="Canción A">
+            </a>
+            <a class="title-link" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">Canción A</a>
+          </div>
+          <div class="work-song">
+            <a class="thumb-link" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">
+              <img class="thumb" src="assets/mini1.jpg" alt="Canción B">
+            </a>
+            <a class="title-link" href="https://www.youtube.com/watch?v=oHg5SJYRHA0" target="_blank">Canción B</a>
+          </div>
         </div>
       `
     }
