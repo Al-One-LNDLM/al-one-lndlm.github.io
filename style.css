@@ -318,12 +318,20 @@ body.light-mode {
   margin: 20px 0;
 }
 
+
+/* Miniaturas de álbumes en ventana Trabajos */
 .work-album .thumb {
-  width: 320px;
+  width: 40vw;
   aspect-ratio: 16 / 9;
   height: auto;
   margin-right: 15px;
   object-fit: cover;
+}
+
+/* Borde para todas las miniaturas en Trabajos */
+.trabajos-gallery .thumb {
+  border: 5px solid #000;
+  box-sizing: border-box;
 }
 
 .work-album .info h3 {
