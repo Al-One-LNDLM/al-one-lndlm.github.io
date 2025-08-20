@@ -319,9 +319,11 @@ body.light-mode {
 }
 
 .work-album .thumb {
-  width: 150px;
-  height: 150px;
+  width: 320px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   margin-right: 15px;
+  object-fit: cover;
 }
 
 .work-album .info h3 {
@@ -333,9 +335,18 @@ body.light-mode {
 }
 
 .work-song .thumb {
-  width: 60px;
-  height: 60px;
+  width: 120px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   margin-right: 8px;
+  object-fit: cover;
+}
+
+.work-album a,
+.work-song a {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
 }
 
 /* Listado de instrumentales */
