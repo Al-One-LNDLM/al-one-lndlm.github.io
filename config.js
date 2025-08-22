@@ -111,16 +111,19 @@ export const zones = [
             </a>
             <a class="title-link" href="https://youtu.be/qrz6GHOQeWo?si=G3NDKIrxeIGsKGWG" target="_blank">2 LXXL</a>
           </div>
+          <div class="work-song">
             <a class="thumb-link" href="https://youtu.be/VoGZL0BbisA?si=O8v8NPwVlMLQr_QL" target="_blank">
               <img class="thumb" src="assets/TDB2.webp" alt="Canción A">
             </a>
             <a class="title-link" href="https://youtu.be/VoGZL0BbisA?si=O8v8NPwVlMLQr_QL" target="_blank">3 MID00´S</a>
           </div>
+          <div class="work-song">
             <a class="thumb-link" href="https://youtu.be/TCTaVd1pkNU?si=FIcTLrw6MaOrvbLk" target="_blank">
               <img class="thumb" src="assets/TDB3.webp" alt="Canción A">
             </a>
             <a class="title-link" href="https://youtu.be/TCTaVd1pkNU?si=FIcTLrw6MaOrvbLk" target="_blank">4 DETROIT 89´</a>
           </div>
+          <div class="work-song">
             <a class="thumb-link" href="https://youtu.be/1bG2_86Cqzk?si=KlASDkXCWNGy3NUz" target="_blank">
               <img class="thumb" src="assets/TDB4.webp" alt="Canción A">
             </a>
