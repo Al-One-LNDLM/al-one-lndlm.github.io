@@ -17,7 +17,8 @@ function animateLoader() {
     requestAnimationFrame(animateLoader);
   } else {
     preloader.style.display = 'none';
-    document.body.style.overflow = 'auto';
+    // Mantén la página estática sin barras de desplazamiento
+    document.body.style.overflow = 'hidden';
   }
 }
 animateLoader();
