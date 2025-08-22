@@ -531,7 +531,7 @@ body.light-mode .audio-item button {
 
 /* Scrollbar customization */
 html {
-  scrollbar-width: thin;
+  scrollbar-width: auto;
   scrollbar-color: #000 #fff;
 }
 
