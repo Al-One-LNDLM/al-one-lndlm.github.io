@@ -21,7 +21,7 @@ body {
   font-family: 'Courier New', Courier, monospace;
   background-color: #1e1e1e;
   color: #fff;
-  overflow-y: auto;
+  overflow: hidden;
 }
 
 body.light-mode {
@@ -530,44 +530,23 @@ body.light-mode .audio-item button {
 }
 
 /* Scrollbar customization */
-body.light-mode {
+html {
   scrollbar-width: auto;
   scrollbar-color: #000 #fff;
 }
 
-body.light-mode::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 20px;
 }
 
-body.light-mode::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
   background: #fff;
   border: 2px solid #000;
   border-radius: 0;
 }
 
-body.light-mode::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: #000;
   border: 3px solid #fff;
-  border-radius: 0;
-}
-
-body:not(.light-mode) {
-  scrollbar-width: auto;
-  scrollbar-color: #fff #000;
-}
-
-body:not(.light-mode)::-webkit-scrollbar {
-  width: 20px;
-}
-
-body:not(.light-mode)::-webkit-scrollbar-track {
-  background: #000;
-  border: 2px solid #fff;
-  border-radius: 0;
-}
-
-body:not(.light-mode)::-webkit-scrollbar-thumb {
-  background: #fff;
-  border: 2px solid #000;
   border-radius: 0;
 }
