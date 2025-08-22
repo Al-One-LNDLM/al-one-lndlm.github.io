@@ -1,5 +1,29 @@
 /* --- style.css --- */
 
+#preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #000;
+  z-index: 10000;
+}
+#preloader-bar {
+  width: 80%;
+  max-width: 400px;
+  height: 8px;
+  background: #333;
+}
+#preloader-progress {
+  height: 100%;
+  width: 0;
+  background: #fff;
+}
+
 @font-face {
   font-family: 'PixelFont';
   src: url('assets/PixelFont.ttf') format('truetype');
@@ -38,7 +62,7 @@ body.light-mode {
   top: 10px;
   right: 10px;
   cursor: pointer;
-  z-index: 10000; /* Se asegura de que el botón quede por encima del área del juego */
+  z-index: 9999; /* Se asegura de que el botón quede por encima del área del juego */
 }
 
 #toggle-theme img {

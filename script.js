@@ -3,6 +3,25 @@
 
 import { backgrounds, zones, instrumentals, floatingImages } from './config.js';
 
+const preloader = document.getElementById('preloader');
+const progress = document.getElementById('preloader-progress');
+const duration = 2500; // 2–3 segundos
+const start = Date.now();
+document.body.style.overflow = 'hidden';
+
+function animateLoader() {
+  const elapsed = Date.now() - start;
+  const pct = Math.min(elapsed / duration, 1);
+  progress.style.width = pct * 100 + '%';
+  if (pct < 1) {
+    requestAnimationFrame(animateLoader);
+  } else {
+    preloader.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+}
+animateLoader();
+
 // Referencias principales al DOM
 const gameArea = document.getElementById('game-area');
 const character = document.getElementById('character');
