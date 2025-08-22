@@ -547,7 +547,7 @@ body.light-mode::-webkit-scrollbar-track {
 
 body.light-mode::-webkit-scrollbar-thumb {
   background: #000;
-  border: 3px solid #fff;
+  border: 2px solid #fff;
   border-radius: 0;
 }
 
