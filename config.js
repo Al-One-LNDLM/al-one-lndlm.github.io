@@ -89,11 +89,11 @@ export const zones = [
 
           <!-- Álbum 2 -->
           <div class="work-album">
-            <a class="album-link" href="https://example.com/album2" target="_blank">
-              <img class="thumb" src="assets/mini1.jpg" alt="Álbum 2">
+            <a class="album-link" href="https://youtu.be/qGOawjmFM8A?si=CpSVPV51H_c76tt9" target="_blank">
+              <img class="thumb" src="assets/TDB0.webp" alt="Álbum 2">
             </a>
             <div class="info">
-              <h3><a class="album-link" href="https://example.com/album2" target="_blank">Álbum 2</a></h3>
+              <h3><a class="album-link" href="https://youtu.be/qGOawjmFM8A?si=CpSVPV51H_c76tt9" target="_blank">TDB (Tierra De Barros)</a></h3>
               <p>Otra descripción del álbum.</p>
             </div>
           </div>
