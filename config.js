@@ -48,43 +48,43 @@ export const zones = [
             <a class="thumb-link" href="https://youtu.be/gjnF2xA8EgU?si=-Lz4cv3UeemV82s7" target="_blank">
               <img class="thumb" src="assets/MINI 2.jpg" alt="Canción 1">
             </a>
-            <a class="title-link" href="https://youtu.be/gjnF2xA8EgU?si=-Lz4cv3UeemV82s7" target="_blank">Gama Ocre</a>
+            <a class="title-link" href="https://youtu.be/gjnF2xA8EgU?si=-Lz4cv3UeemV82s7" target="_blank">1 - Gama Ocre</a>
           </div>
           <div class="work-song">
             <a class="thumb-link" href="https://youtu.be/olTjbh7295U?si=6XDtN3jbhnOMuLol" target="_blank">
               <img class="thumb" src="assets/MINI 3.jpg" alt="Canción 2">
             </a>
-            <a class="title-link" href="https://youtu.be/olTjbh7295U?si=6XDtN3jbhnOMuLol" target="_blank">Chicos Malos Buenos Tipos</a>
+            <a class="title-link" href="https://youtu.be/olTjbh7295U?si=6XDtN3jbhnOMuLol" target="_blank">2 - Chicos Malos Buenos Tipos</a>
           </div>
           <div class="work-song">
             <a class="thumb-link" href="https://youtu.be/w4X0c4Csqck?si=phNUqeIYaCTdfJEB" target="_blank">
               <img class="thumb" src="assets/MINI 4.jpg" alt="Canción 2">
             </a>
-            <a class="title-link" href="https://youtu.be/w4X0c4Csqck?si=phNUqeIYaCTdfJEB" target="_blank">Los Penúltimos Versos Que Te Escribo</a>
+            <a class="title-link" href="https://youtu.be/w4X0c4Csqck?si=phNUqeIYaCTdfJEB" target="_blank">3 - Los Penúltimos Versos Que Te Escribo</a>
           </div>
           <div class="work-song">
             <a class="thumb-link" href="https://youtu.be/iBjQlLn3eGI?si=11dlDPzwzun_HKG5" target="_blank">
               <img class="thumb" src="assets/MINI 5.jpg" alt="Canción 2">
             </a>
-            <a class="title-link" href="https://youtu.be/iBjQlLn3eGI?si=11dlDPzwzun_HKG5" target="_blank">El Niño y Su Fe</a>
+            <a class="title-link" href="https://youtu.be/iBjQlLn3eGI?si=11dlDPzwzun_HKG5" target="_blank">4 - El Niño y Su Fe</a>
           </div>
           <div class="work-song">
             <a class="thumb-link" href="https://youtu.be/E5ZnLgfJucQ?si=sVSPpSJ5IDL6jNVH" target="_blank">
               <img class="thumb" src="assets/MINI 6.jpg" alt="Canción 2">
             </a>
-            <a class="title-link" href="https://youtu.be/E5ZnLgfJucQ?si=sVSPpSJ5IDL6jNVH" target="_blank">Mi Negra Tomasa</a>
+            <a class="title-link" href="https://youtu.be/E5ZnLgfJucQ?si=sVSPpSJ5IDL6jNVH" target="_blank">5 - Mi Negra Tomasa</a>
           </div>
           <div class="work-song">
             <a class="thumb-link" href="https://youtu.be/N-r1HKcgNl8?si=Sl-_nix8Xwfa8e34" target="_blank">
               <img class="thumb" src="assets/MINI 7.jpg" alt="Canción 2">
             </a>
-            <a class="title-link" href="https://youtu.be/N-r1HKcgNl8?si=Sl-_nix8Xwfa8e34" target="_blank">Continental 67´</a>
+            <a class="title-link" href="https://youtu.be/N-r1HKcgNl8?si=Sl-_nix8Xwfa8e34" target="_blank">6 - Continental 67´</a>
           </div>
           <div class="work-song">
             <a class="thumb-link" href="https://youtu.be/9To2SQiQXKE?si=Nqrg5c2J_sX0-M4l" target="_blank">
               <img class="thumb" src="assets/MINI 8.jpg" alt="Canción 2">
             </a>
-            <a class="title-link" href="https://youtu.be/9To2SQiQXKE?si=Nqrg5c2J_sX0-M4l" target="_blank">Xyla</a>
+            <a class="title-link" href="https://youtu.be/9To2SQiQXKE?si=Nqrg5c2J_sX0-M4l" target="_blank">7 - Xyla</a>
           </div>
 
           <!-- Álbum 2 -->
