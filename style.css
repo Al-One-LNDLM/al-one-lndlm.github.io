@@ -183,7 +183,7 @@ body.light-mode {
 
 .popup-content {
   padding: 10px;
-  height: calc(100% - 20px);
+  height: calc(100% - 70px);
   overflow-y: auto;
   font-size: var(--popup-font-size);
   font-family: 'PixelFont', monospace;
