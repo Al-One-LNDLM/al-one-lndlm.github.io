@@ -238,6 +238,10 @@ body.light-mode {
   cursor: pointer;
 }
 
+.social-column a {
+  margin-top: 20px;
+}
+
 .form-column {
   flex: 1;
   display: flex;
@@ -252,7 +256,7 @@ body.light-mode {
   flex-direction: column;
   gap: 8px;
   font-family: 'PixelFont', monospace;
-  margin: 0 auto;
+  margin: 20px auto 0;
 }
 
 #contact-form label {
