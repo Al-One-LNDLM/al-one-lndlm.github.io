@@ -189,7 +189,7 @@ export const floatingImages = [
   {
     id: 'img4',
     src: 'assets/Fuente.png',
-    style: { bottom: '43vh', right: '48vw', width: '6vw' }
+    style: { bottom: '43vh', right: '47vw', width: '6vw' }
   }
 ];
 
