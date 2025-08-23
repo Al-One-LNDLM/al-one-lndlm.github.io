@@ -83,7 +83,7 @@ zones.forEach(zone => {
   // Ventana asociada
   const popup = document.createElement('div');
   popup.id = `popup-${zone.id}`;
-  popup.className = isMobile ? 'popup' : 'popup hidden';
+  popup.className = 'popup hidden';
   popup.innerHTML = `
     <div class="popup-header">
       ${zone.popup.title}
@@ -123,33 +123,31 @@ zones.forEach(zone => {
 // Crear listado de instrumentales
 populateInstrumentals();
 
-if (!isMobile) {
-  // Abrir ventana al hacer click en una zona
-  zonesContainer.addEventListener('click', e => {
+// Abrir ventana al hacer click en una zona
+zonesContainer.addEventListener('click', e => {
+  const target = e.target.closest('.interactive-zone');
+  if (target) openPopup(target.dataset.popup);
+});
+
+if (mobileZonesContainer) {
+  mobileZonesContainer.addEventListener('click', e => {
     const target = e.target.closest('.interactive-zone');
     if (target) openPopup(target.dataset.popup);
   });
-
-  if (mobileZonesContainer) {
-    mobileZonesContainer.addEventListener('click', e => {
-      const target = e.target.closest('.interactive-zone');
-      if (target) openPopup(target.dataset.popup);
-    });
-  }
-
-  // Cerrar ventana al pulsar su botón
-  popupsContainer.addEventListener('click', e => {
-    if (e.target.matches('.close-btn')) {
-      closePopup(e.target.dataset.close);
-    }
-  });
-
-  // Abrir ventana al seleccionar un elemento del menú móvil
-  mobileMenu.addEventListener('click', e => {
-    const target = e.target.closest('.mobile-item');
-    if (target) openPopup(target.dataset.popup);
-  });
 }
+
+// Cerrar ventana al pulsar su botón
+popupsContainer.addEventListener('click', e => {
+  if (e.target.matches('.close-btn')) {
+    closePopup(e.target.dataset.close);
+  }
+});
+
+// Abrir ventana al seleccionar un elemento del menú móvil
+mobileMenu.addEventListener('click', e => {
+  const target = e.target.closest('.mobile-item');
+  if (target) openPopup(target.dataset.popup);
+});
 
 /**
  * Muestra la ventana emergente asociada al identificador indicado
@@ -157,7 +155,6 @@ if (!isMobile) {
  * @param {string} id Identificador de la ventana a mostrar
  */
 function openPopup(id) {
-  if (isMobile) return;
   Object.entries(popups).forEach(([key, p]) => {
     if (key === id) {
       p.classList.remove('hidden');
@@ -173,7 +170,6 @@ function openPopup(id) {
  * @param {string} id Identificador de la ventana a cerrar
  */
 function closePopup(id) {
-  if (isMobile) return;
   if (popups[id]) popups[id].classList.remove('visible');
   if (id === 'instrumentales' && currentAudio) {
     currentAudio.audio.pause();
