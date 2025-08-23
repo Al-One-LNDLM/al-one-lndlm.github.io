@@ -513,8 +513,11 @@ body.light-mode .audio-item button {
   }
 
   .popup {
-    width: 95vw;
-    height: 90vh;
+    position: static;
+    transform: none;
+    width: 100vw;
+    height: auto;
+    overflow-y: visible;
   }
 
   #mobile-game {
