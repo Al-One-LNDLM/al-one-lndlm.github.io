@@ -85,7 +85,7 @@ zones.forEach(zone => {
   popup.innerHTML = `
     <div class="popup-header">
       ${zone.popup.title}
-      <button class="close-btn" data-close="${zone.id}">×</button>
+      <button class="close-btn" data-close="${zone.id}">X</button>
     </div>
     <div class="popup-content">${zone.popup.content || ''}</div>
   `;

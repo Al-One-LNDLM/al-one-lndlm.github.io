@@ -225,6 +225,8 @@ body.light-mode {
   color: #fff;
   font-size: var(--close-btn-font-size);
   cursor: pointer;
+  font-family: 'pixelfont', monospace;
+  text-transform: uppercase;
 }
 
 /* Contact popup layout */
