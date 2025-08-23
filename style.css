@@ -53,6 +53,16 @@ body {
   overflow: hidden;
 }
 
+@media (max-width: 768px) {
+  html {
+    overflow-y: auto;
+  }
+
+  body {
+    overflow-y: auto;
+  }
+}
+
 body.light-mode {
   background-color: #f0f0f0;
   color: #000;
