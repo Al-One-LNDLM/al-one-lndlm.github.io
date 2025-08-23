@@ -311,6 +311,7 @@ body.light-mode {
   border: 2px solid #000;
   padding: 4px;
   cursor: pointer;
+  font-family: inherit;
 }
 
 /* Galería de videos en la ventana Trabajos */
