@@ -32,7 +32,7 @@
 /* Variables para cambiar fácilmente las imágenes de fondo */
 :root {
   --bg-dark: url('assets/fondo dark.png');
-  --bg-light: url('assets/fondo.png');
+  --bg-light: url('assets/fondomed.png');
   --popup-font-size: 12px;
   --popup-header-font-size: 24px;
   --close-btn-font-size: 16px;
