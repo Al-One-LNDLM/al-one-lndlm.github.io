@@ -2,8 +2,8 @@
 
 // Imágenes de fondo para cada modo de color
 export const backgrounds = {
-  dark: 'assets/fondo dark.png',
-  light: 'assets/fondo.png'
+  dark: 'assets/fondomed.png',
+  light: 'assets/fondomed.png'
 };
 
 // Lista de instrumentales disponibles
