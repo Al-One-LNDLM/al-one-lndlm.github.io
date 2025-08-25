@@ -91,6 +91,12 @@ zones.forEach(zone => {
     </div>
     <div class="popup-content">${zone.popup.content || ''}</div>
   `;
+  if (zone.popup.bg || zone.popup.gradient) {
+    const layers = [];
+    if (zone.popup.gradient) layers.push(zone.popup.gradient);
+    if (zone.popup.bg) layers.push(`url('${zone.popup.bg}')`);
+    popup.style.background = layers.join(', ');
+  }
   popupsContainer.appendChild(popup);
   popups[zone.id] = popup; // guardar referencia
 

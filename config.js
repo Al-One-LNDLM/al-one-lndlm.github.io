@@ -19,7 +19,12 @@ export const zones = [
     img: 'assets/Edificio1.png',
     listLabel: 'assets/text1.png',
     position: { top: '3vh', left: '6vw' },
-    popup: { title: 'Instrumentales', content: '' }
+    popup: {
+      title: 'Instrumentales',
+      content: '',
+      bg: 'assets/fondo.png',
+      gradient: 'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0))'
+    }
   },
   {
     id: 'trabajos',
@@ -130,12 +135,14 @@ export const zones = [
             <a class="title-link" href="https://youtu.be/1bG2_86Cqzk?si=KlASDkXCWNGy3NUz" target="_blank">5 WUTW</a>
           </div>
 
-        </div>
-      `
-    }
-  },
-  {
-    id: 'contacto',
+          </div>
+        `,
+        bg: 'assets/fondo.jpg',
+        gradient: 'linear-gradient(to bottom, rgba(255,0,0,0.6), rgba(0,0,255,0.6))'
+      }
+    },
+    {
+      id: 'contacto',
     img: 'assets/Edificio3.png',
     listLabel: 'assets/text3.png',
     position: { bottom: '13vh', left: '6vw' },
@@ -170,23 +177,27 @@ export const zones = [
               <button type="submit">Enviar</button>
             </form>
           </div>
-        </div>
-      `
-    }
-  },
-  {
-    id: 'plugins',
+          </div>
+        `,
+        bg: 'assets/fondomed.png',
+        gradient: 'linear-gradient(to bottom, rgba(0,255,0,0.6), rgba(0,0,0,0.6))'
+      }
+    },
+    {
+      id: 'plugins',
     img: 'assets/EDIFICIO2.png',
     listLabel: 'assets/text1.png',
     position: { bottom: '12vh', right: '6vw' },
-    popup: {
-      title: 'Plugins',
-      content:
-        '<p style="text-align:center; margin-top:40px;"> Esta sección está en mantenimiento </p>' +
-        "<img src='assets/en-obras.png' alt='En obras' style='display:block; margin:30px auto; max-width:300px;'>"
+      popup: {
+        title: 'Plugins',
+        content:
+          '<p style="text-align:center; margin-top:40px;"> Esta sección está en mantenimiento </p>' +
+          "<img src='assets/en-obras.png' alt='En obras' style='display:block; margin:30px auto; max-width:300px;'>",
+        bg: 'assets/fondo.png',
+        gradient: 'linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(255,255,0,0.6))'
+      }
     }
-  }
-];
+  ];
 
 // Imágenes adicionales con posiciones ajustables
 export const floatingImages = [
