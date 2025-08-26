@@ -204,17 +204,17 @@ export const floatingImages = [
   {
     id: 'img1',
     src: 'assets/text1.png',
-    style: { top: '33vh', left: '5vw', width: '20vw' }
+    style: { top: '33vh', left: '6vw', width: '20vw' }
   },
   {
     id: 'img2',
     src: 'assets/text2.png',
-    style: { top: '35vh', right: '3vw', width: '20vw' }
+    style: { top: '35vh', right: '4vw', width: '20vw' }
   },
   {
     id: 'img3',
     src: 'assets/text3.png',
-    style: { bottom: '8vh', left: '5vw', width: '20vw' }
+    style: { bottom: '8vh', left: '6vw', width: '20vw' }
   },
   {
     id: 'img4',
@@ -224,7 +224,7 @@ export const floatingImages = [
   {
     id: 'img5',
     src: 'assets/text4.png',
-    style: { bottom: '8vh', right: '3vw', width: '20vw' }
+    style: { bottom: '8vh', right: '4vw', width: '20vw' }
   }
 ];
 
