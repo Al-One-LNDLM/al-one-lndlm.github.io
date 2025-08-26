@@ -179,7 +179,7 @@ export const zones = [
           </div>
           </div>
         `,
-        bg: 'assets/fondomed.png',
+        bg: 'assets/fondo.png',
         gradient: 'linear-gradient(to bottom, rgba(0, 68, 255, 0.6), rgba(0,0,0,0.6))'
       }
     },
@@ -194,7 +194,7 @@ export const zones = [
           '<p style="text-align:center; margin-top:40px;"> Esta sección está en mantenimiento </p>' +
           "<img src='assets/en-obras.png' alt='En obras' style='display:block; margin:30px auto; max-width:300px;'>",
         bg: 'assets/fondo.png',
-        gradient: 'linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(255,255,0,0.6))'
+        gradient: 'linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(155, 129, 57, 0.78))'
       }
     }
   ];
