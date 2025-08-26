@@ -220,6 +220,11 @@ export const floatingImages = [
     id: 'img4',
     src: 'assets/Fuente.png',
     style: { bottom: '43vh', right: '47vw', width: '6vw' }
+  },
+  {
+    id: 'img5',
+    src: 'assets/text4.png',
+    style: { bottom: '6vh', right: '7vw', width: '20vw' }
   }
 ];
 
