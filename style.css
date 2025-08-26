@@ -543,6 +543,10 @@ body.light-mode .audio-item button {
     z-index: 10000;
   }
 
+  .popup.visible {
+    transform: none;
+  }
+
   #mobile-game {
     display: block;
   }
