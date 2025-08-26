@@ -23,7 +23,7 @@ export const zones = [
       title: 'Instrumentales',
       content: '',
       bg: 'assets/fondo.png',
-      gradient: 'linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0))'
+      gradient: 'linear-gradient(to bottom, rgba(180, 72, 173, 0.8), rgba(0,0,0,0))'
     }
   },
   {
