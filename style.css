@@ -254,7 +254,7 @@ body.light-mode {
   font-family: 'PixelFont', monospace;
   flex-shrink: 0;
   position: sticky;
-  bottom: 0;
+  bottom: 10px;
 }
 
 .popup-footer a {
@@ -581,6 +581,7 @@ body.light-mode .audio-item button {
   .popup-footer {
     padding: 12px 16px;
     height: 60px;
+    bottom: 10px;
   }
 
   #mobile-game {
