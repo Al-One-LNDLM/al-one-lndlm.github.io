@@ -192,7 +192,7 @@ export const zones = [
         title: 'Plugins',
         content:
           '<p style="text-align:center; margin-top:40px;"> Esta sección está en mantenimiento </p>' +
-          "<img src='assets/obra.png' alt='En obras' style='display:block; margin:30px auto; max-width:300px;'>",
+          "<img src='assets/obra.png' alt='En obras' style='display:block; margin:30px auto; max-width:700px;'>",
         bg: 'assets/fondo.png',
         gradient: 'linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(155, 129, 57, 0.78))'
       }
