@@ -90,6 +90,12 @@ zones.forEach(zone => {
       <button class="close-btn" data-close="${zone.id}">X</button>
     </div>
     <div class="popup-content">${zone.popup.content || ''}</div>
+    <div class="popup-footer">
+      ${zones
+        .filter(z => z.id !== zone.id)
+        .map(z => `<a href="#" data-open="${z.id}">${z.popup.title}</a>`)
+        .join(' | ')}
+    </div>
   `;
   if (zone.popup.bg || zone.popup.gradient) {
     const layers = [];
@@ -146,6 +152,13 @@ if (mobileZonesContainer) {
 popupsContainer.addEventListener('click', e => {
   if (e.target.matches('.close-btn')) {
     closePopup(e.target.dataset.close);
+    return;
+  }
+
+  const link = e.target.closest('.popup-footer a');
+  if (link && link.dataset.open) {
+    e.preventDefault();
+    openPopup(link.dataset.open);
   }
 });
 
