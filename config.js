@@ -186,7 +186,7 @@ export const zones = [
     {
       id: 'plugins',
     img: 'assets/EDIFICIO2.png',
-    listLabel: 'assets/text1.png',
+    listLabel: 'assets/text4.png',
     position: { bottom: '12vh', right: '6vw' },
       popup: {
         title: 'Plugins',
