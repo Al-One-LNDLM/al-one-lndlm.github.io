@@ -18,7 +18,7 @@ export const zones = [
     id: 'instrumentales',
     img: 'assets/Edificio1.png',
     listLabel: 'assets/text1.png',
-    position: { top: '3vh', left: '6vw' },
+    position: { top: '2vh', left: '6vw' },
     popup: {
       title: 'Instrumentales',
       content: '',
@@ -30,7 +30,7 @@ export const zones = [
     id: 'trabajos',
     img: 'assets/Edificio4.png',
     listLabel: 'assets/text2.png',
-    position: { top: '3vh', right: '5vw' },
+    position: { top: '3vh', right: '4.8vw' },
     popup: {
       title: 'Trabajos',
       content: `
@@ -187,7 +187,7 @@ export const zones = [
       id: 'plugins',
     img: 'assets/EDIFICIO2.png',
     listLabel: 'assets/text4.png',
-    position: { bottom: '11vh', right: '5vw' },
+    position: { bottom: '10vh', right: '4.8vw' },
       popup: {
         title: 'Plugins',
         content:
