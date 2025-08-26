@@ -30,7 +30,7 @@ export const zones = [
     id: 'trabajos',
     img: 'assets/Edificio4.png',
     listLabel: 'assets/text2.png',
-    position: { top: '3vh', right: '4.8vw' },
+    position: { top: '3.5vh', right: '4.8vw' },
     popup: {
       title: 'Trabajos',
       content: `
