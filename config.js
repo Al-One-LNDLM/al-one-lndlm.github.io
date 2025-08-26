@@ -30,7 +30,7 @@ export const zones = [
     id: 'trabajos',
     img: 'assets/Edificio4.png',
     listLabel: 'assets/text2.png',
-    position: { top: '3vh', right: '6vw' },
+    position: { top: '3vh', right: '5vw' },
     popup: {
       title: 'Trabajos',
       content: `
@@ -137,7 +137,7 @@ export const zones = [
 
           </div>
         `,
-        bg: 'assets/fondo.jpg',
+        bg: 'assets/fondo.png',
         gradient: 'linear-gradient(to bottom, rgba(125, 125, 125, 0.71), rgba(255, 255, 255, 0.6))'
       }
     },
@@ -187,7 +187,7 @@ export const zones = [
       id: 'plugins',
     img: 'assets/EDIFICIO2.png',
     listLabel: 'assets/text4.png',
-    position: { bottom: '12vh', right: '6vw' },
+    position: { bottom: '11vh', right: '5vw' },
       popup: {
         title: 'Plugins',
         content:
