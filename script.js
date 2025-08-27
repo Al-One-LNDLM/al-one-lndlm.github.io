@@ -35,7 +35,6 @@ const zonesContainer = document.getElementById('zones-container');
 const popupsContainer = document.getElementById('popups-container');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileGame = document.getElementById('mobile-game');
-const mobileGameArea = document.getElementById('mobile-game-area');
 const mobileCharacter = document.getElementById('mobile-character');
 const mobileZonesContainer = document.getElementById('mobile-zones-container');
 
@@ -274,7 +273,6 @@ function setBackground() {
   const isLight = document.body.classList.contains('light-mode');
   const bg = `url('${isLight ? backgrounds.light : backgrounds.dark}')`;
   gameArea.style.backgroundImage = bg;
-  if (mobileGameArea) mobileGameArea.style.backgroundImage = bg;
 }
 
 /**
@@ -423,7 +421,7 @@ animateCharacter();
 //  Juego móvil
 // =============================
 function initMobileGame() {
-  if (!mobileGameArea || !mobileCharacter) return;
+  if (!mobileCharacter) return;
 
   let mouseX = 0, mouseY = 0;
   let currentX = 0, currentY = 0;
@@ -431,31 +429,13 @@ function initMobileGame() {
   let frame = 0;
   let frameTick = 0;
 
-  const obstacles = Array.from(mobileGameArea.querySelectorAll('.obstacle'));
-
   function updatePointer(e) {
-    const rect = mobileGameArea.getBoundingClientRect();
-    mouseX = e.clientX - rect.left;
-    mouseY = e.clientY - rect.top;
+    mouseX = e.clientX;
+    mouseY = e.clientY;
   }
 
-  mobileGameArea.addEventListener('pointerdown', updatePointer);
-  mobileGameArea.addEventListener('pointermove', updatePointer);
-
-  function isColliding(x, y, width = frameWidth, height = frameHeight) {
-    const areaRect = mobileGameArea.getBoundingClientRect();
-    return obstacles.some(ob => {
-      const rect = ob.getBoundingClientRect();
-      const left = rect.left - areaRect.left;
-      const top = rect.top - areaRect.top;
-      return (
-        x < left + rect.width &&
-        x + width > left &&
-        y < top + rect.height &&
-        y + height > top
-      );
-    });
-  }
+  document.addEventListener('pointerdown', updatePointer);
+  document.addEventListener('pointermove', updatePointer);
 
   function updateSprite() {
     const row = directions[currentDirection];
@@ -493,11 +473,8 @@ function initMobileGame() {
       const nextCenterX = centerX + (targetX - centerX) * speed;
       const nextCenterY = centerY + (targetY - centerY) * speed;
 
-      const nextX = nextCenterX - frameWidth / 2;
-      const nextY = nextCenterY - frameHeight / 2;
-
-      if (!isColliding(nextX, currentY)) currentX = nextX;
-      if (!isColliding(currentX, nextY)) currentY = nextY;
+      currentX = nextCenterX - frameWidth / 2;
+      currentY = nextCenterY - frameHeight / 2;
 
       centerX = currentX + frameWidth / 2;
       centerY = currentY + frameHeight / 2;
@@ -511,7 +488,7 @@ function initMobileGame() {
       frameTick = 0;
     }
 
-    mobileCharacter.style.transform = `translate(${centerX - frameWidth / 2}px, ${centerY - frameHeight / 2}px)`;
+    mobileCharacter.style.transform = `translate(${currentX}px, ${currentY}px)`;
     updateSprite();
     requestAnimationFrame(animate);
   }
