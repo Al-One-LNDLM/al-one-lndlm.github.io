@@ -681,9 +681,17 @@ body.light-mode .audio-item button {
 
   /* Layout adjustments for trabajos popup on mobile */
   .trabajos-gallery .thumb {
-    width: 90%;
-    height: auto;
+    display: block;
     margin: 0 auto;
+    height: auto;
+  }
+
+  .work-album .thumb {
+    width: 90%;
+  }
+
+  .work-song .thumb {
+    width: 60%;
   }
 
   .work-album,
