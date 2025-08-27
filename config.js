@@ -180,7 +180,7 @@ export const zones = [
           </div>
         `,
         bg: 'assets/fondo.png',
-        gradient: 'linear-gradient(to bottom, #4683d9, rgba(0,0,0,0.6))'
+        gradient: 'linear-gradient(to bottom, #4683d9, rgba(0,0,0,0.5))'
       }
     },
     {
