@@ -561,6 +561,7 @@ body.light-mode .audio-item button {
 
   .mobile-item img:last-child {
     height: 20%;
+    margin-right: 5%;
   }
 
   #game-area {
