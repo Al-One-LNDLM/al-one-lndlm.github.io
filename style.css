@@ -62,11 +62,9 @@ body {
 }
 
 @media (max-width: 768px) {
-  html {
-    overflow-y: auto;
-  }
-
+  html,
   body {
+    overflow-x: hidden;
     overflow-y: auto;
   }
 }
@@ -600,13 +598,25 @@ body.light-mode .audio-item button {
 
   #mobile-game {
     display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: calc(var(--vh, 1vh) * 100);
+    pointer-events: none;
+    z-index: 1000;
   }
 
   #mobile-game-area {
-    position: relative;
-    width: 100vw;
-    height: calc(var(--vh, 1vh) * 100);
-    background: var(--bg-dark) no-repeat center/cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: none;
+    pointer-events: none;
+  }
+
+  #mobile-zones-container {
+    display: none;
   }
 
   #mobile-character {
@@ -617,50 +627,6 @@ body.light-mode .audio-item button {
     background-size: 360px 450px;
     image-rendering: pixelated;
     pointer-events: none;
-  }
-
-  #mobile-game-area .obstacle {
-    position: absolute;
-    background: rgba(255,0,0,0.0);
-    border-radius: 12px;
-    pointer-events: none;
-    z-index: 5000;
-  }
-
-  #mobile-obstacle {
-    top: 52%;
-    left: 50%;
-    width: 2.6vw;
-    height: 3.7vh;
-    transform: translate(-50%, -50%);
-  }
-
-  #mobile-obstacle1 {
-    top: 30%;
-    left: 16%;
-    width: 11.5vw;
-    height: 8.3vh;
-  }
-
-  #mobile-obstacle2 {
-    top: 30%;
-    left: 84%;
-    width: 11.5vw;
-    height: 8.3vh;
-  }
-
-  #mobile-obstacle3 {
-    top: 77%;
-    left: 16%;
-    width: 11.5vw;
-    height: 8.3vh;
-  }
-
-  #mobile-obstacle4 {
-    top: 75%;
-    left: 84%;
-    width: 11.5vw;
-    height: 8.3vh;
   }
 
   /* Layout adjustments for contact popup on mobile */
