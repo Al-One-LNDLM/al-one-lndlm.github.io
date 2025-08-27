@@ -699,6 +699,8 @@ body.light-mode .audio-item button {
   .work-song {
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    justify-content: center;
   }
 
   .work-song {
