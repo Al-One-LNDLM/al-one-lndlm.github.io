@@ -502,6 +502,11 @@ body.light-mode .audio-item button {
   color: inherit;
 }
 
+/* Encabezado móvil oculto en la versión web */
+#mobile-header {
+  display: none;
+}
+
 #mobile-menu {
   display: none;
 }
