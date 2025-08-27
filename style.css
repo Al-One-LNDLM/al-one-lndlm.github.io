@@ -558,8 +558,9 @@ body.light-mode .audio-item button {
     left: 0;
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    text-align: center;
     padding: 10px 20px;
     background: transparent;
     z-index: 2000;
