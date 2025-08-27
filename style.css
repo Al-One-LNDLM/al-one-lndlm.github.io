@@ -454,6 +454,7 @@ body.light-mode {
 
 .work-song {
   margin-left: 40px;
+  align-self: flex-start;
 }
 
 .work-song .thumb {
@@ -702,6 +703,7 @@ body.light-mode .audio-item button {
     align-items: center;
     width: 100%;
     justify-content: center;
+    align-self: center;
   }
 
   .work-song {
