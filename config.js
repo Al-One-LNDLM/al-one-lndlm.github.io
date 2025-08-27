@@ -23,7 +23,7 @@ export const zones = [
       title: 'Instrumentales',
       content: '',
       bg: 'assets/fondo.png',
-      gradient: 'linear-gradient(to bottom, rgba(180, 72, 173, 0.8), rgba(0,0,0,0))'
+      gradient: 'linear-gradient(to bottom, #bd75c4, rgba(0,0,0,0))'
     }
   },
   {
@@ -180,7 +180,7 @@ export const zones = [
           </div>
         `,
         bg: 'assets/fondo.png',
-        gradient: 'linear-gradient(to bottom, rgba(0, 68, 255, 0.6), rgba(0,0,0,0.6))'
+        gradient: 'linear-gradient(to bottom, #4683d9, rgba(0,0,0,0.6))'
       }
     },
     {
@@ -194,7 +194,7 @@ export const zones = [
           '<p style="text-align:center; margin-top:40px;"> Esta sección está en mantenimiento </p>' +
           '<img src="assets/obra.png" alt="En obras" class="plugin-img">',
         bg: 'assets/fondo.png',
-        gradient: 'linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(155, 129, 57, 0.78))'
+        gradient: 'linear-gradient(to bottom, rgba(0,0,0,0.6), #7d461d)'
       }
     }
   ];
