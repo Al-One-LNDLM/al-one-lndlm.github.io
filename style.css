@@ -254,7 +254,7 @@ body.light-mode {
   font-family: 'PixelFont', monospace;
   flex-shrink: 0;
   position: sticky;
-  bottom: 10px;
+  bottom: 0px;
 }
 
 .popup-footer a {
