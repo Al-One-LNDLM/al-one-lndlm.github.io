@@ -182,6 +182,10 @@ function openPopup(id) {
       p.classList.remove('visible');
     }
   });
+  if (isMobile) {
+    document.documentElement.style.overflow = 'hidden';
+    document.body.style.overflow = 'hidden';
+  }
 }
 
 /**
@@ -195,6 +199,13 @@ function closePopup(id) {
     currentAudio.audio.currentTime = 0;
     currentAudio.button.textContent = '▶';
     currentAudio = null;
+  }
+  if (isMobile) {
+    const anyVisible = Object.values(popups).some(p => p.classList.contains('visible'));
+    if (!anyVisible) {
+      document.documentElement.style.overflow = 'auto';
+      document.body.style.overflow = 'auto';
+    }
   }
 }
 
