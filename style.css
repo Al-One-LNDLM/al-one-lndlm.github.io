@@ -317,10 +317,15 @@ body.light-mode {
 .social-column img {
   image-rendering: pixelated;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .social-column a {
   margin-top: 20px;
+}
+
+.social-column img:hover {
+  transform: scale(1.1);
 }
 
 .form-column {
@@ -435,6 +440,11 @@ body.light-mode {
 .trabajos-gallery .thumb {
   border: 5px solid #000;
   box-sizing: border-box;
+  transition: transform 0.2s ease;
+}
+
+.trabajos-gallery .thumb:hover {
+  transform: scale(1.05);
 }
 
 .work-album .info h3 {
