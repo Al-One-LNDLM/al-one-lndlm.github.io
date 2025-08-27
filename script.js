@@ -10,6 +10,7 @@ const progress = document.getElementById('preloader-progress');
 const duration = 2500; // 2–3 segundos
 const start = Date.now();
 document.body.style.overflow = isMobile ? 'auto' : 'hidden';
+document.documentElement.style.overflow = isMobile ? 'auto' : 'hidden';
 
 function animateLoader() {
   const elapsed = Date.now() - start;
@@ -21,6 +22,7 @@ function animateLoader() {
     preloader.style.display = 'none';
     // Mantén la página estática sin barras de desplazamiento
     document.body.style.overflow = isMobile ? 'auto' : 'hidden';
+    document.documentElement.style.overflow = isMobile ? 'auto' : 'hidden';
   }
 }
 animateLoader();
