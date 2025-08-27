@@ -34,9 +34,11 @@ const toggleBtn = document.getElementById('toggle-theme');
 const zonesContainer = document.getElementById('zones-container');
 const popupsContainer = document.getElementById('popups-container');
 const mobileMenu = document.getElementById('mobile-menu');
+const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 const mobileGame = document.getElementById('mobile-game');
 const mobileCharacter = document.getElementById('mobile-character');
 const mobileZonesContainer = document.getElementById('mobile-zones-container');
+const menuIcon = document.getElementById('menu-icon');
 
 // Ajuste de unidades vh en móviles
 function updateVh() {
@@ -115,11 +117,12 @@ zones.forEach(zone => {
   });
 });
 
-// Menú móvil generado dinámicamente
+// Menú móvil generado dinámicamente (lista de secciones)
 zones.forEach(zone => {
   const item = document.createElement('div');
   item.className = `mobile-item item-${zone.id}`;
   item.dataset.popup = zone.id;
+
   const leftImg = document.createElement('img');
   leftImg.src = zone.img;
   leftImg.alt = zone.id;
@@ -131,6 +134,24 @@ zones.forEach(zone => {
   item.appendChild(leftImg);
   item.appendChild(rightImg);
   mobileMenu.appendChild(item);
+});
+
+// Menú superpuesto para el encabezado móvil
+zones.forEach((zone, idx) => {
+  const item = document.createElement('a');
+  item.className = 'menu-link';
+  item.dataset.popup = zone.id;
+
+  const labelImg = document.createElement('img');
+  labelImg.src = zone.listLabel;
+  labelImg.alt = zone.id;
+
+  item.appendChild(labelImg);
+  mobileMenuOverlay.appendChild(item);
+
+  if (idx < zones.length - 1) {
+    mobileMenuOverlay.appendChild(document.createElement('hr'));
+  }
 });
 
 // Crear listado de instrumentales
@@ -163,7 +184,29 @@ popupsContainer.addEventListener('click', e => {
   }
 });
 
-// Abrir ventana al seleccionar un elemento del menú móvil
+// Manejo del menú móvil
+let menuOpen = false;
+
+if (menuIcon) {
+  menuIcon.addEventListener('click', () => {
+    menuOpen = !menuOpen;
+    mobileMenuOverlay.classList.toggle('open', menuOpen);
+    menuIcon.src = menuOpen
+      ? 'assets/IconoCerrarMenu.png'
+      : 'assets/IconoAbrirMenu.png';
+  });
+}
+
+mobileMenuOverlay.addEventListener('click', e => {
+  const target = e.target.closest('.menu-link');
+  if (target) {
+    openPopup(target.dataset.popup);
+    mobileMenuOverlay.classList.remove('open');
+    if (menuIcon) menuIcon.src = 'assets/IconoAbrirMenu.png';
+    menuOpen = false;
+  }
+});
+
 mobileMenu.addEventListener('click', e => {
   const target = e.target.closest('.mobile-item');
   if (target) openPopup(target.dataset.popup);

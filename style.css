@@ -506,6 +506,10 @@ body.light-mode .audio-item button {
   display: none;
 }
 
+#mobile-menu-overlay {
+  display: none;
+}
+
 #mobile-intro {
   display: none;
 }
@@ -543,10 +547,76 @@ body.light-mode .audio-item button {
     overflow-y: auto;
   }
 
+  #mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: transparent;
+    z-index: 2000;
+  }
+
+  #mobile-header img {
+    height: 40px;
+  }
+
+  #menu-icon {
+    cursor: pointer;
+  }
+
   #mobile-menu {
     display: flex;
     flex-direction: column;
     height: auto;
+  }
+
+  #mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1500;
+  }
+
+  #mobile-menu-overlay.open {
+    display: flex;
+  }
+
+  #mobile-menu-overlay .menu-link {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  #mobile-menu-overlay .menu-link img {
+    width: 60%;
+    max-width: 300px;
+  }
+
+  #mobile-menu-overlay hr {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #fff;
+    margin: 20px 0;
+  }
+
+  .mobile-item img:first-child {
+    height: 70%;
+  }
+
+  .mobile-item img:last-child {
+    height: 20%;
+    margin-right: 5%;
   }
 
   #mobile-intro {
@@ -563,15 +633,6 @@ body.light-mode .audio-item button {
     height: 100%;
     object-fit: cover;
     display: block;
-  }
-
-  .mobile-item img:first-child {
-    height: 70%;
-  }
-
-  .mobile-item img:last-child {
-    height: 20%;
-    margin-right: 5%;
   }
 
   #game-area {
