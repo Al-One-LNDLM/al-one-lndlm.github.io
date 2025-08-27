@@ -62,11 +62,9 @@ body {
 }
 
 @media (max-width: 768px) {
-  html {
-    overflow-y: auto;
-  }
-
+  html,
   body {
+    overflow-x: hidden;
     overflow-y: auto;
   }
 }
