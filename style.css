@@ -519,6 +519,10 @@ body.light-mode .audio-item button {
   display: none;
 }
 
+#mobile-final {
+  display: none;
+}
+
 .mobile-item {
   width: 100%;
   height: 22vh;
@@ -587,6 +591,23 @@ body.light-mode .audio-item button {
     display: flex;
     flex-direction: column;
     height: auto;
+  }
+
+  #mobile-final {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+  }
+
+  #mobile-final img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
   }
 
   #mobile-menu-overlay {
