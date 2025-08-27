@@ -567,7 +567,7 @@ body.light-mode .audio-item button {
   }
 
   #mobile-logo {
-    margin-left: 10px;
+    margin: 0;
   }
 
   #mobile-header img {
@@ -576,7 +576,10 @@ body.light-mode .audio-item button {
 
   #menu-icon {
     cursor: pointer;
-    margin-right: 10px;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
   }
 
   #mobile-menu {
