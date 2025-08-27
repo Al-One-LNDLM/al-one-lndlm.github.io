@@ -687,44 +687,6 @@ body.light-mode .audio-item button {
   .trabajos-gallery .thumb {
     display: block;
     margin: 0 auto;
-    height: auto;
-  }
-
-  .work-album .thumb {
-    width: 90%;
-  }
-
-  .work-song .thumb {
-    width: 60%;
-  }
-
-  .work-album,
-  .work-song {
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-    align-self: center;
-  }
-
-  .work-song {
-    margin-left: 0;
-  }
-
-  .work-album .thumb,
-  .work-song .thumb {
-    margin-right: 0;
-  }
-
-  .work-album .info {
-    text-align: center;
-    margin-top: 8px;
-  }
-
-  .work-song .title-link {
-    margin-top: 8px;
-    text-align: center;
-    display: block;
   }
 }
 
