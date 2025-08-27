@@ -658,6 +658,59 @@ body.light-mode .audio-item button {
     width: 11.5vw;
     height: 8.3vh;
   }
+
+  /* Layout adjustments for contact popup on mobile */
+  .contact-popup {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-popup::before {
+    display: none;
+  }
+
+  .social-column,
+  .form-column {
+    transform: none;
+    padding-top: 0;
+  }
+
+  .social-column {
+    margin-bottom: 20px;
+  }
+
+  /* Layout adjustments for trabajos popup on mobile */
+  .trabajos-gallery .thumb {
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .work-album,
+  .work-song {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .work-song {
+    margin-left: 0;
+  }
+
+  .work-album .thumb,
+  .work-song .thumb {
+    margin-right: 0;
+  }
+
+  .work-album .info {
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .work-song .title-link {
+    margin-top: 8px;
+    text-align: center;
+    display: block;
+  }
 }
 
 /* Scrollbar customization */
