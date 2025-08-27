@@ -194,7 +194,7 @@ export const zones = [
           '<p style="text-align:center; margin-top:40px;"> Esta sección está en mantenimiento </p>' +
           '<img src="assets/obra.png" alt="En obras" class="plugin-img">',
         bg: 'assets/fondo.png',
-        gradient: 'linear-gradient(to top, rgba(0,0,0,0.6), #7d461d)'
+        gradient: 'linear-gradient(to top, rgba(0,0,0,0.7), #7d461d)'
       }
     }
   ];
