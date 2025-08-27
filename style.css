@@ -78,6 +78,7 @@ body.light-mode {
 
 /* Botón flotante para alternar entre modo claro y oscuro */
 #toggle-theme {
+  display: none;
   background: transparent;
   border: none;
   padding: 0;
