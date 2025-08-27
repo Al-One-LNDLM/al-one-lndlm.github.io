@@ -558,6 +558,11 @@ body.light-mode .audio-item button {
     padding: 10px 20px;
     background: transparent;
     z-index: 2000;
+    box-sizing: border-box;
+  }
+
+  #mobile-logo {
+    margin-left: 10px;
   }
 
   #mobile-header img {
@@ -566,6 +571,7 @@ body.light-mode .audio-item button {
 
   #menu-icon {
     cursor: pointer;
+    margin-right: 10px;
   }
 
   #mobile-menu {
