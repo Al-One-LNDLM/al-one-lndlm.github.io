@@ -689,6 +689,21 @@ body.light-mode .audio-item button {
     display: block;
   }
 
+  #mobile-social {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 20px;
+    z-index: 1;
+  }
+
+  #mobile-social img {
+    width: 48px;
+    height: auto;
+  }
+
   #mobile-menu-overlay {
     position: fixed;
     top: 0;
