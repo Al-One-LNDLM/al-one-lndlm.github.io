@@ -134,7 +134,8 @@ body.light-mode {
 }
 
 .slider img {
-  max-width: 100%;
+  max-width: 70%;
+  max-height: 50vh;
   height: auto;
 }
 
@@ -152,6 +153,9 @@ body.light-mode {
   font-size: 16px;
   cursor: pointer;
   font-family: 'PixelFont', monospace;
+  background: #000;
+  color: #fff;
+  border: none;
 }
 
 /* Contenedor principal */
