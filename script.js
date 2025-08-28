@@ -12,6 +12,51 @@ const start = Date.now();
 document.body.style.overflow = isMobile ? 'auto' : 'hidden';
 document.documentElement.style.overflow = isMobile ? 'auto' : 'hidden';
 
+// Elementos de la ventana de bienvenida
+const welcomeModal = document.getElementById('welcome-modal');
+const sliderImage = document.getElementById('slider-image');
+const prevImageBtn = document.getElementById('slider-prev');
+const nextImageBtn = document.getElementById('slider-next');
+const exploreBtn = document.getElementById('explore-btn');
+const welcomeImages = [
+  'assets/text1.png',
+  'assets/text2.png',
+  'assets/text3.png',
+  'assets/text4.png'
+];
+let currentSlide = 0;
+
+function updateSlide() {
+  if (sliderImage) {
+    sliderImage.src = welcomeImages[currentSlide];
+  }
+}
+
+function showWelcome() {
+  if (welcomeModal) {
+    welcomeModal.classList.remove('hidden');
+  }
+}
+
+if (prevImageBtn && nextImageBtn) {
+  prevImageBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide - 1 + welcomeImages.length) % welcomeImages.length;
+    updateSlide();
+  });
+  nextImageBtn.addEventListener('click', () => {
+    currentSlide = (currentSlide + 1) % welcomeImages.length;
+    updateSlide();
+  });
+}
+
+if (exploreBtn) {
+  exploreBtn.addEventListener('click', () => {
+    welcomeModal.classList.add('hidden');
+  });
+}
+
+updateSlide();
+
 function animateLoader() {
   const elapsed = Date.now() - start;
   const pct = Math.min(elapsed / duration, 1);
@@ -23,6 +68,7 @@ function animateLoader() {
     // Mantén la página estática sin barras de desplazamiento
     document.body.style.overflow = isMobile ? 'auto' : 'hidden';
     document.documentElement.style.overflow = isMobile ? 'auto' : 'hidden';
+    showWelcome();
   }
 }
 animateLoader();
