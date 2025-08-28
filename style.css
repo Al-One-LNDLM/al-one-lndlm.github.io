@@ -387,11 +387,19 @@ body.light-mode {
 }
 
 /* Galería de videos en la ventana Trabajos */
+
 .trabajos-gallery {
   display: flex;
   flex-direction: column;
   gap: 10px;
   align-items: center;
+}
+
+/* Separador para segundo álbum en Trabajos */
+.trabajos-gallery .album-divider {
+  border-top: 4px solid #000;
+  margin: 30px 0;
+  padding-top: 20px;
 }
 
 .video-card {
@@ -424,6 +432,7 @@ body.light-mode {
 
 .work-album {
   margin: 20px 0;
+  align-self: stretch;
 }
 
 
@@ -452,8 +461,9 @@ body.light-mode {
 }
 
 .work-song {
-  margin-left: 40px;
-  align-self: flex-start;
+  padding-left: 40px;
+  align-self: stretch;
+  box-sizing: border-box;
 }
 
 .work-song .thumb {
@@ -768,11 +778,7 @@ body.light-mode .audio-item button {
     align-items: center;
     text-align: center;
     margin-left: 0;
-  }
-
-   .work-song {
-    margin-left: 0;
-    align-self: center;
+    padding-left: 0;
   }
  
   .work-album .thumb,
