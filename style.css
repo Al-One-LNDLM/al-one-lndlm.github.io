@@ -691,11 +691,12 @@ body.light-mode .audio-item button {
 
   #mobile-social {
     position: absolute;
-    bottom: 20px;
+    bottom: 0;
+    margin-bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 70px;
+    gap: 40px;
     z-index: 1;
   }
 
