@@ -430,6 +430,14 @@ body.light-mode {
 .work-album {
   margin: 20px 0;
   align-self: stretch;
+  width: 100%;
+}
+
+/* Separador antes del segundo álbum */
+.work-album.album-divider {
+  border-top: 8px solid #000;
+  margin-top: 30px;
+  padding-top: 30px;
 }
 
 /* Separador antes del segundo álbum */
