@@ -19,10 +19,10 @@ const prevImageBtn = document.getElementById('slider-prev');
 const nextImageBtn = document.getElementById('slider-next');
 const exploreBtn = document.getElementById('explore-btn');
 const welcomeImages = [
-  'assets/text1.png',
-  'assets/text2.png',
-  'assets/text3.png',
-  'assets/text4.png'
+  'assets/Tutorial1.png',
+  'assets/Tutorial2.png',
+  'assets/Tutorial3.png',
+  'assets/Tutorial4.png'
 ];
 let currentSlide = 0;
 
