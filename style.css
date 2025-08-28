@@ -695,7 +695,7 @@ body.light-mode .audio-item button {
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 20px;
+    gap: 70px;
     z-index: 1;
   }
 
