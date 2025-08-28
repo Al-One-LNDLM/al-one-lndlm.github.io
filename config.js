@@ -93,7 +93,7 @@ export const zones = [
           </div>
 
           <!-- Álbum 2 -->
-          <div class="work-album">
+          <div class="work-album album-divider">
             <a class="album-link" href="https://youtu.be/qGOawjmFM8A?si=CpSVPV51H_c76tt9" target="_blank">
               <img class="thumb" src="assets/TDB0.webp" alt="Álbum 2">
             </a>
