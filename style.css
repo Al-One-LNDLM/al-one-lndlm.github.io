@@ -770,12 +770,17 @@ body.light-mode .audio-item button {
     margin-left: 0;
   }
 
+   .work-song {
+    margin-left: 0;
+    align-self: center;
+  }
+ 
   .work-album .thumb,
   .work-song .thumb {
     margin-right: 0;
     margin-bottom: 8px;
   }
-    
+
 }
 
 /* Scrollbar customization */
