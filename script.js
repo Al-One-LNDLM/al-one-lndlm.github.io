@@ -50,6 +50,9 @@ window.addEventListener('resize', updateVh);
 // Objeto que guardará las ventanas emergentes generadas
 const popups = {};
 
+// Estado inicial para permitir volver atrás desde las ventanas emergentes
+history.replaceState({ popupId: null }, '');
+
 // =============================
 //  Imágenes posicionables
 // =============================
@@ -173,7 +176,7 @@ if (mobileZonesContainer) {
 // Cerrar ventana al pulsar su botón
 popupsContainer.addEventListener('click', e => {
   if (e.target.matches('.close-btn')) {
-    closePopup(e.target.dataset.close);
+    history.back();
     return;
   }
 
@@ -216,8 +219,9 @@ mobileMenu.addEventListener('click', e => {
  * Muestra la ventana emergente asociada al identificador indicado
  * y oculta cualquier otra que esté abierta.
  * @param {string} id Identificador de la ventana a mostrar
+ * @param {boolean} [push=true] Si se debe añadir la acción al historial
  */
-function openPopup(id) {
+function openPopup(id, push = true) {
   Object.entries(popups).forEach(([key, p]) => {
     if (key === id) {
       p.classList.remove('hidden');
@@ -226,6 +230,9 @@ function openPopup(id) {
       p.classList.remove('visible');
     }
   });
+  if (push) {
+    history.pushState({ popupId: id }, '');
+  }
   if (isMobile) {
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
@@ -252,6 +259,16 @@ function closePopup(id) {
     }
   }
 }
+
+// Navegación con el botón de retroceso
+window.addEventListener('popstate', e => {
+  const state = e.state;
+  if (state && state.popupId) {
+    openPopup(state.popupId, false);
+  } else {
+    Object.keys(popups).forEach(id => closePopup(id));
+  }
+});
 
 // =============================
 //  Listado de instrumentales
