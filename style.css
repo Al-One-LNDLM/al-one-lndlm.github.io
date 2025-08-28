@@ -778,7 +778,15 @@ body.light-mode .audio-item button {
   .work-album .thumb,
   .work-song .thumb {
     margin-right: 0;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+  }
+
+  .work-album .thumb {
+    width: 90vw;
+  }
+
+  .work-song .thumb {
+    width: 60vw;
   }
 
 }
