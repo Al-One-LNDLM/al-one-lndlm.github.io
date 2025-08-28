@@ -68,7 +68,9 @@ function animateLoader() {
     // Mantén la página estática sin barras de desplazamiento
     document.body.style.overflow = isMobile ? 'auto' : 'hidden';
     document.documentElement.style.overflow = isMobile ? 'auto' : 'hidden';
-    showWelcome();
+    if (!isMobile) {
+      showWelcome();
+    }
   }
 }
 animateLoader();
