@@ -761,6 +761,21 @@ body.light-mode .audio-item button {
     display: block;
     margin: 0 auto;
   }
+
+  .work-album,
+  .work-song {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .work-album .thumb,
+  .work-song .thumb {
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+    
 }
 
 /* Scrollbar customization */
