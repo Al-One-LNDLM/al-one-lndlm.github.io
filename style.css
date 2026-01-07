@@ -777,6 +777,31 @@ body.light-mode .audio-item button {
     max-width: 300px;
   }
 
+  #mobile-menu-overlay .menu-movement-toggle {
+    width: min(90vw, 360px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: #fff;
+    font-family: 'PixelFont', monospace;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  #mobile-menu-overlay .menu-movement-toggle button {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  #mobile-menu-overlay .menu-movement-toggle img {
+    width: 80px;
+    height: auto;
+    display: block;
+  }
+
   #mobile-menu-overlay hr {
     width: 100%;
     border: none;

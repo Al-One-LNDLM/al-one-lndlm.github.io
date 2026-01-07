@@ -189,6 +189,10 @@ const mobileZonesContainer = document.getElementById('mobile-zones-container');
 const menuIcon = document.getElementById('menu-icon');
 const mobileIntroArrow = document.getElementById('mobile-intro-arrow');
 const mobileSectionsBlock = document.getElementById('mobile-menu');
+const movementToggleOn = 'assets/ON BUTTON.png';
+const movementToggleOff = 'assets/OFF BUTTON.png';
+let mobileMovementEnabled = false;
+let mobileMovementResetTarget = null;
 
 // Ajuste de unidades vh en móviles
 function updateVh() {
@@ -305,6 +309,46 @@ zones.forEach((zone, idx) => {
   if (idx < zones.length - 1) {
     mobileMenuOverlay.appendChild(document.createElement('hr'));
   }
+});
+
+const movementToggleRow = document.createElement('div');
+movementToggleRow.className = 'menu-movement-toggle';
+
+const movementToggleLabel = document.createElement('span');
+movementToggleLabel.textContent = 'Movimiento de Chust';
+
+const movementToggleButton = document.createElement('button');
+movementToggleButton.type = 'button';
+movementToggleButton.id = 'mobile-movement-toggle';
+movementToggleButton.setAttribute('aria-pressed', 'false');
+
+const movementToggleIcon = document.createElement('img');
+movementToggleIcon.alt = 'Movimiento apagado';
+
+movementToggleButton.appendChild(movementToggleIcon);
+movementToggleRow.appendChild(movementToggleLabel);
+movementToggleRow.appendChild(movementToggleButton);
+mobileMenuOverlay.appendChild(document.createElement('hr'));
+mobileMenuOverlay.appendChild(movementToggleRow);
+
+function updateMovementToggleUI() {
+  movementToggleIcon.src = mobileMovementEnabled ? movementToggleOn : movementToggleOff;
+  movementToggleIcon.alt = mobileMovementEnabled ? 'Movimiento encendido' : 'Movimiento apagado';
+  movementToggleButton.setAttribute('aria-pressed', mobileMovementEnabled ? 'true' : 'false');
+}
+
+function setMobileMovementEnabled(enabled) {
+  mobileMovementEnabled = enabled;
+  updateMovementToggleUI();
+  if (!enabled && typeof mobileMovementResetTarget === 'function') {
+    mobileMovementResetTarget();
+  }
+}
+
+updateMovementToggleUI();
+
+movementToggleButton.addEventListener('click', () => {
+  setMobileMovementEnabled(!mobileMovementEnabled);
 });
 
 // Crear listado de instrumentales
@@ -646,6 +690,7 @@ function initMobileGame() {
   let frameTick = 0;
 
   function updatePointer(e) {
+    if (!mobileMovementEnabled) return;
     mouseX = e.clientX;
     mouseY = e.clientY;
   }
@@ -661,6 +706,11 @@ function initMobileGame() {
   }
 
   function animate() {
+    if (!mobileMovementEnabled) {
+      mouseX = currentX + frameWidth / 2;
+      mouseY = currentY + frameHeight / 2;
+    }
+
     let centerX = currentX + frameWidth / 2;
     let centerY = currentY + frameHeight / 2;
     const dx = mouseX - centerX;
@@ -708,6 +758,12 @@ function initMobileGame() {
     updateSprite();
     requestAnimationFrame(animate);
   }
+
+  mobileMovementResetTarget = () => {
+    mouseX = currentX + frameWidth / 2;
+    mouseY = currentY + frameHeight / 2;
+    currentDirection = 'idle';
+  };
 
   animate();
 }
