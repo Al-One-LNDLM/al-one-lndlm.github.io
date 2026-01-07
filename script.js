@@ -26,11 +26,7 @@ const welcomeImages = [
 ];
 let currentSlide = 0;
 
-if (sliderImage) {
-  sliderImage.addEventListener('animationend', () => {
-    sliderImage.classList.remove('slide-in-ltr', 'slide-in-rtl');
-  });
-}
+const sliderAnimationClasses = ['slide-in-ltr', 'slide-in-rtl'];
 
 const mobileSliderImage = document.getElementById('mobile-slider-image');
 const mobileSliderLink = document.getElementById('mobile-slider-link');
@@ -61,33 +57,33 @@ const mobileWorkSlides = [
 ];
 let currentMobileSlide = 0;
 
-function updateSlide(direction = 0) {
+function updateSlide() {
   if (sliderImage) {
     sliderImage.src = welcomeImages[currentSlide];
-    sliderImage.classList.remove('slide-in-ltr', 'slide-in-rtl');
-    if (direction !== 0) {
-      const animationClass = direction > 0 ? 'slide-in-ltr' : 'slide-in-rtl';
-      const triggerAnimation = () => {
-        sliderImage.classList.remove('slide-in-ltr', 'slide-in-rtl');
-        void sliderImage.offsetWidth;
-        sliderImage.classList.add(animationClass);
-      };
-
-      if (sliderImage.complete) {
-        requestAnimationFrame(triggerAnimation);
-      } else {
-        sliderImage.addEventListener('load', triggerAnimation, { once: true });
-      }
-    }
   }
 }
 
-function updateMobileWorkSlide() {
+function updateMobileWorkSlide(direction = 0) {
   const slide = mobileWorkSlides[currentMobileSlide];
   if (!slide) return;
   if (mobileSliderImage) {
     mobileSliderImage.src = slide.src;
     mobileSliderImage.alt = slide.title;
+    mobileSliderImage.classList.remove(...sliderAnimationClasses);
+    if (direction !== 0) {
+      const animationClass = direction > 0 ? 'slide-in-ltr' : 'slide-in-rtl';
+      const triggerAnimation = () => {
+        mobileSliderImage.classList.remove(...sliderAnimationClasses);
+        void mobileSliderImage.offsetWidth;
+        mobileSliderImage.classList.add(animationClass);
+      };
+
+      if (mobileSliderImage.complete) {
+        requestAnimationFrame(triggerAnimation);
+      } else {
+        mobileSliderImage.addEventListener('load', triggerAnimation, { once: true });
+      }
+    }
   }
   if (mobileSliderLink) {
     mobileSliderLink.href = slide.href;
@@ -96,7 +92,7 @@ function updateMobileWorkSlide() {
 
 function shiftMobileWorkSlide(direction) {
   currentMobileSlide = (currentMobileSlide + direction + mobileWorkSlides.length) % mobileWorkSlides.length;
-  updateMobileWorkSlide();
+  updateMobileWorkSlide(direction);
 }
 
 function showWelcome() {
@@ -108,11 +104,11 @@ function showWelcome() {
 if (prevImageBtn && nextImageBtn) {
   prevImageBtn.addEventListener('click', () => {
     currentSlide = (currentSlide - 1 + welcomeImages.length) % welcomeImages.length;
-    updateSlide(-1);
+    updateSlide();
   });
   nextImageBtn.addEventListener('click', () => {
     currentSlide = (currentSlide + 1) % welcomeImages.length;
-    updateSlide(1);
+    updateSlide();
   });
 }
 
@@ -131,6 +127,12 @@ if (mobilePrevBtn && mobileNextBtn) {
   });
   mobileNextBtn.addEventListener('click', () => {
     shiftMobileWorkSlide(1);
+  });
+}
+
+if (mobileSliderImage) {
+  mobileSliderImage.addEventListener('animationend', () => {
+    mobileSliderImage.classList.remove(...sliderAnimationClasses);
   });
 }
 
