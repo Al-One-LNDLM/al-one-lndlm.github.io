@@ -806,7 +806,7 @@ body.light-mode .audio-item button {
     display: block;
     position: absolute;
     left: 50%;
-    bottom: 50px;
+    bottom: 120px;
     transform: translateX(-50%);
     padding: 0;
     border: none;
