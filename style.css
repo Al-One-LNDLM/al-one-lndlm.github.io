@@ -886,11 +886,6 @@ body.light-mode .audio-item button {
     display: none;
   }
 
-  #mobile-slider-caption {
-    margin: 0;
-    font-size: 14px;
-  }
-
   #game-area {
     display: none;
   }

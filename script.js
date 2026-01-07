@@ -34,7 +34,6 @@ if (sliderImage) {
 
 const mobileSliderImage = document.getElementById('mobile-slider-image');
 const mobileSliderLink = document.getElementById('mobile-slider-link');
-const mobileSliderCaption = document.getElementById('mobile-slider-caption');
 const mobilePrevBtn = document.getElementById('mobile-slider-prev');
 const mobileNextBtn = document.getElementById('mobile-slider-next');
 const mobileSlider = document.querySelector('.mobile-slider');
@@ -82,9 +81,6 @@ function updateMobileWorkSlide() {
   }
   if (mobileSliderLink) {
     mobileSliderLink.href = slide.href;
-  }
-  if (mobileSliderCaption) {
-    mobileSliderCaption.textContent = slide.title;
   }
 }
 
