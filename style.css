@@ -822,7 +822,9 @@ body.light-mode .audio-item button {
     position: absolute;
     left: 50%;
     bottom: 150px;
-    transform: translateX(-50%);
+    transform: translate(-50%, 0);
+    animation: mobile-intro-bounce 4.5s ease-in-out infinite;
+    will-change: transform;
     padding: 0;
     border: none;
     background: transparent;
@@ -834,6 +836,31 @@ body.light-mode .audio-item button {
     display: block;
     width: 64px;
     height: auto;
+  }
+
+  @keyframes mobile-intro-bounce {
+    0%,
+    58% {
+      transform: translate(-50%, 0);
+    }
+    68% {
+      transform: translate(-50%, -26px);
+    }
+    76% {
+      transform: translate(-50%, 0);
+    }
+    83% {
+      transform: translate(-50%, -14px);
+    }
+    89% {
+      transform: translate(-50%, 0);
+    }
+    94% {
+      transform: translate(-50%, -8px);
+    }
+    100% {
+      transform: translate(-50%, 0);
+    }
   }
 
   #mobile-intro img {
