@@ -823,7 +823,7 @@ body.light-mode .audio-item button {
     left: 50%;
     bottom: 150px;
     transform: translate(-50%, 0);
-    animation: mobile-intro-bounce 4.5s ease-in-out infinite;
+    animation: mobile-intro-bounce 7.5s ease-in-out infinite;
     will-change: transform;
     padding: 0;
     border: none;
