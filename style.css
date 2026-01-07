@@ -497,6 +497,11 @@ body.light-mode {
   align-items: center;
 }
 
+/* Tamaño de letra reducido solo en la ventana de Trabajos */
+#popup-trabajos .popup-content {
+  font-size: 11px;
+}
+
 /* Espaciado entre elementos en Trabajos */
 .trabajos-gallery > * + * {
   margin-top: 10px;
@@ -566,6 +571,29 @@ body.light-mode {
 
 .work-album .info h3 {
   margin: 0;
+}
+
+.album-description {
+  margin-top: 6px;
+}
+
+.album-description summary {
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+  list-style: none;
+}
+
+.album-description summary::marker {
+  content: '';
+}
+
+.album-description summary::-webkit-details-marker {
+  display: none;
+}
+
+.album-description p {
+  margin: 6px 0 0;
 }
 
 .work-song {
@@ -1028,6 +1056,10 @@ body.light-mode .audio-item button {
   }
 
   /* Layout adjustments for trabajos popup on mobile */
+  #popup-trabajos .popup-content {
+    font-size: 13px;
+  }
+
   .trabajos-gallery .thumb {
     display: block;
     margin: 0 auto;
