@@ -28,7 +28,7 @@ let currentSlide = 0;
 
 if (sliderImage) {
   sliderImage.addEventListener('animationend', () => {
-    sliderImage.classList.remove('slide-in-right', 'slide-in-left');
+    sliderImage.classList.remove('slide-in-ltr');
   });
 }
 
@@ -64,10 +64,10 @@ let currentMobileSlide = 0;
 function updateSlide(direction = 0) {
   if (sliderImage) {
     sliderImage.src = welcomeImages[currentSlide];
-    sliderImage.classList.remove('slide-in-right', 'slide-in-left');
+    sliderImage.classList.remove('slide-in-ltr');
     if (direction !== 0) {
       void sliderImage.offsetWidth;
-      sliderImage.classList.add(direction > 0 ? 'slide-in-right' : 'slide-in-left');
+      sliderImage.classList.add('slide-in-ltr');
     }
   }
 }
