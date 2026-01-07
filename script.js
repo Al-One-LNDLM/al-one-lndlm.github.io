@@ -28,7 +28,7 @@ let currentSlide = 0;
 
 if (sliderImage) {
   sliderImage.addEventListener('animationend', () => {
-    sliderImage.classList.remove('slide-in-ltr');
+    sliderImage.classList.remove('slide-in-ltr', 'slide-in-rtl');
   });
 }
 
@@ -64,10 +64,20 @@ let currentMobileSlide = 0;
 function updateSlide(direction = 0) {
   if (sliderImage) {
     sliderImage.src = welcomeImages[currentSlide];
-    sliderImage.classList.remove('slide-in-ltr');
+    sliderImage.classList.remove('slide-in-ltr', 'slide-in-rtl');
     if (direction !== 0) {
-      void sliderImage.offsetWidth;
-      sliderImage.classList.add('slide-in-ltr');
+      const animationClass = direction > 0 ? 'slide-in-ltr' : 'slide-in-rtl';
+      const triggerAnimation = () => {
+        sliderImage.classList.remove('slide-in-ltr', 'slide-in-rtl');
+        void sliderImage.offsetWidth;
+        sliderImage.classList.add(animationClass);
+      };
+
+      if (sliderImage.complete) {
+        requestAnimationFrame(triggerAnimation);
+      } else {
+        sliderImage.addEventListener('load', triggerAnimation, { once: true });
+      }
     }
   }
 }
