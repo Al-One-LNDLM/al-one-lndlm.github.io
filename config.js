@@ -42,9 +42,9 @@ export const zones = [
             </a>
             <div class="info">
               <h3><a class="album-link" href="https://www.youtube.com/watch?v=9gNmEuoKf7c&list=RD9gNmEuoKf7c&start_radio=1" target="_blank">El Niño y Su Fe - Guiber & Al.One</a></h3>
-              <p>El álbum de "El Niño y Su Fe" nace de la necesidad de expresar el sentimiento de una tierra olvidada: Extremadura. 
-              Es el producto de un grupo de chavales que, durante varios años, se dedicaron a hacer música por amor al arte y nada más. 
-              Con el paso de los años, el proyecto evolucionó a un álbum completo con su propia identidad visual y un mediometraje original dedicado.</p>
+              <p>"El Niño y Su Fe" es una obra híbrida que nace entre la música y la imagen. Un "albumetraje": un proyecto que utiliza el lenguaje del álbum musical para construir una narración audiovisual continua, donde cada canción es una escena.
+              El proyecto explora la memoria, la pérdida y la fe entendida no como religión, sino como aquello en lo que uno se apoya cuando todo lo demás empieza a fallar. A través de una mirada íntima y fragmentada, la obra dialoga con la infancia, la familia y el paso del tiempo, construyendo un relato emocional que avanza más por sensaciones que por respuestas.
+              No es solo un trabajo musical ni únicamente una pieza audiovisual. Es un intento de dar forma a lo que permanece, incluso cuando la memoria se deshilacha.</p>
             </div>
           </div>
 
@@ -99,7 +99,9 @@ export const zones = [
             </a>
             <div class="info">
               <h3><a class="album-link" href="https://youtu.be/qGOawjmFM8A?si=CpSVPV51H_c76tt9" target="_blank">TDB (Tierra De Barros) - Marker T & Al.One</a></h3>
-              <p>Otra descripción del álbum.</p>
+              <p>"Tierra de Barros" (TDB) es un álbum debut muy personal que explora la identidad de Marker-T desde su relación con la tierra que lo vio crecer: Extremadura. Un proyecto que entiende el territorio no solo como un lugar físico, sino como memoria, carácter y forma de estar en el mundo.
+              El álbum mezcla los códigos del hip-hop con elementos culturales propios de la tierra extremeña, incorporando samples y referencias a figuras representativas de su música tradicional. El resultado es un diálogo entre lo contemporáneo y lo heredado, entre el ritmo urbano y el peso de la raíz.
+              TDB construye una identidad de hip-hop extremeño honesta y cuidada, donde la experiencia personal se convierte en discurso colectivo. Un álbum que habla desde la tierra, sin folclore impostado, y que reivindica el origen como parte esencial del sonido.</p>
             </div>
           </div>
 
