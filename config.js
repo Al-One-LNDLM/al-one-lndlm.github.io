@@ -23,7 +23,7 @@ export const zones = [
       title: 'Instrumentales',
       content: '',
       bg: 'assets/fondo.png',
-      gradient: 'linear-gradient(to bottom, #bd75c4, rgba(0,0,0,0))'
+      gradient: 'linear-gradient(to bottom, #bd75c4, rgba(196, 196, 196, 1))'
     }
   },
   {
@@ -146,7 +146,7 @@ export const zones = [
           </div>
         `,
         bg: 'assets/fondo.png',
-        gradient: 'linear-gradient(to bottom, rgba(94, 94, 94, 0.71), rgba(43, 43, 43, 0.6))'
+        gradient: 'linear-gradient(to bottom, rgba(94, 94, 94, 1), rgba(43, 43, 43, 1))'
       }
     },
     {
@@ -188,7 +188,7 @@ export const zones = [
           </div>
         `,
         bg: 'assets/fondo.png',
-        gradient: 'linear-gradient(to bottom, #4683d9, rgba(0,0,0,0.5))'
+        gradient: 'linear-gradient(to bottom, rgba(0, 132, 255, 1), rgba(0, 0, 0, 1))'
       }
     },
     {
@@ -202,7 +202,7 @@ export const zones = [
           '<p style="text-align:center; margin-top:40px;"> Esta sección está en mantenimiento </p>' +
           '<img src="assets/obra.png" alt="En obras" class="plugin-img">',
         bg: 'assets/fondo.png',
-        gradient: 'linear-gradient(to top, rgba(0,0,0,0.7), #7d461d)'
+        gradient: 'linear-gradient(to top, rgba(0, 0, 0, 1), #7d461d)'
       }
     }
   ];
