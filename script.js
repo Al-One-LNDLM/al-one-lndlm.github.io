@@ -31,6 +31,7 @@ const mobileSliderLink = document.getElementById('mobile-slider-link');
 const mobileSliderCaption = document.getElementById('mobile-slider-caption');
 const mobilePrevBtn = document.getElementById('mobile-slider-prev');
 const mobileNextBtn = document.getElementById('mobile-slider-next');
+const mobileSlider = document.querySelector('.mobile-slider');
 const mobileWorkSlides = [
   {
     src: 'assets/mini1.jpg',
@@ -76,6 +77,11 @@ function updateMobileWorkSlide() {
   }
 }
 
+function shiftMobileWorkSlide(direction) {
+  currentMobileSlide = (currentMobileSlide + direction + mobileWorkSlides.length) % mobileWorkSlides.length;
+  updateMobileWorkSlide();
+}
+
 function showWelcome() {
   if (welcomeModal) {
     welcomeModal.classList.remove('hidden');
@@ -104,12 +110,43 @@ updateMobileWorkSlide();
 
 if (mobilePrevBtn && mobileNextBtn) {
   mobilePrevBtn.addEventListener('click', () => {
-    currentMobileSlide = (currentMobileSlide - 1 + mobileWorkSlides.length) % mobileWorkSlides.length;
-    updateMobileWorkSlide();
+    shiftMobileWorkSlide(-1);
   });
   mobileNextBtn.addEventListener('click', () => {
-    currentMobileSlide = (currentMobileSlide + 1) % mobileWorkSlides.length;
-    updateMobileWorkSlide();
+    shiftMobileWorkSlide(1);
+  });
+}
+
+if (isMobile && mobileSlider) {
+  const swipeThreshold = 30;
+  let startX = 0;
+  let startY = 0;
+  let pointerId = null;
+
+  const handlePointerDown = event => {
+    if (event.pointerType === 'mouse') return;
+    startX = event.clientX;
+    startY = event.clientY;
+    pointerId = event.pointerId;
+    if (mobileSlider.setPointerCapture) {
+      mobileSlider.setPointerCapture(pointerId);
+    }
+  };
+
+  const handlePointerUp = event => {
+    if (pointerId === null) return;
+    const deltaX = event.clientX - startX;
+    const deltaY = event.clientY - startY;
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
+      shiftMobileWorkSlide(deltaX < 0 ? 1 : -1);
+    }
+    pointerId = null;
+  };
+
+  mobileSlider.addEventListener('pointerdown', handlePointerDown);
+  mobileSlider.addEventListener('pointerup', handlePointerUp);
+  mobileSlider.addEventListener('pointercancel', () => {
+    pointerId = null;
   });
 }
 
