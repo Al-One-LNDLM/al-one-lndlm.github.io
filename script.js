@@ -26,9 +26,53 @@ const welcomeImages = [
 ];
 let currentSlide = 0;
 
+const mobileSliderImage = document.getElementById('mobile-slider-image');
+const mobileSliderLink = document.getElementById('mobile-slider-link');
+const mobileSliderCaption = document.getElementById('mobile-slider-caption');
+const mobilePrevBtn = document.getElementById('mobile-slider-prev');
+const mobileNextBtn = document.getElementById('mobile-slider-next');
+const mobileWorkSlides = [
+  {
+    src: 'assets/mini1.jpg',
+    href: 'https://www.youtube.com/watch?v=9gNmEuoKf7c&list=RD9gNmEuoKf7c&start_radio=1',
+    title: 'El Niño y Su Fe - Guiber & Al.One'
+  },
+  {
+    src: 'assets/MINI 2.jpg',
+    href: 'https://youtu.be/gjnF2xA8EgU?si=-Lz4cv3UeemV82s7',
+    title: '1 Gama Ocre'
+  },
+  {
+    src: 'assets/MINI 3.jpg',
+    href: 'https://youtu.be/olTjbh7295U?si=6XDtN3jbhnOMuLol',
+    title: '2 Chicos Malos Buenos Tipos'
+  },
+  {
+    src: 'assets/MINI 4.jpg',
+    href: 'https://youtu.be/w4X0c4Csqck?si=phNUqeIYaCTdfJEB',
+    title: '3 Los Penúltimos Versos Que Te Escribo'
+  }
+];
+let currentMobileSlide = 0;
+
 function updateSlide() {
   if (sliderImage) {
     sliderImage.src = welcomeImages[currentSlide];
+  }
+}
+
+function updateMobileWorkSlide() {
+  const slide = mobileWorkSlides[currentMobileSlide];
+  if (!slide) return;
+  if (mobileSliderImage) {
+    mobileSliderImage.src = slide.src;
+    mobileSliderImage.alt = slide.title;
+  }
+  if (mobileSliderLink) {
+    mobileSliderLink.href = slide.href;
+  }
+  if (mobileSliderCaption) {
+    mobileSliderCaption.textContent = slide.title;
   }
 }
 
@@ -56,6 +100,18 @@ if (exploreBtn) {
 }
 
 updateSlide();
+updateMobileWorkSlide();
+
+if (mobilePrevBtn && mobileNextBtn) {
+  mobilePrevBtn.addEventListener('click', () => {
+    currentMobileSlide = (currentMobileSlide - 1 + mobileWorkSlides.length) % mobileWorkSlides.length;
+    updateMobileWorkSlide();
+  });
+  mobileNextBtn.addEventListener('click', () => {
+    currentMobileSlide = (currentMobileSlide + 1) % mobileWorkSlides.length;
+    updateMobileWorkSlide();
+  });
+}
 
 function animateLoader() {
   const elapsed = Date.now() - start;
