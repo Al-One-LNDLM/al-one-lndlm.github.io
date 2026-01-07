@@ -26,6 +26,12 @@ const welcomeImages = [
 ];
 let currentSlide = 0;
 
+if (sliderImage) {
+  sliderImage.addEventListener('animationend', () => {
+    sliderImage.classList.remove('slide-in-right', 'slide-in-left');
+  });
+}
+
 const mobileSliderImage = document.getElementById('mobile-slider-image');
 const mobileSliderLink = document.getElementById('mobile-slider-link');
 const mobileSliderCaption = document.getElementById('mobile-slider-caption');
@@ -56,9 +62,14 @@ const mobileWorkSlides = [
 ];
 let currentMobileSlide = 0;
 
-function updateSlide() {
+function updateSlide(direction = 0) {
   if (sliderImage) {
     sliderImage.src = welcomeImages[currentSlide];
+    sliderImage.classList.remove('slide-in-right', 'slide-in-left');
+    if (direction !== 0) {
+      void sliderImage.offsetWidth;
+      sliderImage.classList.add(direction > 0 ? 'slide-in-right' : 'slide-in-left');
+    }
   }
 }
 
@@ -91,11 +102,11 @@ function showWelcome() {
 if (prevImageBtn && nextImageBtn) {
   prevImageBtn.addEventListener('click', () => {
     currentSlide = (currentSlide - 1 + welcomeImages.length) % welcomeImages.length;
-    updateSlide();
+    updateSlide(-1);
   });
   nextImageBtn.addEventListener('click', () => {
     currentSlide = (currentSlide + 1) % welcomeImages.length;
-    updateSlide();
+    updateSlide(1);
   });
 }
 
