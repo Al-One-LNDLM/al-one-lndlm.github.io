@@ -180,6 +180,8 @@ const mobileGame = document.getElementById('mobile-game');
 const mobileCharacter = document.getElementById('mobile-character');
 const mobileZonesContainer = document.getElementById('mobile-zones-container');
 const menuIcon = document.getElementById('menu-icon');
+const mobileIntroArrow = document.getElementById('mobile-intro-arrow');
+const mobileSectionsBlock = document.getElementById('mobile-menu');
 
 // Ajuste de unidades vh en móviles
 function updateVh() {
@@ -338,6 +340,12 @@ if (menuIcon) {
     menuIcon.src = menuOpen
       ? 'assets/IconoCerrarMenu.png'
       : 'assets/IconoAbrirMenu.png';
+  });
+}
+
+if (mobileIntroArrow && mobileSectionsBlock) {
+  mobileIntroArrow.addEventListener('click', () => {
+    mobileSectionsBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 }
 

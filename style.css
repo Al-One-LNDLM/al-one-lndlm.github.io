@@ -599,6 +599,10 @@ body.light-mode .audio-item button {
   display: none;
 }
 
+#mobile-intro-arrow {
+  display: none;
+}
+
 #mobile-work-slider {
   display: none;
 }
@@ -763,6 +767,25 @@ body.light-mode .audio-item button {
     z-index: 0;
   }
 
+  #mobile-intro-arrow {
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    transform: translateX(-50%);
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 3;
+  }
+
+  #mobile-intro-arrow img {
+    display: block;
+    width: 64px;
+    height: auto;
+  }
+
   #mobile-intro img {
     width: 100%;
     height: 100%;
@@ -814,7 +837,7 @@ body.light-mode .audio-item button {
   #mobile-slider-image {
     width: min(70vw, 320px);
     height: auto;
-    border: 4px solid #fff;
+    border: 4px solid #000000;
     border-radius: 4px;
   }
 
