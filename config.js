@@ -146,7 +146,7 @@ export const zones = [
           </div>
         `,
         bg: 'assets/fondo.png',
-        gradient: 'linear-gradient(to bottom, rgba(94, 94, 94, 1), rgba(43, 43, 43, 1))'
+        gradient: 'linear-gradient(to bottom, rgba(94, 94, 94, 1), rgba(232, 232, 232, 1))'
       }
     },
     {
