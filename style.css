@@ -74,6 +74,33 @@ body.light-mode {
   color: #000;
 }
 
+@media (hover: none) and (pointer: coarse) {
+  :where(
+      a,
+      button,
+      [role='button'],
+      input[type='button'],
+      input[type='submit'],
+      input[type='reset']
+    ) {
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    transition: transform 120ms ease;
+    transform-origin: center;
+  }
+
+  :where(
+      a,
+      button,
+      [role='button'],
+      input[type='button'],
+      input[type='submit'],
+      input[type='reset']
+    ):active {
+    transform: scale(1.04);
+  }
+}
+
 /* Botón flotante para alternar entre modo claro y oscuro */
 #toggle-theme {
   display: none;
