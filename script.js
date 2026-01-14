@@ -7,7 +7,7 @@ const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
 const preloader = document.getElementById('preloader');
 const progress = document.getElementById('preloader-progress');
-const duration = 2500; // 2–3 segundos
+const duration = 1500; // 2–3 segundos
 const start = Date.now();
 document.body.style.overflow = isMobile ? 'auto' : 'hidden';
 document.documentElement.style.overflow = isMobile ? 'auto' : 'hidden';
