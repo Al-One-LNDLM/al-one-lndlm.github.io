@@ -758,6 +758,7 @@ body.light-mode .audio-item button {
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
+    transition: transform 180ms ease;
   }
 
   #mobile-menu {
@@ -883,6 +884,7 @@ body.light-mode .audio-item button {
     left: 50%;
     bottom: 150px;
     transform: translate(-50%, 0);
+    transition: transform 180ms ease;
     animation: mobile-intro-bounce 7.5s ease-in-out infinite;
     will-change: transform;
     padding: 0;
@@ -994,6 +996,22 @@ body.light-mode .audio-item button {
     padding: 6px 10px;
     cursor: pointer;
     display: none;
+  }
+
+  .mobile-item {
+    transition: transform 180ms ease;
+  }
+
+  .mobile-item:active {
+    transform: scale(0.92);
+  }
+
+  #menu-icon:active {
+    transform: translateY(-50%) scale(0.9);
+  }
+
+  #mobile-intro-arrow:active {
+    transform: translate(-50%, 0) scale(0.9);
   }
 
   #game-area {
