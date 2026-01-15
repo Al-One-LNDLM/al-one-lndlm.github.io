@@ -282,6 +282,7 @@ zones.forEach(zone => {
   popup.addEventListener('transitionend', () => {
     if (!popup.classList.contains('visible')) {
       popup.classList.add('hidden');
+      popup.classList.remove('closing');
     }
   });
 });
@@ -433,6 +434,7 @@ function openPopup(id, push = true) {
   Object.entries(popups).forEach(([key, p]) => {
     if (key === id) {
       p.classList.remove('hidden');
+      p.classList.remove('closing');
       requestAnimationFrame(() => p.classList.add('visible'));
     } else {
       p.classList.remove('visible');
@@ -452,7 +454,10 @@ function openPopup(id, push = true) {
  * @param {string} id Identificador de la ventana a cerrar
  */
 function closePopup(id) {
-  if (popups[id]) popups[id].classList.remove('visible');
+  if (popups[id]) {
+    popups[id].classList.add('closing');
+    popups[id].classList.remove('visible');
+  }
   if (id === 'instrumentales' && currentAudio) {
     currentAudio.audio.pause();
     currentAudio.audio.currentTime = 0;

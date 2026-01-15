@@ -887,7 +887,7 @@ body.light-mode .audio-item button {
     overflow: hidden;
     width: 0;
     line-height: 1.2;
-    animation: mobile-typewriter 3.8s steps(var(--typing-chars)) 0.4s forwards;
+    animation: mobile-typewriter 2.2s steps(var(--typing-chars)) 2s forwards;
   }
 
   #mobile-intro-typing::after {
@@ -1077,6 +1077,10 @@ body.light-mode .audio-item button {
     overflow: hidden;
     z-index: 10000;
     transition: transform 0.6s cubic-bezier(0.22, 1.2, 0.36, 1), opacity 0.35s ease;
+  }
+
+  .popup.closing {
+    transition: transform 0.9s cubic-bezier(0.22, 1.2, 0.36, 1), opacity 0.6s ease;
   }
 
   .popup.visible {
