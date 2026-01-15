@@ -345,6 +345,10 @@ function initMobileHeroCarousel() {
   let animationId = null;
   let activePointerId = null;
   let isPointerCaptured = false;
+  let introPlayed = false;
+  let introTimerId = null;
+  let introAnimationId = null;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   function setTranslate(value) {
     currentTranslate = value;
@@ -359,6 +363,19 @@ function initMobileHeroCarousel() {
     if (animationId) {
       cancelAnimationFrame(animationId);
       animationId = null;
+    }
+  }
+
+  function cancelIntroAnimation() {
+    if (introPlayed) return;
+    introPlayed = true;
+    if (introTimerId) {
+      clearTimeout(introTimerId);
+      introTimerId = null;
+    }
+    if (introAnimationId) {
+      cancelAnimationFrame(introAnimationId);
+      introAnimationId = null;
     }
   }
 
@@ -436,6 +453,8 @@ function initMobileHeroCarousel() {
   // Drag: capturar el arrastre horizontal 1:1.
   function onPointerDown(event) {
     if (event.pointerType === 'mouse' && event.button !== 0) return;
+    // Si el usuario interactúa, cancela la animación de entrada y no la repitas.
+    cancelIntroAnimation();
     stopAnimation();
     startX = event.clientX;
     startY = event.clientY;
@@ -508,6 +527,38 @@ function initMobileHeroCarousel() {
     setTranslate(-currentIndex * slideWidth);
   }
 
+  // Animación de entrada sutil para indicar que se puede deslizar (solo una vez).
+  function runIntroAnimation() {
+    if (introPlayed || prefersReducedMotion.matches) return;
+    introPlayed = true;
+    const start = currentTranslate;
+    const hintOffset = -slideWidth * 0.12;
+    const target = start + hintOffset;
+    const duration = 420;
+    let startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setTranslate(start + (target - start) * eased);
+      if (progress < 1) {
+        introAnimationId = requestAnimationFrame(step);
+      } else {
+        introAnimationId = null;
+        // Suelta y aplica el snap al índice actual sin romper el loop/clones.
+        animateTo(-currentIndex * slideWidth);
+      }
+    }
+
+    introAnimationId = requestAnimationFrame(step);
+  }
+
+  function scheduleIntroAnimation() {
+    if (introPlayed || prefersReducedMotion.matches) return;
+    introTimerId = window.setTimeout(runIntroAnimation, 1500);
+  }
+
   mobileHeroTrack.addEventListener('pointerdown', onPointerDown);
   mobileHeroTrack.addEventListener('pointermove', onPointerMove);
   mobileHeroTrack.addEventListener('pointerup', onPointerUp);
@@ -515,6 +566,11 @@ function initMobileHeroCarousel() {
   mobileHeroTrack.addEventListener('click', onClick);
   window.addEventListener('resize', updateSizes);
   window.addEventListener('orientationchange', updateSizes);
+  if (document.readyState === 'complete') {
+    scheduleIntroAnimation();
+  } else {
+    window.addEventListener('load', scheduleIntroAnimation, { once: true });
+  }
 
   setTranslate(currentTranslate);
 }
