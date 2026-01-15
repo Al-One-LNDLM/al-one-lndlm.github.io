@@ -326,12 +326,7 @@ function initMobileHeroCarousel() {
     slide.href = item.link;
     slide.target = '_blank';
     slide.rel = 'noopener';
-    slide.innerHTML = `
-      <div class="mobile-carousel-card">
-        <img src="${item.image}" alt="${item.title}">
-        <span>${item.title}</span>
-      </div>
-    `;
+    slide.innerHTML = `<img src="${item.image}" alt="${item.title}">`;
     slides.push(slide);
     mobileHeroTrack.appendChild(slide);
   });
