@@ -857,7 +857,11 @@ body.light-mode .audio-item button {
     text-align: left;
     white-space: nowrap;
     pointer-events: none;
-    text-shadow: 2px 2px 0 #000;
+    text-shadow: 2px 2px 0 #00000000;
+  }
+
+  .mobile-item-label--trabajos {
+    text-shadow: 2px 2px 0 #000000;
   }
 
   .mobile-item-label--instrumentales {
