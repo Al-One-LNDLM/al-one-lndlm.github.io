@@ -408,7 +408,8 @@ if (menuIcon) {
 
 if (mobileIntroArrow && mobileSectionsBlock) {
   mobileIntroArrow.addEventListener('click', () => {
-    mobileSectionsBlock.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const targetTop = mobileSectionsBlock.getBoundingClientRect().top + window.pageYOffset - 25;
+    window.scrollTo({ top: targetTop, behavior: 'smooth' });
   });
 }
 
