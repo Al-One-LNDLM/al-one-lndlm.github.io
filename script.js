@@ -26,73 +26,10 @@ const welcomeImages = [
 ];
 let currentSlide = 0;
 
-const sliderAnimationClasses = ['slide-in-ltr', 'slide-in-rtl'];
-
-const mobileSliderImage = document.getElementById('mobile-slider-image');
-const mobileSliderLink = document.getElementById('mobile-slider-link');
-const mobilePrevBtn = document.getElementById('mobile-slider-prev');
-const mobileNextBtn = document.getElementById('mobile-slider-next');
-const mobileSlider = document.querySelector('.mobile-slider');
-const mobileWorkSlides = [
-  {
-    src: 'assets/mini1.jpg',
-    href: 'https://www.youtube.com/watch?v=9gNmEuoKf7c&list=RD9gNmEuoKf7c&start_radio=1',
-    title: 'El Niño y Su Fe - Guiber & Al.One'
-  },
-  {
-    src: 'assets/MINI 2.jpg',
-    href: 'https://youtu.be/gjnF2xA8EgU?si=-Lz4cv3UeemV82s7',
-    title: '1 Gama Ocre'
-  },
-  {
-    src: 'assets/MINI 3.jpg',
-    href: 'https://youtu.be/olTjbh7295U?si=6XDtN3jbhnOMuLol',
-    title: '2 Chicos Malos Buenos Tipos'
-  },
-  {
-    src: 'assets/MINI 4.jpg',
-    href: 'https://youtu.be/w4X0c4Csqck?si=phNUqeIYaCTdfJEB',
-    title: '3 Los Penúltimos Versos Que Te Escribo'
-  }
-];
-let currentMobileSlide = 0;
-
 function updateSlide() {
   if (sliderImage) {
     sliderImage.src = welcomeImages[currentSlide];
   }
-}
-
-function updateMobileWorkSlide(direction = 0) {
-  const slide = mobileWorkSlides[currentMobileSlide];
-  if (!slide) return;
-  if (mobileSliderImage) {
-    mobileSliderImage.src = slide.src;
-    mobileSliderImage.alt = slide.title;
-    mobileSliderImage.classList.remove(...sliderAnimationClasses);
-    if (direction !== 0) {
-      const animationClass = direction > 0 ? 'slide-in-ltr' : 'slide-in-rtl';
-      const triggerAnimation = () => {
-        mobileSliderImage.classList.remove(...sliderAnimationClasses);
-        void mobileSliderImage.offsetWidth;
-        mobileSliderImage.classList.add(animationClass);
-      };
-
-      if (mobileSliderImage.complete) {
-        requestAnimationFrame(triggerAnimation);
-      } else {
-        mobileSliderImage.addEventListener('load', triggerAnimation, { once: true });
-      }
-    }
-  }
-  if (mobileSliderLink) {
-    mobileSliderLink.href = slide.href;
-  }
-}
-
-function shiftMobileWorkSlide(direction) {
-  currentMobileSlide = (currentMobileSlide + direction + mobileWorkSlides.length) % mobileWorkSlides.length;
-  updateMobileWorkSlide(direction);
 }
 
 function showWelcome() {
@@ -119,55 +56,6 @@ if (exploreBtn) {
 }
 
 updateSlide();
-updateMobileWorkSlide();
-
-if (mobilePrevBtn && mobileNextBtn) {
-  mobilePrevBtn.addEventListener('click', () => {
-    shiftMobileWorkSlide(-1);
-  });
-  mobileNextBtn.addEventListener('click', () => {
-    shiftMobileWorkSlide(1);
-  });
-}
-
-if (mobileSliderImage) {
-  mobileSliderImage.addEventListener('animationend', () => {
-    mobileSliderImage.classList.remove(...sliderAnimationClasses);
-  });
-}
-
-if (isMobile && mobileSlider) {
-  const swipeThreshold = 30;
-  let startX = 0;
-  let startY = 0;
-  let pointerId = null;
-
-  const handlePointerDown = event => {
-    if (event.pointerType === 'mouse') return;
-    startX = event.clientX;
-    startY = event.clientY;
-    pointerId = event.pointerId;
-    if (mobileSlider.setPointerCapture) {
-      mobileSlider.setPointerCapture(pointerId);
-    }
-  };
-
-  const handlePointerUp = event => {
-    if (pointerId === null) return;
-    const deltaX = event.clientX - startX;
-    const deltaY = event.clientY - startY;
-    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > swipeThreshold) {
-      shiftMobileWorkSlide(deltaX < 0 ? 1 : -1);
-    }
-    pointerId = null;
-  };
-
-  mobileSlider.addEventListener('pointerdown', handlePointerDown);
-  mobileSlider.addEventListener('pointerup', handlePointerUp);
-  mobileSlider.addEventListener('pointercancel', () => {
-    pointerId = null;
-  });
-}
 
 function animateLoader() {
   const elapsed = Date.now() - start;
