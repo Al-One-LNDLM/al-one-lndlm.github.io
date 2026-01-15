@@ -851,7 +851,7 @@ body.light-mode .audio-item button {
     top: 50%;
     left: 50%;
     transform: translateY(-50%);
-    color: #00000080;
+    color: #000000b4;
     font-family: 'PixelFont', monospace;
     font-size: clamp(14px, 4vw, 28px);
     text-align: left;
