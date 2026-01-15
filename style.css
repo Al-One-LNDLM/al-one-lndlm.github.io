@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: #1e1e1e;
+  background: linear-gradient(180deg, #000 0%, #1e1e1e 50%, #000 100%);
   padding-top: 20vh;
   z-index: 10000;
 }
