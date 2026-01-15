@@ -204,7 +204,7 @@ zones.forEach(zone => {
   const labelText = mobileSectionLabels[zone.id];
   if (labelText) {
     const label = document.createElement('span');
-    label.className = 'mobile-item-label';
+    label.className = `mobile-item-label mobile-item-label--${zone.id}`;
     label.textContent = labelText;
     item.appendChild(label);
   }
