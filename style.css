@@ -851,6 +851,7 @@ body.light-mode .audio-item button {
 
   #mobile-intro-typing {
     --typing-chars: 35;
+    --cursor-gap: 0.7ch;
     display: block;
     position: absolute;
     top: calc(50% - 215px);
@@ -876,6 +877,7 @@ body.light-mode .audio-item button {
     width: 0.6ch;
     height: 1em;
     background-color: currentColor;
+    transform: translateX(var(--cursor-gap));
     animation: mobile-cursor-blink 0.8s step-end infinite;
   }
 
