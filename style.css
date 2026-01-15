@@ -851,7 +851,7 @@ body.light-mode .audio-item button {
     top: 50%;
     left: 50%;
     transform: translateY(-50%);
-    color: #fff;
+    color: #00000080;
     font-family: 'PixelFont', monospace;
     font-size: clamp(14px, 4vw, 28px);
     text-align: left;
@@ -861,7 +861,7 @@ body.light-mode .audio-item button {
   }
 
   .mobile-item-label--trabajos {
-    text-shadow: 2px 2px 0 #000000;
+    text-shadow: 2px 2px 0 #00000000;
   }
 
   .mobile-item-label--instrumentales {
