@@ -18,6 +18,7 @@ export const zones = [
     id: 'instrumentales',
     img: 'assets/Edificio1.png',
     listLabel: 'assets/text1.png',
+    mobileButton: 'assets/Boton INST.png',
     position: { top: '2vh', left: '6vw' },
     popup: {
       title: 'Instrumentales',
@@ -30,6 +31,7 @@ export const zones = [
     id: 'trabajos',
     img: 'assets/Edificio4.png',
     listLabel: 'assets/text2.png',
+    mobileButton: 'assets/Boton TRB.png',
     position: { top: '3.7vh', right: '4.7vw' },
     popup: {
       title: 'Trabajos',
@@ -153,6 +155,7 @@ export const zones = [
       id: 'contacto',
     img: 'assets/Edificio3.png',
     listLabel: 'assets/text3.png',
+    mobileButton: 'assets/Boton CTC.png',
     position: { bottom: '13vh', left: '6vw' },
     popup: {
       title: 'Contacto',
@@ -195,6 +198,7 @@ export const zones = [
       id: 'plugins',
     img: 'assets/EDIFICIO2.png',
     listLabel: 'assets/text4.png',
+    mobileButton: 'assets/Boton PGN.png',
     position: { bottom: '10vh', right: '4.8vw' },
       popup: {
         title: 'Plugins',
