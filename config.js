@@ -21,7 +21,7 @@ export const zones = [
     mobileButton: 'assets/Boton INST.png',
     position: { top: '2vh', left: '6vw' },
     popup: {
-      title: 'Instrumentales',
+      title: 'Música',
       content: '',
       bg: 'assets/fondo.png',
       gradient: 'linear-gradient(to bottom, #bd75c4, rgba(196, 196, 196, 1))'
