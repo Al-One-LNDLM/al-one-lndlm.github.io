@@ -211,6 +211,30 @@ export const zones = [
     }
   ];
 
+// Últimos trabajos destacados para el carrusel móvil
+export const mobileLatestWorks = [
+  {
+    title: 'LXXL',
+    link: 'https://youtu.be/qrz6GHOQeWo?si=G3NDKIrxeIGsKGWG',
+    image: 'assets/TDB1.jpg'
+  },
+  {
+    title: 'MID00´S',
+    link: 'https://youtu.be/VoGZL0BbisA?si=O8v8NPwVlMLQr_QL',
+    image: 'assets/TDB2.webp'
+  },
+  {
+    title: 'DETROIT 89´',
+    link: 'https://youtu.be/TCTaVd1pkNU?si=FIcTLrw6MaOrvbLk',
+    image: 'assets/TDB3.webp'
+  },
+  {
+    title: 'WUTW',
+    link: 'https://youtu.be/1bG2_86Cqzk?si=KlASDkXCWNGy3NUz',
+    image: 'assets/TDB4.webp'
+  }
+];
+
 // Imágenes adicionales con posiciones ajustables
 export const floatingImages = [
   {

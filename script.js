@@ -1,7 +1,13 @@
 // --- script.js ---
 // Código estructurado para que sea fácil cambiar imágenes y contenido.
 
-import { backgrounds, zones, instrumentals, floatingImages } from './config.js';
+import {
+  backgrounds,
+  zones,
+  instrumentals,
+  floatingImages,
+  mobileLatestWorks
+} from './config.js';
 
 const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
@@ -89,6 +95,8 @@ const mobileZonesContainer = document.getElementById('mobile-zones-container');
 const menuIcon = document.getElementById('menu-icon');
 const mobileIntroArrow = document.getElementById('mobile-intro-arrow');
 const mobileSectionsBlock = document.getElementById('mobile-menu');
+const mobileHeroCarousel = document.querySelector('.mobile-hero-carousel');
+const mobileHeroTrack = document.querySelector('.mobile-carousel-track');
 const movementToggleOn = 'assets/ON BUTTON.png';
 const movementToggleOff = 'assets/OFF BUTTON.png';
 let mobileMovementEnabled = false;
@@ -296,6 +304,227 @@ if (mobileIntroArrow && mobileSectionsBlock) {
     window.scrollTo({ top: targetTop, behavior: 'smooth' });
   });
 }
+
+// =============================
+//  Carrusel móvil hero (drag + inercia + snap + loop)
+// =============================
+function initMobileHeroCarousel() {
+  if (!mobileHeroCarousel || !mobileHeroTrack || !mobileLatestWorks?.length) return;
+
+  const slides = [];
+  const realCount = mobileLatestWorks.length;
+  const dataWithClones = [
+    mobileLatestWorks[realCount - 1],
+    ...mobileLatestWorks,
+    mobileLatestWorks[0]
+  ];
+
+  mobileHeroTrack.innerHTML = '';
+  dataWithClones.forEach(item => {
+    const slide = document.createElement('a');
+    slide.className = 'mobile-carousel-slide';
+    slide.href = item.link;
+    slide.target = '_blank';
+    slide.rel = 'noopener';
+    slide.innerHTML = `
+      <div class="mobile-carousel-card">
+        <img src="${item.image}" alt="${item.title}">
+        <span>${item.title}</span>
+      </div>
+    `;
+    slides.push(slide);
+    mobileHeroTrack.appendChild(slide);
+  });
+
+  let slideWidth = window.innerWidth;
+  let currentIndex = 1;
+  let currentTranslate = -slideWidth * currentIndex;
+  let startTranslate = currentTranslate;
+  let startX = null;
+  let startY = null;
+  let lastX = 0;
+  let lastTime = 0;
+  let velocity = 0;
+  let isDragging = false;
+  let dragActivated = false;
+  let animationId = null;
+  let activePointerId = null;
+  let isPointerCaptured = false;
+
+  function setTranslate(value) {
+    currentTranslate = value;
+    mobileHeroTrack.style.transform = `translate3d(${value}px, 0, 0)`;
+  }
+
+  function clampIndex(index) {
+    return Math.max(0, Math.min(index, realCount + 1));
+  }
+
+  function stopAnimation() {
+    if (animationId) {
+      cancelAnimationFrame(animationId);
+      animationId = null;
+    }
+  }
+
+  function animateTo(target, callback) {
+    stopAnimation();
+    const start = currentTranslate;
+    const delta = target - start;
+    const duration = 300;
+    let startTime = null;
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setTranslate(start + delta * eased);
+      if (progress < 1) {
+        animationId = requestAnimationFrame(step);
+      } else {
+        animationId = null;
+        if (callback) callback();
+      }
+    }
+
+    animationId = requestAnimationFrame(step);
+  }
+
+  // Snap: al soltar, buscar el slide más cercano.
+  function snapToNearest() {
+    const index = clampIndex(Math.round(-currentTranslate / slideWidth));
+    currentIndex = index;
+    const target = -index * slideWidth;
+    animateTo(target, () => {
+      // Loop: reposicionar cuando se usan clones
+      if (currentIndex === 0) {
+        currentIndex = realCount;
+        setTranslate(-currentIndex * slideWidth);
+      } else if (currentIndex === realCount + 1) {
+        currentIndex = 1;
+        setTranslate(-currentIndex * slideWidth);
+      }
+    });
+  }
+
+  // Inercia: continuar el desplazamiento con desaceleración.
+  function startInertia() {
+    stopAnimation();
+    const friction = 0.0025;
+    const minVelocity = 0.02;
+    let lastTimestamp = null;
+
+    function step(timestamp) {
+      if (!lastTimestamp) lastTimestamp = timestamp;
+      const dt = timestamp - lastTimestamp;
+      lastTimestamp = timestamp;
+
+      currentTranslate += velocity * dt;
+      setTranslate(currentTranslate);
+
+      const direction = Math.sign(velocity);
+      const speed = Math.abs(velocity);
+      const decel = friction * dt;
+      velocity = direction * Math.max(speed - decel, 0);
+
+      if (Math.abs(velocity) > minVelocity) {
+        animationId = requestAnimationFrame(step);
+      } else {
+        animationId = null;
+        snapToNearest();
+      }
+    }
+
+    animationId = requestAnimationFrame(step);
+  }
+
+  // Drag: capturar el arrastre horizontal 1:1.
+  function onPointerDown(event) {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    stopAnimation();
+    startX = event.clientX;
+    startY = event.clientY;
+    lastX = startX;
+    lastTime = performance.now();
+    startTranslate = currentTranslate;
+    velocity = 0;
+    isDragging = false;
+    dragActivated = false;
+    activePointerId = event.pointerId;
+    isPointerCaptured = false;
+  }
+
+  function onPointerMove(event) {
+    if (startX === null || activePointerId !== event.pointerId) return;
+    const dx = event.clientX - startX;
+    const dy = event.clientY - startY;
+
+    if (!isDragging) {
+      if (Math.abs(dx) > 6 && Math.abs(dx) > Math.abs(dy)) {
+        isDragging = true;
+        dragActivated = true;
+      } else if (Math.abs(dy) > 6 && Math.abs(dy) > Math.abs(dx)) {
+        return;
+      }
+    }
+
+    if (isDragging) {
+      if (!isPointerCaptured) {
+        mobileHeroTrack.setPointerCapture(event.pointerId);
+        isPointerCaptured = true;
+      }
+      event.preventDefault();
+      setTranslate(startTranslate + dx);
+      const now = performance.now();
+      const delta = event.clientX - lastX;
+      const deltaTime = now - lastTime || 16;
+      velocity = delta / deltaTime;
+      lastX = event.clientX;
+      lastTime = now;
+    }
+  }
+
+  function onPointerUp(event) {
+    if (startX === null || activePointerId !== event.pointerId) return;
+    if (isPointerCaptured) {
+      mobileHeroTrack.releasePointerCapture(event.pointerId);
+    }
+    startX = null;
+    startY = null;
+    activePointerId = null;
+    isPointerCaptured = false;
+
+    if (dragActivated) {
+      startInertia();
+    } else {
+      snapToNearest();
+    }
+  }
+
+  function onClick(event) {
+    if (dragActivated) {
+      event.preventDefault();
+      dragActivated = false;
+    }
+  }
+
+  function updateSizes() {
+    slideWidth = window.innerWidth;
+    setTranslate(-currentIndex * slideWidth);
+  }
+
+  mobileHeroTrack.addEventListener('pointerdown', onPointerDown);
+  mobileHeroTrack.addEventListener('pointermove', onPointerMove);
+  mobileHeroTrack.addEventListener('pointerup', onPointerUp);
+  mobileHeroTrack.addEventListener('pointercancel', onPointerUp);
+  mobileHeroTrack.addEventListener('click', onClick);
+  window.addEventListener('resize', updateSizes);
+  window.addEventListener('orientationchange', updateSizes);
+
+  setTranslate(currentTranslate);
+}
+
+initMobileHeroCarousel();
 
 mobileMenuOverlay.addEventListener('click', e => {
   const target = e.target.closest('.menu-link');
