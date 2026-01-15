@@ -214,24 +214,24 @@ export const zones = [
 // Últimos trabajos destacados para el carrusel móvil
 export const mobileLatestWorks = [
   {
-    title: 'LXXL',
-    link: 'https://youtu.be/qrz6GHOQeWo?si=G3NDKIrxeIGsKGWG',
-    image: 'assets/TDB1.jpg'
+    title: 'ENYSF',
+    link: 'https://www.youtube.com/watch?v=9gNmEuoKf7c&list=RD9gNmEuoKf7c&start_radio=1',
+    image: 'assets/mini1.jpg'
   },
   {
-    title: 'MID00´S',
-    link: 'https://youtu.be/VoGZL0BbisA?si=O8v8NPwVlMLQr_QL',
-    image: 'assets/TDB2.webp'
+    title: 'Gama Ocre',
+    link: 'https://youtu.be/gjnF2xA8EgU?si=-Lz4cv3UeemV82s7',
+    image: 'assets/MINI 2.jpg'
   },
   {
-    title: 'DETROIT 89´',
-    link: 'https://youtu.be/TCTaVd1pkNU?si=FIcTLrw6MaOrvbLk',
-    image: 'assets/TDB3.webp'
+    title: 'Los Penúltimos Versos Que Te Escribo',
+    link: 'https://youtu.be/w4X0c4Csqck?si=phNUqeIYaCTdfJEB',
+    image: 'assets/MINI 4.jpg'
   },
   {
-    title: 'WUTW',
-    link: 'https://youtu.be/1bG2_86Cqzk?si=KlASDkXCWNGy3NUz',
-    image: 'assets/TDB4.webp'
+    title: 'Xyla',
+    link: 'https://youtu.be/9To2SQiQXKE?si=Nqrg5c2J_sX0-M4l',
+    image: 'assets/MINI 8.jpg'
   }
 ];
 
