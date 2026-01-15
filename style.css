@@ -860,6 +860,14 @@ body.light-mode .audio-item button {
     text-shadow: 2px 2px 0 #000;
   }
 
+  .mobile-item-label--instrumentales {
+    font-size: clamp(18px, 5vw, 36px);
+  }
+
+  .mobile-item-label--plugins {
+    font-size: clamp(12px, 3vw, 22px);
+  }
+
   #mobile-intro {
     display: block;
     width: 100vw;
