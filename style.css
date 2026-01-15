@@ -84,7 +84,6 @@ body.light-mode {
       input[type='reset']
     ) {
     -webkit-tap-highlight-color: transparent;
-    tap-highlight-color: transparent;
     transition: transform 120ms ease;
     transform-origin: center;
   }
