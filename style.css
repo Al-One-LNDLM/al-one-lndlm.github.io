@@ -446,6 +446,7 @@ body.light-mode {
   gap: 8px;
   font-family: 'PixelFont', monospace;
   margin: 20px auto 0;
+  color: #fff;
 }
 
 #contact-form label {
