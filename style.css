@@ -482,8 +482,8 @@ body.light-mode {
 }
 
 #contact-form button {
-  background: #000;
-  color: #fff;
+  background: #ffffff;
+  color: #000000;
   border: 2px solid #000;
   padding: 4px;
   cursor: pointer;
