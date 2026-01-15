@@ -216,22 +216,22 @@ export const mobileLatestWorks = [
   {
     title: 'ENYSF',
     link: 'https://www.youtube.com/watch?v=9gNmEuoKf7c&list=RD9gNmEuoKf7c&start_radio=1',
-    image: 'assets/mini1.jpg'
+    image: 'assets/BotonMini3.png'
   },
   {
     title: 'Gama Ocre',
     link: 'https://youtu.be/gjnF2xA8EgU?si=-Lz4cv3UeemV82s7',
-    image: 'assets/MINI 2.jpg'
+    image: 'assets/BotonMini1.png'
   },
   {
     title: 'Los Penúltimos Versos Que Te Escribo',
     link: 'https://youtu.be/w4X0c4Csqck?si=phNUqeIYaCTdfJEB',
-    image: 'assets/MINI 4.jpg'
+    image: 'assets/BotonMini4.png'
   },
   {
     title: 'Xyla',
     link: 'https://youtu.be/9To2SQiQXKE?si=Nqrg5c2J_sX0-M4l',
-    image: 'assets/MINI 8.jpg'
+    image: 'assets/BotonMini2.png'
   }
 ];
 
