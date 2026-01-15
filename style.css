@@ -842,7 +842,22 @@ body.light-mode .audio-item button {
   }
 
   .mobile-item {
+    position: relative;
     padding: 0;
+  }
+
+  .mobile-item-label {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-family: 'PixelFont', monospace;
+    font-size: clamp(14px, 4vw, 28px);
+    text-align: left;
+    white-space: nowrap;
+    pointer-events: none;
+    text-shadow: 2px 2px 0 #000;
   }
 
   #mobile-intro {

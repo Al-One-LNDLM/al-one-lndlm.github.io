@@ -184,6 +184,13 @@ zones.forEach(zone => {
 });
 
 // Menú móvil generado dinámicamente (lista de secciones)
+const mobileSectionLabels = {
+  instrumentales: 'Música',
+  trabajos: 'Trabajos',
+  contacto: 'Contacto',
+  plugins: 'Próximamente'
+};
+
 zones.forEach(zone => {
   const item = document.createElement('div');
   item.className = `mobile-item item-${zone.id}`;
@@ -194,6 +201,13 @@ zones.forEach(zone => {
   buttonImg.alt = zone.popup?.title ? `Botón ${zone.popup.title}` : zone.id;
 
   item.appendChild(buttonImg);
+  const labelText = mobileSectionLabels[zone.id];
+  if (labelText) {
+    const label = document.createElement('span');
+    label.className = 'mobile-item-label';
+    label.textContent = labelText;
+    item.appendChild(label);
+  }
   mobileMenu.appendChild(item);
 });
 
