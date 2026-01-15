@@ -292,16 +292,11 @@ zones.forEach(zone => {
   item.className = `mobile-item item-${zone.id}`;
   item.dataset.popup = zone.id;
 
-  const leftImg = document.createElement('img');
-  leftImg.src = zone.img;
-  leftImg.alt = zone.id;
+  const buttonImg = document.createElement('img');
+  buttonImg.src = zone.mobileButton || zone.listLabel;
+  buttonImg.alt = zone.popup?.title ? `Botón ${zone.popup.title}` : zone.id;
 
-  const rightImg = document.createElement('img');
-  rightImg.src = zone.listLabel;
-  rightImg.alt = `${zone.id}-label`;
-
-  item.appendChild(leftImg);
-  item.appendChild(rightImg);
+  item.appendChild(buttonImg);
   mobileMenu.appendChild(item);
 });
 
