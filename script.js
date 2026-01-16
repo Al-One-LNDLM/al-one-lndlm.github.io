@@ -6,8 +6,7 @@ import {
   zones,
   instrumentals,
   floatingImages,
-  mobileLatestWorks,
-  heightOverrides
+  mobileLatestWorks
 } from './config.js';
 
 const isMobile = window.matchMedia('(max-width: 768px)').matches;
@@ -100,29 +99,15 @@ const mobileHeroCarousel = document.querySelector('.mobile-hero-carousel');
 const mobileHeroTrack = document.querySelector('.mobile-carousel-track');
 const movementToggleOn = 'assets/ON BUTTON.png';
 const movementToggleOff = 'assets/OFF BUTTON.png';
-const activeHeightOverrides = window.matchMedia('(max-height: 700px)').matches
-  ? heightOverrides
-  : null;
 let mobileMovementEnabled = false;
 let mobileMovementResetTarget = null;
-let resizeDebounceId = null;
 
-function updateScreenHeightVar() {
-  const viewportHeight = window.visualViewport?.height || window.innerHeight;
-  document.documentElement.style.setProperty('--screen-height-px', `${viewportHeight}px`);
+// Ajuste de unidades vh en móviles
+function updateVh() {
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
 }
-
-function scheduleScreenHeightUpdate() {
-  if (resizeDebounceId) {
-    clearTimeout(resizeDebounceId);
-  }
-  resizeDebounceId = setTimeout(updateScreenHeightVar, 120);
-}
-
-updateScreenHeightVar();
-window.addEventListener('load', updateScreenHeightVar);
-window.addEventListener('resize', scheduleScreenHeightUpdate);
-window.addEventListener('orientationchange', scheduleScreenHeightUpdate);
+updateVh();
+window.addEventListener('resize', updateVh);
 
 // Objeto que guardará las ventanas emergentes generadas
 const popups = {};
@@ -138,8 +123,7 @@ floatingImages.forEach(imgData => {
   img.src = imgData.src;
   img.id = imgData.id;
   img.className = 'floating-image';
-  const overrideStyles = activeHeightOverrides?.floatingImages?.[imgData.id];
-  Object.assign(img.style, imgData.style, overrideStyles || {});
+  Object.assign(img.style, imgData.style);
   gameArea.appendChild(img);
 });
 
@@ -151,8 +135,7 @@ zones.forEach(zone => {
   const img = document.createElement('img');
   img.src = zone.img;
   img.className = 'interactive-zone';
-  const overridePosition = activeHeightOverrides?.zones?.[zone.id];
-  Object.assign(img.style, zone.position, overridePosition || {}); // top/left/etc.
+  Object.assign(img.style, zone.position); // top/left/etc.
   img.dataset.popup = zone.id; // relacionar con ventana
   zonesContainer.appendChild(img);
 
@@ -160,7 +143,7 @@ zones.forEach(zone => {
     const mobileImg = document.createElement('img');
     mobileImg.src = zone.img;
     mobileImg.className = 'interactive-zone';
-    Object.assign(mobileImg.style, zone.position, overridePosition || {});
+    Object.assign(mobileImg.style, zone.position);
     mobileImg.dataset.popup = zone.id;
     mobileZonesContainer.appendChild(mobileImg);
   }
@@ -362,7 +345,7 @@ function initMobileHeroCarousel() {
     mobileHeroTrack.appendChild(slide);
   });
 
-  let slideWidth = mobileHeroCarousel.getBoundingClientRect().width;
+  let slideWidth = window.innerWidth;
   let currentIndex = 1;
   let currentTranslate = -slideWidth * currentIndex;
   let startTranslate = currentTranslate;
@@ -554,7 +537,7 @@ function initMobileHeroCarousel() {
   }
 
   function updateSizes() {
-    slideWidth = mobileHeroCarousel.getBoundingClientRect().width;
+    slideWidth = window.innerWidth;
     setTranslate(-currentIndex * slideWidth);
   }
 

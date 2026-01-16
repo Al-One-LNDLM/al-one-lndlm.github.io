@@ -19,7 +19,7 @@ export const zones = [
     img: 'assets/Edificio1.png',
     listLabel: 'assets/text1.png',
     mobileButton: 'assets/Boton INST.png',
-    position: { top: '1.5rem', left: '4rem' },
+    position: { top: '2vh', left: '6vw' },
     popup: {
       title: 'Música',
       content: '',
@@ -32,7 +32,7 @@ export const zones = [
     img: 'assets/Edificio4.png',
     listLabel: 'assets/text2.png',
     mobileButton: 'assets/Boton TRB.png',
-    position: { top: '2.5rem', right: '3.5rem' },
+    position: { top: '3.7vh', right: '4.7vw' },
     popup: {
       title: 'Trabajos',
       content: `
@@ -156,7 +156,7 @@ export const zones = [
     img: 'assets/Edificio3.png',
     listLabel: 'assets/text3.png',
     mobileButton: 'assets/Boton CTC.png',
-    position: { bottom: '7rem', left: '4rem' },
+    position: { bottom: '13vh', left: '6vw' },
     popup: {
       title: 'Contacto',
       content: `
@@ -199,7 +199,7 @@ export const zones = [
     img: 'assets/EDIFICIO2.png',
     listLabel: 'assets/text4.png',
     mobileButton: 'assets/Boton PGN.png',
-    position: { bottom: '5.5rem', right: '3.5rem' },
+    position: { bottom: '10vh', right: '4.8vw' },
       popup: {
         title: 'Plugins',
         content:
@@ -240,38 +240,26 @@ export const floatingImages = [
   {
     id: 'img1',
     src: 'assets/text1.png',
-    style: { top: '18rem', left: '4rem', width: '15rem' }
+    style: { top: '33vh', left: '6vw', width: '20vw' }
   },
   {
     id: 'img2',
     src: 'assets/text2.png',
-    style: { top: '19rem', right: '3rem', width: '15rem' }
+    style: { top: '35vh', right: '4vw', width: '20vw' }
   },
   {
     id: 'img3',
     src: 'assets/text3.png',
-    style: { bottom: '4.5rem', left: '4rem', width: '15rem' }
+    style: { bottom: '8vh', left: '6vw', width: '20vw' }
   },
   {
     id: 'img4',
     src: 'assets/Fuente.png',
-    style: { bottom: '24rem', right: '28rem', width: '4.5rem' }
+    style: { bottom: '44vh', right: '46vw', width: '6vw' }
   },
   {
     id: 'img5',
     src: 'assets/text4.png',
-    style: { bottom: '4.5rem', right: '3rem', width: '15rem' }
+    style: { bottom: '8vh', right: '4vw', width: '20vw' }
   }
 ];
-
-// Overrides mínimos para pantallas bajas (max-height: 700px):
-// - contacto: sube ligeramente el edificio para evitar solapes en alturas pequeñas.
-// - img4: reduce el offset vertical de la fuente para evitar que quede fuera.
-export const heightOverrides = {
-  zones: {
-    contacto: { bottom: '6rem' }
-  },
-  floatingImages: {
-    img4: { bottom: '20rem' }
-  }
-};
