@@ -46,6 +46,9 @@
   --close-btn-font-size: 16px;
   --audio-button-font-size: 15px;
   --ui-scale: 1;
+  /* Ajusta la separación entre el typing, el slider y la flecha aquí. */
+  --gap-typing-slider: 12px;
+  --gap-slider-arrow: 12px;
 }
 
 /* Estilos base del cuerpo */
@@ -894,17 +897,15 @@ body.light-mode .audio-item button {
 
   .ui-scale-shell--typing {
     position: absolute;
-    top: calc(50% - 215px);
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     z-index: 3;
   }
 
   .ui-scale-shell--arrow {
     position: absolute;
     left: 50%;
-    bottom: 150px;
-    transform: translate(-50%, 0);
+    transform: translateX(-50%);
     z-index: 3;
     animation: mobile-intro-bounce 7.5s ease-in-out infinite;
   }

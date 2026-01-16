@@ -97,6 +97,8 @@ const mobileIntroArrow = document.getElementById('mobile-intro-arrow');
 const mobileSectionsBlock = document.getElementById('mobile-menu');
 const mobileHeroCarousel = document.querySelector('.mobile-hero-carousel');
 const mobileHeroTrack = document.querySelector('.mobile-carousel-track');
+const mobileIntroTypingShell = document.querySelector('.ui-scale-shell--typing');
+const mobileIntroArrowShell = document.querySelector('.ui-scale-shell--arrow');
 const movementToggleOn = 'assets/ON BUTTON.png';
 const movementToggleOff = 'assets/OFF BUTTON.png';
 let mobileMovementEnabled = false;
@@ -141,6 +143,67 @@ window.addEventListener('resize', requestUiScaleUpdate);
 window.addEventListener('orientationchange', requestUiScaleUpdate);
 if (window.visualViewport) {
   window.visualViewport.addEventListener('resize', requestUiScaleUpdate);
+}
+
+let introPositionTimeoutId = null;
+
+function readGapValue(customProperty, fallback) {
+  const rawValue = getComputedStyle(document.documentElement)
+    .getPropertyValue(customProperty)
+    .trim();
+  const parsed = parseFloat(rawValue);
+  return Number.isFinite(parsed) ? parsed : fallback;
+}
+
+function positionIntroElements(attempt = 0) {
+  if (!mobileHeroCarousel || !mobileIntroTypingShell || !mobileIntroArrowShell) {
+    return;
+  }
+
+  if (!window.matchMedia('(max-width: 768px)').matches) {
+    mobileIntroTypingShell.style.top = '';
+    mobileIntroArrowShell.style.top = '';
+    return;
+  }
+
+  const sliderRect = mobileHeroCarousel.getBoundingClientRect();
+  if (!sliderRect.width || !sliderRect.height) {
+    if (attempt < 3) {
+      requestAnimationFrame(() => positionIntroElements(attempt + 1));
+    }
+    return;
+  }
+
+  const typingRect = mobileIntroTypingShell.getBoundingClientRect();
+  if (!typingRect.height) {
+    if (attempt < 3) {
+      requestAnimationFrame(() => positionIntroElements(attempt + 1));
+    }
+    return;
+  }
+
+  const typingGap = readGapValue('--gap-typing-slider', 12);
+  const arrowGap = readGapValue('--gap-slider-arrow', 12);
+  const typingBottom = sliderRect.top - typingGap;
+  const typingTop = typingBottom - typingRect.height;
+  const arrowTop = sliderRect.bottom + arrowGap;
+
+  mobileIntroTypingShell.style.top = `${typingTop}px`;
+  mobileIntroArrowShell.style.top = `${arrowTop}px`;
+}
+
+function requestIntroPositionUpdate() {
+  if (introPositionTimeoutId) {
+    clearTimeout(introPositionTimeoutId);
+  }
+  introPositionTimeoutId = setTimeout(() => positionIntroElements(0), 120);
+}
+
+window.addEventListener('load', positionIntroElements);
+window.addEventListener('resize', requestIntroPositionUpdate);
+window.addEventListener('orientationchange', requestIntroPositionUpdate);
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', requestIntroPositionUpdate);
 }
 
 // Objeto que guardará las ventanas emergentes generadas
