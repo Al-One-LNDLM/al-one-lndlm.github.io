@@ -108,7 +108,6 @@ function updateVh() {
 }
 updateVh();
 window.addEventListener('resize', updateVh);
-window.addEventListener('orientationchange', updateVh);
 
 // Objeto que guardará las ventanas emergentes generadas
 const popups = {};
@@ -346,7 +345,7 @@ function initMobileHeroCarousel() {
     mobileHeroTrack.appendChild(slide);
   });
 
-  let slideWidth = mobileHeroCarousel.getBoundingClientRect().width;
+  let slideWidth = window.innerWidth;
   let currentIndex = 1;
   let currentTranslate = -slideWidth * currentIndex;
   let startTranslate = currentTranslate;
@@ -538,17 +537,7 @@ function initMobileHeroCarousel() {
   }
 
   function updateSizes() {
-    stopAnimation();
-    cancelIntroAnimation();
-    velocity = 0;
-    isDragging = false;
-    dragActivated = false;
-    startX = null;
-    startY = null;
-    activePointerId = null;
-    isPointerCaptured = false;
-    const rect = mobileHeroCarousel.getBoundingClientRect();
-    slideWidth = rect.width || slideWidth;
+    slideWidth = window.innerWidth;
     setTranslate(-currentIndex * slideWidth);
   }
 
