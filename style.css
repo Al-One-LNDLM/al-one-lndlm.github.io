@@ -900,6 +900,7 @@ body.light-mode .audio-item button {
     max-width: 90vw;
     line-height: 1.2;
     animation: mobile-typewriter 2.2s steps(var(--typing-chars)) 2s forwards;
+    text-shadow: #000 2px 2px;
   }
 
   #mobile-intro-typing::after {
