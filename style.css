@@ -891,7 +891,7 @@ body.light-mode .audio-item button {
     transform: translateX(-50%);
     z-index: 3;
     font-family: 'PixelFont', monospace;
-    font-size: clamp(10px, 3vw, 14px);
+    font-size: clamp(8px, calc(90vw / var(--typing-chars)), 14px);
     color: #fff;
     text-align: center;
     white-space: nowrap;
@@ -1020,7 +1020,7 @@ body.light-mode .audio-item button {
       width: 0;
     }
     to {
-      width: min(calc(var(--typing-chars) * 1ch), 90vw);
+      width: 90vw;
     }
   }
 
