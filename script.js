@@ -127,7 +127,7 @@ function updateMobileIntroArrowPosition() {
   if (!heroImage) return;
   const introRect = mobileIntro.getBoundingClientRect();
   const imageRect = heroImage.getBoundingClientRect();
-  const topOffset = imageRect.bottom - introRect.top + 150;
+  const topOffset = imageRect.bottom - introRect.top + 120;
   mobileIntroArrow.style.top = `${Math.max(topOffset, 0)}px`;
 }
 
