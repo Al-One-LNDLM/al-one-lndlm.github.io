@@ -920,6 +920,7 @@ body.light-mode .audio-item button {
     position: absolute;
     left: 50%;
     top: 0;
+    width: clamp(44px, 14vw, 120px);    
     transform: translate(-50%, 0);
     transition: transform 180ms ease;
     animation: mobile-intro-bounce 7.5s ease-in-out infinite;
@@ -933,7 +934,7 @@ body.light-mode .audio-item button {
 
   #mobile-intro-arrow img {
     display: block;
-    width: 15vw;
+    width: 100%;
     height: auto;
   }
 
