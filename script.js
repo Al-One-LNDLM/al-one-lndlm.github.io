@@ -102,12 +102,46 @@ const movementToggleOff = 'assets/OFF BUTTON.png';
 let mobileMovementEnabled = false;
 let mobileMovementResetTarget = null;
 
+const uiScaleConfig = {
+  baseWidth: 559,
+  baseHeight: 1126,
+  min: 0.85,
+  max: 1.25
+};
+
 // Ajuste de unidades vh en móviles
 function updateVh() {
   document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
 }
 updateVh();
 window.addEventListener('resize', updateVh);
+
+let uiScaleTimeoutId = null;
+
+function updateUiScale() {
+  const viewport = window.visualViewport;
+  const vw = viewport?.width || window.innerWidth;
+  const vh = viewport?.height || window.innerHeight;
+  // Ajusta los clamps aquí si cambia el viewport de referencia.
+  const scale = Math.min(vw / uiScaleConfig.baseWidth, vh / uiScaleConfig.baseHeight);
+  const clampedScale = Math.min(uiScaleConfig.max, Math.max(uiScaleConfig.min, scale));
+  document.documentElement.style.setProperty('--ui-scale', clampedScale.toString());
+}
+
+function requestUiScaleUpdate() {
+  if (uiScaleTimeoutId) {
+    clearTimeout(uiScaleTimeoutId);
+  }
+  uiScaleTimeoutId = setTimeout(updateUiScale, 150);
+}
+
+updateUiScale();
+window.addEventListener('load', updateUiScale);
+window.addEventListener('resize', requestUiScaleUpdate);
+window.addEventListener('orientationchange', requestUiScaleUpdate);
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', requestUiScaleUpdate);
+}
 
 // Objeto que guardará las ventanas emergentes generadas
 const popups = {};
