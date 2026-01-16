@@ -35,31 +35,23 @@
   <button id="toggle-theme"></button>
 
   <!-- Encabezado móvil -->
-  <div class="ui-scale-shell ui-scale-shell--header">
-    <header id="mobile-header" class="ui-scale-target ui-scale-target--header">
-      <a href="/" id="mobile-logo">
-        <img src="assets/LogoNombre.png" alt="Logo" />
-      </a>
-      <img src="assets/IconoAbrirMenu.png" alt="Abrir menú" id="menu-icon" />
-    </header>
-  </div>
+  <header id="mobile-header">
+    <a href="/" id="mobile-logo">
+      <img src="assets/LogoNombre.png" alt="Logo" />
+    </a>
+    <img src="assets/IconoAbrirMenu.png" alt="Abrir menú" id="menu-icon" />
+  </header>
 
   <!-- Bloque de introducción para la versión móvil -->
   <div id="mobile-intro">
     <img src="assets/fondomovil.png" alt="Introducción" />
-    <div class="ui-scale-shell ui-scale-shell--typing">
-      <p id="mobile-intro-typing" class="ui-scale-target ui-scale-target--typing">
-        Sonido / Producción musical / Video
-      </p>
-    </div>
+    <p id="mobile-intro-typing">Sonido / Producción musical / Video </p>
     <div class="mobile-hero-carousel" aria-label="Últimos trabajos destacados">
       <div class="mobile-carousel-track" aria-live="polite"></div>
     </div>
-    <div class="ui-scale-shell ui-scale-shell--arrow">
-      <button id="mobile-intro-arrow" class="ui-scale-target ui-scale-target--arrow" type="button" aria-label="Ir al siguiente bloque">
-        <img src="assets/FLECHA.png" alt="Flecha" />
-      </button>
-    </div>
+    <button id="mobile-intro-arrow" type="button" aria-label="Ir al siguiente bloque">
+      <img src="assets/FLECHA.png" alt="Flecha" />
+    </button>
   </div>
 
   <div id="mobile-menu"></div>

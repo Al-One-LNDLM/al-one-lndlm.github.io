@@ -45,7 +45,6 @@
   --popup-header-font-size: 24px;
   --close-btn-font-size: 16px;
   --audio-button-font-size: 15px;
-  --ui-scale: 1;
 }
 
 /* Estilos base del cuerpo */
@@ -712,15 +711,18 @@ body.light-mode .audio-item button {
   }
 
   #mobile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-    box-sizing: border-box;
-    position: relative;
-    width: 100%;
     padding: 10px 20px;
     background: transparent;
+    z-index: 2000;
+    box-sizing: border-box;
   }
 
   #mobile-logo {
@@ -879,54 +881,15 @@ body.light-mode .audio-item button {
     z-index: 0;
   }
 
-  .ui-scale-shell--header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 2000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    box-sizing: border-box;
-  }
-
-  .ui-scale-shell--typing {
+  #mobile-intro-typing {
+    --typing-chars: 35;
+    --cursor-gap: 0.7ch;
+    display: block;
     position: absolute;
     top: calc(50% - 215px);
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 3;
-  }
-
-  .ui-scale-shell--arrow {
-    position: absolute;
-    left: 50%;
-    bottom: 150px;
-    transform: translate(-50%, 0);
-    z-index: 3;
-    animation: mobile-intro-bounce 7.5s ease-in-out infinite;
-  }
-
-  .ui-scale-target {
-    /* Ajusta el origen de escala aquí si cambia el layout del header/hero. */
-    transform: scale(var(--ui-scale));
-  }
-
-  .ui-scale-target--header {
-    transform-origin: top center;
-  }
-
-  .ui-scale-target--typing,
-  .ui-scale-target--arrow {
-    transform-origin: center;
-  }
-
-  #mobile-intro-typing {
-    --typing-chars: 35;
-    --cursor-gap: 0.7ch;
-    display: block;
     font-family: 'PixelFont', monospace;
     font-size: clamp(10px, 3vw, 14px);
     color: #fff;
@@ -952,12 +915,18 @@ body.light-mode .audio-item button {
 
   #mobile-intro-arrow {
     display: block;
+    position: absolute;
+    left: 50%;
+    bottom: 150px;
+    transform: translate(-50%, 0);
     transition: transform 180ms ease;
+    animation: mobile-intro-bounce 7.5s ease-in-out infinite;
     will-change: transform;
     padding: 0;
     border: none;
     background: transparent;
     cursor: pointer;
+    z-index: 3;
   }
 
   #mobile-intro-arrow img {
@@ -1077,7 +1046,7 @@ body.light-mode .audio-item button {
   }
 
   #mobile-intro-arrow:active {
-    transform: scale(var(--ui-scale)) scale(0.9);
+    transform: translate(-50%, 0) scale(0.9);
   }
 
   #game-area {
