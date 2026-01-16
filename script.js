@@ -121,8 +121,20 @@ function updateMobileIntroTypingPosition() {
   mobileIntroTyping.style.top = `${Math.max(topOffset, 0)}px`;
 }
 
+function updateMobileIntroArrowPosition() {
+  if (!mobileIntro || !mobileIntroArrow || !mobileHeroCarousel) return;
+  const heroImage = mobileHeroCarousel.querySelector('img');
+  if (!heroImage) return;
+  const introRect = mobileIntro.getBoundingClientRect();
+  const imageRect = heroImage.getBoundingClientRect();
+  const topOffset = imageRect.bottom - introRect.top + 150;
+  mobileIntroArrow.style.top = `${Math.max(topOffset, 0)}px`;
+}
+
 window.addEventListener('resize', updateMobileIntroTypingPosition);
 window.addEventListener('orientationchange', updateMobileIntroTypingPosition);
+window.addEventListener('resize', updateMobileIntroArrowPosition);
+window.addEventListener('orientationchange', updateMobileIntroArrowPosition);
 
 // Objeto que guardará las ventanas emergentes generadas
 const popups = {};
@@ -362,8 +374,12 @@ function initMobileHeroCarousel() {
   mobileHeroTrack.querySelectorAll('img').forEach(img => {
     if (img.complete) {
       updateMobileIntroTypingPosition();
+      updateMobileIntroArrowPosition();
     } else {
-      img.addEventListener('load', updateMobileIntroTypingPosition);
+      img.addEventListener('load', () => {
+        updateMobileIntroTypingPosition();
+        updateMobileIntroArrowPosition();
+      });
     }
   });
 
