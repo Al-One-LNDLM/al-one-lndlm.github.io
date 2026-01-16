@@ -94,6 +94,8 @@ const mobileCharacter = document.getElementById('mobile-character');
 const mobileZonesContainer = document.getElementById('mobile-zones-container');
 const menuIcon = document.getElementById('menu-icon');
 const mobileIntroArrow = document.getElementById('mobile-intro-arrow');
+const mobileIntro = document.getElementById('mobile-intro');
+const mobileIntroTyping = document.getElementById('mobile-intro-typing');
 const mobileSectionsBlock = document.getElementById('mobile-menu');
 const mobileHeroCarousel = document.querySelector('.mobile-hero-carousel');
 const mobileHeroTrack = document.querySelector('.mobile-carousel-track');
@@ -108,6 +110,19 @@ function updateVh() {
 }
 updateVh();
 window.addEventListener('resize', updateVh);
+
+function updateMobileIntroTypingPosition() {
+  if (!mobileIntro || !mobileIntroTyping || !mobileHeroCarousel) return;
+  const heroImage = mobileHeroCarousel.querySelector('img');
+  if (!heroImage) return;
+  const introRect = mobileIntro.getBoundingClientRect();
+  const imageRect = heroImage.getBoundingClientRect();
+  const topOffset = imageRect.top - introRect.top - 60;
+  mobileIntroTyping.style.top = `${Math.max(topOffset, 0)}px`;
+}
+
+window.addEventListener('resize', updateMobileIntroTypingPosition);
+window.addEventListener('orientationchange', updateMobileIntroTypingPosition);
 
 // Objeto que guardará las ventanas emergentes generadas
 const popups = {};
@@ -343,6 +358,13 @@ function initMobileHeroCarousel() {
     slide.innerHTML = `<img src="${item.image}" alt="${item.title}">`;
     slides.push(slide);
     mobileHeroTrack.appendChild(slide);
+  });
+  mobileHeroTrack.querySelectorAll('img').forEach(img => {
+    if (img.complete) {
+      updateMobileIntroTypingPosition();
+    } else {
+      img.addEventListener('load', updateMobileIntroTypingPosition);
+    }
   });
 
   let slideWidth = window.innerWidth;
@@ -587,6 +609,7 @@ function initMobileHeroCarousel() {
   }
 
   setTranslate(currentTranslate);
+  updateMobileIntroTypingPosition();
 }
 
 initMobileHeroCarousel();

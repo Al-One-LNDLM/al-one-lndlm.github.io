@@ -886,9 +886,9 @@ body.light-mode .audio-item button {
     --cursor-gap: 0.7ch;
     display: block;
     position: absolute;
-    top: calc(50% - 215px);
+    top: 0;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
     z-index: 3;
     font-family: 'PixelFont', monospace;
     font-size: clamp(10px, 3vw, 14px);
@@ -897,6 +897,7 @@ body.light-mode .audio-item button {
     white-space: nowrap;
     overflow: hidden;
     width: 0;
+    max-width: 90vw;
     line-height: 1.2;
     animation: mobile-typewriter 2.2s steps(var(--typing-chars)) 2s forwards;
   }
@@ -1019,7 +1020,7 @@ body.light-mode .audio-item button {
       width: 0;
     }
     to {
-      width: calc(var(--typing-chars) * 1ch);
+      width: min(calc(var(--typing-chars) * 1ch), 90vw);
     }
   }
 
