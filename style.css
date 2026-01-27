@@ -1228,3 +1228,24 @@ body:not(.light-mode)::-webkit-scrollbar-thumb {
   height: auto;
   margin: 0 auto;
 }
+
+/* Scrollbar customization */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #000 #fff;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+  border: 2px solid #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #000;
+  border: 2px solid #fff;
+}
+
