@@ -792,14 +792,15 @@ setBackground();
 // =============================
 //  Animación del personaje
 // =============================
-let mouseX = 0, mouseY = 0;         // Posición actual del ratón
-let currentX = 0, currentY = 0;     // Posición actual del personaje
+const frameWidth = 90;              // Dimensiones de cada frame en el spritesheet
+const frameHeight = 90;
+let mouseX = gameArea.clientWidth / 2;
+let mouseY = gameArea.clientHeight / 2;         // Posición actual del ratón
+let currentX = gameArea.clientWidth / 2 - frameWidth / 2;
+let currentY = gameArea.clientHeight / 2 - frameHeight / 2;
 const speed = 0.006;                 // Velocidad de movimiento del personaje
 const offsetDistance = 0;          // Distancia respecto al cursor
 const idleThreshold = 80;            // Radio para activar animación "idle"
-
-const frameWidth = 90;              // Dimensiones de cada frame en el spritesheet
-const frameHeight = 90;
 const framesPerDirection = 4;       // Número de frames por dirección
 const directions = {
   'down-right': 0,
@@ -814,10 +815,14 @@ let frameTick = 0;                  // Control para la velocidad de animación
 
 const obstacles = Array.from(document.querySelectorAll('.obstacle'));
 
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
+function updatePointerPosition(e) {
+  const rect = gameArea.getBoundingClientRect();
+  mouseX = e.clientX - rect.left;
+  mouseY = e.clientY - rect.top;
+}
+
+gameArea.addEventListener('pointermove', updatePointerPosition);
+gameArea.addEventListener('pointerdown', updatePointerPosition);
 
 /**
  * Determina si una posición colisiona con algún obstáculo.
@@ -828,13 +833,16 @@ document.addEventListener('mousemove', e => {
  * @returns {boolean} Verdadero si existe colisión
  */
 function isColliding(x, y, width = frameWidth, height = frameHeight) {
+  const areaRect = gameArea.getBoundingClientRect();
+  const globalX = x + areaRect.left;
+  const globalY = y + areaRect.top;
   return obstacles.some(ob => {
     const rect = ob.getBoundingClientRect();
     return (
-      x < rect.right &&
-      x + width > rect.left &&
-      y < rect.bottom &&
-      y + height > rect.top
+      globalX < rect.right &&
+      globalX + width > rect.left &&
+      globalY < rect.bottom &&
+      globalY + height > rect.top
     );
   });
 }
