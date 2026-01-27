@@ -1052,6 +1052,22 @@ body.light-mode .audio-item button {
     transform: translate(-50%, 0) scale(0.9);
   }
 
+  .mobile-item {
+    transition: transform 180ms ease;
+  }
+
+  .mobile-item:active {
+    transform: scale(0.92);
+  }
+
+  #menu-icon:active {
+    transform: translateY(-50%) scale(0.9);
+  }
+
+  #mobile-intro-arrow:active {
+    transform: translate(-50%, 0) scale(0.9);
+  }
+
   #game-area {
     display: none;
   }
