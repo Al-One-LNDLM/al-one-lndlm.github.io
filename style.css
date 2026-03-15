@@ -1256,6 +1256,10 @@ body.light-mode .audio-item button {
     padding-top: 0;
   }
 
+  .form-column {
+    padding-bottom: 30px;
+  }
+
   .social-column {
     margin-bottom: 20px;
   }
