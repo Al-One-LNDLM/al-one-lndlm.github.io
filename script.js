@@ -105,6 +105,7 @@ const mobileHeroTrack = document.querySelector('.mobile-carousel-track');
 const mobileYoutubeBtn = document.getElementById('mobile-youtube-btn');
 const mobileInstagramBtn = document.getElementById('mobile-instagram-btn');
 const mobileTiktokBtn = document.getElementById('mobile-tiktok-btn');
+const mobileContactBtn = document.getElementById('mobile-contact-btn');
 const mobileFeaturedSocialButtons = document.getElementById('mobile-featured-social-buttons');
 const movementToggleOn = 'assets/ON BUTTON.png';
 const movementToggleOff = 'assets/OFF BUTTON.png';
@@ -148,6 +149,18 @@ if (mobileInstagramBtn) {
 
 if (mobileTiktokBtn) {
   mobileTiktokBtn.href = tiktokProfileUrl;
+}
+
+if (mobileContactBtn) {
+  mobileContactBtn.addEventListener('click', () => {
+    openPopup('contacto');
+    const contactPopupContent = document.querySelector('#popup-contacto .popup-content');
+    if (contactPopupContent) {
+      requestAnimationFrame(() => {
+        contactPopupContent.scrollTop = contactPopupContent.scrollHeight;
+      });
+    }
+  });
 }
 
 // Objeto que guardará las ventanas emergentes generadas
