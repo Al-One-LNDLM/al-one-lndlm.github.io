@@ -713,6 +713,7 @@ body.light-mode .audio-item button {
 
 #mobile-featured-social-buttons,
 #mobile-youtube-btn,
+#mobile-instagram-btn,
 #mobile-tiktok-btn {
   display: none;
 }
@@ -973,12 +974,14 @@ body.light-mode .audio-item button {
   }
 
   #mobile-youtube-btn,
+  #mobile-instagram-btn,
   #mobile-tiktok-btn {
     display: block;
     width: clamp(120px, 36vw, 240px);
   }
 
   #mobile-youtube-btn img,
+  #mobile-instagram-btn img,
   #mobile-tiktok-btn img {
     display: block;
     width: 100%;
