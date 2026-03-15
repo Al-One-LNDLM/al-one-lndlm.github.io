@@ -1110,8 +1110,8 @@ body.light-mode .audio-item button {
     transform: translate(-50%, 130vh) scale(0.9);
     width: 82vw;
     max-width: 460px;
-    height: 76vh;
-    max-height: 600px;
+    height: 80vh;
+    max-height: 700px;
     display: flex;
     flex-direction: column;
     overflow: hidden;
