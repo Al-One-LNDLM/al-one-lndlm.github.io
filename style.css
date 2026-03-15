@@ -297,6 +297,24 @@ body.light-mode {
   z-index: 9998;
 }
 
+#game-area,
+#mobile-header,
+#mobile-intro,
+#mobile-menu,
+#mobile-final,
+#mobile-game {
+  transition: filter 0.3s ease;
+}
+
+body.popup-open #game-area,
+body.popup-open #mobile-header,
+body.popup-open #mobile-intro,
+body.popup-open #mobile-menu,
+body.popup-open #mobile-final,
+body.popup-open #mobile-game {
+  filter: blur(4px);
+}
+
 #popup-backdrop.active {
   opacity: 1;
   pointer-events: auto;
