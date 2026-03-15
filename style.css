@@ -714,7 +714,8 @@ body.light-mode .audio-item button {
 #mobile-featured-social-buttons,
 #mobile-youtube-btn,
 #mobile-instagram-btn,
-#mobile-tiktok-btn {
+#mobile-tiktok-btn,
+#mobile-contact-btn {
   display: none;
 }
 
@@ -975,17 +976,26 @@ body.light-mode .audio-item button {
 
   #mobile-youtube-btn,
   #mobile-instagram-btn,
-  #mobile-tiktok-btn {
+  #mobile-tiktok-btn,
+  #mobile-contact-btn {
     display: block;
     width: clamp(120px, 36vw, 240px);
   }
 
   #mobile-youtube-btn img,
   #mobile-instagram-btn img,
-  #mobile-tiktok-btn img {
+  #mobile-tiktok-btn img,
+  #mobile-contact-btn img {
     display: block;
     width: 100%;
     height: auto;
+  }
+
+  #mobile-contact-btn {
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
   }
 
   #mobile-intro-arrow {
