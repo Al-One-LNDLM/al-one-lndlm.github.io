@@ -173,10 +173,16 @@ export const zones = [
           <div class="social-column">
             <p class="column-title">Mis redes:</p>
             <a href="https://www.youtube.com/@LNDLM1312" target="_blank">
-              <img src="assets/yt.png" alt="Twitter" style="width:144px;height:144px;margin:4px;" />
+              <img src="assets/Boton YT LNDLM.png" alt="YouTube LNDLM" style="width:190px;height:auto;margin:6px 4px;" />
             </a>
             <a href="https://www.instagram.com/al.one.wav/" target="_blank">
-              <img src="assets/insta.png" alt="Instagram" style="width:108px;height:108px;margin:4px;" />
+              <img src="assets/Boton Insta.png" alt="Instagram" style="width:190px;height:auto;margin:6px 4px;" />
+            </a>
+            <a href="https://www.tiktok.com/@al.one.wav" target="_blank">
+              <img src="assets/Boton TT.png" alt="TikTok" style="width:190px;height:auto;margin:6px 4px;" />
+            </a>
+            <a href="https://www.youtube.com/@alonelndlm1312" target="_blank">
+              <img src="assets/Boton YT.png" alt="YouTube personal" style="width:190px;height:auto;margin:6px 4px;" />
             </a>
           </div>
           <div class="form-column">
