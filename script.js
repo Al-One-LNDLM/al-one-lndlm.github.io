@@ -96,7 +96,6 @@ const mobileZonesContainer = document.getElementById('mobile-zones-container');
 const menuIcon = document.getElementById('menu-icon');
 const mobileIntroArrow = document.getElementById('mobile-intro-arrow');
 const mobileIntro = document.getElementById('mobile-intro');
-const mobileIntroTyping = document.getElementById('mobile-intro-typing');
 const mobileSectionsBlock = document.getElementById('mobile-menu');
 const mobileHeroCarousel = document.querySelector('.mobile-hero-carousel');
 const mobileHeroTrack = document.querySelector('.mobile-carousel-track');
@@ -112,16 +111,6 @@ function updateVh() {
 updateVh();
 window.addEventListener('resize', updateVh);
 
-function updateMobileIntroTypingPosition() {
-  if (!mobileIntro || !mobileIntroTyping || !mobileHeroCarousel) return;
-  const heroImage = mobileHeroCarousel.querySelector('img');
-  if (!heroImage) return;
-  const introRect = mobileIntro.getBoundingClientRect();
-  const imageRect = heroImage.getBoundingClientRect();
-  const topOffset = imageRect.top - introRect.top - 80;
-  mobileIntroTyping.style.top = `${Math.max(topOffset, 0)}px`;
-}
-
 function updateMobileIntroArrowPosition() {
   if (!mobileIntro || !mobileIntroArrow || !mobileHeroCarousel) return;
   const heroImage = mobileHeroCarousel.querySelector('img');
@@ -132,8 +121,6 @@ function updateMobileIntroArrowPosition() {
   mobileIntroArrow.style.top = `${Math.max(topOffset, 0)}px`;
 }
 
-window.addEventListener('resize', updateMobileIntroTypingPosition);
-window.addEventListener('orientationchange', updateMobileIntroTypingPosition);
 window.addEventListener('resize', updateMobileIntroArrowPosition);
 window.addEventListener('orientationchange', updateMobileIntroArrowPosition);
 
@@ -391,11 +378,9 @@ function initMobileHeroCarousel() {
   });
   mobileHeroTrack.querySelectorAll('img').forEach(img => {
     if (img.complete) {
-      updateMobileIntroTypingPosition();
       updateMobileIntroArrowPosition();
     } else {
       img.addEventListener('load', () => {
-        updateMobileIntroTypingPosition();
         updateMobileIntroArrowPosition();
       });
     }
@@ -643,7 +628,6 @@ function initMobileHeroCarousel() {
   }
 
   setTranslate(currentTranslate);
-  updateMobileIntroTypingPosition();
 }
 
 initMobileHeroCarousel();
