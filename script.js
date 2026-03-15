@@ -670,16 +670,19 @@ mobileMenu.addEventListener('click', e => {
  * @param {boolean} [push=true] Si se debe añadir la acción al historial
  */
 function openPopup(id, push = true) {
+  const alreadyVisible = popups[id]?.classList.contains('visible');
+
   Object.entries(popups).forEach(([key, p]) => {
     if (key === id) {
       p.classList.remove('hidden');
       p.classList.remove('closing');
-      requestAnimationFrame(() => p.classList.add('visible'));
+      p.classList.add('visible');
     } else {
       p.classList.remove('visible');
     }
   });
-  if (push) {
+
+  if (push && !alreadyVisible) {
     history.pushState({ popupId: id }, '');
   }
   syncPopupBackdrop();
