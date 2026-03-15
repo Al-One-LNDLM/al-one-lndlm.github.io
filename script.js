@@ -129,7 +129,7 @@ function updateMobileIntroArrowPosition() {
   const buttonRect = mobileFeaturedSocialButtons.getBoundingClientRect();
   const buttonHeight = buttonRect.height || 56;
   const buttonTopOffset = imageRect.top - introRect.top - buttonHeight - 100;
-  const arrowTopOffset = imageRect.bottom - introRect.top + 80;
+  const arrowTopOffset = imageRect.bottom - introRect.top + 10;
 
   mobileFeaturedSocialButtons.style.top = `${Math.max(buttonTopOffset, 0)}px`;
   mobileIntroArrow.style.top = `${Math.max(arrowTopOffset, 0)}px`;
