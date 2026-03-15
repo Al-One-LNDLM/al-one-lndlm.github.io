@@ -386,7 +386,7 @@ function initMobileHeroCarousel() {
     }
   });
 
-  let slideWidth = window.innerWidth;
+  let slideWidth = mobileHeroCarousel.getBoundingClientRect().width || window.innerWidth;
   let currentIndex = 1;
   let currentTranslate = -slideWidth * currentIndex;
   let startTranslate = currentTranslate;
@@ -578,7 +578,7 @@ function initMobileHeroCarousel() {
   }
 
   function updateSizes() {
-    slideWidth = window.innerWidth;
+    slideWidth = mobileHeroCarousel.getBoundingClientRect().width || window.innerWidth;
     setTranslate(-currentIndex * slideWidth);
   }
 
