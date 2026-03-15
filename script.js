@@ -7,7 +7,8 @@ import {
   instrumentals,
   floatingImages,
   mobileLatestWorks,
-  youtubeChannelUrl
+  youtubeChannelUrl,
+  tiktokProfileUrl
 } from './config.js';
 
 const isMobile = window.matchMedia('(max-width: 768px)').matches;
@@ -101,6 +102,8 @@ const mobileSectionsBlock = document.getElementById('mobile-menu');
 const mobileHeroCarousel = document.querySelector('.mobile-hero-carousel');
 const mobileHeroTrack = document.querySelector('.mobile-carousel-track');
 const mobileYoutubeBtn = document.getElementById('mobile-youtube-btn');
+const mobileTiktokBtn = document.getElementById('mobile-tiktok-btn');
+const mobileFeaturedSocialButtons = document.getElementById('mobile-featured-social-buttons');
 const movementToggleOn = 'assets/ON BUTTON.png';
 const movementToggleOff = 'assets/OFF BUTTON.png';
 let mobileMovementEnabled = false;
@@ -114,18 +117,18 @@ updateVh();
 window.addEventListener('resize', updateVh);
 
 function updateMobileIntroArrowPosition() {
-  if (!mobileIntro || !mobileIntroArrow || !mobileHeroCarousel || !mobileYoutubeBtn) return;
+  if (!mobileIntro || !mobileIntroArrow || !mobileHeroCarousel || !mobileFeaturedSocialButtons) return;
   const heroImage = mobileHeroCarousel.querySelector('img');
   if (!heroImage) return;
 
   const introRect = mobileIntro.getBoundingClientRect();
   const imageRect = heroImage.getBoundingClientRect();
-  const buttonRect = mobileYoutubeBtn.getBoundingClientRect();
+  const buttonRect = mobileFeaturedSocialButtons.getBoundingClientRect();
   const buttonHeight = buttonRect.height || 56;
   const buttonTopOffset = imageRect.top - introRect.top - buttonHeight - 18;
   const arrowTopOffset = imageRect.bottom - introRect.top + 34;
 
-  mobileYoutubeBtn.style.top = `${Math.max(buttonTopOffset, 0)}px`;
+  mobileFeaturedSocialButtons.style.top = `${Math.max(buttonTopOffset, 0)}px`;
   mobileIntroArrow.style.top = `${Math.max(arrowTopOffset, 0)}px`;
 }
 
@@ -135,6 +138,10 @@ window.addEventListener('orientationchange', updateMobileIntroArrowPosition);
 
 if (mobileYoutubeBtn) {
   mobileYoutubeBtn.href = youtubeChannelUrl;
+}
+
+if (mobileTiktokBtn) {
+  mobileTiktokBtn.href = tiktokProfileUrl;
 }
 
 // Objeto que guardará las ventanas emergentes generadas
