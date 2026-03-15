@@ -118,7 +118,7 @@ function updateMobileIntroTypingPosition() {
   if (!heroImage) return;
   const introRect = mobileIntro.getBoundingClientRect();
   const imageRect = heroImage.getBoundingClientRect();
-  const topOffset = imageRect.top - introRect.top - 60;
+  const topOffset = imageRect.top - introRect.top - 80;
   mobileIntroTyping.style.top = `${Math.max(topOffset, 0)}px`;
 }
 
