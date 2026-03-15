@@ -128,7 +128,7 @@ function updateMobileIntroArrowPosition() {
   const imageRect = heroImage.getBoundingClientRect();
   const buttonRect = mobileFeaturedSocialButtons.getBoundingClientRect();
   const buttonHeight = buttonRect.height || 56;
-  const buttonTopOffset = imageRect.top - introRect.top - buttonHeight - 100;
+  const buttonTopOffset = imageRect.top - introRect.top - buttonHeight - 80;
   const arrowTopOffset = imageRect.bottom - introRect.top + 120;
 
   mobileFeaturedSocialButtons.style.top = `${Math.max(buttonTopOffset, 0)}px`;
