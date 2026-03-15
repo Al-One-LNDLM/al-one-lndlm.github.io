@@ -215,6 +215,8 @@ function syncPopupBackdrop() {
   if (!popupBackdrop) return;
   const anyVisible = Object.values(popups).some(p => p.classList.contains('visible'));
   popupBackdrop.classList.toggle('active', anyVisible);
+  popupBackdrop.setAttribute('aria-hidden', anyVisible ? 'false' : 'true');
+  document.body.classList.toggle('popup-open', anyVisible);
 }
 
 // Menú móvil generado dinámicamente (lista de secciones)
