@@ -979,7 +979,7 @@ body.light-mode .audio-item button {
   #mobile-tiktok-btn,
   #mobile-contact-btn {
     display: block;
-    width: clamp(120px, 36vw, 240px);
+    width: clamp(104px, 32vw, 216px);
   }
 
   #mobile-youtube-btn img,
