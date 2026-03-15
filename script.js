@@ -6,7 +6,8 @@ import {
   zones,
   instrumentals,
   floatingImages,
-  mobileLatestWorks
+  mobileLatestWorks,
+  youtubeChannelUrl
 } from './config.js';
 
 const isMobile = window.matchMedia('(max-width: 768px)').matches;
@@ -99,6 +100,7 @@ const mobileIntro = document.getElementById('mobile-intro');
 const mobileSectionsBlock = document.getElementById('mobile-menu');
 const mobileHeroCarousel = document.querySelector('.mobile-hero-carousel');
 const mobileHeroTrack = document.querySelector('.mobile-carousel-track');
+const mobileYoutubeBtn = document.getElementById('mobile-youtube-btn');
 const movementToggleOn = 'assets/ON BUTTON.png';
 const movementToggleOff = 'assets/OFF BUTTON.png';
 let mobileMovementEnabled = false;
@@ -112,17 +114,28 @@ updateVh();
 window.addEventListener('resize', updateVh);
 
 function updateMobileIntroArrowPosition() {
-  if (!mobileIntro || !mobileIntroArrow || !mobileHeroCarousel) return;
+  if (!mobileIntro || !mobileIntroArrow || !mobileHeroCarousel || !mobileYoutubeBtn) return;
   const heroImage = mobileHeroCarousel.querySelector('img');
   if (!heroImage) return;
+
   const introRect = mobileIntro.getBoundingClientRect();
   const imageRect = heroImage.getBoundingClientRect();
-  const topOffset = imageRect.bottom - introRect.top + 120;
-  mobileIntroArrow.style.top = `${Math.max(topOffset, 0)}px`;
+  const buttonRect = mobileYoutubeBtn.getBoundingClientRect();
+  const buttonHeight = buttonRect.height || 56;
+  const buttonTopOffset = imageRect.top - introRect.top - buttonHeight - 18;
+  const arrowTopOffset = imageRect.bottom - introRect.top + 34;
+
+  mobileYoutubeBtn.style.top = `${Math.max(buttonTopOffset, 0)}px`;
+  mobileIntroArrow.style.top = `${Math.max(arrowTopOffset, 0)}px`;
 }
 
 window.addEventListener('resize', updateMobileIntroArrowPosition);
 window.addEventListener('orientationchange', updateMobileIntroArrowPosition);
+
+
+if (mobileYoutubeBtn) {
+  mobileYoutubeBtn.href = youtubeChannelUrl;
+}
 
 // Objeto que guardará las ventanas emergentes generadas
 const popups = {};
