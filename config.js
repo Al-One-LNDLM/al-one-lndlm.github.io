@@ -172,17 +172,17 @@ export const zones = [
         <div class="contact-popup">
           <div class="social-column">
             <p class="column-title">Mis redes:</p>
-            <a href="https://www.youtube.com/@LNDLM1312" target="_blank">
-              <img src="assets/Boton YT LNDLM.png" alt="YouTube LNDLM" style="width:190px;height:auto;margin:6px 4px;" />
+            <a class="contact-social-link" href="https://www.youtube.com/@alonelndlm1312" target="_blank">
+              <img class="contact-social-btn" src="assets/Boton YT.png" alt="YouTube personal" />
             </a>
-            <a href="https://www.instagram.com/al.one.wav/" target="_blank">
-              <img src="assets/Boton Insta.png" alt="Instagram" style="width:190px;height:auto;margin:6px 4px;" />
+            <a class="contact-social-link" href="https://www.instagram.com/al.one.wav/" target="_blank">
+              <img class="contact-social-btn" src="assets/Boton Insta.png" alt="Instagram" />
             </a>
-            <a href="https://www.tiktok.com/@al.one.wav" target="_blank">
-              <img src="assets/Boton TT.png" alt="TikTok" style="width:190px;height:auto;margin:6px 4px;" />
+            <a class="contact-social-link" href="https://www.tiktok.com/@al.one.wav" target="_blank">
+              <img class="contact-social-btn" src="assets/Boton TT.png" alt="TikTok" />
             </a>
-            <a href="https://www.youtube.com/@alonelndlm1312" target="_blank">
-              <img src="assets/Boton YT.png" alt="YouTube personal" style="width:190px;height:auto;margin:6px 4px;" />
+            <a class="contact-social-link" href="https://www.youtube.com/@LNDLM1312" target="_blank">
+              <img class="contact-social-btn" src="assets/Boton YT LNDLM.png" alt="YouTube LNDLM" />
             </a>
           </div>
           <div class="form-column">
