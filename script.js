@@ -87,6 +87,7 @@ const character = document.getElementById('character');
 const toggleBtn = document.getElementById('toggle-theme');
 const zonesContainer = document.getElementById('zones-container');
 const popupsContainer = document.getElementById('popups-container');
+const popupBackdrop = document.getElementById('popup-backdrop');
 const mobileMenu = document.getElementById('mobile-menu');
 const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
 const mobileGame = document.getElementById('mobile-game');
@@ -210,6 +211,12 @@ zones.forEach(zone => {
   });
 });
 
+function syncPopupBackdrop() {
+  if (!popupBackdrop) return;
+  const anyVisible = Object.values(popups).some(p => p.classList.contains('visible'));
+  popupBackdrop.classList.toggle('active', anyVisible);
+}
+
 // Menú móvil generado dinámicamente (lista de secciones)
 const mobileSectionLabels = {
   instrumentales: 'Música',
@@ -325,6 +332,15 @@ popupsContainer.addEventListener('click', e => {
     openPopup(link.dataset.open);
   }
 });
+
+if (popupBackdrop) {
+  popupBackdrop.addEventListener('click', () => {
+    const anyVisible = Object.values(popups).some(p => p.classList.contains('visible'));
+    if (anyVisible) {
+      history.back();
+    }
+  });
+}
 
 // Manejo del menú móvil
 let menuOpen = false;
@@ -664,6 +680,7 @@ function openPopup(id, push = true) {
   if (push) {
     history.pushState({ popupId: id }, '');
   }
+  syncPopupBackdrop();
   if (isMobile) {
     document.documentElement.style.overflow = 'hidden';
     document.body.style.overflow = 'hidden';
@@ -692,7 +709,9 @@ function closePopup(id) {
       document.body.style.overflow = 'auto';
     }
   }
+  syncPopupBackdrop();
 }
+
 
 // Navegación con el botón de retroceso
 window.addEventListener('popstate', e => {
