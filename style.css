@@ -711,7 +711,9 @@ body.light-mode .audio-item button {
   display: none;
 }
 
-#mobile-youtube-btn {
+#mobile-featured-social-buttons,
+#mobile-youtube-btn,
+#mobile-tiktok-btn {
   display: none;
 }
 
@@ -956,18 +958,28 @@ body.light-mode .audio-item button {
     animation: mobile-cursor-blink 0.8s step-end infinite;
   }
 
-  #mobile-youtube-btn {
-    display: block;
+  #mobile-featured-social-buttons {
+    display: flex;
     position: absolute;
     left: 50%;
     top: 0;
-    width: clamp(140px, 42vw, 260px);
+    width: min(92vw, 560px);
     transform: translate(-50%, 0);
     transition: transform 180ms ease;
     z-index: 4;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(8px, 2.8vw, 20px);
   }
 
-  #mobile-youtube-btn img {
+  #mobile-youtube-btn,
+  #mobile-tiktok-btn {
+    display: block;
+    width: clamp(120px, 36vw, 240px);
+  }
+
+  #mobile-youtube-btn img,
+  #mobile-tiktok-btn img {
     display: block;
     width: 100%;
     height: auto;
@@ -1106,8 +1118,9 @@ body.light-mode .audio-item button {
     transform: translateY(-50%) scale(0.9);
   }
 
-  #mobile-youtube-btn:active {
-    transform: translate(-50%, 0) scale(0.95);
+  #mobile-youtube-btn:active,
+  #mobile-tiktok-btn:active {
+    transform: scale(0.95);
   }
 
   #mobile-intro-arrow:active {
