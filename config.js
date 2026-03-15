@@ -6,6 +6,9 @@ export const backgrounds = {
   light: 'assets/fondomed.png'
 };
 
+// URL del canal de YouTube (úsala para el botón destacado en móvil)
+export const youtubeChannelUrl = 'https://www.youtube.com/@LNDLM1312';
+
 // Lista de instrumentales disponibles
 // Añade más objetos { name: 'Título', src: 'assets/tu-archivo.mp3' }
 export const instrumentals = [
