@@ -12,6 +12,9 @@ export const youtubeChannelUrl = 'https://www.youtube.com/@LNDLM1312';
 // URL del perfil de TikTok (úsala para el botón destacado en móvil)
 export const tiktokProfileUrl = 'https://www.tiktok.com/@al.one.wav';
 
+// URL del perfil de Instagram (úsala para el botón destacado en móvil)
+export const instagramProfileUrl = 'https://www.instagram.com/al.one.wav/';
+
 // Lista de instrumentales disponibles
 // Añade más objetos { name: 'Título', src: 'assets/tu-archivo.mp3' }
 export const instrumentals = [

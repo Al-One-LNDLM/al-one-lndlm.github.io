@@ -8,6 +8,7 @@ import {
   floatingImages,
   mobileLatestWorks,
   youtubeChannelUrl,
+  instagramProfileUrl,
   tiktokProfileUrl
 } from './config.js';
 
@@ -102,6 +103,7 @@ const mobileSectionsBlock = document.getElementById('mobile-menu');
 const mobileHeroCarousel = document.querySelector('.mobile-hero-carousel');
 const mobileHeroTrack = document.querySelector('.mobile-carousel-track');
 const mobileYoutubeBtn = document.getElementById('mobile-youtube-btn');
+const mobileInstagramBtn = document.getElementById('mobile-instagram-btn');
 const mobileTiktokBtn = document.getElementById('mobile-tiktok-btn');
 const mobileFeaturedSocialButtons = document.getElementById('mobile-featured-social-buttons');
 const movementToggleOn = 'assets/ON BUTTON.png';
@@ -138,6 +140,10 @@ window.addEventListener('orientationchange', updateMobileIntroArrowPosition);
 
 if (mobileYoutubeBtn) {
   mobileYoutubeBtn.href = youtubeChannelUrl;
+}
+
+if (mobileInstagramBtn) {
+  mobileInstagramBtn.href = instagramProfileUrl;
 }
 
 if (mobileTiktokBtn) {
