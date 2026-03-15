@@ -1023,7 +1023,7 @@ body.light-mode .audio-item button {
 
   .mobile-hero-carousel {
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 50%;
     width: 80vw;
     transform: translate(-50%, -50%);
