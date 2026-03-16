@@ -1313,6 +1313,33 @@ body.light-mode .audio-item button {
     padding-left: 0;
   }
 
+  /* Solo para álbumes: título arriba, miniatura debajo y descripción después */
+  .work-album {
+    display: grid;
+    grid-template-areas:
+      'album-title'
+      'album-thumb'
+      'album-description';
+    row-gap: 0;
+  }
+
+  .work-album > .album-link {
+    grid-area: album-thumb;
+  }
+
+  .work-album > .info {
+    display: contents;
+  }
+
+  .work-album > .info h3 {
+    grid-area: album-title;
+    margin-bottom: 8px;
+  }
+
+  .work-album > .info .album-description {
+    grid-area: album-description;
+  }
+
   .work-album .info,
   .work-song .info,
   .album-description p {
