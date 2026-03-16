@@ -1413,7 +1413,7 @@ body.light-mode .audio-item button {
   .work-song .info,
   .album-description p {
     width: 100%;
-    text-align: justify;
+    text-align: left;
   }
  
   .work-album .thumb,
