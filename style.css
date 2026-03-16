@@ -1328,8 +1328,6 @@ body.light-mode .audio-item button {
 
   .work-album .thumb {
     width: min(100%, 350px);
-    margin-left: auto;
-    margin-right: auto;
   }
 
   .work-song .thumb {
