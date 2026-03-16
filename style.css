@@ -1307,6 +1307,8 @@ body.light-mode .audio-item button {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    width: 100%;
+    max-width: 100%;
     margin-left: 0;
     padding-left: 0;
   }
@@ -1318,11 +1320,11 @@ body.light-mode .audio-item button {
   }
 
   .work-album .thumb {
-    width: 90vw;
+    width: min(100%, 300px);
   }
 
   .work-song .thumb {
-    width: 65vw;
+    width: min(85%, 220px);
   }
 
 }
