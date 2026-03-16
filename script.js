@@ -248,6 +248,10 @@ function syncPopupBackdrop() {
   popupBackdrop.classList.toggle('active', anyVisible);
   popupBackdrop.setAttribute('aria-hidden', anyVisible ? 'false' : 'true');
   document.body.classList.toggle('popup-open', anyVisible);
+  if (isMobile) {
+    document.documentElement.style.overflow = anyVisible ? 'hidden' : 'auto';
+    document.body.style.overflow = anyVisible ? 'hidden' : 'auto';
+  }
 }
 
 // Menú móvil generado dinámicamente (lista de secciones)
@@ -726,10 +730,6 @@ function openPopup(id, push = true) {
     history.pushState({ popupId: id }, '');
   }
   syncPopupBackdrop();
-  if (isMobile) {
-    document.documentElement.style.overflow = 'hidden';
-    document.body.style.overflow = 'hidden';
-  }
 }
 
 /**
@@ -746,13 +746,6 @@ function closePopup(id) {
     currentAudio.audio.currentTime = 0;
     currentAudio.button.textContent = '▶';
     currentAudio = null;
-  }
-  if (isMobile) {
-    const anyVisible = Object.values(popups).some(hasActivePopup);
-    if (!anyVisible) {
-      document.documentElement.style.overflow = 'auto';
-      document.body.style.overflow = 'auto';
-    }
   }
   syncPopupBackdrop();
 }
