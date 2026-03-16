@@ -797,6 +797,13 @@ function populateMobileMusicSections() {
     content.className = 'mobile-music-accordion__content';
     content.dataset.section = section.key;
 
+    if (section.key === 'covers') {
+      const coversContainer = document.createElement('div');
+      coversContainer.className = 'mobile-covers-container';
+      coversContainer.dataset.section = 'covers-container';
+      content.appendChild(coversContainer);
+    }
+
     block.appendChild(summary);
     block.appendChild(content);
     container.appendChild(block);
