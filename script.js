@@ -697,9 +697,21 @@ function openPopup(id, push = true) {
 
   Object.entries(popups).forEach(([key, p]) => {
     if (key === id) {
+      const wasHidden = p.classList.contains('hidden');
       p.classList.remove('hidden');
       p.classList.remove('closing');
-      p.classList.add('visible');
+
+      if (wasHidden) {
+        // Fuerza un frame intermedio para que los navegadores móviles
+        // apliquen la transición de entrada en lugar de saltar al estado final.
+        p.classList.remove('visible');
+        p.getBoundingClientRect();
+        requestAnimationFrame(() => {
+          p.classList.add('visible');
+        });
+      } else {
+        p.classList.add('visible');
+      }
     } else {
       p.classList.remove('visible');
     }
