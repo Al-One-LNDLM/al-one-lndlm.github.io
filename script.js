@@ -340,8 +340,12 @@ movementToggleButton.addEventListener('click', () => {
   setMobileMovementEnabled(!mobileMovementEnabled);
 });
 
-// Crear listado de instrumentales
-populateInstrumentals();
+// Crear contenido de la ventana de música
+if (isMobile) {
+  populateMobileMusicSections();
+} else {
+  populateInstrumentals();
+}
 
 // Abrir ventana al hacer click en una zona
 zonesContainer.addEventListener('click', e => {
@@ -765,6 +769,39 @@ window.addEventListener('popstate', e => {
 //  Listado de instrumentales
 // =============================
 let currentAudio = null;
+
+function populateMobileMusicSections() {
+  const container = document.querySelector('#popup-instrumentales .popup-content');
+  if (!container) return;
+
+  container.innerHTML = '';
+
+  const sections = [
+    { key: 'covers', title: 'Covers' },
+    { key: 'instrumentales', title: 'Instrumentales' }
+  ];
+
+  sections.forEach((section, index) => {
+    const block = document.createElement('details');
+    block.className = 'mobile-music-accordion';
+    block.open = index === 0;
+
+    const summary = document.createElement('summary');
+    summary.className = 'mobile-music-accordion__summary';
+    summary.innerHTML = `
+      <span>${section.title}</span>
+      <span class="mobile-music-accordion__indicator" aria-hidden="true">+</span>
+    `;
+
+    const content = document.createElement('div');
+    content.className = 'mobile-music-accordion__content';
+    content.dataset.section = section.key;
+
+    block.appendChild(summary);
+    block.appendChild(content);
+    container.appendChild(block);
+  });
+}
 
 function populateInstrumentals() {
   const container = document.querySelector('#popup-instrumentales .popup-content');
