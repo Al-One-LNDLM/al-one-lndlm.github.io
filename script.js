@@ -233,13 +233,18 @@ zones.forEach(zone => {
     if (!popup.classList.contains('visible')) {
       popup.classList.add('hidden');
       popup.classList.remove('closing');
+      syncPopupBackdrop();
     }
   });
 });
 
+function hasActivePopup(popup) {
+  return popup && !popup.classList.contains('hidden');
+}
+
 function syncPopupBackdrop() {
   if (!popupBackdrop) return;
-  const anyVisible = Object.values(popups).some(p => p.classList.contains('visible'));
+  const anyVisible = Object.values(popups).some(hasActivePopup);
   popupBackdrop.classList.toggle('active', anyVisible);
   popupBackdrop.setAttribute('aria-hidden', anyVisible ? 'false' : 'true');
   document.body.classList.toggle('popup-open', anyVisible);
@@ -363,7 +368,7 @@ popupsContainer.addEventListener('click', e => {
 
 if (popupBackdrop) {
   popupBackdrop.addEventListener('click', () => {
-    const anyVisible = Object.values(popups).some(p => p.classList.contains('visible'));
+    const anyVisible = Object.values(popups).some(hasActivePopup);
     if (anyVisible) {
       history.back();
     }
@@ -743,7 +748,7 @@ function closePopup(id) {
     currentAudio = null;
   }
   if (isMobile) {
-    const anyVisible = Object.values(popups).some(p => p.classList.contains('visible'));
+    const anyVisible = Object.values(popups).some(hasActivePopup);
     if (!anyVisible) {
       document.documentElement.style.overflow = 'auto';
       document.body.style.overflow = 'auto';
