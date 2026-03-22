@@ -780,6 +780,48 @@ function resetAudioItemState(playerState) {
   }
 }
 
+function seekAudioFromProgress(progressElement, audio, clientX) {
+  const rect = progressElement.getBoundingClientRect();
+  if (!rect.width || !audio.duration) return;
+
+  const ratio = Math.max(0, Math.min((clientX - rect.left) / rect.width, 1));
+  audio.currentTime = ratio * audio.duration;
+}
+
+function bindProgressSeek(progressElement, audio) {
+  if (!progressElement || !audio) return;
+
+  let isPointerSeeking = false;
+
+  const handleSeek = clientX => {
+    seekAudioFromProgress(progressElement, audio, clientX);
+  };
+
+  progressElement.addEventListener('click', event => {
+    handleSeek(event.clientX);
+  });
+
+  progressElement.addEventListener('pointerdown', event => {
+    isPointerSeeking = true;
+    progressElement.setPointerCapture?.(event.pointerId);
+    handleSeek(event.clientX);
+  });
+
+  progressElement.addEventListener('pointermove', event => {
+    if (!isPointerSeeking) return;
+    handleSeek(event.clientX);
+  });
+
+  const stopSeeking = event => {
+    if (!isPointerSeeking) return;
+    isPointerSeeking = false;
+    progressElement.releasePointerCapture?.(event.pointerId);
+  };
+
+  progressElement.addEventListener('pointerup', stopSeeking);
+  progressElement.addEventListener('pointercancel', stopSeeking);
+}
+
 function populateMobileMusicSections() {
   const container = document.querySelector('#popup-instrumentales .popup-content');
   if (!container) return;
@@ -889,6 +931,7 @@ function populateInstrumentals() {
     });
 
     audio.addEventListener('timeupdate', updateProgress);
+    bindProgressSeek(progress, audio);
 
     audio.addEventListener('ended', () => {
       btn.textContent = '▶';
