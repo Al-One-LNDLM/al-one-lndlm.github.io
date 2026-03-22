@@ -1514,6 +1514,34 @@ body.light-mode .audio-item__progress {
     box-sizing: border-box;
   }
 
+  .work-album-collapsible {
+    width: 100%;
+  }
+
+  .work-album-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 6px auto 0;
+    padding: 4px 0 0;
+    border: none;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+  }
+
+  .work-album-toggle__arrow {
+    display: inline-block;
+    font-size: 30px;
+    line-height: 1;
+    transition: transform 0.25s ease;
+  }
+
+  .work-album-card:not(.is-collapsed) .work-album-toggle__arrow {
+    transform: rotate(180deg);
+  }
+
   .work-album-card--divider {
     margin-top: 24px;
   }
