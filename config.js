@@ -179,11 +179,11 @@ export const zones = [
             <li>Producción musical personalizada</li>
             <li>Grabación en home studio</li>
             <li>Grabación en estudio profesional</li>
-            <li>Desarrollo de concepto creativo</li>
+            <li>Concepto creativo</li>
           </ul>
           <p class="contact-mobile-intro">
             Estaré encantado de ayudarte a dar forma a tu proyecto :)<br><br>
-            Desliza un poco hacia abajo y hablemos:
+            Desliza hacia abajo y hablemos:
           </p>
           <div class="social-column">
             <p class="column-title">Mis redes:</p>
