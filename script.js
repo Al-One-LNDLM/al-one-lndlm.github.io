@@ -267,11 +267,38 @@ function organizeTrabajosAlbumsForMobile(popup) {
 
     gallery.insertBefore(card, album);
     card.appendChild(album);
+    const collapsibleContent = document.createElement('div');
+    collapsibleContent.className = 'work-album-collapsible';
+
     if (songsRow && songsRow.classList.contains('work-songs-row')) {
-      card.appendChild(songsRow);
+      collapsibleContent.appendChild(songsRow);
     }
     if (description && description.classList.contains('album-description--after-songs')) {
-      card.appendChild(description);
+      collapsibleContent.appendChild(description);
+    }
+
+    if (collapsibleContent.childElementCount > 0) {
+      const toggle = document.createElement('button');
+      toggle.type = 'button';
+      toggle.className = 'work-album-toggle';
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Ampliar tarjeta del álbum');
+      toggle.innerHTML = '<span class="work-album-toggle__arrow" aria-hidden="true">⌄</span>';
+
+      card.classList.add('is-collapsed');
+      collapsibleContent.hidden = true;
+      card.appendChild(toggle);
+      card.appendChild(collapsibleContent);
+
+      toggle.addEventListener('click', () => {
+        const isCollapsed = card.classList.toggle('is-collapsed');
+        const expanded = !isCollapsed;
+        collapsibleContent.hidden = isCollapsed;
+        toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        toggle.setAttribute('aria-label', expanded ? 'Contraer tarjeta del álbum' : 'Ampliar tarjeta del álbum');
+      });
+    } else {
+      card.appendChild(collapsibleContent);
     }
   });
 }
