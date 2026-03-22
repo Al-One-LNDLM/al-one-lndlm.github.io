@@ -183,7 +183,7 @@ export const zones = [
           </ul>
           <p class="contact-mobile-intro">
             Estaré encantado de ayudarte a dar forma a tu proyecto :)<br><br>
-            Desliza hacia abajo y hablemos:
+            Desliza hacia abajo y hablemos
           </p>
           <div class="social-column">
             <p class="column-title">Mis redes:</p>
