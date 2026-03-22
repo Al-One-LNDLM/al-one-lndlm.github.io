@@ -235,7 +235,7 @@ export const zones = [
         content:
           '<p style="white-space: pre-line; font-size: 0.85em; text-align: center; opacity: 0.85; line-height: 1.6; color: white;">Estoy desarrollando algunas herramientas como parte de mi propio proceso creativo.\n\nPronto estarán disponibles en esta sección para quien quiera utilizarlas.\n\nSi te interesa, estate atent@</p>'+
           '<img src="assets/FLECHA.png" style="display: block; margin: 20px auto 0 auto; width: 10vw;">'+ 
-          '<img src="assets/Prox.png" style="display: block; margin: 20px auto 0 auto; width: 90vw;">',       
+          '<img src="assets/Prox.png" style="display: block; margin: 20px auto 0 auto; width: 70vw;">',       
         bg: 'assets/fondo.png',
         gradient: 'linear-gradient(to top, rgba(0, 0, 0, 1), #7d461d)'
       }
