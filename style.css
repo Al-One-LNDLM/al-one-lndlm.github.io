@@ -1595,8 +1595,6 @@ body.light-mode .audio-item__progress {
     width: min(94%, 390px);
     margin: 0 auto;
     display: block;
-    max-height: 72px;
-    overflow: hidden;
     border-radius: 2px;
   }
 
