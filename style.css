@@ -1436,7 +1436,7 @@ body.light-mode .audio-item__progress {
 
   .contact-mobile-intro {
     display: block;
-    margin: 0 0 5px;
+    margin: 0 0 1px;
     line-height: 1.45;
     text-align: left;
   }
