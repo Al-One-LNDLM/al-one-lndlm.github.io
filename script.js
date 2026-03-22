@@ -229,7 +229,7 @@ zones.forEach(zone => {
   popups[zone.id] = popup; // guardar referencia
 
   if (isMobile && zone.id === 'trabajos') {
-    moveAlbumDescriptionsBelowSongs(popup);
+    organizeTrabajosAlbumsForMobile(popup);
   }
 
   // Asegurar que las ventanas se oculten tras la animación de cierre
@@ -242,19 +242,37 @@ zones.forEach(zone => {
   });
 });
 
-function moveAlbumDescriptionsBelowSongs(popup) {
+function organizeTrabajosAlbumsForMobile(popup) {
   const gallery = popup.querySelector('.trabajos-gallery');
-  if (!gallery) return;
+  if (!gallery || gallery.querySelector('.work-album-card')) return;
 
-  const albums = gallery.querySelectorAll('.work-album');
+  const albums = Array.from(gallery.querySelectorAll('.work-album'));
   albums.forEach(album => {
     const description = album.querySelector('.album-description');
     const songsRow = album.nextElementSibling;
 
-    if (!description || !songsRow || !songsRow.classList.contains('work-songs-row')) return;
+    if (songsRow && songsRow.classList.contains('work-songs-row')) {
+      if (description) {
+        description.classList.add('album-description--after-songs');
+        songsRow.insertAdjacentElement('afterend', description);
+      }
+    }
 
-    description.classList.add('album-description--after-songs');
-    songsRow.insertAdjacentElement('afterend', description);
+    const card = document.createElement('article');
+    card.className = 'work-album-card';
+    if (album.classList.contains('album-divider')) {
+      card.classList.add('work-album-card--divider');
+      album.classList.remove('album-divider');
+    }
+
+    gallery.insertBefore(card, album);
+    card.appendChild(album);
+    if (songsRow && songsRow.classList.contains('work-songs-row')) {
+      card.appendChild(songsRow);
+    }
+    if (description && description.classList.contains('album-description--after-songs')) {
+      card.appendChild(description);
+    }
   });
 }
 

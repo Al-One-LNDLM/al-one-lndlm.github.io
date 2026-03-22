@@ -1505,6 +1505,19 @@ body.light-mode .audio-item__progress {
     font-size: 13px;
   }
 
+  .work-album-card {
+    width: 92%;
+    margin: 0 auto 18px;
+    padding: 12px 10px 14px;
+    border: 4px solid #000;
+    background: rgba(255, 255, 255, 0.22);
+    box-sizing: border-box;
+  }
+
+  .work-album-card--divider {
+    margin-top: 24px;
+  }
+
   .trabajos-gallery .thumb {
     display: block;
     margin: 0;
@@ -1522,8 +1535,8 @@ body.light-mode .audio-item__progress {
   }
 
   .work-songs-row {
-    width: 90%;
-    margin: 0 auto 12px;
+    width: 100%;
+    margin: 0 0 12px;
     display: flex;
     flex-direction: row;
     gap: 12px;
@@ -1574,8 +1587,8 @@ body.light-mode .audio-item__progress {
   }
 
   .album-description--after-songs {
-    width: 90%;
-    margin: 0 auto 16px;
+    width: 100%;
+    margin: 0;
     display: block;
   }
  
