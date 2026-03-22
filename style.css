@@ -1551,6 +1551,9 @@ body.light-mode .audio-item__progress {
   .work-album > .album-link {
     grid-area: album-thumb;
     justify-self: center;
+    width: min(94%, 390px);
+    margin: 0 auto;
+    display: block;
   }
 
   .work-album > .info {
@@ -1584,7 +1587,8 @@ body.light-mode .audio-item__progress {
   }
 
   .work-album .thumb {
-    width: min(100%, 350px);
+    width: 100%;
+    margin: 0 auto 12px;
   }
 
   .work-song .thumb {
