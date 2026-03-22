@@ -343,9 +343,8 @@ movementToggleButton.addEventListener('click', () => {
 // Crear contenido de la ventana de música
 if (isMobile) {
   populateMobileMusicSections();
-} else {
-  populateInstrumentals();
 }
+populateInstrumentals();
 
 // Abrir ventana al hacer click en una zona
 zonesContainer.addEventListener('click', e => {
@@ -777,8 +776,9 @@ function populateMobileMusicSections() {
   container.innerHTML = '';
 
   const sections = [
-    { key: 'covers', title: 'Covers' },
-    { key: 'instrumentales', title: 'Instrumentales' }
+    { key: 'instrumentales', title: 'Instrumentales' },
+    { key: 'experimentos', title: 'Experimentos' },
+    { key: 'covers', title: 'Covers' }
   ];
 
   sections.forEach((section, index) => {
@@ -804,6 +804,13 @@ function populateMobileMusicSections() {
       content.appendChild(coversContainer);
     }
 
+    if (section.key === 'experimentos') {
+      const experimentsContainer = document.createElement('div');
+      experimentsContainer.className = 'mobile-experiments-container';
+      experimentsContainer.dataset.section = 'experiments-container';
+      content.appendChild(experimentsContainer);
+    }
+
     block.appendChild(summary);
     block.appendChild(content);
     container.appendChild(block);
@@ -811,7 +818,9 @@ function populateMobileMusicSections() {
 }
 
 function populateInstrumentals() {
-  const container = document.querySelector('#popup-instrumentales .popup-content');
+  const container = isMobile
+    ? document.querySelector('#popup-instrumentales .mobile-music-accordion__content[data-section="instrumentales"]')
+    : document.querySelector('#popup-instrumentales .popup-content');
   if (!container) return;
   instrumentals.forEach(inst => {
     const item = document.createElement('div');
