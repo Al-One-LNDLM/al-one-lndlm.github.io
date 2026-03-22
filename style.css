@@ -438,6 +438,10 @@ body.popup-open #mobile-game {
   align-items: stretch;
 }
 
+.contact-mobile-intro {
+  display: none;
+}
+
 .contact-popup::before {
   content: "";
   position: absolute;
@@ -1424,6 +1428,13 @@ body.light-mode .audio-item__progress {
   .contact-popup {
     flex-direction: column;
     align-items: center;
+  }
+
+  .contact-mobile-intro {
+    display: block;
+    margin: 0 0 12px;
+    line-height: 1.45;
+    text-align: left;
   }
 
   .contact-popup::before {
