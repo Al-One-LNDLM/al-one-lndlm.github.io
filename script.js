@@ -228,6 +228,10 @@ zones.forEach(zone => {
   popupsContainer.appendChild(popup);
   popups[zone.id] = popup; // guardar referencia
 
+  if (isMobile && zone.id === 'trabajos') {
+    moveAlbumDescriptionsBelowSongs(popup);
+  }
+
   // Asegurar que las ventanas se oculten tras la animación de cierre
   popup.addEventListener('transitionend', () => {
     if (!popup.classList.contains('visible')) {
@@ -237,6 +241,22 @@ zones.forEach(zone => {
     }
   });
 });
+
+function moveAlbumDescriptionsBelowSongs(popup) {
+  const gallery = popup.querySelector('.trabajos-gallery');
+  if (!gallery) return;
+
+  const albums = gallery.querySelectorAll('.work-album');
+  albums.forEach(album => {
+    const description = album.querySelector('.album-description');
+    const songsRow = album.nextElementSibling;
+
+    if (!description || !songsRow || !songsRow.classList.contains('work-songs-row')) return;
+
+    description.classList.add('album-description--after-songs');
+    songsRow.insertAdjacentElement('afterend', description);
+  });
+}
 
 function hasActivePopup(popup) {
   return popup && !popup.classList.contains('hidden');
