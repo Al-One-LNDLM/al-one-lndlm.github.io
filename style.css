@@ -670,6 +670,13 @@ body.popup-open #mobile-game {
   box-sizing: border-box;
 }
 
+.work-songs-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
 .work-song .thumb {
   width: 120px;
   aspect-ratio: 16 / 9;
@@ -1514,6 +1521,24 @@ body.light-mode .audio-item__progress {
     padding-left: 0;
   }
 
+  .work-songs-row {
+    width: 80%;
+    margin: 0 auto 12px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .work-songs-row .work-song {
+    flex: 0 0 160px;
+    width: 160px;
+    scroll-snap-align: start;
+  }
+
   /* Solo para álbumes: título arriba, miniatura debajo y descripción después */
   .work-album {
     display: grid;
@@ -1560,6 +1585,10 @@ body.light-mode .audio-item__progress {
 
   .work-song .thumb {
     width: min(85%, 220px);
+  }
+
+  .work-songs-row .work-song .thumb {
+    width: 100%;
   }
 
 }
