@@ -1632,24 +1632,6 @@ body.light-mode .audio-item__progress {
 
   .work-album .thumb {
     width: 100%;
-    height: 72px;
-    object-fit: cover;
-    object-position: center 28%;
-    aspect-ratio: auto;
-  }
-
-  .work-album > .info h3 {
-    margin-bottom: 6px;
-    font-size: 0.96rem;
-    line-height: 1.2;
-  }
-
-  .work-album-card {
-    padding: 10px 10px 12px;
-  }
-
-  .work-album .thumb {
-    width: 100%;
     margin: 0 auto 12px;
   }
 
