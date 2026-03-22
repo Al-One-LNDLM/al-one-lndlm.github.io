@@ -233,8 +233,7 @@ export const zones = [
       popup: {
         title: 'Plugins',
         content:
-          '<p style="text-align:center; margin-top:40px;"> Esta sección está en mantenimiento </p>' +
-          '<img src="assets/obra.png" alt="En obras" class="plugin-img">',
+          '<p style="white-space: pre-line;">Estoy desarrollando algunas herramientas como parte de mi propio proceso creativo.\n\nPronto estarán disponibles en esta sección para quien quiera utilizarlas.\n\nSi te interesa, estate atent@ ;)</p>',
         bg: 'assets/fondo.png',
         gradient: 'linear-gradient(to top, rgba(0, 0, 0, 1), #7d461d)'
       }
