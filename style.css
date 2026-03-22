@@ -1534,8 +1534,8 @@ body.light-mode .audio-item__progress {
   }
 
   .work-songs-row .work-song {
-    flex: 0 0 160px;
-    width: 160px;
+    flex: 0 0 45vw;
+    width: 45vw;
     scroll-snap-align: start;
   }
 
