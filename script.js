@@ -769,6 +769,17 @@ window.addEventListener('popstate', e => {
 // =============================
 let currentAudio = null;
 
+function resetAudioItemState(playerState) {
+  if (!playerState) return;
+  const { audio, button, progressFill } = playerState;
+  audio.pause();
+  audio.currentTime = 0;
+  button.textContent = '▶';
+  if (progressFill) {
+    progressFill.style.width = '0%';
+  }
+}
+
 function populateMobileMusicSections() {
   const container = document.querySelector('#popup-instrumentales .popup-content');
   if (!container) return;
@@ -827,42 +838,72 @@ function populateInstrumentals() {
     const item = document.createElement('div');
     item.className = 'audio-item';
 
+    const topRow = document.createElement('div');
+    topRow.className = 'audio-item__top-row';
+
     const title = document.createElement('span');
+    title.className = 'audio-item__title';
     title.textContent = inst.name;
 
+    const tag = document.createElement('span');
+    tag.className = 'audio-item__tag';
+    tag.textContent = 'HipHop';
+
+    const controlsRow = document.createElement('div');
+    controlsRow.className = 'audio-item__controls-row';
+
     const btn = document.createElement('button');
+    btn.className = 'audio-item__play-btn';
     btn.textContent = '▶';
+    btn.setAttribute('aria-label', `Reproducir instrumental ${inst.name}`);
+
+    const progress = document.createElement('div');
+    progress.className = 'audio-item__progress';
+
+    const progressFill = document.createElement('div');
+    progressFill.className = 'audio-item__progress-fill';
+    progress.appendChild(progressFill);
 
     const audio = new Audio(inst.src);
+    audio.preload = 'metadata';
+
+    const updateProgress = () => {
+      if (!audio.duration) return;
+      const pct = Math.max(0, Math.min((audio.currentTime / audio.duration) * 100, 100));
+      progressFill.style.width = `${pct}%`;
+    };
 
     btn.addEventListener('click', () => {
       if (currentAudio && currentAudio.audio !== audio) {
-        currentAudio.audio.pause();
-        currentAudio.audio.currentTime = 0;
-        currentAudio.button.textContent = '▶';
+        resetAudioItemState(currentAudio);
       }
 
       if (audio.paused) {
         audio.play();
         btn.textContent = '⏸';
-        currentAudio = { audio, button: btn };
+        currentAudio = { audio, button: btn, progressFill };
       } else {
-        audio.pause();
-        audio.currentTime = 0;
-        btn.textContent = '▶';
+        resetAudioItemState({ audio, button: btn, progressFill });
         currentAudio = null;
       }
     });
 
+    audio.addEventListener('timeupdate', updateProgress);
+
     audio.addEventListener('ended', () => {
       btn.textContent = '▶';
+      progressFill.style.width = '100%';
       if (currentAudio && currentAudio.audio === audio) {
         currentAudio = null;
       }
     });
 
-    item.appendChild(title);
-    item.appendChild(btn);
+    topRow.appendChild(title);
+    topRow.appendChild(tag);
+    controlsRow.appendChild(btn);
+    controlsRow.appendChild(progress);
+    item.appendChild(topRow);
+    item.appendChild(controlsRow);
     container.appendChild(item);
   });
 }
