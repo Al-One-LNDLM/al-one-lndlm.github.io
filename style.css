@@ -1539,13 +1539,12 @@ body.light-mode .audio-item__progress {
     scroll-snap-align: start;
   }
 
-  /* Solo para álbumes: título arriba, miniatura debajo y descripción después */
+  /* Solo para álbumes: título arriba y miniatura debajo */
   .work-album {
     display: grid;
     grid-template-areas:
       'album-title'
-      'album-thumb'
-      'album-description';
+      'album-thumb';
     row-gap: 0;
   }
 
@@ -1562,15 +1561,17 @@ body.light-mode .audio-item__progress {
     margin-bottom: 8px;
   }
 
-  .work-album > .info .album-description {
-    grid-area: album-description;
-  }
-
   .work-album .info,
   .work-song .info,
   .album-description p {
     width: 100%;
     text-align: left;
+  }
+
+  .album-description--after-songs {
+    width: 90%;
+    margin: 0 auto 16px;
+    display: block;
   }
  
   .work-album .thumb,
