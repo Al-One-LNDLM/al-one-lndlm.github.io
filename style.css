@@ -1550,6 +1550,7 @@ body.light-mode .audio-item__progress {
 
   .work-album > .album-link {
     grid-area: album-thumb;
+    justify-self: center;
   }
 
   .work-album > .info {
@@ -1559,6 +1560,7 @@ body.light-mode .audio-item__progress {
   .work-album > .info h3 {
     grid-area: album-title;
     margin-bottom: 8px;
+    text-align: center;
   }
 
   .work-album .info,
