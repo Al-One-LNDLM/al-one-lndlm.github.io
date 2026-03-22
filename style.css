@@ -1580,6 +1580,7 @@ body.light-mode .audio-item__progress {
   .work-song .thumb {
     margin-right: 0;
     margin-bottom: 12px;
+    align-self: center;
   }
 
   .work-album .thumb {
