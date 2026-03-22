@@ -172,8 +172,16 @@ export const zones = [
         <div class="contact-popup">
           <p class="contact-mobile-intro">
             Si eres un artista o creativo en busca de:<br><br>
-            Instrumentales personalizadas · Catálogo de instrumentales · Producción musical personalizada<br>
-            Grabación en home studio · Grabación en estudio profesional · Desarrollo de concepto creativo<br><br>
+          </p>
+          <ul class="contact-mobile-services">
+            <li>Instrumentales personalizadas</li>
+            <li>Catálogo de instrumentales</li>
+            <li>Producción musical personalizada</li>
+            <li>Grabación en home studio</li>
+            <li>Grabación en estudio profesional</li>
+            <li>Desarrollo de concepto creativo</li>
+          </ul>
+          <p class="contact-mobile-intro">
             Estaré encantado de ayudarte a dar forma a tu proyecto :)<br><br>
             Desliza un poco hacia abajo y hablemos:
           </p>
