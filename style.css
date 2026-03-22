@@ -1522,7 +1522,7 @@ body.light-mode .audio-item__progress {
   }
 
   .work-songs-row {
-    width: 80%;
+    width: 90%;
     margin: 0 auto 12px;
     display: flex;
     flex-direction: row;

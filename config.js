@@ -68,43 +68,43 @@ export const zones = [
               <a class="thumb-link" href="https://youtu.be/gjnF2xA8EgU?si=-Lz4cv3UeemV82s7" target="_blank">
                 <img class="thumb" src="assets/MINI 2.jpg" alt="Canción 1">
               </a>
-              <a class="title-link" href="https://youtu.be/gjnF2xA8EgU?si=-Lz4cv3UeemV82s7" target="_blank">1 Gama Ocre</a>
+              <a class="title-link" href="https://youtu.be/gjnF2xA8EgU?si=-Lz4cv3UeemV82s7" target="_blank">1. Gama Ocre</a>
             </div>
             <div class="work-song">
               <a class="thumb-link" href="https://youtu.be/olTjbh7295U?si=6XDtN3jbhnOMuLol" target="_blank">
                 <img class="thumb" src="assets/MINI 3.jpg" alt="Canción 2">
               </a>
-              <a class="title-link" href="https://youtu.be/olTjbh7295U?si=6XDtN3jbhnOMuLol" target="_blank">2 Chicos Malos Buenos Tipos</a>
+              <a class="title-link" href="https://youtu.be/olTjbh7295U?si=6XDtN3jbhnOMuLol" target="_blank">2. Chicos Malos Buenos Tipos</a>
             </div>
             <div class="work-song">
               <a class="thumb-link" href="https://youtu.be/w4X0c4Csqck?si=phNUqeIYaCTdfJEB" target="_blank">
                 <img class="thumb" src="assets/MINI 4.jpg" alt="Canción 2">
               </a>
-              <a class="title-link" href="https://youtu.be/w4X0c4Csqck?si=phNUqeIYaCTdfJEB" target="_blank">3 Los Penúltimos Versos Que Te Escribo</a>
+              <a class="title-link" href="https://youtu.be/w4X0c4Csqck?si=phNUqeIYaCTdfJEB" target="_blank">3. Los Penúltimos Versos Que Te Escribo</a>
             </div>
             <div class="work-song">
               <a class="thumb-link" href="https://youtu.be/iBjQlLn3eGI?si=11dlDPzwzun_HKG5" target="_blank">
                 <img class="thumb" src="assets/MINI 5.jpg" alt="Canción 2">
               </a>
-              <a class="title-link" href="https://youtu.be/iBjQlLn3eGI?si=11dlDPzwzun_HKG5" target="_blank">4 El Niño y Su Fe</a>
+              <a class="title-link" href="https://youtu.be/iBjQlLn3eGI?si=11dlDPzwzun_HKG5" target="_blank">4. El Niño y Su Fe</a>
             </div>
             <div class="work-song">
               <a class="thumb-link" href="https://youtu.be/E5ZnLgfJucQ?si=sVSPpSJ5IDL6jNVH" target="_blank">
                 <img class="thumb" src="assets/MINI 6.jpg" alt="Canción 2">
               </a>
-              <a class="title-link" href="https://youtu.be/E5ZnLgfJucQ?si=sVSPpSJ5IDL6jNVH" target="_blank">5 Mi Negra Tomasa</a>
+              <a class="title-link" href="https://youtu.be/E5ZnLgfJucQ?si=sVSPpSJ5IDL6jNVH" target="_blank">5. Mi Negra Tomasa</a>
             </div>
             <div class="work-song">
               <a class="thumb-link" href="https://youtu.be/N-r1HKcgNl8?si=Sl-_nix8Xwfa8e34" target="_blank">
                 <img class="thumb" src="assets/MINI 7.jpg" alt="Canción 2">
               </a>
-              <a class="title-link" href="https://youtu.be/N-r1HKcgNl8?si=Sl-_nix8Xwfa8e34" target="_blank">6 Continental 67´</a>
+              <a class="title-link" href="https://youtu.be/N-r1HKcgNl8?si=Sl-_nix8Xwfa8e34" target="_blank">6. Continental 67´</a>
             </div>
             <div class="work-song">
               <a class="thumb-link" href="https://youtu.be/9To2SQiQXKE?si=Nqrg5c2J_sX0-M4l" target="_blank">
                 <img class="thumb" src="assets/MINI 8.jpg" alt="Canción 2">
               </a>
-              <a class="title-link" href="https://youtu.be/9To2SQiQXKE?si=Nqrg5c2J_sX0-M4l" target="_blank">7 Xyla</a>
+              <a class="title-link" href="https://youtu.be/9To2SQiQXKE?si=Nqrg5c2J_sX0-M4l" target="_blank">7. Xyla</a>
             </div>
           </div>
 
@@ -130,31 +130,31 @@ export const zones = [
               <a class="thumb-link" href="https://youtu.be/r7v66L14CIY?si=i29TWJnDchiaF02K" target="_blank">
                 <img class="thumb" src="assets/TDB5.jpg" alt="Canción A">
               </a>
-              <a class="title-link" href="https://youtu.be/r7v66L14CIY?si=i29TWJnDchiaF02K" target="_blank">1 El Miajón</a>
+              <a class="title-link" href="https://youtu.be/r7v66L14CIY?si=i29TWJnDchiaF02K" target="_blank">1. El Miajón</a>
             </div>
             <div class="work-song">
               <a class="thumb-link" href="https://youtu.be/qrz6GHOQeWo?si=G3NDKIrxeIGsKGWG" target="_blank">
                 <img class="thumb" src="assets/TDB1.jpg" alt="Canción B">
               </a>
-              <a class="title-link" href="https://youtu.be/qrz6GHOQeWo?si=G3NDKIrxeIGsKGWG" target="_blank">2 LXXL</a>
+              <a class="title-link" href="https://youtu.be/qrz6GHOQeWo?si=G3NDKIrxeIGsKGWG" target="_blank">2. LXXL</a>
             </div>
             <div class="work-song">
               <a class="thumb-link" href="https://youtu.be/VoGZL0BbisA?si=O8v8NPwVlMLQr_QL" target="_blank">
                 <img class="thumb" src="assets/TDB2.webp" alt="Canción A">
               </a>
-              <a class="title-link" href="https://youtu.be/VoGZL0BbisA?si=O8v8NPwVlMLQr_QL" target="_blank">3 MID00´S</a>
+              <a class="title-link" href="https://youtu.be/VoGZL0BbisA?si=O8v8NPwVlMLQr_QL" target="_blank">3. MID00´S</a>
             </div>
             <div class="work-song">
               <a class="thumb-link" href="https://youtu.be/TCTaVd1pkNU?si=FIcTLrw6MaOrvbLk" target="_blank">
                 <img class="thumb" src="assets/TDB3.webp" alt="Canción A">
               </a>
-              <a class="title-link" href="https://youtu.be/TCTaVd1pkNU?si=FIcTLrw6MaOrvbLk" target="_blank">4 DETROIT 89´</a>
+              <a class="title-link" href="https://youtu.be/TCTaVd1pkNU?si=FIcTLrw6MaOrvbLk" target="_blank">4. DETROIT 89´</a>
             </div>
             <div class="work-song">
               <a class="thumb-link" href="https://youtu.be/1bG2_86Cqzk?si=KlASDkXCWNGy3NUz" target="_blank">
                 <img class="thumb" src="assets/TDB4.webp" alt="Canción A">
               </a>
-              <a class="title-link" href="https://youtu.be/1bG2_86Cqzk?si=KlASDkXCWNGy3NUz" target="_blank">5 WUTW</a>
+              <a class="title-link" href="https://youtu.be/1bG2_86Cqzk?si=KlASDkXCWNGy3NUz" target="_blank">5. WUTW</a>
             </div>
           </div>
 
