@@ -784,6 +784,7 @@ function populateMobileMusicSections() {
   sections.forEach((section, index) => {
     const block = document.createElement('details');
     block.className = 'mobile-music-accordion';
+    block.dataset.section = section.key;
     block.open = index === 0;
 
     const summary = document.createElement('summary');

@@ -45,6 +45,18 @@
   --popup-header-font-size: 24px;
   --close-btn-font-size: 16px;
   --audio-button-font-size: 15px;
+  --mobile-music-accordion-summary-min-height: 64px;
+  --mobile-music-accordion-content-min-height: 150px;
+  --mobile-music-accordion-base-bg: linear-gradient(180deg, rgba(25, 25, 25, 0.95), rgba(47, 47, 47, 0.92));
+  --mobile-music-accordion-instrumentales-color: #9f65c7;
+  --mobile-music-accordion-experimentos-color: #4fa6d8;
+  --mobile-music-accordion-covers-color: #5fbf72;
+  --mobile-music-accordion-content-bg: rgba(0, 0, 0, 0.35);
+  --mobile-music-accordion-base-bg-light: linear-gradient(180deg, rgba(239, 239, 239, 0.95), rgba(213, 213, 213, 0.95));
+  --mobile-music-accordion-instrumentales-color-light: #b88de0;
+  --mobile-music-accordion-experimentos-color-light: #78bddf;
+  --mobile-music-accordion-covers-color-light: #7bce8a;
+  --mobile-music-accordion-content-bg-light: rgba(255, 255, 255, 0.55);
 }
 
 /* Estilos base del cuerpo */
@@ -1225,15 +1237,28 @@ body.light-mode .audio-item button {
 
   .mobile-music-accordion {
     border: 3px solid #000;
-    background: linear-gradient(180deg, rgba(25, 25, 25, 0.95), rgba(47, 47, 47, 0.92));
-    box-shadow: 0 0 0 2px #9f65c7;
+    background: var(--mobile-music-accordion-base-bg);
+    box-shadow: 0 0 0 2px var(--mobile-music-accordion-accent, var(--mobile-music-accordion-instrumentales-color));
     color: #fff;
+  }
+
+  .mobile-music-accordion[data-section='instrumentales'] {
+    --mobile-music-accordion-accent: var(--mobile-music-accordion-instrumentales-color);
+  }
+
+  .mobile-music-accordion[data-section='experimentos'] {
+    --mobile-music-accordion-accent: var(--mobile-music-accordion-experimentos-color);
+  }
+
+  .mobile-music-accordion[data-section='covers'] {
+    --mobile-music-accordion-accent: var(--mobile-music-accordion-covers-color);
   }
 
   .mobile-music-accordion__summary {
     list-style: none;
     cursor: pointer;
-    padding: 12px 14px;
+    padding: 14px;
+    min-height: var(--mobile-music-accordion-summary-min-height);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1259,9 +1284,9 @@ body.light-mode .audio-item button {
   }
 
   .mobile-music-accordion__content {
-    min-height: 100px;
+    min-height: var(--mobile-music-accordion-content-min-height);
     border-top: 3px solid #000;
-    background: rgba(0, 0, 0, 0.35);
+    background: var(--mobile-music-accordion-content-bg);
   }
 
   .mobile-covers-container {
@@ -1272,13 +1297,25 @@ body.light-mode .audio-item button {
   }
 
   body.light-mode .mobile-music-accordion {
-    background: linear-gradient(180deg, rgba(239, 239, 239, 0.95), rgba(213, 213, 213, 0.95));
+    background: var(--mobile-music-accordion-base-bg-light);
     color: #000;
-    box-shadow: 0 0 0 2px #b88de0;
+    box-shadow: 0 0 0 2px var(--mobile-music-accordion-accent-light, var(--mobile-music-accordion-instrumentales-color-light));
+  }
+
+  body.light-mode .mobile-music-accordion[data-section='instrumentales'] {
+    --mobile-music-accordion-accent-light: var(--mobile-music-accordion-instrumentales-color-light);
+  }
+
+  body.light-mode .mobile-music-accordion[data-section='experimentos'] {
+    --mobile-music-accordion-accent-light: var(--mobile-music-accordion-experimentos-color-light);
+  }
+
+  body.light-mode .mobile-music-accordion[data-section='covers'] {
+    --mobile-music-accordion-accent-light: var(--mobile-music-accordion-covers-color-light);
   }
 
   body.light-mode .mobile-music-accordion__content {
-    background: rgba(255, 255, 255, 0.55);
+    background: var(--mobile-music-accordion-content-bg-light);
   }
 
   body.light-mode .mobile-covers-container {
