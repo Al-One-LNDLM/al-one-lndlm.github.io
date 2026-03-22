@@ -1438,7 +1438,7 @@ body.light-mode .audio-item__progress {
     display: block;
     margin: 0 0 1px;
     line-height: 1.45;
-    text-align: left;
+    text-align: center;
   }
 
   .contact-mobile-services {
@@ -1447,7 +1447,7 @@ body.light-mode .audio-item__progress {
     padding-left: 10px;
     font-size: 12px;
     line-height: 1.8;
-    text-align: left;
+    text-align: center;
   }
 
   .contact-mobile-services li:nth-child(1) { color: #ff7aa2; }
