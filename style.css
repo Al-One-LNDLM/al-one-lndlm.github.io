@@ -1315,22 +1315,48 @@ body.light-mode .audio-item__progress {
   }
 
   .mobile-music-accordion {
-    border: 3px solid #000;
-    background: var(--mobile-music-accordion-base-bg);
-    box-shadow: 0 0 0 2px var(--mobile-music-accordion-accent, var(--mobile-music-accordion-instrumentales-color));
+    position: relative;
+    border: none;
+    background: transparent;
     color: #fff;
+    box-sizing: border-box;
+    overflow: visible;
   }
 
   .mobile-music-accordion[data-section='instrumentales'] {
     --mobile-music-accordion-accent: var(--mobile-music-accordion-instrumentales-color);
+    --mobile-music-frame-image: url("assets/contenedor música inst.png");
   }
 
   .mobile-music-accordion[data-section='experimentos'] {
     --mobile-music-accordion-accent: var(--mobile-music-accordion-experimentos-color);
+    --mobile-music-frame-image: url("assets/contenedor música exp.png");
   }
 
   .mobile-music-accordion[data-section='covers'] {
     --mobile-music-accordion-accent: var(--mobile-music-accordion-covers-color);
+    --mobile-music-frame-image: url("assets/contenedor música cov.png");
+  }
+
+  .mobile-music-accordion > :not(.music-frame) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .mobile-music-accordion .music-frame {
+    position: absolute;
+    top: 0;
+    bottom: -16px;
+    left: -16px;
+    right: -16px;
+    z-index: 0;
+    pointer-events: none;
+    border: 32px solid transparent;
+    border-style: solid;
+    border-image-source: var(--mobile-music-frame-image);
+    border-image-slice: 32 fill;
+    border-image-repeat: repeat;
+    box-sizing: border-box;
   }
 
   .mobile-music-accordion__summary {
@@ -1364,7 +1390,6 @@ body.light-mode .audio-item__progress {
 
   .mobile-music-accordion__content {
     min-height: var(--mobile-music-accordion-content-min-height);
-    border-top: 3px solid #000;
     background: var(--mobile-music-accordion-content-bg);
   }
 
@@ -1376,9 +1401,7 @@ body.light-mode .audio-item__progress {
   }
 
   body.light-mode .mobile-music-accordion {
-    background: var(--mobile-music-accordion-base-bg-light);
     color: #000;
-    box-shadow: 0 0 0 2px var(--mobile-music-accordion-accent-light, var(--mobile-music-accordion-instrumentales-color-light));
   }
 
   body.light-mode .mobile-music-accordion[data-section='instrumentales'] {
