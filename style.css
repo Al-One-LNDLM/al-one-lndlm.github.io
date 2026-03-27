@@ -1303,6 +1303,16 @@ body.light-mode .audio-item__progress {
     padding: 6px 0 12px;
   }
 
+  .mobile-music-intro {
+    margin: 2px auto 4px;
+    width: 90%;
+    color: #fff;
+    text-align: center;
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
   .mobile-music-dropdowns {
     display: flex;
     flex-direction: column;
