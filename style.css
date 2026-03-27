@@ -1522,7 +1522,10 @@ body.light-mode .audio-item__progress {
 
   .work-album-card .album-frame {
     position: absolute;
-    inset: 0;
+    top: 0;
+    bottom: 0;
+    left: -16px;
+    right: -16px;
     z-index: 0;
     pointer-events: none;
     border: 32px solid transparent;
