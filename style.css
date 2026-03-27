@@ -45,18 +45,6 @@
   --popup-header-font-size: 24px;
   --close-btn-font-size: 16px;
   --audio-button-font-size: 15px;
-  --mobile-music-accordion-summary-min-height: 64px;
-  --mobile-music-accordion-content-min-height: 150px;
-  --mobile-music-accordion-base-bg: linear-gradient(180deg, rgba(25, 25, 25, 0.95), rgba(47, 47, 47, 0.92));
-  --mobile-music-accordion-instrumentales-color: #9f65c7;
-  --mobile-music-accordion-experimentos-color: #4fa6d8;
-  --mobile-music-accordion-covers-color: #5fbf72;
-  --mobile-music-accordion-content-bg: rgba(0, 0, 0, 0.35);
-  --mobile-music-accordion-base-bg-light: linear-gradient(180deg, rgba(239, 239, 239, 0.95), rgba(213, 213, 213, 0.95));
-  --mobile-music-accordion-instrumentales-color-light: #b88de0;
-  --mobile-music-accordion-experimentos-color-light: #78bddf;
-  --mobile-music-accordion-covers-color-light: #7bce8a;
-  --mobile-music-accordion-content-bg-light: rgba(255, 255, 255, 0.55);
 }
 
 /* Estilos base del cuerpo */
@@ -1311,65 +1299,52 @@ body.light-mode .audio-item__progress {
   #popup-instrumentales .popup-content {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 10px;
     padding: 6px 0 12px;
   }
 
-  .mobile-music-accordion {
+  .mobile-music-dropdowns {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mobile-music-dropdown {
     position: relative;
     width: 100%;
-    min-height: var(--mobile-music-accordion-summary-min-height);
-    border: none;
+    border: 0;
     background: transparent;
     color: #fff;
     box-sizing: border-box;
     overflow: visible;
   }
 
-  .mobile-music-accordion[data-section='instrumentales'] {
-    --mobile-music-accordion-accent: var(--mobile-music-accordion-instrumentales-color);
-    --mobile-music-frame-image: url("assets/contenedor%20m%C3%BAsica%20inst.png");
-  }
-
-  .mobile-music-accordion[data-section='experimentos'] {
-    --mobile-music-accordion-accent: var(--mobile-music-accordion-experimentos-color);
-    --mobile-music-frame-image: url("assets/contenedor%20m%C3%BAsica%20exp.png");
-  }
-
-  .mobile-music-accordion[data-section='covers'] {
-    --mobile-music-accordion-accent: var(--mobile-music-accordion-covers-color);
-    --mobile-music-frame-image: url("assets/contenedor%20m%C3%BAsica%20cov.png");
-  }
-
-  .mobile-music-accordion > :not(.music-frame) {
+  .mobile-music-dropdown > :not(.mobile-music-dropdown__frame) {
     position: relative;
     z-index: 1;
   }
 
-  .mobile-music-accordion .music-frame {
+  .mobile-music-dropdown__frame {
     position: absolute;
     top: 0;
+    right: 0;
     bottom: 0;
     left: 0;
-    right: 0;
     display: block;
-    width: 100%;
-    height: 100%;
     z-index: 0;
     pointer-events: none;
     border: 32px solid transparent;
-    border-style: solid;
     border-image-source: var(--mobile-music-frame-image);
-    border-image-slice: 32 fill;
+    border-image-slice: 32;
     border-image-repeat: stretch;
     box-sizing: border-box;
   }
 
-  .mobile-music-accordion__summary {
+  .mobile-music-dropdown__summary {
     list-style: none;
     cursor: pointer;
-    padding: 18px 20px 16px;
-    min-height: var(--mobile-music-accordion-summary-min-height);
+    min-height: 64px;
+    padding: 18px 22px 16px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -1379,57 +1354,27 @@ body.light-mode .audio-item__progress {
     text-align: left;
   }
 
-  .mobile-music-accordion__summary::marker,
-  .mobile-music-accordion__summary::-webkit-details-marker {
+  .mobile-music-dropdown__summary::marker,
+  .mobile-music-dropdown__summary::-webkit-details-marker {
     display: none;
     content: '';
   }
 
-  .mobile-music-accordion__content {
-    min-height: var(--mobile-music-accordion-content-min-height);
-    padding: 0 16px 14px;
-    background: var(--mobile-music-accordion-content-bg);
-    border-radius: 0 0 8px 8px;
+  .mobile-music-dropdown__content {
+    min-height: 120px;
+    padding: 0 22px 18px;
   }
 
-  .mobile-music-note {
+  .mobile-music-dropdown__placeholder {
     margin: 0;
-    text-align: left;
     font-size: 13px;
     line-height: 1.4;
-    opacity: 0.95;
+    text-align: left;
+    opacity: 0.9;
   }
 
-  .mobile-covers-container {
-    min-height: 100px;
-    margin: 10px;
-    border: 2px dashed rgba(255, 255, 255, 0.7);
-    background: rgba(0, 0, 0, 0.25);
-  }
-
-  body.light-mode .mobile-music-accordion {
+  body.light-mode .mobile-music-dropdown {
     color: #000;
-  }
-
-  body.light-mode .mobile-music-accordion[data-section='instrumentales'] {
-    --mobile-music-accordion-accent-light: var(--mobile-music-accordion-instrumentales-color-light);
-  }
-
-  body.light-mode .mobile-music-accordion[data-section='experimentos'] {
-    --mobile-music-accordion-accent-light: var(--mobile-music-accordion-experimentos-color-light);
-  }
-
-  body.light-mode .mobile-music-accordion[data-section='covers'] {
-    --mobile-music-accordion-accent-light: var(--mobile-music-accordion-covers-color-light);
-  }
-
-  body.light-mode .mobile-music-accordion__content {
-    background: var(--mobile-music-accordion-content-bg-light);
-  }
-
-  body.light-mode .mobile-covers-container {
-    border-color: rgba(0, 0, 0, 0.45);
-    background: rgba(255, 255, 255, 0.35);
   }
 
   #mobile-game {
