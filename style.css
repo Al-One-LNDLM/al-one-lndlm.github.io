@@ -1310,7 +1310,8 @@ body.light-mode .audio-item__progress {
   }
 
   .mobile-music-dropdown {
-    width: 100%;
+    width: 92%;
+    margin: 0 auto;
     min-height: 112px;
     border: 32px solid transparent;
     border-image-source: var(--mobile-music-frame-image);
