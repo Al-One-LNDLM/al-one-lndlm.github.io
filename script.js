@@ -908,6 +908,10 @@ function populateMobileMusicSections() {
     block.dataset.section = section.key;
     block.open = index === 0;
 
+    const frame = document.createElement('div');
+    frame.className = 'music-frame';
+    frame.setAttribute('aria-hidden', 'true');
+
     const summary = document.createElement('summary');
     summary.className = 'mobile-music-accordion__summary';
     summary.innerHTML = `
@@ -933,6 +937,7 @@ function populateMobileMusicSections() {
       content.appendChild(experimentsContainer);
     }
 
+    block.appendChild(frame);
     block.appendChild(summary);
     block.appendChild(content);
     container.appendChild(block);
