@@ -894,54 +894,9 @@ function populateMobileMusicSections() {
   const container = document.querySelector('#popup-instrumentales .popup-content');
   if (!container) return;
 
+  // En móvil se elimina temporalmente la interfaz de desplegables en la sección Música.
+  // Mantenemos la estructura limpia para poder reutilizar los datos más adelante.
   container.innerHTML = '';
-
-  const sections = [
-    { key: 'instrumentales', title: 'Instrumentales' },
-    { key: 'experimentos', title: 'Experimentos' },
-    { key: 'covers', title: 'Covers' }
-  ];
-
-  sections.forEach((section, index) => {
-    const block = document.createElement('details');
-    block.className = 'mobile-music-accordion';
-    block.dataset.section = section.key;
-    block.open = index === 0;
-
-    const frame = document.createElement('div');
-    frame.className = 'music-frame';
-    frame.setAttribute('aria-hidden', 'true');
-
-    const summary = document.createElement('summary');
-    summary.className = 'mobile-music-accordion__summary';
-    summary.innerHTML = `
-      <span>${section.title}</span>
-      <span class="mobile-music-accordion__indicator" aria-hidden="true">+</span>
-    `;
-
-    const content = document.createElement('div');
-    content.className = 'mobile-music-accordion__content';
-    content.dataset.section = section.key;
-
-    if (section.key === 'covers') {
-      const coversContainer = document.createElement('div');
-      coversContainer.className = 'mobile-covers-container';
-      coversContainer.dataset.section = 'covers-container';
-      content.appendChild(coversContainer);
-    }
-
-    if (section.key === 'experimentos') {
-      const experimentsContainer = document.createElement('div');
-      experimentsContainer.className = 'mobile-experiments-container';
-      experimentsContainer.dataset.section = 'experiments-container';
-      content.appendChild(experimentsContainer);
-    }
-
-    block.appendChild(frame);
-    block.appendChild(summary);
-    block.appendChild(content);
-    container.appendChild(block);
-  });
 }
 
 function populateInstrumentals() {
