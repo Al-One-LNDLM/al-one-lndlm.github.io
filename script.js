@@ -829,6 +829,10 @@ function resetMobileMusicPopup() {
   if (!container) return;
   container.innerHTML = '';
 
+  const introText = document.createElement('p');
+  introText.className = 'mobile-music-intro';
+  introText.textContent = 'Si te interesa mi sonido, aquí tienes una selección de covers, instrumentales y pruebas que he hecho últimamente:';
+
   const musicSections = [
     {
       id: 'instrumentales',
@@ -869,6 +873,7 @@ function resetMobileMusicPopup() {
     wrapper.appendChild(dropdown);
   });
 
+  container.appendChild(introText);
   container.appendChild(wrapper);
 }
 
