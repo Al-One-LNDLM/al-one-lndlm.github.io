@@ -1313,6 +1313,13 @@ body.light-mode .audio-item__progress {
     line-height: 1.45;
   }
 
+  .mobile-music-intro-arrow {
+    display: block;
+    width: 15%;
+    height: auto;
+    margin: 0 auto 4px;
+  }
+
   .mobile-music-dropdowns {
     display: flex;
     flex-direction: column;
