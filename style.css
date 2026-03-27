@@ -1507,8 +1507,8 @@ body.light-mode .audio-item__progress {
 
   .work-album-card {
     position: relative;
-    width: 92%;
-    margin: 0 auto 18px;
+    width: calc(100% + 20px);
+    margin: 0 -10px 18px;
     padding: 12px 10px 14px;
     border: none;
     background: transparent;
