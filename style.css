@@ -1311,7 +1311,8 @@ body.light-mode .audio-item__progress {
   #popup-instrumentales .popup-content {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
+    padding: 6px 0 12px;
   }
 
   .mobile-music-accordion {
@@ -1346,30 +1347,31 @@ body.light-mode .audio-item__progress {
   .mobile-music-accordion .music-frame {
     position: absolute;
     top: 0;
-    bottom: -16px;
-    left: -16px;
-    right: -16px;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 0;
     pointer-events: none;
     border: 32px solid transparent;
     border-style: solid;
     border-image-source: var(--mobile-music-frame-image);
-    border-image-slice: 32 fill;
-    border-image-repeat: repeat;
+    border-image-slice: 32;
+    border-image-repeat: stretch;
     box-sizing: border-box;
   }
 
   .mobile-music-accordion__summary {
     list-style: none;
     cursor: pointer;
-    padding: 14px;
-    min-height: var(--mobile-music-accordion-summary-min-height);
+    padding: 18px 20px 16px;
+    min-height: 56px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-size: 13px;
+    justify-content: flex-start;
+    text-transform: none;
+    letter-spacing: 0.02em;
+    font-size: 16px;
+    text-align: left;
   }
 
   .mobile-music-accordion__summary::marker,
@@ -1378,19 +1380,19 @@ body.light-mode .audio-item__progress {
     content: '';
   }
 
-  .mobile-music-accordion__indicator {
-    font-size: 18px;
-    line-height: 1;
-    transition: transform 0.2s ease;
-  }
-
-  .mobile-music-accordion[open] .mobile-music-accordion__indicator {
-    transform: rotate(45deg);
-  }
-
   .mobile-music-accordion__content {
-    min-height: var(--mobile-music-accordion-content-min-height);
+    min-height: 110px;
+    padding: 0 16px 14px;
     background: var(--mobile-music-accordion-content-bg);
+    border-radius: 0 0 8px 8px;
+  }
+
+  .mobile-music-note {
+    margin: 0;
+    text-align: left;
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: 0.95;
   }
 
   .mobile-covers-container {
