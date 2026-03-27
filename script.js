@@ -828,6 +828,53 @@ function resetMobileMusicPopup() {
   const container = document.querySelector('#popup-instrumentales .popup-content');
   if (!container) return;
   container.innerHTML = '';
+
+  const musicSections = [
+    {
+      id: 'instrumentales',
+      title: 'Instrumentales',
+      frameImage: 'assets/contenedor música inst.png'
+    },
+    {
+      id: 'experimentos',
+      title: 'Experimentos',
+      frameImage: 'assets/contenedor música exp.png'
+    },
+    {
+      id: 'covers',
+      title: 'Covers',
+      frameImage: 'assets/contenedor música cov.png'
+    }
+  ];
+
+  const wrapper = document.createElement('div');
+  wrapper.className = 'mobile-music-dropdowns';
+
+  musicSections.forEach(section => {
+    const dropdown = document.createElement('details');
+    dropdown.className = 'mobile-music-dropdown';
+    dropdown.dataset.section = section.id;
+    dropdown.style.setProperty('--mobile-music-frame-image', `url("${section.frameImage}")`);
+
+    const frame = document.createElement('span');
+    frame.className = 'mobile-music-dropdown__frame';
+    frame.setAttribute('aria-hidden', 'true');
+
+    const summary = document.createElement('summary');
+    summary.className = 'mobile-music-dropdown__summary';
+    summary.textContent = section.title;
+
+    const content = document.createElement('div');
+    content.className = 'mobile-music-dropdown__content';
+    content.innerHTML = '<p class="mobile-music-dropdown__placeholder">Próximamente…</p>';
+
+    dropdown.appendChild(frame);
+    dropdown.appendChild(summary);
+    dropdown.appendChild(content);
+    wrapper.appendChild(dropdown);
+  });
+
+  container.appendChild(wrapper);
 }
 
 // =============================
