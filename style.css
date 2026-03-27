@@ -1313,6 +1313,26 @@ body.light-mode .audio-item__progress {
     line-height: 1.45;
   }
 
+  .mobile-music-intro__highlight {
+    font-weight: 700;
+  }
+
+  .mobile-music-intro__highlight--sound {
+    color: #ffd54f;
+  }
+
+  .mobile-music-intro__highlight--covers {
+    color: #80deea;
+  }
+
+  .mobile-music-intro__highlight--instrumentals {
+    color: #a5d6a7;
+  }
+
+  .mobile-music-intro__highlight--experiments {
+    color: #f48fb1;
+  }
+
   .mobile-music-intro-arrow {
     display: block;
     width: 15%;
