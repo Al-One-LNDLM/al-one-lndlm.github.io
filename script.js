@@ -833,6 +833,11 @@ function resetMobileMusicPopup() {
   introText.className = 'mobile-music-intro';
   introText.textContent = 'Si te interesa mi sonido, aquí tienes una selección de covers, instrumentales y pruebas que he hecho últimamente:';
 
+  const introArrow = document.createElement('img');
+  introArrow.className = 'mobile-music-intro-arrow';
+  introArrow.src = 'assets/FLECHA.png';
+  introArrow.alt = 'Flecha decorativa';
+
   const musicSections = [
     {
       id: 'instrumentales',
@@ -874,6 +879,7 @@ function resetMobileMusicPopup() {
   });
 
   container.appendChild(introText);
+  container.appendChild(introArrow);
   container.appendChild(wrapper);
 }
 
