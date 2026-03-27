@@ -1333,11 +1333,12 @@ body.light-mode .audio-item__progress {
     color: #f48fb1;
   }
 
+
   .mobile-music-intro-arrow {
     display: block;
     width: 15%;
     height: auto;
-    margin: 0 auto 4px;
+    margin: 0 auto 10px;
   }
 
   .mobile-music-dropdowns {
