@@ -856,10 +856,6 @@ function resetMobileMusicPopup() {
     dropdown.dataset.section = section.id;
     dropdown.style.setProperty('--mobile-music-frame-image', `url("${section.frameImage}")`);
 
-    const frame = document.createElement('span');
-    frame.className = 'mobile-music-dropdown__frame';
-    frame.setAttribute('aria-hidden', 'true');
-
     const summary = document.createElement('summary');
     summary.className = 'mobile-music-dropdown__summary';
     summary.textContent = section.title;
@@ -868,7 +864,6 @@ function resetMobileMusicPopup() {
     content.className = 'mobile-music-dropdown__content';
     content.innerHTML = '<p class="mobile-music-dropdown__placeholder">Próximamente…</p>';
 
-    dropdown.appendChild(frame);
     dropdown.appendChild(summary);
     dropdown.appendChild(content);
     wrapper.appendChild(dropdown);
