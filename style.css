@@ -1306,7 +1306,7 @@ body.light-mode .audio-item__progress {
   .mobile-music-intro {
     margin: 10px auto 10px;
     width: 90%;
-    color: #fff;
+    color: #000000;
     text-align: center;
     font-family: inherit;
     font-size: 15px;
