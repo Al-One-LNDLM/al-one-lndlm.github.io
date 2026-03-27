@@ -832,8 +832,8 @@ function resetMobileMusicPopup() {
   const introText = document.createElement('p');
   introText.className = 'mobile-music-intro';
   introText.innerHTML = `
-    Si te interesa mi <span class="mobile-music-intro__highlight mobile-music-intro__highlight--sound">sonido</span>,<br>
-    aquí tienes una selección de
+    Si te interesa mi <span class="mobile-music-intro__highlight mobile-music-intro__highlight--sound">sonido</span><br>
+    <br> aquí tienes una selección de
     <span class="mobile-music-intro__highlight mobile-music-intro__highlight--covers">covers</span>,
     <span class="mobile-music-intro__highlight mobile-music-intro__highlight--instrumentals">instrumentales</span><br>
     y <span class="mobile-music-intro__highlight mobile-music-intro__highlight--experiments">pruebas</span> que he hecho últimamente:
