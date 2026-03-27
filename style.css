@@ -1317,6 +1317,8 @@ body.light-mode .audio-item__progress {
 
   .mobile-music-accordion {
     position: relative;
+    width: 100%;
+    min-height: var(--mobile-music-accordion-summary-min-height);
     border: none;
     background: transparent;
     color: #fff;
@@ -1326,17 +1328,17 @@ body.light-mode .audio-item__progress {
 
   .mobile-music-accordion[data-section='instrumentales'] {
     --mobile-music-accordion-accent: var(--mobile-music-accordion-instrumentales-color);
-    --mobile-music-frame-image: url("assets/contenedor música inst.png");
+    --mobile-music-frame-image: url("assets/contenedor%20m%C3%BAsica%20inst.png");
   }
 
   .mobile-music-accordion[data-section='experimentos'] {
     --mobile-music-accordion-accent: var(--mobile-music-accordion-experimentos-color);
-    --mobile-music-frame-image: url("assets/contenedor música exp.png");
+    --mobile-music-frame-image: url("assets/contenedor%20m%C3%BAsica%20exp.png");
   }
 
   .mobile-music-accordion[data-section='covers'] {
     --mobile-music-accordion-accent: var(--mobile-music-accordion-covers-color);
-    --mobile-music-frame-image: url("assets/contenedor música cov.png");
+    --mobile-music-frame-image: url("assets/contenedor%20m%C3%BAsica%20cov.png");
   }
 
   .mobile-music-accordion > :not(.music-frame) {
@@ -1350,12 +1352,15 @@ body.light-mode .audio-item__progress {
     bottom: 0;
     left: 0;
     right: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
     z-index: 0;
     pointer-events: none;
     border: 32px solid transparent;
     border-style: solid;
     border-image-source: var(--mobile-music-frame-image);
-    border-image-slice: 32;
+    border-image-slice: 32 fill;
     border-image-repeat: stretch;
     box-sizing: border-box;
   }
@@ -1364,7 +1369,7 @@ body.light-mode .audio-item__progress {
     list-style: none;
     cursor: pointer;
     padding: 18px 20px 16px;
-    min-height: 56px;
+    min-height: var(--mobile-music-accordion-summary-min-height);
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -1381,7 +1386,7 @@ body.light-mode .audio-item__progress {
   }
 
   .mobile-music-accordion__content {
-    min-height: 110px;
+    min-height: var(--mobile-music-accordion-content-min-height);
     padding: 0 16px 14px;
     background: var(--mobile-music-accordion-content-bg);
     border-radius: 0 0 8px 8px;

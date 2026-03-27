@@ -907,7 +907,7 @@ function populateMobileMusicSections() {
     accordion.className = 'mobile-music-accordion';
     accordion.dataset.section = section.id;
 
-    const frame = document.createElement('span');
+    const frame = document.createElement('div');
     frame.className = 'music-frame';
     frame.setAttribute('aria-hidden', 'true');
 
