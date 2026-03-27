@@ -894,9 +894,44 @@ function populateMobileMusicSections() {
   const container = document.querySelector('#popup-instrumentales .popup-content');
   if (!container) return;
 
-  // En móvil se elimina temporalmente la interfaz de desplegables en la sección Música.
-  // Mantenemos la estructura limpia para poder reutilizar los datos más adelante.
+  const mobileMusicSections = [
+    { id: 'instrumentales', title: 'Instrumentales' },
+    { id: 'experimentos', title: 'Experimentos' },
+    { id: 'covers', title: 'Covers' }
+  ];
+
   container.innerHTML = '';
+
+  mobileMusicSections.forEach(section => {
+    const accordion = document.createElement('details');
+    accordion.className = 'mobile-music-accordion';
+    accordion.dataset.section = section.id;
+
+    const frame = document.createElement('span');
+    frame.className = 'music-frame';
+    frame.setAttribute('aria-hidden', 'true');
+
+    const summary = document.createElement('summary');
+    summary.className = 'mobile-music-accordion__summary';
+    summary.textContent = section.title;
+
+    const content = document.createElement('div');
+    content.className = 'mobile-music-accordion__content';
+    content.dataset.section = section.id;
+
+    if (section.id === 'experimentos') {
+      content.innerHTML = '<p class="mobile-music-note">Próximamente nuevos experimentos.</p>';
+    }
+
+    if (section.id === 'covers') {
+      content.innerHTML = '<p class="mobile-music-note">Próximamente nuevos covers.</p>';
+    }
+
+    accordion.appendChild(frame);
+    accordion.appendChild(summary);
+    accordion.appendChild(content);
+    container.appendChild(accordion);
+  });
 }
 
 function populateInstrumentals() {
