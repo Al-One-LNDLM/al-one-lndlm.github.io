@@ -4,7 +4,6 @@
 import {
   backgrounds,
   zones,
-  instrumentals,
   floatingImages,
   mobileLatestWorks,
   youtubeChannelUrl,
@@ -408,11 +407,10 @@ movementToggleButton.addEventListener('click', () => {
   setMobileMovementEnabled(!mobileMovementEnabled);
 });
 
-// Crear contenido de la ventana de música
+// Reiniciar la sección de música en móvil para reconstruirla desde cero
 if (isMobile) {
-  populateMobileMusicSections();
+  resetMobileMusicPopup();
 }
-populateInstrumentals();
 
 // Abrir ventana al hacer click en una zona
 zonesContainer.addEventListener('click', e => {
@@ -812,12 +810,6 @@ function closePopup(id) {
     popups[id].classList.add('closing');
     popups[id].classList.remove('visible');
   }
-  if (id === 'instrumentales' && currentAudio) {
-    currentAudio.audio.pause();
-    currentAudio.audio.currentTime = 0;
-    currentAudio.button.textContent = '▶';
-    currentAudio = null;
-  }
   syncPopupBackdrop();
 }
 
@@ -832,186 +824,10 @@ window.addEventListener('popstate', e => {
   }
 });
 
-// =============================
-//  Listado de instrumentales
-// =============================
-let currentAudio = null;
-
-function resetAudioItemState(playerState) {
-  if (!playerState) return;
-  const { audio, button, progressFill } = playerState;
-  audio.pause();
-  audio.currentTime = 0;
-  button.textContent = '▶';
-  if (progressFill) {
-    progressFill.style.width = '0%';
-  }
-}
-
-function seekAudioFromProgress(progressElement, audio, clientX) {
-  const rect = progressElement.getBoundingClientRect();
-  if (!rect.width || !audio.duration) return;
-
-  const ratio = Math.max(0, Math.min((clientX - rect.left) / rect.width, 1));
-  audio.currentTime = ratio * audio.duration;
-}
-
-function bindProgressSeek(progressElement, audio) {
-  if (!progressElement || !audio) return;
-
-  let isPointerSeeking = false;
-
-  const handleSeek = clientX => {
-    seekAudioFromProgress(progressElement, audio, clientX);
-  };
-
-  progressElement.addEventListener('click', event => {
-    handleSeek(event.clientX);
-  });
-
-  progressElement.addEventListener('pointerdown', event => {
-    isPointerSeeking = true;
-    progressElement.setPointerCapture?.(event.pointerId);
-    handleSeek(event.clientX);
-  });
-
-  progressElement.addEventListener('pointermove', event => {
-    if (!isPointerSeeking) return;
-    handleSeek(event.clientX);
-  });
-
-  const stopSeeking = event => {
-    if (!isPointerSeeking) return;
-    isPointerSeeking = false;
-    progressElement.releasePointerCapture?.(event.pointerId);
-  };
-
-  progressElement.addEventListener('pointerup', stopSeeking);
-  progressElement.addEventListener('pointercancel', stopSeeking);
-}
-
-function populateMobileMusicSections() {
+function resetMobileMusicPopup() {
   const container = document.querySelector('#popup-instrumentales .popup-content');
   if (!container) return;
-
-  const mobileMusicSections = [
-    { id: 'instrumentales', title: 'Instrumentales' },
-    { id: 'experimentos', title: 'Experimentos' },
-    { id: 'covers', title: 'Covers' }
-  ];
-
   container.innerHTML = '';
-
-  mobileMusicSections.forEach(section => {
-    const accordion = document.createElement('details');
-    accordion.className = 'mobile-music-accordion';
-    accordion.dataset.section = section.id;
-
-    const frame = document.createElement('div');
-    frame.className = 'music-frame';
-    frame.setAttribute('aria-hidden', 'true');
-
-    const summary = document.createElement('summary');
-    summary.className = 'mobile-music-accordion__summary';
-    summary.textContent = section.title;
-
-    const content = document.createElement('div');
-    content.className = 'mobile-music-accordion__content';
-    content.dataset.section = section.id;
-
-    if (section.id === 'experimentos') {
-      content.innerHTML = '<p class="mobile-music-note">Próximamente nuevos experimentos.</p>';
-    }
-
-    if (section.id === 'covers') {
-      content.innerHTML = '<p class="mobile-music-note">Próximamente nuevos covers.</p>';
-    }
-
-    accordion.appendChild(frame);
-    accordion.appendChild(summary);
-    accordion.appendChild(content);
-    container.appendChild(accordion);
-  });
-}
-
-function populateInstrumentals() {
-  const container = isMobile
-    ? document.querySelector('#popup-instrumentales .mobile-music-accordion__content[data-section="instrumentales"]')
-    : document.querySelector('#popup-instrumentales .popup-content');
-  if (!container) return;
-  instrumentals.forEach(inst => {
-    const item = document.createElement('div');
-    item.className = 'audio-item';
-
-    const topRow = document.createElement('div');
-    topRow.className = 'audio-item__top-row';
-
-    const title = document.createElement('span');
-    title.className = 'audio-item__title';
-    title.textContent = inst.name;
-
-    const tag = document.createElement('span');
-    tag.className = 'audio-item__tag';
-    tag.textContent = 'HipHop';
-
-    const controlsRow = document.createElement('div');
-    controlsRow.className = 'audio-item__controls-row';
-
-    const btn = document.createElement('button');
-    btn.className = 'audio-item__play-btn';
-    btn.textContent = '▶';
-    btn.setAttribute('aria-label', `Reproducir instrumental ${inst.name}`);
-
-    const progress = document.createElement('div');
-    progress.className = 'audio-item__progress';
-
-    const progressFill = document.createElement('div');
-    progressFill.className = 'audio-item__progress-fill';
-    progress.appendChild(progressFill);
-
-    const audio = new Audio(inst.src);
-    audio.preload = 'metadata';
-
-    const updateProgress = () => {
-      if (!audio.duration) return;
-      const pct = Math.max(0, Math.min((audio.currentTime / audio.duration) * 100, 100));
-      progressFill.style.width = `${pct}%`;
-    };
-
-    btn.addEventListener('click', () => {
-      if (currentAudio && currentAudio.audio !== audio) {
-        resetAudioItemState(currentAudio);
-      }
-
-      if (audio.paused) {
-        audio.play();
-        btn.textContent = '⏸';
-        currentAudio = { audio, button: btn, progressFill };
-      } else {
-        resetAudioItemState({ audio, button: btn, progressFill });
-        currentAudio = null;
-      }
-    });
-
-    audio.addEventListener('timeupdate', updateProgress);
-    bindProgressSeek(progress, audio);
-
-    audio.addEventListener('ended', () => {
-      btn.textContent = '▶';
-      progressFill.style.width = '100%';
-      if (currentAudio && currentAudio.audio === audio) {
-        currentAudio = null;
-      }
-    });
-
-    topRow.appendChild(title);
-    topRow.appendChild(tag);
-    controlsRow.appendChild(btn);
-    controlsRow.appendChild(progress);
-    item.appendChild(topRow);
-    item.appendChild(controlsRow);
-    container.appendChild(item);
-  });
 }
 
 // =============================
