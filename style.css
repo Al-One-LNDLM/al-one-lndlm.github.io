@@ -1314,58 +1314,68 @@ body.light-mode .audio-item__progress {
     gap: 10px;
   }
 
-  .mobile-music-accordion {
-    border: 3px solid #000;
-    background: var(--mobile-music-accordion-base-bg);
-    box-shadow: 0 0 0 2px var(--mobile-music-accordion-accent, var(--mobile-music-accordion-instrumentales-color));
+  .mobile-music-panel {
+    position: relative;
+    border: none;
+    background: transparent;
     color: #fff;
+    box-sizing: border-box;
+    overflow: visible;
+    margin-bottom: 12px;
   }
 
-  .mobile-music-accordion[data-section='instrumentales'] {
-    --mobile-music-accordion-accent: var(--mobile-music-accordion-instrumentales-color);
+  .mobile-music-panel:last-child {
+    margin-bottom: 0;
   }
 
-  .mobile-music-accordion[data-section='experimentos'] {
-    --mobile-music-accordion-accent: var(--mobile-music-accordion-experimentos-color);
+  .mobile-music-panel[data-section='instrumentales'] {
+    --mobile-music-frame-image: url("assets/contenedor música inst.png");
   }
 
-  .mobile-music-accordion[data-section='covers'] {
-    --mobile-music-accordion-accent: var(--mobile-music-accordion-covers-color);
+  .mobile-music-panel[data-section='experimentos'] {
+    --mobile-music-frame-image: url("assets/contenedor música exp.png");
   }
 
-  .mobile-music-accordion__summary {
-    list-style: none;
-    cursor: pointer;
+  .mobile-music-panel[data-section='covers'] {
+    --mobile-music-frame-image: url("assets/contenedor música cov.png");
+  }
+
+  .mobile-music-panel > :not(.music-frame) {
+    position: relative;
+    z-index: 1;
+  }
+
+  .mobile-music-panel .music-frame {
+    position: absolute;
+    top: 0;
+    bottom: -16px;
+    left: -16px;
+    right: -16px;
+    z-index: 0;
+    pointer-events: none;
+    border: 32px solid transparent;
+    border-style: solid;
+    border-image-source: var(--mobile-music-frame-image);
+    border-image-slice: 32 fill;
+    border-image-repeat: repeat;
+    box-sizing: border-box;
+  }
+
+  .mobile-music-panel__title {
+    margin: 0;
     padding: 14px;
     min-height: var(--mobile-music-accordion-summary-min-height);
     display: flex;
     align-items: center;
-    justify-content: space-between;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: 13px;
   }
 
-  .mobile-music-accordion__summary::marker,
-  .mobile-music-accordion__summary::-webkit-details-marker {
-    display: none;
-    content: '';
-  }
-
-  .mobile-music-accordion__indicator {
-    font-size: 18px;
-    line-height: 1;
-    transition: transform 0.2s ease;
-  }
-
-  .mobile-music-accordion[open] .mobile-music-accordion__indicator {
-    transform: rotate(45deg);
-  }
-
-  .mobile-music-accordion__content {
+  .mobile-music-panel__content {
     min-height: var(--mobile-music-accordion-content-min-height);
-    border-top: 3px solid #000;
     background: var(--mobile-music-accordion-content-bg);
+    padding-bottom: 8px;
   }
 
   .mobile-covers-container {
@@ -1375,25 +1385,11 @@ body.light-mode .audio-item__progress {
     background: rgba(0, 0, 0, 0.25);
   }
 
-  body.light-mode .mobile-music-accordion {
-    background: var(--mobile-music-accordion-base-bg-light);
+  body.light-mode .mobile-music-panel {
     color: #000;
-    box-shadow: 0 0 0 2px var(--mobile-music-accordion-accent-light, var(--mobile-music-accordion-instrumentales-color-light));
   }
 
-  body.light-mode .mobile-music-accordion[data-section='instrumentales'] {
-    --mobile-music-accordion-accent-light: var(--mobile-music-accordion-instrumentales-color-light);
-  }
-
-  body.light-mode .mobile-music-accordion[data-section='experimentos'] {
-    --mobile-music-accordion-accent-light: var(--mobile-music-accordion-experimentos-color-light);
-  }
-
-  body.light-mode .mobile-music-accordion[data-section='covers'] {
-    --mobile-music-accordion-accent-light: var(--mobile-music-accordion-covers-color-light);
-  }
-
-  body.light-mode .mobile-music-accordion__content {
+  body.light-mode .mobile-music-panel__content {
     background: var(--mobile-music-accordion-content-bg-light);
   }
 

@@ -902,21 +902,21 @@ function populateMobileMusicSections() {
     { key: 'covers', title: 'Covers' }
   ];
 
-  sections.forEach((section, index) => {
-    const block = document.createElement('details');
-    block.className = 'mobile-music-accordion';
+  sections.forEach(section => {
+    const block = document.createElement('section');
+    block.className = 'mobile-music-panel';
     block.dataset.section = section.key;
-    block.open = index === 0;
 
-    const summary = document.createElement('summary');
-    summary.className = 'mobile-music-accordion__summary';
-    summary.innerHTML = `
-      <span>${section.title}</span>
-      <span class="mobile-music-accordion__indicator" aria-hidden="true">+</span>
-    `;
+    const frame = document.createElement('div');
+    frame.className = 'music-frame';
+    frame.setAttribute('aria-hidden', 'true');
+
+    const title = document.createElement('h3');
+    title.className = 'mobile-music-panel__title';
+    title.textContent = section.title;
 
     const content = document.createElement('div');
-    content.className = 'mobile-music-accordion__content';
+    content.className = 'mobile-music-panel__content';
     content.dataset.section = section.key;
 
     if (section.key === 'covers') {
@@ -933,7 +933,8 @@ function populateMobileMusicSections() {
       content.appendChild(experimentsContainer);
     }
 
-    block.appendChild(summary);
+    block.appendChild(frame);
+    block.appendChild(title);
     block.appendChild(content);
     container.appendChild(block);
   });
@@ -941,7 +942,7 @@ function populateMobileMusicSections() {
 
 function populateInstrumentals() {
   const container = isMobile
-    ? document.querySelector('#popup-instrumentales .mobile-music-accordion__content[data-section="instrumentales"]')
+    ? document.querySelector('#popup-instrumentales .mobile-music-panel__content[data-section="instrumentales"]')
     : document.querySelector('#popup-instrumentales .popup-content');
   if (!container) return;
   instrumentals.forEach(inst => {
