@@ -264,8 +264,11 @@ function organizeTrabajosAlbumsForMobile(popup) {
       card.classList.add('work-album-card--divider');
       album.classList.remove('album-divider');
     }
+    const frame = document.createElement('div');
+    frame.className = 'album-frame';
 
     gallery.insertBefore(card, album);
+    card.appendChild(frame);
     card.appendChild(album);
     const collapsibleContent = document.createElement('div');
     collapsibleContent.className = 'work-album-collapsible';
