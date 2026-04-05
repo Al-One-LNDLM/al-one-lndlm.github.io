@@ -1499,7 +1499,6 @@ body.light-mode .audio-item__progress {
   /* Layout adjustments for trabajos popup on mobile */
   #popup-trabajos .popup-content {
     font-size: 13px;
-    color: #fff;
   }
 
   .work-album-card {
