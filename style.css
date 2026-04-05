@@ -1442,6 +1442,7 @@ body.light-mode .audio-item__progress {
     margin: 0 0 1px;
     line-height: 1.45;
     text-align: center;
+    color: #fff;
   }
 
   .contact-mobile-services {
