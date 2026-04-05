@@ -633,21 +633,7 @@ body.popup-open #mobile-game {
   margin-top: 6px;
 }
 
-.album-description summary {
-  cursor: pointer;
-  font-weight: bold;
-  text-decoration: underline;
-  list-style: none;
-}
-
-.album-description summary::marker {
-  content: '';
-}
-
-.album-description summary::-webkit-details-marker {
-  display: none;
-}
-
+.album-description,
 .album-description p {
   margin: 6px 0 0;
 }
@@ -1670,6 +1656,7 @@ body.light-mode .audio-item__progress {
 
   .work-album .info,
   .work-song .info,
+  .album-description,
   .album-description p {
     width: 100%;
     text-align: left;
