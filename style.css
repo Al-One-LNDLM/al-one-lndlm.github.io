@@ -1486,6 +1486,7 @@ body.light-mode .audio-item__progress {
   .social-column .column-title {
     grid-column: 1 / -1;
     margin-bottom: 4px;
+    color: #fff;
   }
 
   .contact-social-link {
