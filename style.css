@@ -1503,6 +1503,26 @@ body.light-mode .audio-item__progress {
     font-size: 13px;
   }
 
+  .trabajos-mobile-intro {
+    width: 92%;
+    margin: 0 auto 16px;
+    text-align: center;
+  }
+
+  .trabajos-mobile-intro__text {
+    margin: 0;
+    color: #fff;
+    line-height: 1.45;
+    text-align: center;
+  }
+
+  .trabajos-mobile-intro__arrow {
+    display: block;
+    width: 10%;
+    min-width: 28px;
+    margin: 10px auto 0;
+  }
+
   .work-album-card {
     position: relative;
     width: 92%;
