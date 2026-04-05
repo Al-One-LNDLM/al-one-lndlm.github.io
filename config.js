@@ -183,7 +183,7 @@ export const zones = [
             Estaré encantado de ayudarte a dar forma a tu proyecto :)
           </p>
           <div class="social-column">
-            <p class="column-title">Mis redes:</p>
+            <p class="column-title">Mis redes</p>
             <a class="contact-social-link" href="https://www.youtube.com/@alonelndlm1312" target="_blank">
               <img class="contact-social-btn" src="assets/Boton YT.png" alt="YouTube personal" />
             </a>
@@ -198,7 +198,7 @@ export const zones = [
             </a>
           </div>
           <div class="form-column">
-            <p class="column-title">O escríbeme al correo:</p>
+            <p class="column-title">O escríbeme al correo</p>
             <form id="contact-form" action="https://formspree.io/f/xldlzpew" method="POST">
               <label>
                 Nombre
