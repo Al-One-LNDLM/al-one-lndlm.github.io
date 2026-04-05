@@ -1520,7 +1520,7 @@ body.light-mode .audio-item__progress {
     display: block;
     width: 15%;
     min-width: 28px;
-    margin: 10px auto 0;
+    margin: 30px auto 0;
   }
 
   .work-album-card {
