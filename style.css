@@ -1486,7 +1486,7 @@ body.light-mode .audio-item__progress {
 
   /* Layout adjustments for trabajos popup on mobile */
   #popup-trabajos .popup-content {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .trabajos-mobile-intro {
