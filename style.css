@@ -1517,6 +1517,26 @@ body.light-mode .audio-item__progress {
     margin: 10px auto 0;
   }
 
+  .trabajos-mobile-intro__highlight {
+    font-weight: 700;
+  }
+
+  .trabajos-mobile-intro__highlight--trabajos {
+    color: #ff6bd6;
+  }
+
+  .trabajos-mobile-intro__highlight--audiovisual {
+    color: #5fffb8;
+  }
+
+  .trabajos-mobile-intro__highlight--musica {
+    color: #ffd166;
+  }
+
+  .trabajos-mobile-intro__highlight--sonido {
+    color: #79a7ff;
+  }
+
   .trabajos-mobile-intro__arrow {
     display: block;
     width: 15%;
