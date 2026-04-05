@@ -1522,19 +1522,19 @@ body.light-mode .audio-item__progress {
   }
 
   .trabajos-mobile-intro__highlight--trabajos {
-    color: #ff6bd6;
+    color: #000000;
   }
 
   .trabajos-mobile-intro__highlight--audiovisual {
-    color: #5fffb8;
+    color: #ed29ff;
   }
 
   .trabajos-mobile-intro__highlight--musica {
-    color: #ffd166;
+    color: #ffcc00;
   }
 
   .trabajos-mobile-intro__highlight--sonido {
-    color: #79a7ff;
+    color: #0059ff;
   }
 
   .trabajos-mobile-intro__arrow {
