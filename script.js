@@ -244,6 +244,19 @@ zones.forEach(zone => {
 function organizeTrabajosAlbumsForMobile(popup) {
   const gallery = popup.querySelector('.trabajos-gallery');
   if (!gallery || gallery.querySelector('.work-album-card')) return;
+  const popupContent = popup.querySelector('.popup-content');
+
+  if (popupContent && !popupContent.querySelector('.trabajos-mobile-intro')) {
+    const introBlock = document.createElement('div');
+    introBlock.className = 'trabajos-mobile-intro';
+    introBlock.innerHTML = `
+      <p class="trabajos-mobile-intro__text">
+        Aquí encontrarás un listado de todos los trabajos en los que he participado tanto en producción audiovisual como en música y sonido
+      </p>
+      <img class="trabajos-mobile-intro__arrow" src="assets/FLECHA.png" alt="Flecha decorativa" />
+    `;
+    popupContent.insertBefore(introBlock, gallery);
+  }
 
   const albums = Array.from(gallery.querySelectorAll('.work-album'));
   albums.forEach(album => {
