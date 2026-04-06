@@ -107,10 +107,22 @@ const mobileTiktokBtn = document.getElementById('mobile-tiktok-btn');
 const mobileContactBtn = document.getElementById('mobile-contact-btn');
 const mobileRestartBtn = document.getElementById('mobile-restart-btn');
 const mobileFeaturedSocialButtons = document.getElementById('mobile-featured-social-buttons');
+const mobileRestartScrollKey = 'mobile-restart-scroll-top';
 const movementToggleOn = 'assets/ON BUTTON.png';
 const movementToggleOff = 'assets/OFF BUTTON.png';
 let mobileMovementEnabled = false;
 let mobileMovementResetTarget = null;
+
+if (sessionStorage.getItem(mobileRestartScrollKey) === 'true') {
+  sessionStorage.removeItem(mobileRestartScrollKey);
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  requestAnimationFrame(() => {
+    mobileIntro?.scrollIntoView({ behavior: 'auto', block: 'start' });
+  });
+}
 
 // Ajuste de unidades vh en móviles
 function updateVh() {
@@ -165,6 +177,7 @@ if (mobileContactBtn) {
 
 if (mobileRestartBtn) {
   mobileRestartBtn.addEventListener('click', () => {
+    sessionStorage.setItem(mobileRestartScrollKey, 'true');
     window.location.reload();
   });
 }
