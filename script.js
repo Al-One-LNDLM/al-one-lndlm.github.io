@@ -11,7 +11,8 @@ import {
   tiktokProfileUrl
 } from './config.js';
 
-const isMobile = window.matchMedia('(max-width: 768px)').matches;
+const mobileMediaQuery = '(max-width: 768px), ((hover: none) and (pointer: coarse) and (orientation: landscape))';
+const isMobile = window.matchMedia(mobileMediaQuery).matches;
 
 const preloader = document.getElementById('preloader');
 const progress = document.getElementById('preloader-progress');
@@ -1169,7 +1170,7 @@ function initMobileGame() {
 }
 
 let mobileGameInitialized = false;
-const mq = window.matchMedia('(max-width: 768px)');
+const mq = window.matchMedia(mobileMediaQuery);
 
 function handleMediaQuery(e) {
   if (!mobileGame) return;
