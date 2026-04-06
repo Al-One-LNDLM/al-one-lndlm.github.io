@@ -902,7 +902,7 @@ body.light-mode .audio-item__progress {
     color: #fff;
     text-align: center;
     font-family: 'PixelFont', monospace;
-    font-size: clamp(12px, 3.3vw, 18px);
+    font-size: clamp(10px, 3.3vw, 14px);
     line-height: 1.6;
     display: block;
     z-index: 1;
