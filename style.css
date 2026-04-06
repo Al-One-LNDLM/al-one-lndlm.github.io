@@ -816,6 +816,10 @@ body.light-mode .audio-item__progress {
   display: none;
 }
 
+#mobile-final-footer-text {
+  display: none;
+}
+
 #mobile-restart-btn {
   display: none;
 }
@@ -916,6 +920,22 @@ body.light-mode .audio-item__progress {
     line-height: 1.8;
     display: block;
     z-index: 1;
+  }
+
+  #mobile-final-footer-text {
+    position: absolute;
+    left: 12px;
+    right: 12px;
+    bottom: max(8px, env(safe-area-inset-bottom));
+    margin: 0;
+    color: #fff;
+    text-align: left;
+    font-family: 'PixelFont', monospace;
+    font-size: clamp(8px, 2.1vw, 10px);
+    line-height: 1.35;
+    display: block;
+    z-index: 1;
+    pointer-events: none;
   }
 
   #mobile-restart-btn {
