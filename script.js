@@ -271,7 +271,7 @@ function organizeTrabajosAlbumsForMobile(popup) {
     introBlock.className = 'trabajos-mobile-intro';
     introBlock.innerHTML = `
       <p class="trabajos-mobile-intro__text">
-        Aquí encontrarás un listado de todos los <span class="trabajos-mobile-intro__highlight trabajos-mobile-intro__highlight--trabajos">trabajos</span> en los que he participado tanto en <span class="trabajos-mobile-intro__highlight trabajos-mobile-intro__highlight--audiovisual">producción audiovisual</span> como en <span class="trabajos-mobile-intro__highlight trabajos-mobile-intro__highlight--musica">música</span> y <span class="trabajos-mobile-intro__highlight trabajos-mobile-intro__highlight--sonido">sonido</span>
+        Aquí encontrarás un listado de los <span class="trabajos-mobile-intro__highlight trabajos-mobile-intro__highlight--trabajos">trabajos</span> en los que he participado tanto en <span class="trabajos-mobile-intro__highlight trabajos-mobile-intro__highlight--audiovisual">producción audiovisual</span> como en <span class="trabajos-mobile-intro__highlight trabajos-mobile-intro__highlight--musica">música</span> y <span class="trabajos-mobile-intro__highlight trabajos-mobile-intro__highlight--sonido">sonido</span>
       </p>
       <img class="trabajos-mobile-intro__arrow" src="assets/FLECHA.png" alt="Flecha decorativa" />
     `;
