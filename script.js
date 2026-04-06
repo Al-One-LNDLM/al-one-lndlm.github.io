@@ -848,27 +848,89 @@ window.addEventListener('popstate', e => {
 });
 
 function renderInstrumentalTemplate(item) {
-  const safeTitle = item.title || 'Sin título';
+  const safeTitle = item.title?.trim() || 'Sin título';
   const safeAssetPath = item.assetPath || '';
   const audioMarkup = safeAssetPath
-    ? `<audio controls preload="metadata" src="${safeAssetPath}"></audio>`
+    ? `
+      <div class="instrumental-player" data-instrumental-player>
+        <button type="button" class="instrumental-player__button" data-role="toggle" aria-label="Reproducir instrumental">▶</button>
+        <input
+          class="instrumental-player__timeline"
+          data-role="timeline"
+          type="range"
+          min="0"
+          max="100"
+          step="0.1"
+          value="0"
+          aria-label="Línea de tiempo de la instrumental"
+        >
+        <audio preload="metadata" src="${safeAssetPath}" data-role="audio"></audio>
+      </div>
+    `
     : '<p class="music-placeholder-note">Añade una ruta en <code>assetPath</code> para habilitar el reproductor.</p>';
 
   return `
     <article class="music-template-card music-template-card--audio">
-      <label class="music-template-field">
-        <span class="music-template-label">Título</span>
-        <input type="text" value="${safeTitle === 'Sin título' ? '' : safeTitle}" placeholder="Escribe un título para la instrumental">
-      </label>
-      <label class="music-template-field">
-        <span class="music-template-label">Audio (assets)</span>
-        <input type="text" value="${safeAssetPath}" placeholder="assets/tu-instrumental.wav">
-      </label>
+      <h4 class="music-template-title">${safeTitle}</h4>
       <div class="music-template-player">
         ${audioMarkup}
       </div>
     </article>
   `;
+}
+
+function initializeInstrumentalPlayers(container = document) {
+  const players = container.querySelectorAll('[data-instrumental-player]');
+
+  players.forEach(player => {
+    const audio = player.querySelector('[data-role="audio"]');
+    const toggleButton = player.querySelector('[data-role="toggle"]');
+    const timeline = player.querySelector('[data-role="timeline"]');
+    if (!audio || !toggleButton || !timeline) return;
+
+    const updateToggleButton = () => {
+      const isPlaying = !audio.paused;
+      toggleButton.textContent = isPlaying ? '❚❚' : '▶';
+      toggleButton.setAttribute('aria-label', isPlaying ? 'Pausar instrumental' : 'Reproducir instrumental');
+    };
+
+    const updateTimeline = () => {
+      if (!Number.isFinite(audio.duration) || audio.duration <= 0) {
+        timeline.value = '0';
+        return;
+      }
+      const progress = (audio.currentTime / audio.duration) * 100;
+      timeline.value = String(progress);
+    };
+
+    toggleButton.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().catch(() => {
+          // Ignorar errores de reproducción automática.
+        });
+      } else {
+        audio.pause();
+      }
+    });
+
+    timeline.addEventListener('input', () => {
+      if (!Number.isFinite(audio.duration) || audio.duration <= 0) return;
+      const targetTime = (Number(timeline.value) / 100) * audio.duration;
+      audio.currentTime = targetTime;
+    });
+
+    audio.addEventListener('timeupdate', updateTimeline);
+    audio.addEventListener('loadedmetadata', updateTimeline);
+    audio.addEventListener('play', updateToggleButton);
+    audio.addEventListener('pause', updateToggleButton);
+    audio.addEventListener('ended', () => {
+      updateToggleButton();
+      updateTimeline();
+    });
+
+    updateToggleButton();
+    updateTimeline();
+  });
 }
 
 function renderRichTemplate(item) {
@@ -968,6 +1030,7 @@ function resetMobileMusicPopup() {
   container.appendChild(introText);
   container.appendChild(introArrow);
   container.appendChild(wrapper);
+  initializeInstrumentalPlayers(container);
 }
 
 // =============================

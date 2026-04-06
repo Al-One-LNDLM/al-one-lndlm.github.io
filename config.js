@@ -69,7 +69,7 @@ export const musicDropdownSections = [
     },
     items: [
       {
-        title: '',
+        title: 'Beat 1',
         assetPath: 'assets/beat1.wav'
       }
     ]
