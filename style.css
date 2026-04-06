@@ -768,6 +768,12 @@ body.light-mode .audio-item__play-btn {
   background: rgba(0, 0, 0, 0.45);
 }
 
+.music-template-title {
+  margin: 0;
+  font-size: 14px;
+  text-align: left;
+}
+
 .music-template-field {
   display: flex;
   flex-direction: column;
@@ -801,6 +807,60 @@ body.light-mode .audio-item__play-btn {
   width: 100%;
 }
 
+.instrumental-player {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.instrumental-player__button {
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(0, 0, 0, 0.55);
+  color: inherit;
+  cursor: pointer;
+  width: 36px;
+  height: 28px;
+  font-size: 14px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.instrumental-player__timeline {
+  width: 100%;
+  margin: 0;
+}
+
+.instrumental-player__timeline::-webkit-slider-runnable-track {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.instrumental-player__timeline::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  margin-top: -4px;
+  border-radius: 50%;
+  border: none;
+  background: #b56aff;
+}
+
+.instrumental-player__timeline::-moz-range-track {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.instrumental-player__timeline::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: #b56aff;
+}
+
 .music-placeholder-note {
   margin: 0;
   font-size: 12px;
@@ -817,6 +877,19 @@ body.light-mode .music-template-field textarea {
   background: rgba(255, 255, 255, 0.8);
   color: #111;
   border-color: rgba(0, 0, 0, 0.45);
+}
+
+body.light-mode .instrumental-player__button {
+  border-color: rgba(0, 0, 0, 0.35);
+  background: rgba(255, 255, 255, 0.8);
+}
+
+body.light-mode .instrumental-player__timeline::-webkit-slider-runnable-track {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+body.light-mode .instrumental-player__timeline::-moz-range-track {
+  background: rgba(0, 0, 0, 0.25);
 }
 
 body.light-mode .audio-item__progress {
