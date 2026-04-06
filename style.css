@@ -914,7 +914,7 @@ body.light-mode .audio-item__progress {
 
   #mobile-restart-btn {
     position: absolute;
-    top: 55%;
+    top: 45%;
     left: 50%;
     transform: translateX(-50%);
     display: block;
