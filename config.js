@@ -71,7 +71,11 @@ export const musicDropdownSections = [
       {
         title: 'Gama Ocre - Am 85bpm',
         assetPath: 'assets/beat1.wav'
-      }
+      },
+      {
+        title: 'Gama Ocre - Am 85bpm',
+        assetPath: 'assets/beat1.wav'
+      }      
     ]
   },
   {
