@@ -1651,7 +1651,7 @@ body.light-mode .audio-item__progress {
   .mobile-music-dropdown[data-section="instrumentales"] .music-template-card--audio {
     border-width: 20px 32px;
     margin: 6px 0;
-    gap: 10px;
+    gap: 1px;
     padding: 2px;
   }
 
