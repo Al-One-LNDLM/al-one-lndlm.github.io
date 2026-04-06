@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
   height: 100dvh;
-  min-height: 80svh;  
+  min-height: 60svh;  
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
