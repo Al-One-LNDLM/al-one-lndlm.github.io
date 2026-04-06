@@ -853,7 +853,15 @@ function renderInstrumentalTemplate(item) {
   const audioMarkup = safeAssetPath
     ? `
       <div class="instrumental-player" data-instrumental-player>
-        <button type="button" class="instrumental-player__button" data-role="toggle" aria-label="Reproducir instrumental">▶</button>
+        <button type="button" class="instrumental-player__button" data-role="toggle" aria-label="Reproducir instrumental">
+          <img
+            class="instrumental-player__icon"
+            data-role="toggle-icon"
+            src="assets/play.png"
+            alt=""
+            aria-hidden="true"
+          >
+        </button>
         <input
           class="instrumental-player__timeline"
           data-role="timeline"
@@ -885,12 +893,13 @@ function initializeInstrumentalPlayers(container = document) {
   players.forEach(player => {
     const audio = player.querySelector('[data-role="audio"]');
     const toggleButton = player.querySelector('[data-role="toggle"]');
+    const toggleIcon = player.querySelector('[data-role="toggle-icon"]');
     const timeline = player.querySelector('[data-role="timeline"]');
-    if (!audio || !toggleButton || !timeline) return;
+    if (!audio || !toggleButton || !toggleIcon || !timeline) return;
 
     const updateToggleButton = () => {
       const isPlaying = !audio.paused;
-      toggleButton.textContent = isPlaying ? '❚❚' : '▶';
+      toggleIcon.src = isPlaying ? 'assets/pause.png' : 'assets/play.png';
       toggleButton.setAttribute('aria-label', isPlaying ? 'Pausar instrumental' : 'Reproducir instrumental');
     };
 
