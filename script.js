@@ -969,6 +969,72 @@ function renderRichTemplate(item) {
   `;
 }
 
+function renderCoverTemplate(item) {
+  const safeTitle = item.title || 'Cover sin título';
+  const safeText = item.text || '';
+  const images = Array.isArray(item.images)
+    ? item.images.filter(Boolean)
+    : (item.imagePath ? [item.imagePath] : []);
+  const safeAudioPath = item.audioPath || '';
+  const safeUrl = item.url || '';
+
+  return `
+    <article class="music-template-card music-template-card--cover">
+      <h4 class="music-template-title">${safeTitle}</h4>
+      ${safeText ? `<p class="music-cover-description">${safeText}</p>` : ''}
+      ${
+        images.length
+          ? `<div class="music-cover-carousel">
+              ${images.map((imagePath, index) => `
+                <img
+                  class="music-cover-carousel__image"
+                  src="${imagePath}"
+                  alt="${safeTitle} - imagen ${index + 1}"
+                >
+              `).join('')}
+            </div>`
+          : '<p class="music-cover-note">No hay imágenes disponibles por ahora.</p>'
+      }
+      ${
+        safeAudioPath
+          ? `
+            <div class="music-template-player">
+              <div class="instrumental-player" data-instrumental-player>
+                <button
+                  class="instrumental-player__button"
+                  type="button"
+                  data-role="toggle"
+                  aria-label="Reproducir cover"
+                >
+                  <img
+                    class="instrumental-player__icon"
+                    data-role="toggle-icon"
+                    src="assets/play.png"
+                    alt=""
+                    aria-hidden="true"
+                  >
+                </button>
+                <input
+                  class="instrumental-player__timeline"
+                  data-role="timeline"
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="0.1"
+                  value="0"
+                  aria-label="Línea de tiempo del cover"
+                >
+                <audio preload="metadata" src="${safeAudioPath}" data-role="audio"></audio>
+              </div>
+            </div>
+          `
+          : '<p class="music-cover-note">Audio no disponible.</p>'
+      }
+      ${safeUrl ? `<a class="music-cover-link" href="${safeUrl}" target="_blank" rel="noopener">Ver vídeo</a>` : '<p class="music-cover-note">Vídeo no disponible.</p>'}
+    </article>
+  `;
+}
+
 function renderMusicSectionContent(section) {
   if (!section.items || section.items.length === 0) {
     return '<p class="mobile-music-dropdown__placeholder">Próximamente…</p>';
@@ -980,6 +1046,10 @@ function renderMusicSectionContent(section) {
 
   if (section.template?.type === 'rich') {
     return section.items.map(renderRichTemplate).join('');
+  }
+
+  if (section.template?.type === 'cover') {
+    return section.items.map(renderCoverTemplate).join('');
   }
 
   return section.items

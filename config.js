@@ -96,15 +96,18 @@ export const musicDropdownSections = [
     title: 'Covers',
     frameImage: 'assets/contenedor música cov.png',
     template: {
-      type: 'rich'
+      type: 'cover'
     },
     items: [
       {
-        title: '',
-        text: '',
-        imagePath: '',
+        title: 'Cover · Ode to the Mets',
+        text: 'Versión en directo con una interpretación más íntima y una mezcla atmosférica.',
+        images: [
+          'assets/MINI 7.jpg',
+          'assets/MINI 8.jpg'
+        ],
         audioPath: '',
-        url: ''
+        url: 'https://www.youtube.com/watch?v=Ty9qdc1WhfI'
       }
     ]
   }
