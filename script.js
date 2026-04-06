@@ -1035,6 +1035,25 @@ function renderCoverTemplate(item) {
   `;
 }
 
+function initializeCoverImageZoom(container = document) {
+  const images = container.querySelectorAll('.music-cover-carousel__image');
+  images.forEach(image => {
+    if (image.dataset.zoomEnabled === 'true') return;
+    image.dataset.zoomEnabled = 'true';
+    image.addEventListener('click', () => {
+      const carousel = image.closest('.music-cover-carousel');
+      if (!carousel) return;
+      const alreadyEnlarged = image.classList.contains('is-enlarged');
+      carousel.querySelectorAll('.music-cover-carousel__image.is-enlarged').forEach(img => {
+        img.classList.remove('is-enlarged');
+      });
+      if (!alreadyEnlarged) {
+        image.classList.add('is-enlarged');
+      }
+    });
+  });
+}
+
 function renderMusicSectionContent(section) {
   if (!section.items || section.items.length === 0) {
     return '<p class="mobile-music-dropdown__placeholder">Próximamente…</p>';
@@ -1110,6 +1129,7 @@ function resetMobileMusicPopup() {
   container.appendChild(introArrow);
   container.appendChild(wrapper);
   initializeInstrumentalPlayers(container);
+  initializeCoverImageZoom(container);
 }
 
 // =============================
