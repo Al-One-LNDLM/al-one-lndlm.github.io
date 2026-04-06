@@ -1012,7 +1012,7 @@ body.light-mode .audio-item__progress {
     display: none;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding: 0 24px;
     z-index: 1500;
   }
