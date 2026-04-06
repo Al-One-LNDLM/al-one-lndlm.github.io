@@ -774,7 +774,7 @@ body.light-mode .audio-item__play-btn {
   border-image-slice: 32 fill;
   border-image-repeat: stretch;
   background: transparent;
-  padding: 8px 10px 10px;
+  padding: 2px 2px 2px;
 }
 
 .music-template-title {
