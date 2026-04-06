@@ -105,6 +105,7 @@ const mobileYoutubeBtn = document.getElementById('mobile-youtube-btn');
 const mobileInstagramBtn = document.getElementById('mobile-instagram-btn');
 const mobileTiktokBtn = document.getElementById('mobile-tiktok-btn');
 const mobileContactBtn = document.getElementById('mobile-contact-btn');
+const mobileRestartBtn = document.getElementById('mobile-restart-btn');
 const mobileFeaturedSocialButtons = document.getElementById('mobile-featured-social-buttons');
 const movementToggleOn = 'assets/ON BUTTON.png';
 const movementToggleOff = 'assets/OFF BUTTON.png';
@@ -159,6 +160,12 @@ if (mobileContactBtn) {
         contactPopupContent.scrollTop = contactPopupContent.scrollHeight;
       });
     }
+  });
+}
+
+if (mobileRestartBtn) {
+  mobileRestartBtn.addEventListener('click', () => {
+    window.location.reload();
   });
 }
 
