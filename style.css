@@ -13,9 +13,9 @@
   justify-content: flex-start;
   align-items: center;
   background-image: url('assets/fondocarga.png');
-  background-position: center top;
+  background-position: center center;
   background-repeat: no-repeat;
-  background-size: auto 100%;
+  background-size: cover;
   background-color: #000;
   padding-top: 20vh;
   z-index: 10000;
