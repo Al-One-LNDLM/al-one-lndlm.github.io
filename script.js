@@ -8,7 +8,8 @@ import {
   mobileLatestWorks,
   youtubeChannelUrl,
   instagramProfileUrl,
-  tiktokProfileUrl
+  tiktokProfileUrl,
+  musicDropdownSections
 } from './config.js';
 
 const mobileMediaQuery = '(max-width: 768px), ((hover: none) and (pointer: coarse) and (orientation: landscape))';
@@ -868,28 +869,10 @@ function resetMobileMusicPopup() {
   introArrow.src = 'assets/FLECHA.png';
   introArrow.alt = 'Flecha decorativa';
 
-  const musicSections = [
-    {
-      id: 'instrumentales',
-      title: 'Instrumentales',
-      frameImage: 'assets/contenedor música inst.png'
-    },
-    {
-      id: 'experimentos',
-      title: 'Experimentos',
-      frameImage: 'assets/contenedor música exp.png'
-    },
-    {
-      id: 'covers',
-      title: 'Covers',
-      frameImage: 'assets/contenedor música cov.png'
-    }
-  ];
-
   const wrapper = document.createElement('div');
   wrapper.className = 'mobile-music-dropdowns';
 
-  musicSections.forEach(section => {
+  musicDropdownSections.forEach(section => {
     const dropdown = document.createElement('details');
     dropdown.className = 'mobile-music-dropdown';
     dropdown.dataset.section = section.id;
@@ -901,7 +884,20 @@ function resetMobileMusicPopup() {
 
     const content = document.createElement('div');
     content.className = 'mobile-music-dropdown__content';
-    content.innerHTML = '<p class="mobile-music-dropdown__placeholder">Próximamente…</p>';
+
+    if (!section.items || section.items.length === 0) {
+      content.innerHTML = '<p class="mobile-music-dropdown__placeholder">Próximamente…</p>';
+    } else {
+      content.innerHTML = section.items
+        .map(item => `
+          <article class="mobile-music-item">
+            ${item.thumb ? `<a class="mobile-music-item__thumb-link" href="${item.url}" target="_blank"><img class="mobile-music-item__thumb" src="${item.thumb}" alt="${item.title}"></a>` : ''}
+            <a class="mobile-music-item__title" href="${item.url}" target="_blank">${item.title}</a>
+            ${item.description ? `<p class="mobile-music-item__description">${item.description}</p>` : ''}
+          </article>
+        `)
+        .join('');
+    }
 
     dropdown.appendChild(summary);
     dropdown.appendChild(content);
