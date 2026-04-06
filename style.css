@@ -783,6 +783,47 @@ body.light-mode .audio-item__play-btn {
   text-align: left;
 }
 
+.music-cover-description {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.music-cover-link {
+  display: inline-flex;
+  align-self: flex-start;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: 999px;
+  color: inherit;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.music-cover-note {
+  margin: 0;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.music-cover-carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(140px, 80%);
+  gap: 8px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 4px;
+}
+
+.music-cover-carousel__image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  scroll-snap-align: start;
+}
+
 .music-template-field {
   display: flex;
   flex-direction: column;
@@ -913,6 +954,10 @@ body.light-mode .music-template-card {
 body.light-mode .music-template-card--audio {
   background: transparent;
   border-color: transparent;
+}
+
+body.light-mode .music-cover-link {
+  border-color: rgba(0, 0, 0, 0.45);
 }
 
 body.light-mode .music-template-field input,
