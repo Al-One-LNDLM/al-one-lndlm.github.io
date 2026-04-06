@@ -1028,7 +1028,7 @@ body.light-mode .audio-item__progress {
     font-size: 18px;
     text-transform: uppercase;
     text-decoration: none;
-    text-align: left;
+    text-align: center;
   }
 
   #mobile-menu-overlay .menu-movement-toggle {
