@@ -1025,7 +1025,7 @@ body.light-mode .audio-item__progress {
     width: min(90vw, 360px);
     color: #fff;
     font-family: 'PixelFont', monospace;
-    font-size: 24px;
+    font-size: 32px;
     text-transform: uppercase;
     text-decoration: none;
     text-align: center;
