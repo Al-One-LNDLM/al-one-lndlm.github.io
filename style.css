@@ -1704,7 +1704,7 @@ body.light-mode .audio-item__progress {
   .album-description,
   .album-description p {
     width: 100%;
-    text-align: center;
+    text-align: left;
   }
 
   .album-description--after-songs {
