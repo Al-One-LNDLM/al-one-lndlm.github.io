@@ -1543,6 +1543,12 @@ body.light-mode .audio-item__progress {
     padding: 6px 0 12px;
   }
 
+  /* En móvil reducimos extremos de la barra para evitar deformación visual */
+  .instrumental-player__timeline {
+    --timeline-cap-width: 10px;
+    --timeline-height: 10px;
+  }
+
   .mobile-music-intro {
     margin: 10px auto 10px;
     width: 90%;
