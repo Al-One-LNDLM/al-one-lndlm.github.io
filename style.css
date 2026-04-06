@@ -898,7 +898,7 @@ body.light-mode .audio-item__progress {
 
   #mobile-final-text {
     position: absolute;
-    top: 28%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: min(85vw, 520px);
@@ -914,7 +914,7 @@ body.light-mode .audio-item__progress {
 
   #mobile-restart-btn {
     position: absolute;
-    top: 45%;
+    top: 50%;
     left: 50%;
     transform: translateX(-50%);
     display: block;
