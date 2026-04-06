@@ -1103,8 +1103,6 @@ body.light-mode .audio-item__progress {
   }
 
   #mobile-intro-typing {
-    --typing-chars: 35;
-    --cursor-gap: 0.7ch;
     display: block;
     position: absolute;
     top: calc(env(safe-area-inset-top, 0px) + 86px);
@@ -1112,28 +1110,34 @@ body.light-mode .audio-item__progress {
     transform: translateX(-50%);
     z-index: 3;
     font-family: 'PixelFont', monospace;
-    font-size: clamp(8px, calc(90vw / var(--typing-chars)), 14px);
+    font-size: clamp(8px, 2.6vw, 14px);
     color: #fff;
     text-align: center;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
+    white-space: normal;
     max-width: 90vw;
     line-height: 1.2;
-    animation: mobile-typewriter 2.2s steps(var(--typing-chars)) 2s forwards;
     text-shadow: #000 2px 2px;
   }
 
-  #mobile-intro-typing::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 0.6ch;
-    height: 1em;
-    background-color: currentColor;
-    transform: translateX(var(--cursor-gap));
-    animation: mobile-cursor-blink 0.8s step-end infinite;
+  .mobile-intro-typing-line {
+    --line-chars: 20;
+    --typing-duration: 1.6s;
+    --typing-delay: 2s;
+    display: block;
+    margin: 0 auto;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: mobile-type-line var(--typing-duration) steps(var(--line-chars)) var(--typing-delay) forwards;
+  }
+
+  .mobile-intro-typing-line--1 {
+    --line-chars: 17;
+  }
+
+  .mobile-intro-typing-line--2 {
+    --line-chars: 22;
+    --typing-delay: 3.7s;
   }
 
   #mobile-featured-social-buttons {
@@ -1294,22 +1298,12 @@ body.light-mode .audio-item__progress {
     display: block;
   }
 
-  @keyframes mobile-typewriter {
+  @keyframes mobile-type-line {
     from {
       width: 0;
     }
     to {
-      width: 90vw;
-    }
-  }
-
-  @keyframes mobile-cursor-blink {
-    0%,
-    100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
+      width: calc(var(--line-chars) * 1ch);
     }
   }
 
