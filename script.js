@@ -1041,18 +1041,64 @@ function initializeCoverImageZoom(container = document) {
     if (image.dataset.zoomEnabled === 'true') return;
     image.dataset.zoomEnabled = 'true';
     image.addEventListener('click', () => {
-      const carousel = image.closest('.music-cover-carousel');
-      if (!carousel) return;
-      const alreadyEnlarged = image.classList.contains('is-enlarged');
-      carousel.querySelectorAll('.music-cover-carousel__image.is-enlarged').forEach(img => {
-        img.classList.remove('is-enlarged');
-      });
-      if (!alreadyEnlarged) {
-        image.classList.add('is-enlarged');
-      }
+      openCoverImageLightbox(image);
     });
   });
 }
+
+function getCoverImageLightbox() {
+  let lightbox = document.querySelector('[data-cover-lightbox]');
+  if (lightbox) return lightbox;
+
+  lightbox = document.createElement('div');
+  lightbox.className = 'music-cover-lightbox';
+  lightbox.dataset.coverLightbox = 'true';
+  lightbox.setAttribute('aria-hidden', 'true');
+
+  lightbox.innerHTML = `
+    <button type="button" class="music-cover-lightbox__close" aria-label="Cerrar imagen">×</button>
+    <img class="music-cover-lightbox__image" src="" alt="">
+  `;
+
+  const closeButton = lightbox.querySelector('.music-cover-lightbox__close');
+  closeButton?.addEventListener('click', closeCoverImageLightbox);
+
+  lightbox.addEventListener('click', event => {
+    if (event.target === lightbox) {
+      closeCoverImageLightbox();
+    }
+  });
+
+  document.body.appendChild(lightbox);
+  return lightbox;
+}
+
+function openCoverImageLightbox(sourceImage) {
+  if (!sourceImage) return;
+  const lightbox = getCoverImageLightbox();
+  const lightboxImage = lightbox.querySelector('.music-cover-lightbox__image');
+  if (!lightboxImage) return;
+
+  lightboxImage.src = sourceImage.currentSrc || sourceImage.src;
+  lightboxImage.alt = sourceImage.alt || 'Imagen de cover';
+  lightbox.classList.add('is-open');
+  lightbox.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('is-cover-lightbox-open');
+}
+
+function closeCoverImageLightbox() {
+  const lightbox = document.querySelector('[data-cover-lightbox]');
+  if (!lightbox) return;
+  lightbox.classList.remove('is-open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.classList.remove('is-cover-lightbox-open');
+}
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    closeCoverImageLightbox();
+  }
+});
 
 function renderMusicSectionContent(section) {
   if (!section.items || section.items.length === 0) {
