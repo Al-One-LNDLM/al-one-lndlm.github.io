@@ -69,7 +69,7 @@ export const musicDropdownSections = [
     },
     items: [
       {
-        title: 'Gama Ocre - Am 85bpmmmmmmmmmmmmmmmm',
+        title: 'Gama Ocre - Am 85bpm',
         assetPath: 'assets/beat1.wav'
       }
     ]
