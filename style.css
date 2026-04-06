@@ -820,6 +820,10 @@ body.light-mode .audio-item__progress {
   display: none;
 }
 
+#mobile-final-social-buttons {
+  display: none;
+}
+
 #mobile-restart-btn {
   display: none;
 }
@@ -958,6 +962,28 @@ body.light-mode .audio-item__progress {
     width: 100%;
     height: auto;
     display: block;
+  }
+
+  #mobile-final-social-buttons {
+    position: absolute;
+    right: 10px;
+    bottom: calc(10px + env(safe-area-inset-bottom));
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 2;
+  }
+
+  #mobile-final-social-buttons a {
+    display: block;
+    width: 26px;
+    line-height: 0;
+  }
+
+  #mobile-final-social-buttons img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   #mobile-social {
