@@ -318,7 +318,7 @@ function organizeTrabajosAlbumsForMobile(popup) {
       toggle.className = 'work-album-toggle';
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'Ampliar tarjeta del álbum');
-      toggle.innerHTML = '<span class="work-album-toggle__arrow" aria-hidden="true">⌄</span>';
+      toggle.innerHTML = '<img class="work-album-toggle__arrow" src="assets/desp.png" alt="" aria-hidden="true" />';
 
       card.classList.add('is-collapsed');
       collapsibleContent.hidden = true;

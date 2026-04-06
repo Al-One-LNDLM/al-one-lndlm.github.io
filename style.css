@@ -1624,8 +1624,8 @@ body.light-mode .audio-item__progress {
 
   .work-album-toggle__arrow {
     display: inline-block;
-    font-size: 30px;
-    line-height: 1;
+    width: 18px;
+    height: auto;
     transition: transform 0.25s ease;
   }
 
