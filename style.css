@@ -812,8 +812,9 @@ body.light-mode .audio-item__play-btn {
   grid-auto-columns: minmax(140px, 80%);
   gap: 8px;
   overflow-x: auto;
+  overflow-y: visible;
   scroll-snap-type: x mandatory;
-  padding-bottom: 4px;
+  padding: 18px 0;
 }
 
 .music-cover-carousel__image {
@@ -827,9 +828,10 @@ body.light-mode .audio-item__play-btn {
 }
 
 .music-cover-carousel__image.is-enlarged {
+  position: relative;
   transform: scale(1.6);
   transform-origin: center center;
-  z-index: 1;
+  z-index: 4;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
   cursor: zoom-out;
 }
