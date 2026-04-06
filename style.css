@@ -815,16 +815,21 @@ body.light-mode .audio-item__play-btn {
 }
 
 .instrumental-player__button {
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  background: rgba(0, 0, 0, 0.55);
+  border: none;
+  background: transparent;
   color: inherit;
   cursor: pointer;
   width: 36px;
   height: 28px;
-  font-size: 14px;
-  line-height: 1;
-  display: grid;
-  place-items: center;
+  padding: 0;
+  display: block;
+}
+
+.instrumental-player__icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
 }
 
 .instrumental-player__timeline {
@@ -877,11 +882,6 @@ body.light-mode .music-template-field textarea {
   background: rgba(255, 255, 255, 0.8);
   color: #111;
   border-color: rgba(0, 0, 0, 0.45);
-}
-
-body.light-mode .instrumental-player__button {
-  border-color: rgba(0, 0, 0, 0.35);
-  background: rgba(255, 255, 255, 0.8);
 }
 
 body.light-mode .instrumental-player__timeline::-webkit-slider-runnable-track {
