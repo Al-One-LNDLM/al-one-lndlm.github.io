@@ -106,7 +106,7 @@ export const musicDropdownSections = [
           'assets/MINI 7.jpg',
           'assets/MINI 8.jpg'
         ],
-        audioPath: '',
+        audioPath: 'assets/beat1.wav',
         url: 'https://www.youtube.com/watch?v=Ty9qdc1WhfI'
       }
     ]
