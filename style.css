@@ -1652,7 +1652,7 @@ body.light-mode .audio-item__progress {
     border-width: 20px 32px;
     margin: 6px 0;
     gap: 1px;
-    padding: 2px;
+    padding: 20px;
   }
 
   .mobile-music-dropdown__placeholder {
