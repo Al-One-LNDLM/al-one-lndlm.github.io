@@ -784,7 +784,7 @@ body.light-mode .audio-item__play-btn {
 }
 
 .music-cover-description {
-  margin: 0;
+  margin: 10px;
   font-size: 11px;
   line-height: 1.4;
 }
