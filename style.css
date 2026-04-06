@@ -1115,16 +1115,16 @@ body.light-mode .audio-item__progress {
     text-align: center;
     white-space: normal;
     max-width: 90vw;
-    line-height: 1.2;
+    line-height: 1.5;
     text-shadow: #000 2px 2px;
   }
 
   .mobile-intro-typing-line {
     --line-chars: 20;
-    --typing-duration: 1.6s;
-    --typing-delay: 2s;
+    --typing-duration: 1.05s;
+    --typing-delay: 1.2s;
     display: block;
-    margin: 0 auto;
+    margin: 0.14em auto;
     width: 0;
     overflow: hidden;
     white-space: nowrap;
@@ -1137,7 +1137,7 @@ body.light-mode .audio-item__progress {
 
   .mobile-intro-typing-line--2 {
     --line-chars: 22;
-    --typing-delay: 3.7s;
+    --typing-delay: 2.35s;
   }
 
   #mobile-featured-social-buttons {
