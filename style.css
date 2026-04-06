@@ -1648,6 +1648,13 @@ body.light-mode .audio-item__progress {
     padding: 0 14px 10px;
   }
 
+  .mobile-music-dropdown[data-section="instrumentales"] .music-template-card--audio {
+    border-width: 20px 32px;
+    margin: 6px 0;
+    gap: 10px;
+    padding: 2px;
+  }
+
   .mobile-music-dropdown__placeholder {
     margin: 0;
     font-size: 13px;
