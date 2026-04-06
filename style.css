@@ -966,7 +966,7 @@ body.light-mode .audio-item__progress {
 
   #mobile-final-social-buttons {
     position: absolute;
-    right: 10px;
+    right: 30px;
     bottom: calc(10px + env(safe-area-inset-bottom));
     display: flex;
     align-items: center;
