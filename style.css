@@ -1614,7 +1614,7 @@ body.light-mode .audio-item__progress {
     justify-content: center;
     align-items: center;
     width: 100%;
-    margin: 0px auto 0;
+    margin: 6px auto 0;
     padding: 4px 0 0;
     border: none;
     background: transparent;
@@ -1639,7 +1639,7 @@ body.light-mode .audio-item__progress {
 
   .trabajos-gallery .thumb {
     display: block;
-    margin: 0;
+    margin: 10px;
   }
 
   .work-album,
