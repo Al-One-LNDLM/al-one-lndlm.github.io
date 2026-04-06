@@ -109,8 +109,6 @@ const mobileContactBtn = document.getElementById('mobile-contact-btn');
 const mobileRestartBtn = document.getElementById('mobile-restart-btn');
 const mobileFeaturedSocialButtons = document.getElementById('mobile-featured-social-buttons');
 const mobileRestartScrollKey = 'mobile-restart-scroll-top';
-const movementToggleOn = 'assets/ON BUTTON.png';
-const movementToggleOff = 'assets/OFF BUTTON.png';
 let mobileMovementEnabled = false;
 let mobileMovementResetTarget = null;
 
@@ -388,12 +386,8 @@ zones.forEach((zone, idx) => {
   const item = document.createElement('a');
   item.className = 'menu-link';
   item.dataset.popup = zone.id;
+  item.textContent = mobileSectionLabels[zone.id] || zone.popup?.title || zone.id;
 
-  const labelImg = document.createElement('img');
-  labelImg.src = zone.listLabel;
-  labelImg.alt = zone.id;
-
-  item.appendChild(labelImg);
   mobileMenuOverlay.appendChild(item);
 
   if (idx < zones.length - 1) {
@@ -412,19 +406,15 @@ movementToggleButton.type = 'button';
 movementToggleButton.id = 'mobile-movement-toggle';
 movementToggleButton.setAttribute('aria-pressed', 'false');
 
-const movementToggleIcon = document.createElement('img');
-movementToggleIcon.alt = 'Movimiento apagado';
-
-movementToggleButton.appendChild(movementToggleIcon);
 movementToggleRow.appendChild(movementToggleLabel);
 movementToggleRow.appendChild(movementToggleButton);
 mobileMenuOverlay.appendChild(document.createElement('hr'));
 mobileMenuOverlay.appendChild(movementToggleRow);
 
 function updateMovementToggleUI() {
-  movementToggleIcon.src = mobileMovementEnabled ? movementToggleOn : movementToggleOff;
-  movementToggleIcon.alt = mobileMovementEnabled ? 'Movimiento encendido' : 'Movimiento apagado';
+  movementToggleButton.textContent = mobileMovementEnabled ? 'Activado' : 'Desactivado';
   movementToggleButton.setAttribute('aria-pressed', mobileMovementEnabled ? 'true' : 'false');
+  movementToggleButton.setAttribute('aria-label', mobileMovementEnabled ? 'Movimiento encendido' : 'Movimiento apagado');
 }
 
 function setMobileMovementEnabled(enabled) {
