@@ -833,37 +833,60 @@ body.light-mode .audio-item__play-btn {
 }
 
 .instrumental-player__timeline {
+  --timeline-cap-width: 14px;
+  --timeline-height: 12px;
   width: 100%;
   margin: 0;
+  height: var(--timeline-height);
+  padding: 0;
+  border: none;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
 }
 
 .instrumental-player__timeline::-webkit-slider-runnable-track {
-  height: 4px;
-  background: rgba(255, 255, 255, 0.4);
+  height: var(--timeline-height);
+  border: none;
+  background:
+    url("assets/musicbarL.png") left center / var(--timeline-cap-width) 100% no-repeat,
+    url("assets/musicbarR.png") right center / var(--timeline-cap-width) 100% no-repeat,
+    url("assets/musicbarC.png") center center / calc(100% - (var(--timeline-cap-width) * 2)) 100% repeat-x;
 }
 
 .instrumental-player__timeline::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 12px;
-  height: 12px;
-  margin-top: -4px;
-  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  margin-top: calc((var(--timeline-height) - 14px) / 2);
   border: none;
-  background: #b56aff;
+  background: url("assets/dot.png") center / contain no-repeat;
 }
 
 .instrumental-player__timeline::-moz-range-track {
-  height: 4px;
-  background: rgba(255, 255, 255, 0.4);
+  height: var(--timeline-height);
+  border: none;
+  background:
+    url("assets/musicbarL.png") left center / var(--timeline-cap-width) 100% no-repeat,
+    url("assets/musicbarR.png") right center / var(--timeline-cap-width) 100% no-repeat,
+    url("assets/musicbarC.png") center center / calc(100% - (var(--timeline-cap-width) * 2)) 100% repeat-x;
+}
+
+.instrumental-player__timeline::-moz-range-progress {
+  height: var(--timeline-height);
+  border: none;
+  background:
+    url("assets/musicbarL.png") left center / var(--timeline-cap-width) 100% no-repeat,
+    url("assets/musicbarC.png") center center / calc(100% - var(--timeline-cap-width)) 100% repeat-x;
 }
 
 .instrumental-player__timeline::-moz-range-thumb {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   border: none;
-  border-radius: 50%;
-  background: #b56aff;
+  background: url("assets/dot.png") center / contain no-repeat;
 }
 
 .music-placeholder-note {
@@ -885,11 +908,17 @@ body.light-mode .music-template-field textarea {
 }
 
 body.light-mode .instrumental-player__timeline::-webkit-slider-runnable-track {
-  background: rgba(0, 0, 0, 0.25);
+  background:
+    url("assets/musicbarL.png") left center / var(--timeline-cap-width) 100% no-repeat,
+    url("assets/musicbarR.png") right center / var(--timeline-cap-width) 100% no-repeat,
+    url("assets/musicbarC.png") center center / calc(100% - (var(--timeline-cap-width) * 2)) 100% repeat-x;
 }
 
 body.light-mode .instrumental-player__timeline::-moz-range-track {
-  background: rgba(0, 0, 0, 0.25);
+  background:
+    url("assets/musicbarL.png") left center / var(--timeline-cap-width) 100% no-repeat,
+    url("assets/musicbarR.png") right center / var(--timeline-cap-width) 100% no-repeat,
+    url("assets/musicbarC.png") center center / calc(100% - (var(--timeline-cap-width) * 2)) 100% repeat-x;
 }
 
 body.light-mode .audio-item__progress {
