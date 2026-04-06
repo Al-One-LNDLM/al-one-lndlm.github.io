@@ -918,7 +918,7 @@ body.light-mode .audio-item__progress {
     left: 50%;
     transform: translateX(-50%);
     display: block;
-    width: clamp(86px, 22vw, 132px);
+    width: auto;
     background: transparent;
     border: 0;
     padding: 0;
