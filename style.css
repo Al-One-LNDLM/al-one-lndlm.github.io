@@ -6,11 +6,16 @@
   left: 0;
   width: 100vw;
   height: 100vh;
+  height: 100dvh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background: linear-gradient(180deg, #000 0%, #1e1e1e 50%, #000 100%);
+  background-image: url('assets/fondocarga.png');
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  background-color: #000;
   padding-top: 20vh;
   z-index: 10000;
 }
