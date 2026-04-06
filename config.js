@@ -64,21 +64,49 @@ export const musicDropdownSections = [
     id: 'instrumentales',
     title: 'Instrumentales',
     frameImage: 'assets/contenedor música inst.png',
-    items: []
-    // Ejemplo de item:
-    // { title: 'Título instrumental', url: 'https://...', thumb: 'assets/tu-thumb.png', description: 'Opcional' }
+    template: {
+      type: 'audio'
+    },
+    items: [
+      {
+        title: '',
+        assetPath: 'assets/beat1.wav'
+      }
+    ]
   },
   {
     id: 'experimentos',
     title: 'Experimentos',
     frameImage: 'assets/contenedor música exp.png',
-    items: []
+    template: {
+      type: 'rich'
+    },
+    items: [
+      {
+        title: '',
+        text: '',
+        imagePath: '',
+        audioPath: '',
+        url: ''
+      }
+    ]
   },
   {
     id: 'covers',
     title: 'Covers',
     frameImage: 'assets/contenedor música cov.png',
-    items: []
+    template: {
+      type: 'rich'
+    },
+    items: [
+      {
+        title: '',
+        text: '',
+        imagePath: '',
+        audioPath: '',
+        url: ''
+      }
+    ]
   }
 ];
 

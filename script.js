@@ -432,10 +432,8 @@ movementToggleButton.addEventListener('click', () => {
   setMobileMovementEnabled(!mobileMovementEnabled);
 });
 
-// Reiniciar la sección de música en móvil para reconstruirla desde cero
-if (isMobile) {
-  resetMobileMusicPopup();
-}
+// Reiniciar la sección de música para reconstruirla desde cero
+resetMobileMusicPopup();
 
 // Abrir ventana al hacer click en una zona
 zonesContainer.addEventListener('click', e => {
@@ -849,6 +847,81 @@ window.addEventListener('popstate', e => {
   }
 });
 
+function renderInstrumentalTemplate(item) {
+  const safeTitle = item.title || 'Sin título';
+  const safeAssetPath = item.assetPath || '';
+  const audioMarkup = safeAssetPath
+    ? `<audio controls preload="metadata" src="${safeAssetPath}"></audio>`
+    : '<p class="music-placeholder-note">Añade una ruta en <code>assetPath</code> para habilitar el reproductor.</p>';
+
+  return `
+    <article class="music-template-card music-template-card--audio">
+      <label class="music-template-field">
+        <span class="music-template-label">Título</span>
+        <input type="text" value="${safeTitle === 'Sin título' ? '' : safeTitle}" placeholder="Escribe un título para la instrumental">
+      </label>
+      <label class="music-template-field">
+        <span class="music-template-label">Audio (assets)</span>
+        <input type="text" value="${safeAssetPath}" placeholder="assets/tu-instrumental.wav">
+      </label>
+      <div class="music-template-player">
+        ${audioMarkup}
+      </div>
+    </article>
+  `;
+}
+
+function renderRichTemplate(item) {
+  return `
+    <article class="music-template-card music-template-card--rich">
+      <label class="music-template-field">
+        <span class="music-template-label">Título</span>
+        <input type="text" value="${item.title || ''}" placeholder="Título del bloque">
+      </label>
+      <label class="music-template-field">
+        <span class="music-template-label">Texto</span>
+        <textarea rows="3" placeholder="Descripción o texto libre">${item.text || ''}</textarea>
+      </label>
+      <label class="music-template-field">
+        <span class="music-template-label">Imagen (ruta)</span>
+        <input type="text" value="${item.imagePath || ''}" placeholder="assets/tu-imagen.png">
+      </label>
+      <label class="music-template-field">
+        <span class="music-template-label">Audio (ruta)</span>
+        <input type="text" value="${item.audioPath || ''}" placeholder="assets/tu-audio.wav">
+      </label>
+      <label class="music-template-field">
+        <span class="music-template-label">URL</span>
+        <input type="text" value="${item.url || ''}" placeholder="https://...">
+      </label>
+    </article>
+  `;
+}
+
+function renderMusicSectionContent(section) {
+  if (!section.items || section.items.length === 0) {
+    return '<p class="mobile-music-dropdown__placeholder">Próximamente…</p>';
+  }
+
+  if (section.template?.type === 'audio') {
+    return section.items.map(renderInstrumentalTemplate).join('');
+  }
+
+  if (section.template?.type === 'rich') {
+    return section.items.map(renderRichTemplate).join('');
+  }
+
+  return section.items
+    .map(item => `
+      <article class="mobile-music-item">
+        ${item.thumb ? `<a class="mobile-music-item__thumb-link" href="${item.url}" target="_blank"><img class="mobile-music-item__thumb" src="${item.thumb}" alt="${item.title}"></a>` : ''}
+        <a class="mobile-music-item__title" href="${item.url}" target="_blank">${item.title}</a>
+        ${item.description ? `<p class="mobile-music-item__description">${item.description}</p>` : ''}
+      </article>
+    `)
+    .join('');
+}
+
 function resetMobileMusicPopup() {
   const container = document.querySelector('#popup-instrumentales .popup-content');
   if (!container) return;
@@ -885,19 +958,7 @@ function resetMobileMusicPopup() {
     const content = document.createElement('div');
     content.className = 'mobile-music-dropdown__content';
 
-    if (!section.items || section.items.length === 0) {
-      content.innerHTML = '<p class="mobile-music-dropdown__placeholder">Próximamente…</p>';
-    } else {
-      content.innerHTML = section.items
-        .map(item => `
-          <article class="mobile-music-item">
-            ${item.thumb ? `<a class="mobile-music-item__thumb-link" href="${item.url}" target="_blank"><img class="mobile-music-item__thumb" src="${item.thumb}" alt="${item.title}"></a>` : ''}
-            <a class="mobile-music-item__title" href="${item.url}" target="_blank">${item.title}</a>
-            ${item.description ? `<p class="mobile-music-item__description">${item.description}</p>` : ''}
-          </article>
-        `)
-        .join('');
-    }
+    content.innerHTML = renderMusicSectionContent(section);
 
     dropdown.appendChild(summary);
     dropdown.appendChild(content);
