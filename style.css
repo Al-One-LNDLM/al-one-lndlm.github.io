@@ -67,7 +67,7 @@ body {
   overflow: hidden;
 }
 
-@media (max-width: 768px), ((hover: none) and (pointer: coarse) and (orientation: landscape)) {
+@media all {
   html,
   body {
     overflow-x: hidden;
@@ -1125,7 +1125,7 @@ body.light-mode .audio-item__progress {
   object-fit: contain;
 }
 
-@media (max-width: 768px), ((hover: none) and (pointer: coarse) and (orientation: landscape)) {
+@media all {
    :root {
     --popup-font-size: 16px;
     --popup-header-font-size: 16px;

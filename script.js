@@ -12,8 +12,8 @@ import {
   musicDropdownSections
 } from './config.js';
 
-const mobileMediaQuery = '(max-width: 768px), ((hover: none) and (pointer: coarse) and (orientation: landscape))';
-const isMobile = window.matchMedia(mobileMediaQuery).matches;
+const isMobile = true;
+const enableDesktopExperience = false;
 
 const preloader = document.getElementById('preloader');
 const progress = document.getElementById('preloader-progress');
@@ -39,12 +39,6 @@ let currentSlide = 0;
 function updateSlide() {
   if (sliderImage) {
     sliderImage.src = welcomeImages[currentSlide];
-  }
-}
-
-function showWelcome() {
-  if (welcomeModal) {
-    welcomeModal.classList.remove('hidden');
   }
 }
 
@@ -78,9 +72,6 @@ function animateLoader() {
     // Mantén la página estática sin barras de desplazamiento
     document.body.style.overflow = isMobile ? 'auto' : 'hidden';
     document.documentElement.style.overflow = isMobile ? 'auto' : 'hidden';
-    if (!isMobile) {
-      showWelcome();
-    }
   }
 }
 animateLoader();
@@ -1182,157 +1173,42 @@ function resetMobileMusicPopup() {
 // =============================
 //  Gestión de fondos y temas
 // =============================
+if (enableDesktopExperience && toggleBtn && gameArea) {
+  function setBackground() {
+    const isLight = document.body.classList.contains('light-mode');
+    const bg = `url('${isLight ? backgrounds.light : backgrounds.dark}')`;
+    gameArea.style.backgroundImage = bg;
+  }
 
-/**
- * Ajusta la imagen de fondo del área de juego según el modo activo.
- */
-function setBackground() {
-  const isLight = document.body.classList.contains('light-mode');
-  const bg = `url('${isLight ? backgrounds.light : backgrounds.dark}')`;
-  gameArea.style.backgroundImage = bg;
-}
+  function updateThemeIcon() {
+    toggleBtn.innerHTML = document.body.classList.contains('light-mode')
+      ? '<img src="assets/moon.png" alt="Modo oscuro" />'
+      : '<img src="assets/sun.png" alt="Modo claro" />';
+  }
 
-/**
- * Actualiza el icono del botón de cambio de tema dependiendo del modo actual.
- */
-function updateThemeIcon() {
-  toggleBtn.innerHTML = document.body.classList.contains('light-mode')
-    ? '<img src="assets/moon.png" alt="Modo oscuro" />'
-    : '<img src="assets/sun.png" alt="Modo claro" />';
-}
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('light-mode');
+    updateThemeIcon();
+    setBackground();
+  });
 
-// Evento para alternar entre temas
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('light-mode');
   updateThemeIcon();
   setBackground();
-});
+}
 
-// Configuración inicial de icono y fondo
-updateThemeIcon();
-setBackground();
-
-// =============================
-//  Animación del personaje
-// =============================
-let mouseX = 0, mouseY = 0;         // Posición actual del ratón
-let currentX = 0, currentY = 0;     // Posición actual del personaje
-const speed = 0.006;                 // Velocidad de movimiento del personaje
-const offsetDistance = 0;          // Distancia respecto al cursor
-const idleThreshold = 80;            // Radio para activar animación "idle"
-
-const frameWidth = 90;              // Dimensiones de cada frame en el spritesheet
+const speed = 0.006;
+const offsetDistance = 0;
+const idleThreshold = 80;
+const frameWidth = 90;
 const frameHeight = 90;
-const framesPerDirection = 4;       // Número de frames por dirección
+const framesPerDirection = 4;
 const directions = {
   'down-right': 0,
   'down-left': 1,
   'up-right': 2,
   'up-left': 3,
   'idle': 4
-}; // Orden en el spritesheet
-let currentDirection = 'idle';
-let frame = 0;                      // Frame actual (0-3)
-let frameTick = 0;                  // Control para la velocidad de animación
-
-const obstacles = Array.from(document.querySelectorAll('.obstacle'));
-
-document.addEventListener('mousemove', e => {
-  mouseX = e.clientX;
-  mouseY = e.clientY;
-});
-
-/**
- * Determina si una posición colisiona con algún obstáculo.
- * @param {number} x Coordenada X a comprobar
- * @param {number} y Coordenada Y a comprobar
- * @param {number} [width=frameWidth] Ancho del objeto a comprobar
- * @param {number} [height=frameHeight] Alto del objeto a comprobar
- * @returns {boolean} Verdadero si existe colisión
- */
-function isColliding(x, y, width = frameWidth, height = frameHeight) {
-  return obstacles.some(ob => {
-    const rect = ob.getBoundingClientRect();
-    return (
-      x < rect.right &&
-      x + width > rect.left &&
-      y < rect.bottom &&
-      y + height > rect.top
-    );
-  });
-}
-
-/**
- * Actualiza el frame del sprite mostrado según la dirección y el frame actual.
- */
-function updateSprite() {
-  const row = directions[currentDirection];
-  const x = frame * frameWidth;
-  const y = row * frameHeight;
-  character.style.backgroundPosition = `-${x}px -${y}px`;
-}
-
-/**
- * Lógica principal de animación: mueve al personaje hacia el cursor
- * y gestiona la animación del spritesheet.
- */
-function animateCharacter() {
-  let centerX = currentX + frameWidth / 2;
-  let centerY = currentY + frameHeight / 2;
-  const dx = mouseX - centerX;
-  const dy = mouseY - centerY;
-  const distance = Math.hypot(dx, dy);
-
-  let dirX = 0;
-  let dirY = 0;
-  let targetX = mouseX;
-  let targetY = mouseY;
-
-  if (distance !== 0) {
-    dirX = dx / distance;
-    dirY = dy / distance;
-    targetX = mouseX - dirX * offsetDistance;
-    targetY = mouseY - dirY * offsetDistance;
-  }
-
-  const targetDistance = Math.hypot(targetX - centerX, targetY - centerY);
-
-  if (targetDistance > idleThreshold) {
-    // Determinar la dirección del sprite según la posición del ratón
-    const vertical = dy > 0 ? 'down' : 'up';
-    const horizontal = dx > 0 ? 'right' : 'left';
-    currentDirection = `${vertical}-${horizontal}`;
-
-    const targetX = mouseX - dirX;
-    const targetY = mouseY - dirY * offsetDistance;
-    const nextCenterX = centerX + (targetX - centerX) * speed;
-    const nextCenterY = centerY + (targetY - centerY) * speed;
-
-    const nextX = nextCenterX - frameWidth / 2;
-    const nextY = nextCenterY - frameHeight / 2;
-
-    if (!isColliding(nextX, currentY)) currentX = nextX;
-    if (!isColliding(currentX, nextY)) currentY = nextY;
-
-    centerX = currentX + frameWidth / 2;
-    centerY = currentY + frameHeight / 2;
-  } else {
-    currentDirection = 'idle';
-  }
-
-  frameTick++;
-  if (frameTick >= 30) { // cambiar este número para acelerar/ralentizar
-    frame = (frame + 1) % framesPerDirection;
-    frameTick = 0;
-  }
-
-  character.style.transform = `translate(${centerX - frameWidth / 2}px, ${centerY - frameHeight / 2}px)`;
-  updateSprite();
-  requestAnimationFrame(animateCharacter);
-}
-
-// Inicia la animación del personaje
-animateCharacter();
+};
 
 // =============================
 //  Juego móvil
@@ -1426,25 +1302,16 @@ function initMobileGame() {
 }
 
 let mobileGameInitialized = false;
-const mq = window.matchMedia(mobileMediaQuery);
-
-function handleMediaQuery(e) {
-  if (!mobileGame) return;
-  if (e.matches) {
-    mobileGame.style.display = 'block';
-    if (gameArea) gameArea.style.display = 'none';
-    if (!mobileGameInitialized) {
-      initMobileGame();
-      mobileGameInitialized = true;
-    }
-  } else {
-    mobileGame.style.display = 'none';
-    if (gameArea) gameArea.style.display = 'block';
-  }
+if (mobileGame) {
+  mobileGame.style.display = 'block';
 }
-
-handleMediaQuery(mq);
-mq.addEventListener('change', handleMediaQuery);
+if (gameArea) {
+  gameArea.style.display = 'none';
+}
+if (!mobileGameInitialized) {
+  initMobileGame();
+  mobileGameInitialized = true;
+}
 
 // =============================
 //  Envío del formulario de contacto
