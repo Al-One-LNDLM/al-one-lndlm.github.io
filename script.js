@@ -518,7 +518,16 @@ function initMobileHeroCarousel() {
     }
   });
 
-  let slideWidth = mobileHeroCarousel.getBoundingClientRect().width || window.innerWidth;
+  function resolveSlideWidth() {
+    const firstSlide = slides[0];
+    if (firstSlide) {
+      const measuredWidth = firstSlide.getBoundingClientRect().width;
+      if (measuredWidth > 0) return measuredWidth;
+    }
+    return mobileHeroCarousel.getBoundingClientRect().width || window.innerWidth;
+  }
+
+  let slideWidth = resolveSlideWidth();
   let currentIndex = 1;
   let currentTranslate = -slideWidth * currentIndex;
   let startTranslate = currentTranslate;
@@ -710,7 +719,7 @@ function initMobileHeroCarousel() {
   }
 
   function updateSizes() {
-    slideWidth = mobileHeroCarousel.getBoundingClientRect().width || window.innerWidth;
+    slideWidth = resolveSlideWidth();
     setTranslate(-currentIndex * slideWidth);
   }
 
