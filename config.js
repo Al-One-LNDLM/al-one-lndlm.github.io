@@ -89,7 +89,6 @@ export const musicDropdownSections = [
         images: [
           'assets/MINI 7.jpg'
         ],
-        audioPath: 'assets/beat1.wav'
       }
     ]
   },
