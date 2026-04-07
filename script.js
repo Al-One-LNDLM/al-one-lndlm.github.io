@@ -1029,9 +1029,9 @@ function renderCoverTemplate(item, section = {}) {
               </div>
             </div>
           `
-          : '<p class="music-cover-note">Audio no disponible.</p>'
+          : '<p class="music-cover-note"> </p>'
       }
-      ${safeUrl ? `<a class="music-cover-link" href="${safeUrl}" target="_blank" rel="noopener">Ver vídeo</a>` : '<p class="music-cover-note">Vídeo no disponible.</p>'}
+      ${safeUrl ? `<a class="music-cover-link" href="${safeUrl}" target="_blank" rel="noopener">Ver vídeo</a>` : '<p class="music-cover-note"> </p>'}
     </article>
   `;
 }
