@@ -56,7 +56,20 @@ export const trabajosAlbums = [
       { title: '4. DETROIT 89´', url: 'https://youtu.be/TCTaVd1pkNU?si=FIcTLrw6MaOrvbLk', thumb: 'assets/TDB3.webp' },
       { title: '5. WUTW', url: 'https://youtu.be/1bG2_86Cqzk?si=KlASDkXCWNGy3NUz', thumb: 'assets/TDB4.webp' }
     ]
-  }
+  },
+
+  {
+    album: {
+      title: 'TDB (Tierra De Barros) - Marker T & Al.One',
+      url: 'https://youtu.be/qGOawjmFM8A?si=CpSVPV51H_c76tt9',
+      thumb: 'assets/TDB0.webp',
+      divider: true,
+      description: '"Tierra de Barros" (TDB) es un álbum debut muy personal que explora la identidad de Marker-T desde su relación con la tierra que lo vio crecer: Extremadura. Un proyecto que entiende el territorio no solo como un lugar físico, sino como memoria, carácter y forma de estar en el mundo. El álbum mezcla los códigos del hip-hop con elementos culturales propios de la tierra extremeña, incorporando samples y referencias a figuras representativas de su música tradicional. El resultado es un diálogo entre lo contemporáneo y lo heredado, entre el ritmo urbano y el peso de la raíz. TDB construye una identidad de hip-hop extremeño honesta y cuidada, donde la experiencia personal se convierte en discurso colectivo. Un álbum que habla desde la tierra, sin folclore impostado, y que reivindica el origen como parte esencial del sonido.'
+    },
+    songs: [
+
+    ]
+  }  
 ];
 
 export const musicDropdownSections = [
