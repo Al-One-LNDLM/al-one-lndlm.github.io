@@ -1724,6 +1724,20 @@ body.light-mode .audio-item__progress {
     color: #fff;
     box-sizing: border-box;
     overflow: hidden;
+    position: relative;
+  }
+
+  .mobile-music-dropdown::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 18px;
+    height: 18px;
+    transform: translateY(-50%);
+    background: url('assets/desp.png') center / contain no-repeat;
+    pointer-events: none;
+    opacity: 0.95;
   }
 
   .mobile-music-dropdown__summary {
@@ -1738,6 +1752,10 @@ body.light-mode .audio-item__progress {
     letter-spacing: 0.02em;
     font-size: 16px;
     text-align: left;
+  }
+
+  .mobile-music-dropdown[open]::after {
+    transform: translateY(-50%) rotate(180deg);
   }
 
   .mobile-music-dropdown__summary::marker,
