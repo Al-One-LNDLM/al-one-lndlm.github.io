@@ -777,6 +777,14 @@ body.light-mode .audio-item__play-btn {
   padding: 2px 2px 2px;
 }
 
+.music-template-card--cover {
+  border: 32px solid transparent;
+  border-image-source: url("assets/contenedor web.png");
+  border-image-slice: 32 fill;
+  border-image-repeat: stretch;
+  background: transparent;
+}
+
 .music-template-title {
   margin: 0;
   font-size: 14px;
