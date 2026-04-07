@@ -1579,6 +1579,92 @@ body.light-mode .audio-item__progress {
     display: block;
   }
 
+  @media (min-width: 1024px) and (pointer: fine) {
+    #mobile-intro-typing {
+      max-width: 18vw;
+      font-size: clamp(10px, 0.9vw, 16px);
+      line-height: 1.45;
+    }
+
+    #mobile-featured-social-buttons {
+      width: 18vw;
+      gap: 0.8vw;
+    }
+
+    #mobile-youtube-btn,
+    #mobile-instagram-btn,
+    #mobile-tiktok-btn,
+    #mobile-contact-btn {
+      width: 4vw;
+      max-width: 84px;
+      min-width: 44px;
+    }
+
+    .mobile-hero-carousel {
+      width: 20vw;
+      top: 53%;
+    }
+
+    .mobile-carousel-track {
+      width: 20vw;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-carousel-slide {
+      flex: 0 0 18vw;
+      width: 18vw;
+      max-width: 18vw;
+      scroll-snap-align: center;
+      scroll-snap-stop: always;
+    }
+
+    #mobile-intro-arrow {
+      width: clamp(22px, 2.8vw, 48px);
+    }
+
+    #mobile-menu {
+      align-items: center;
+      gap: clamp(8px, 1.2vh, 14px);
+      padding-bottom: 4vh;
+    }
+
+    .mobile-item {
+      width: 20vw;
+      max-width: 20vw;
+      min-width: 220px;
+    }
+
+    .mobile-item-label {
+      font-size: clamp(14px, 1.3vw, 22px);
+    }
+
+    #mobile-final-text {
+      width: 18vw;
+      font-size: clamp(10px, 0.95vw, 14px);
+      line-height: 1.8;
+    }
+
+    #mobile-restart-btn {
+      width: 8vw;
+      max-width: 120px;
+      min-width: 56px;
+    }
+
+    #mobile-final-social-buttons {
+      width: 14vw;
+      right: 50%;
+      transform: translateX(50%);
+      justify-content: center;
+      gap: 0.9vw;
+    }
+
+    #mobile-final-social-buttons a {
+      width: clamp(20px, 2vw, 34px);
+    }
+  }
+
   @keyframes mobile-type-line {
     from {
       width: 0;
