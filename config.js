@@ -2,8 +2,8 @@
 
 // Imágenes de fondo para cada modo de color
 export const backgrounds = {
-  dark: 'assets/fondomed.png',
-  light: 'assets/fondomed.png'
+  dark: 'assets/fondocarga.png',
+  light: 'assets/fondocarga.png'
 };
 
 // URL del canal de YouTube (úsala para el botón destacado en móvil)

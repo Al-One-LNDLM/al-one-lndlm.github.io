@@ -45,8 +45,8 @@
 
 /* Variables para cambiar fácilmente las imágenes de fondo */
 :root {
-  --bg-dark: url('assets/fondomed.png');
-  --bg-light: url('assets/fondomed.png');
+  --bg-dark: url('assets/fondocarga.png');
+  --bg-light: url('assets/fondocarga.png');
   --popup-font-size: 12px;
   --popup-header-font-size: 24px;
   --close-btn-font-size: 16px;
@@ -1603,6 +1603,8 @@ body.light-mode .audio-item__progress {
     .mobile-hero-carousel {
       width: 20vw;
       top: 53%;
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
 
     .mobile-carousel-track {
@@ -1610,6 +1612,8 @@ body.light-mode .audio-item__progress {
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
+      justify-content: center;
+      margin: 0 auto;
     }
 
     .mobile-carousel-slide {
