@@ -106,10 +106,23 @@ export const musicDropdownSections = [
         title: 'Cover · Ode to the Mets',
         text: 'Versión en directo con una interpretación más íntima y una mezcla atmosférica.',
         images: [
-          'assets/MINI 7.jpg',
-          'assets/MINI 8.jpg'
+          'assets/ottm 1.jpg',
+          'assets/ottm 2.jpg',
+          'assets/ottm 3.jpg',
+          'assets/ottm 4.jpg',
         ],
-        audioPath: 'assets/beat1.wav',
+        audioPath: 'assets/Ode to The Mets - Cover.wav',
+        url: 'https://www.youtube.com/watch?v=Ty9qdc1WhfI'
+      },
+     {
+        title: 'Cover · El Hombre Pájaro',
+        text: 'Versión en directo con una interpretación más íntima y una mezcla atmosférica.',
+        images: [
+          'assets/ehp 1.jpg',
+          'assets/ehp 2.jpg',
+          'assets/ehp 3.jpg',
+        ],
+        audioPath: 'assets/cover Hombre Pájaro Robe 2.wav',
         url: 'https://www.youtube.com/watch?v=Ty9qdc1WhfI'
       }
     ]
