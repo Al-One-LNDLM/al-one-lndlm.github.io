@@ -969,7 +969,7 @@ function renderRichTemplate(item) {
   `;
 }
 
-function renderCoverTemplate(item) {
+function renderCoverTemplate(item, section = {}) {
   const safeTitle = item.title || 'Cover sin título';
   const safeText = item.text || '';
   const images = Array.isArray(item.images)
@@ -977,9 +977,10 @@ function renderCoverTemplate(item) {
     : (item.imagePath ? [item.imagePath] : []);
   const safeAudioPath = item.audioPath || '';
   const safeUrl = item.url || '';
+  const cardFrameImage = section.cardFrameImage || 'assets/contenedor covers.png';
 
   return `
-    <article class="music-template-card music-template-card--cover">
+    <article class="music-template-card music-template-card--cover" style="--music-cover-frame-image: url('${cardFrameImage}')">
       <h4 class="music-template-title">${safeTitle}</h4>
       ${safeText ? `<p class="music-cover-description">${safeText}</p>` : ''}
       ${
@@ -1114,7 +1115,7 @@ function renderMusicSectionContent(section) {
   }
 
   if (section.template?.type === 'cover') {
-    return section.items.map(renderCoverTemplate).join('');
+    return section.items.map(item => renderCoverTemplate(item, section)).join('');
   }
 
   return section.items
