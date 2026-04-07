@@ -26,18 +26,6 @@ export const instagramProfileUrl = 'https://www.instagram.com/al.one.wav/';
 export const trabajosAlbums = [
   {
     album: {
-      title: 'TDB (Tierra De Barros) - Marker T & Al.One',
-      url: 'https://youtu.be/qGOawjmFM8A?si=CpSVPV51H_c76tt9',
-      thumb: 'assets/TDB0.webp',
-      divider: true,
-      description: '"Tierra de Barros" (TDB) es un álbum debut muy personal que explora la identidad de Marker-T desde su relación con la tierra que lo vio crecer: Extremadura. Un proyecto que entiende el territorio no solo como un lugar físico, sino como memoria, carácter y forma de estar en el mundo. El álbum mezcla los códigos del hip-hop con elementos culturales propios de la tierra extremeña, incorporando samples y referencias a figuras representativas de su música tradicional. El resultado es un diálogo entre lo contemporáneo y lo heredado, entre el ritmo urbano y el peso de la raíz. TDB construye una identidad de hip-hop extremeño honesta y cuidada, donde la experiencia personal se convierte en discurso colectivo. Un álbum que habla desde la tierra, sin folclore impostado, y que reivindica el origen como parte esencial del sonido.'
-    },
-    songs: [
-
-    ]
-  },
-  {
-    album: {
       title: 'El Niño y Su Fe - Guiber & Al.One',
       url: 'https://www.youtube.com/watch?v=9gNmEuoKf7c&list=RD9gNmEuoKf7c&start_radio=1',
       thumb: 'assets/mini1.jpg',
