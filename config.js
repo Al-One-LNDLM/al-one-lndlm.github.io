@@ -89,6 +89,7 @@ export const musicDropdownSections = [
         images: [
           ''
         ],
+        audioPath: 'assets/beat1.wav',
       }
     ]
   },
