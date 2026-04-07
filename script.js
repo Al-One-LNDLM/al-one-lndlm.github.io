@@ -124,6 +124,14 @@ window.addEventListener('resize', updateVh);
 
 function updateMobileIntroArrowPosition() {
   if (!mobileIntro || !mobileIntroArrow || !mobileHeroCarousel || !mobileFeaturedSocialButtons) return;
+  const isDesktopViewport = window.matchMedia('(min-width: 1024px) and (pointer: fine)').matches;
+
+  if (isDesktopViewport) {
+    mobileFeaturedSocialButtons.style.top = '34%';
+    mobileIntroArrow.style.top = '66%';
+    return;
+  }
+
   const heroImage = mobileHeroCarousel.querySelector('img');
   if (!heroImage) return;
 
