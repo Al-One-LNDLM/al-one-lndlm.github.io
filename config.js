@@ -112,7 +112,7 @@ export const musicDropdownSections = [
           'assets/ottm 4.jpg',
         ],
         audioPath: 'assets/Ode to The Mets - Cover.wav',
-        url: 'https://www.youtube.com/watch?v=Ty9qdc1WhfI'
+        url: 'https://youtu.be/4AJS9mjKles?si=eCVm0al5nJLioqjE'
       },
      {
         title: 'Cover · El Hombre Pájaro',
@@ -123,7 +123,7 @@ export const musicDropdownSections = [
           'assets/ehp 3.jpg',
         ],
         audioPath: 'assets/cover Hombre Pájaro Robe 2.wav',
-        url: 'https://www.youtube.com/watch?v=Ty9qdc1WhfI'
+        url: 'https://youtu.be/3YfzmA5OOiA?si=oMD-q3bATbEafhNG'
       }
     ]
   }
