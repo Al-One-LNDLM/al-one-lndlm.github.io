@@ -487,6 +487,7 @@ if (mobileIntroArrow && mobileSectionsBlock) {
 // =============================
 function initMobileHeroCarousel() {
   if (!mobileHeroCarousel || !mobileHeroTrack || !mobileLatestWorks?.length) return;
+  const isDesktopViewport = () => window.matchMedia('(min-width: 1024px)').matches;
 
   const slides = [];
   const realCount = mobileLatestWorks.length;
@@ -715,7 +716,7 @@ function initMobileHeroCarousel() {
 
   // Animación de entrada sutil para indicar que se puede deslizar (solo una vez).
   function runIntroAnimation() {
-    if (introPlayed || prefersReducedMotion.matches) return;
+    if (introPlayed || prefersReducedMotion.matches || isDesktopViewport()) return;
     introPlayed = true;
     const start = currentTranslate;
     const hintOffset = -slideWidth * 0.12;
@@ -741,7 +742,7 @@ function initMobileHeroCarousel() {
   }
 
   function scheduleIntroAnimation() {
-    if (introPlayed || prefersReducedMotion.matches) return;
+    if (introPlayed || prefersReducedMotion.matches || isDesktopViewport()) return;
     introTimerId = window.setTimeout(runIntroAnimation, 1500);
   }
 
