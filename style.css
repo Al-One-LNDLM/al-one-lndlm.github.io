@@ -779,7 +779,7 @@ body.light-mode .audio-item__play-btn {
 
 .music-template-card--cover {
   border: 32px solid transparent;
-  border-image-source: url("assets/contenedor web.png");
+  border-image-source: url("assets/contenedor covers.png");
   border-image-slice: 32 fill;
   border-image-repeat: stretch;
   background: transparent;
