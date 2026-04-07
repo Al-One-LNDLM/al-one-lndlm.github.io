@@ -83,14 +83,14 @@ export const musicDropdownSections = [
       type: 'cover'
     },
     items: [
-      {
-        title: 'Cover · Ode to the Mets',
-        text: 'Versión en directo con una interpretación más íntima y una mezcla atmosférica.',
-        images: [
-          ''
-        ],
-        audioPath: 'assets/beat1.wav',
-      }
+//      {
+//        title: 'Cover · Ode to the Mets',
+//        text: 'Versión en directo con una interpretación más íntima y una mezcla atmosférica.',
+//        images: [
+//         ''
+//        ],
+//        audioPath: 'assets/beat1.wav',
+//      }
     ]
   },
   {
