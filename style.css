@@ -1730,7 +1730,7 @@ body.light-mode .audio-item__progress {
   .mobile-music-dropdown::after {
     content: '';
     position: absolute;
-    top: 25px;
+    top: 30px;
     right: 15px;
     width: 18px;
     height: 18px;
