@@ -207,7 +207,7 @@ body.light-mode {
   position: relative;
   width: 100vw;
   height: calc(var(--vh, 1vh) * 100);
-  background: var(--bg-dark) no-repeat center/cover;
+  background: none;
 }
 
 /* Personaje principal como sprite */
