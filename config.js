@@ -87,7 +87,7 @@ export const musicDropdownSections = [
         title: 'Cover · Ode to the Mets',
         text: 'Versión en directo con una interpretación más íntima y una mezcla atmosférica.',
         images: [
-          'assets/MINI 7.jpg'
+          ''
         ],
       }
     ]
