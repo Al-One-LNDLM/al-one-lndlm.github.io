@@ -994,7 +994,7 @@ function renderCoverTemplate(item, section = {}) {
                 >
               `).join('')}
             </div>`
-          : '<p class="music-cover-note">No hay imágenes disponibles por ahora.</p>'
+          : '<p class="music-cover-note"> </p>'
       }
       ${
         safeAudioPath
