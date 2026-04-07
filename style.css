@@ -1609,17 +1609,14 @@ body.light-mode .audio-item__progress {
 
     .mobile-carousel-track {
       width: 20vw;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      justify-content: center;
+      overflow: hidden;
       margin: 0 auto;
     }
 
     .mobile-carousel-slide {
-      flex: 0 0 18vw;
-      width: 18vw;
-      max-width: 18vw;
+      flex: 0 0 20vw;
+      width: 20vw;
+      max-width: 20vw;
       scroll-snap-align: center;
       scroll-snap-stop: always;
     }
