@@ -1603,7 +1603,7 @@ body.light-mode .audio-item__progress {
     .mobile-hero-carousel {
       width: 20vw;
       top: 53%;
-      left: 50%;
+      left: 70%;
       transform: translate(-50%, -50%);
     }
 
