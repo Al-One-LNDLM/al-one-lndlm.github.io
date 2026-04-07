@@ -78,16 +78,18 @@ export const musicDropdownSections = [
     id: 'experimentos',
     title: 'Experimentos',
     frameImage: 'assets/contenedor música exp.png',
+    cardFrameImage: 'assets/contenedor covers.png',
     template: {
-      type: 'rich'
+      type: 'cover'
     },
     items: [
       {
         title: '',
         text: '',
-        imagePath: '',
-        audioPath: '',
-        url: ''
+        images: [
+          ''
+        ],
+        audioPath: ''
       }
     ]
   },
@@ -95,6 +97,7 @@ export const musicDropdownSections = [
     id: 'covers',
     title: 'Covers',
     frameImage: 'assets/contenedor música cov.png',
+    cardFrameImage: 'assets/contenedor covers.png',
     template: {
       type: 'cover'
     },
