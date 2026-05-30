@@ -91,14 +91,15 @@ export const musicDropdownSections = [
       type: 'cover'
     },
     items: [
-//      {
-//        title: 'Cover · Ode to the Mets',
-//        text: 'Versión en directo con una interpretación más íntima y una mezcla atmosférica.',
-//        images: [
-//         ''
-//        ],
-//        audioPath: 'assets/beat1.wav',
-//      }
+      {
+        title: 'Video Intro',
+        text: 'Este clip resume mi traslado a Madrid y mi flujo de trabajo como productor y técnico de sonido. A través de las imágenes, muestro el proceso técnico, la instrumentación real y el hardware de grabación que utilizo en mi estudio para dar forma a cada composición. A modo de introducción a mi identidad sonora y a los proyectos musicales disponibles en esta web.',
+        images: [
+         ''
+        ],
+        audioPath: 'assets/beat1.wav',
+        url: 'https://youtu.be/4AJS9mjKles?si=eCVm0al5nJLioqjE'
+      }
     ]
   },
   {
