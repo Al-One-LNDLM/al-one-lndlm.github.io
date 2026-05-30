@@ -93,7 +93,7 @@ export const musicDropdownSections = [
     items: [
       {
         title: 'Video Intro',
-        text: 'Este clip resume mi traslado a Madrid y mi flujo de trabajo como productor. Muestro el proceso técnico, la instrumentación real y el hardware de grabación que utilizo en mi estudio para dar forma a cada composición. A modo de introducción a mi identidad sonora y a los proyectos musicales disponibles en esta web. Dejo aquí la música de la primera secuancia del videol.',
+        text: 'Este clip resume mi traslado a Madrid y mi flujo de trabajo como productor. Muestro el proceso técnico, la instrumentación real y el hardware de grabación que utilizo en mi estudio para dar forma a cada composición. A modo de introducción a mi identidad sonora y a los proyectos musicales disponibles en esta web. Dejo aquí la música de la primera secuencia del videol.',
         images: [
          ''
         ],
