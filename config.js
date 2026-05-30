@@ -75,7 +75,11 @@ export const musicDropdownSections = [
       {
         title: '#002',
         assetPath: 'assets/beat1.wav'
-      }
+      },
+      {
+        title: '#003',
+        assetPath: 'assets/beat1.wav'
+      }      
     ]
   },
   {
