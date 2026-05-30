@@ -104,7 +104,7 @@ export const musicDropdownSections = [
     items: [
       {
         title: 'Cover · Ode to the Mets',
-        text: 'Este cover está enteramente interpretado por mí: música y voz. La idea era acercarme lo máximo posible al sonido original, pero con mis herramientas y a mi manera. Es un poco un intento de meterme dentro de la canción y reconstruirla desde cero.',
+        text: 'Con este cover, La idea era acercarme lo máximo posible al sonido original, pero con mis herramientas y a mi manera. Es un poco un intento de meterme dentro de la canción y reconstruirla desde cero.',
         images: [
           'assets/ottm 1.jpg',
           'assets/ottm 2.jpg',
