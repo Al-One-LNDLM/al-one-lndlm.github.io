@@ -93,7 +93,7 @@ export const musicDropdownSections = [
         images: [
          ''
         ],
-        audioPath: 'assets/beat1.wav',
+        audioPath: 'assets/Musica Intro_2026-05-28 20-55-07_Master.wav',
         url: 'https://youtu.be/4AJS9mjKles?si=eCVm0al5nJLioqjE'
       }
     ]
