@@ -70,20 +70,12 @@ export const musicDropdownSections = [
     items: [
       {
         title: '#001',
-        assetPath: 'assets/beat1.wav'
+        assetPath: 'assets/Funky beat_2026-05-28 20-45-51_Master.wav'
       },
       {
         title: '#002',
-        assetPath: 'assets/beat1.wav'
-      },
-      {
-        title: '#003',
-        assetPath: 'assets/beat1.wav'
-      },
-      {
-        title: '#004',
-        assetPath: 'assets/beat1.wav'
-      }             
+        assetPath: 'assets/Stone Island Like.wav'
+      }            
     ]
   },
   {
