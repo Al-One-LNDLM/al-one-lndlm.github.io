@@ -69,9 +69,13 @@ export const musicDropdownSections = [
     },
     items: [
       {
-        title: 'Gama Ocre',
-        assetPath: 'assets/beat1.wav'
-      }
+        title: '#001',
+        assetPath: 'assets/Funky beat_2026-05-28 20-45-51_Master.wav'
+      },
+      {
+        title: '#002',
+        assetPath: 'assets/Stone Island Like.wav'
+      }            
     ]
   },
   {
@@ -83,14 +87,15 @@ export const musicDropdownSections = [
       type: 'cover'
     },
     items: [
-//      {
-//        title: 'Cover · Ode to the Mets',
-//        text: 'Versión en directo con una interpretación más íntima y una mezcla atmosférica.',
-//        images: [
-//         ''
-//        ],
-//        audioPath: 'assets/beat1.wav',
-//      }
+      {
+        title: 'Video Intro',
+        text: 'Este clip resume mi traslado a Madrid y mi flujo de trabajo como productor. Muestro el proceso técnico, la instrumentación real y el hardware de grabación que utilizo en mi estudio para dar forma a cada composición. A modo de introducción a mi identidad sonora y a los proyectos musicales disponibles en esta web. Dejo aquí la música de la primera secuencia del videol.',
+        images: [
+         ''
+        ],
+        audioPath: 'assets/beat1.wav',
+        url: 'https://youtu.be/4AJS9mjKles?si=eCVm0al5nJLioqjE'
+      }
     ]
   },
   {
@@ -102,29 +107,29 @@ export const musicDropdownSections = [
       type: 'cover'
     },
     items: [
-      {
-        title: 'Cover · Ode to the Mets',
-        text: 'Con este cover, La idea era acercarme lo máximo posible al sonido original, pero con mis herramientas y a mi manera. Es un poco un intento de meterme dentro de la canción y reconstruirla desde cero.',
-        images: [
-          'assets/ottm 1.jpg',
-          'assets/ottm 2.jpg',
-          'assets/ottm 3.jpg',
-          'assets/ottm 4.jpg',
-        ],
-        audioPath: 'assets/Ode to The Mets - Cover.wav',
-        url: 'https://youtu.be/4AJS9mjKles?si=eCVm0al5nJLioqjE'
-      },
-     {
-        title: 'Cover · El Hombre Pájaro',
-        text: 'Aquí me fui a algo mucho más simple, solo guitarra y voz. Quería simplemente hacer mi pequeño homenaje a Robe y a todo lo que ha significado su música para mí. Allá donde estes, gracias maestro.',
-        images: [
-          'assets/ehp 1.jpg',
-          'assets/ehp 2.jpg',
-          'assets/ehp 3.jpg',
-        ],
-        audioPath: 'assets/cover Hombre Pájaro Robe 2.wav',
-        url: 'https://youtu.be/3YfzmA5OOiA?si=oMD-q3bATbEafhNG'
-      }
+//      {
+//        title: 'Cover · Ode to the Mets',
+//        text: 'Con este cover, La idea era acercarme lo máximo posible al sonido original, pero con mis herramientas y a mi manera. Es un poco un intento de meterme dentro de la canción y reconstruirla desde cero.',
+//        images: [
+//          'assets/ottm 1.jpg',
+//          'assets/ottm 2.jpg',
+//          'assets/ottm 3.jpg',
+//          'assets/ottm 4.jpg',
+//        ],
+//        audioPath: 'assets/Ode to The Mets - Cover.wav',
+//        url: 'https://youtu.be/4AJS9mjKles?si=eCVm0al5nJLioqjE'
+//      },
+//     {
+//        title: 'Cover · El Hombre Pájaro',
+//        text: 'Aquí me fui a algo mucho más simple, solo guitarra y voz. Quería simplemente hacer mi pequeño homenaje a Robe y a todo lo que ha significado su música para mí. Allá donde estes, gracias maestro.',
+//        images: [
+//          'assets/ehp 1.jpg',
+//          'assets/ehp 2.jpg',
+//          'assets/ehp 3.jpg',
+//        ],
+//        audioPath: 'assets/cover Hombre Pájaro Robe 2.wav',
+//        url: 'https://youtu.be/3YfzmA5OOiA?si=oMD-q3bATbEafhNG'
+//      }
     ]
   }
 ];
