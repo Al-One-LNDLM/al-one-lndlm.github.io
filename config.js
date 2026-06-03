@@ -107,18 +107,18 @@ export const musicDropdownSections = [
       type: 'cover'
     },
     items: [
-//      {
-//        title: 'Cover · Ode to the Mets',
-//        text: 'Con este cover, La idea era acercarme lo máximo posible al sonido original, pero con mis herramientas y a mi manera. Es un poco un intento de meterme dentro de la canción y reconstruirla desde cero.',
-//        images: [
-//          'assets/ottm 1.jpg',
-//          'assets/ottm 2.jpg',
-//          'assets/ottm 3.jpg',
-//          'assets/ottm 4.jpg',
-//        ],
-//        audioPath: 'assets/Ode to The Mets - Cover.wav',
-//        url: 'https://youtu.be/4AJS9mjKles?si=eCVm0al5nJLioqjE'
-//      },
+      {
+        title: 'Cover · Ode to the Mets',
+        text: 'Con este cover, La idea era acercarme lo máximo posible al sonido original, pero con mis herramientas y a mi manera. Es un poco un intento de meterme dentro de la canción y reconstruirla desde cero.',
+        images: [
+          'assets/ottm 1.jpg',
+          'assets/ottm 2.jpg',
+          'assets/ottm 3.jpg',
+          'assets/ottm 4.jpg',
+        ],
+        audioPath: 'assets/Ode to The Mets - Cover.wav',
+        url: 'https://youtu.be/4AJS9mjKles?si=eCVm0al5nJLioqjE'
+      }
 //     {
 //        title: 'Cover · El Hombre Pájaro',
 //        text: 'Aquí me fui a algo mucho más simple, solo guitarra y voz. Quería simplemente hacer mi pequeño homenaje a Robe y a todo lo que ha significado su música para mí. Allá donde estes, gracias maestro.',
