@@ -117,7 +117,7 @@ export const musicDropdownSections = [
           'assets/ottm 4.jpg',
         ],
         audioPath: 'assets/Ode to The Mets - Cover.wav',
-        url: 'https://youtu.be/4AJS9mjKles?si=eCVm0al5nJLioqjE'
+        url: 'https://youtu.be/g9b4kGN6cG0'
       }
 //     {
 //        title: 'Cover · El Hombre Pájaro',
